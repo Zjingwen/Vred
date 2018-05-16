@@ -1,0 +1,6 @@
+{
+    "presets": [
+        "core",
+        "env"
+    ]
+}

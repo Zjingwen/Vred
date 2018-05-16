@@ -1,10 +1,7 @@
-/**
- *
- */
-require('./input.css');
-var html = require("./input.html");
+import './input';
+import html from "./input";
 
-module.exports = Vue.extend({
+export default Vue.extend({
     template: html,
     data: function(){
       return {
