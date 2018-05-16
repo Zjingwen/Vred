@@ -1,7 +1,6 @@
 /**
  * 组件安装
  */
-
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
 // var Message = require("./message/index.js");
@@ -31,7 +30,7 @@ var Input = require("./input/input.js");
 // var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js");
 
 function install(Vue){
-
+    
     Vue.component('t-input', Input);
     // Vue.component('t-select', Select);
     // Vue.component('t-option', Option);
@@ -64,7 +63,9 @@ function install(Vue){
     // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);
 }
 
+
 if(window.Vue){
     // window.infiniteScroll = InfiniteScroll;
-    install(window.Vue)
+    install(Vue);
 }
+

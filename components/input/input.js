@@ -1,12 +1,12 @@
-import './input';
-import html from "./input";
+import './input.css';
+import html from './input.html';
 
-export default Vue.extend({
+module.exports = Vue.extend({
     template: html,
-    data: function () {
-        return {
-            currentValue: this.value
-        }
+    data: function(){
+      return {
+          currentValue: this.value
+      }
     },
     props: {
         type: {
@@ -31,32 +31,32 @@ export default Vue.extend({
     },
     methods: {
 
-        updateValue: function (value) {
+        updateValue: function(value){
             this.currentValue = value.trim();
         },
 
-        handleBlur: function (event) {
+        handleBlur: function(event){
             this.$emit('blur', event);
             this.$emit("input", this.$refs.input.value);
         },
 
-        handleFocus: function (event) {
+        handleFocus: function(event) {
             this.$emit('focus', event);
         },
 
-        handleIconClick: function () {
+        handleIconClick: function(){
             this.$emit("icon-click", event);
         },
 
-        inputSelect: function () {
+        inputSelect: function() {
             this.$refs.input.select();
         }
     },
-    created: function () {
+    created: function() {
         this.$on('inputSelect', this.inputSelect);
     },
-    watch: {
-        currentValue: function (newV) {
+    watch:{
+        currentValue: function(newV){
             this.$emit("input", newV);
             this.$emit('change', newV);
         }
