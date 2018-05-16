@@ -1,0 +1,17 @@
+<div class="image-field">
+
+    <label for="image-upload-{{type}}-{{mid}}"><i class="material-icons">file_upload</i>上传图片</label>
+    <span style="font-size: 14px;">{{uploadStatus}}</span>
+    <input type="file" name="image" id="image-upload-{{type}}-{{mid}}">
+
+    <div class="image-view" :class="class_">
+        <img class="image" :src="image.src" v-if="image.src">
+        <div class="action">
+            <label v-if="opts.cut" @click="handleImage('cut')"><i class="material-icons">content_cut</i>裁剪图片</label>
+            <label v-if="opts.blur" @click="handleImage('blur')"><i class="material-icons">blur_on</i>模糊图片</label>
+            <label v-if="opts.transform" @click="handleImage('transform')"><i class="material-icons">transform</i>自动裁剪</label>
+        </div>
+        <div v-if="cutStatus" class="cut-status">图片正在处理...,请稍后...</div>
+    </div>
+    <cut-image :show.sync="show" :type="type" :mid="mid" :image-src="image.src"></cut-image>
+</div>

@@ -1,0 +1,67 @@
+
+.t-btn{
+    height: 36px;
+    padding: 0 10px;
+    line-height: 36px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.t-btn-default{
+    color: #696969;
+    background-color: #F8F8F8;
+}
+.t-btn-default:hover{
+    background-color: #eee;
+}
+
+.t-btn-primary{
+    background-color: #FF7438;
+    color: #fff;
+}
+.t-btn-primary:hover{
+    background-color: rgba(255,83,32,.7);
+}
+
+.t-btn-primary:active{
+    background-color: rgba(255,83,32,1);;
+}
+
+.t-btn-text{
+    color: #696969;
+    background-color: transparent;
+    border: 1px solid #B0B4B8;
+}
+.t-btn-text:hover{
+    color: #FF7438;
+}
+
+.t-btn:disabled{
+    color: #c0ccda;
+    background-color: #eff2f7;
+    cursor: not-allowed;
+}
+
+.t-btn-text:disabled{
+    color: #c0ccda;
+    background-color: transparent;
+}
+
+.t-btn-tiny{
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+}
+
+.t-btn-small{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.t-btn-large{
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+}

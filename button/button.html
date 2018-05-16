@@ -1,0 +1,14 @@
+
+<button
+        class="t-btn"
+        :disabled="disabled"
+        :type="type"
+        :class="[
+            classType?'t-btn-'+classType:'',
+            size?'t-btn-'+size:'',
+            customClass
+        ]"
+        @click="handleClick"
+>
+    <slot></slot>
+</button>

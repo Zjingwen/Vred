@@ -1,0 +1,41 @@
+
+
+<label class="t-checkbox">
+
+    <span class="t-checkbox_input">
+
+        <input
+                v-if="trueLabel || falseLabel"
+                class="t-checkbox_ori"
+                type="checkbox"
+                :name="name"
+                :disabled="disabled"
+                :true-value="trueLabel"
+                :false-value="falseLabel"
+                v-model="model"
+                @change="$emit('change', $event)"
+        >
+
+         <input
+                 v-else
+                 class="t-checkbox_ori"
+                 type="checkbox"
+                 :name="name"
+                 :disabled="disabled"
+                 :value="label"
+                 v-model="model"
+                 @change="$emit('change', $event)"
+         >
+
+        <span
+                class="t-checkbox_fake"
+                :class="{'checked': isChecked,'disabled':disabled}"
+        ></span>
+
+    </span>
+
+    <span class="t-checkbox_label" v-if="$slots.default || label">
+        <slot></slot>
+        <template v-if="!$slots.default">{{label}}</template>
+    </span>
+</label>

@@ -1,0 +1,22 @@
+<transition name="t-message-fade">
+    <div
+            class="t-message"
+            :class="customClass"
+            v-show="visible"
+            @mouseenter="clearTimer"
+            @mouseleave="startTimer">
+
+        <template v-if="type == 'custom'">
+            <div v-html="message"></div>
+        </template>
+
+        <template v-else>
+            <img class="t-message__img" :src="typeImg" alt="" v-if="!iconClass && typeImg">
+
+            <div class="t-message__group" :class="{ 'is-with-icon': iconClass }">
+                <p><i class="t-message__icon" :class="iconClass" v-if="iconClass"></i>{{message}}</p>
+                <div v-if="showClose" class="t-message__closeBtn t-icon-close" @click="close"></div>
+            </div>
+        </template>
+    </div>
+</transition>

@@ -1,0 +1,23 @@
+
+<div class="t-modal_container"
+     v-show="visible"
+     :class="[modalClass]"
+     @click.self="modalClickClose">
+
+    <div class="t-modal"
+         ref="modal"
+         :class="[sizeClass, customClass, scrollClass]"
+         :style="style">
+
+        <div class="t-modal_header" v-if="title">
+            <span class="t-modal_title">{{title}}</span>
+            <i class="t-modal_close" @click="close">✕</i>
+        </div>
+        <div class="t-modal_body">
+            <slot>自定义内容</slot>
+        </div>
+        <div class="t-modal_footer">
+            <slot name="footer"></slot>
+        </div>
+    </div>
+</div>

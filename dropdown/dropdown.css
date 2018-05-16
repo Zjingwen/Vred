@@ -1,0 +1,31 @@
+
+.t-dropdown{
+    display: inline-block;
+    padding-right: 5px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAICAYAAAAvOAWIAAAAAXNSR0IArs4c6QAAAKBJREFUGBljvHnz5sn///+bMeABjIyMr4HYggmo8CUedTCpf4KCgq+ZWFhYUoAiz2Gi6DTQxH9AHCMqKvqZSUVF5RUzM3MUUOAvukIQHyjeqqamtgfEZgIRqqqqB4DOaQSx0cABoBxcHKwYpEBdXb0VaArYBBAfyH7FwcGBYiNcMVDyH9A50UB1l4HsD0AcqqCggNMvIAPBAOgkZhgbmQYAOD0oVxeSeoAAAAAASUVORK5CYII=) no-repeat;
+    background-position: right center;
+    cursor: pointer;
+}
+
+.t-dropdown_menu{
+    background-color: #FFF;
+    font-size: 14px;
+    color: #707070;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+}
+
+.t-dropdown_item{
+    min-width: 60px;
+    padding: 0 10px;
+    line-height: 35px;
+    cursor: pointer;
+}
+.t-dropdown_item a{
+    display: block;
+    color: #707070;
+}
+
+.t-dropdown_item:hover{
+    color: #FE7C44;
+    background-color: #f8f8f8;
+}

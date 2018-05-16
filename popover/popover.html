@@ -1,0 +1,18 @@
+
+<span>
+
+    <transition name="fade-in-linear" @after-leave="destroyPopper">
+        <div class="t-popover"
+             :class="[popperClass]"
+             ref="popper"
+             v-show="showPopper"
+             :style="{ width: width + 'px' }">
+
+            <div class="t-popover__title" v-if="title" v-text="title"></div>
+            <slot>{{ content }}</slot>
+
+        </div>
+    </transition>
+
+    <slot name="reference"></slot>
+</span>

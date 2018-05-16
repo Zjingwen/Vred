@@ -1,0 +1,10 @@
+
+<transition name="notice-fade">
+    <div class="t-notice" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer" @mouseleave="startTimer">
+        <div class="box">
+            <span>{{title}}</span>
+            <p>{{message}}</p>
+            <img class="close-icon" src="http://oss.lanlanlife.com/7b29300025463ac54fb4fdc0a9ce6bae_18x18.png" @click="close">
+        </div>
+    </div>
+</transition>
