@@ -1,0 +1,14 @@
+.v-row{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.v-row:after, .v-row:before{
+    content: "";
+    display: table;
+}
+.v-row:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+}

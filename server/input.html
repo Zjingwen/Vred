@@ -6,25 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>input</title>
     <script src="../node_modules/vue/dist/vue.js"></script>
-    
+    <script src="../dist/lanlanUI.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div id="app">
-        <h1>size</h1>
+        <h1>input</h1>
+        <h2>size</h2>
         <p>defalut</p>
         <t-input v-model='inputValue'></t-input>
-        <p>defalut</p>
+        <p>large</p>
         <t-input v-model='inputValue' size='large'></t-input>
-        <p>defalut</p>
+        <p>small</p>
         <t-input v-model='inputValue' size='small'></t-input>
-        <p>defalut</p>
+        <p>tiny</p>
         <t-input v-model='inputValue' size='tiny'></t-input>
-<pre>
-    
-</pre>
     </div>
 </body>
-<script src="../dist/lanlanUI.js"></script>
 <script>
     new Vue({
         el: "#app",

@@ -71,6 +71,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "+nX+":
+/*!***********************************!*\
+  !*** ./components/row/index.html ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"v-row\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/row/index.html?");
+
+/***/ }),
+
 /***/ "2j8j":
 /*!************************************************************************************!*\
   !*** ./node_modules/.npminstall/style-loader/0.21.0/style-loader/lib/addStyles.js ***!
@@ -113,7 +124,19 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n/**\n * 组件安装\n */\n// var Modal = require(\"./modal/modal.js\");\n// var Notice = require(\"./notice/notification.js\");\n// var Message = require(\"./message/index.js\");\n//\nvar Input = __webpack_require__(/*! ./input/input.js */ \"3ca1\");\n// var Select = require(\"./select/select.js\");\n// var Option = require(\"./select/option.js\");\n// var Button = require(\"./button/button.js\");\n//\n// var Tooltip = require(\"./tooltip/tooltip.js\");\n// var Checkbox = require(\"./checkbox/checkbox.js\");\n// var Radio = require(\"./radio/radio.js\");\n// var Popover = require(\"./popover/popover.js\");\n// var PopoverDirective = require(\"./popover/directive.js\");\n// var Dropdown = require(\"./dropdown/dropdown.js\");\n// var DropdownMenu = require(\"./dropdown/dropdown-menu.js\");\n// var DropdownItem = require(\"./dropdown/dropdown-item.js\");\n// //\n// var Pagination = require(\"./pagination/pagination.js\");\n\n// var InfiniteScroll = require(\"./directives/infinite-scroll.js\");\n// var Lazyload = require(\"./directives/img-lazyload.js\");\n\n// var Clock = require(\"./datetime/picker/time-picker.js\");\n// var Date = require(\"./datetime/picker/date-picker.js\");\n\n// var VueAwesomeSwiper = require(\"./swipre/vue-awesome-swiper.js\");\n\nfunction install(Vue) {\n\n    Vue.component('t-input', Input);\n    // Vue.component('t-select', Select);\n    // Vue.component('t-option', Option);\n    // Vue.component('t-button', Button);\n\n    // Vue.component('t-tooltip', Tooltip);\n    // Vue.component('t-checkbox', Checkbox);\n    // Vue.component('t-radio', Radio);\n    // Vue.component('t-popover', Popover);\n    // Vue.component('t-dropdown', Dropdown);\n    // Vue.component('t-dropdown-menu', DropdownMenu);\n    // Vue.component('t-dropdown-item', DropdownItem);\n\n    // Vue.component('modal', Modal);\n    // Vue.component('notice', Notice);\n    // Vue.component('message', Message);\n\n    // Vue.component('t-pagination', Pagination);\n\n    // Vue.prototype.$notify = Notice;\n    // Vue.prototype.$message = Message;\n\n    // Vue.directive('InfiniteScroll', InfiniteScroll);\n    // Vue.directive('lazy', Lazyload);\n    // Vue.directive('popover', PopoverDirective);\n\n    // Vue.component('t-clock-picker', Clock);\n    // Vue.component('t-date-picker', Date);\n    // Vue.component('swiper', VueAwesomeSwiper.swiper);\n    // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);\n}\n\nif (window.Vue) {\n    // window.infiniteScroll = InfiniteScroll;\n    install(Vue);\n}\n\n//# sourceURL=webpack:///./components/component.js?");
+eval("\n\n/**\n * 组件安装\n */\nvar Col = __webpack_require__(/*! ./col/index.js */ \"B7r1\");\nvar Row = __webpack_require__(/*! ./row/index.js */ \"d7Mn\");\n\n// var Modal = require(\"./modal/modal.js\");\n// var Notice = require(\"./notice/notification.js\");\n// var Message = require(\"./message/index.js\");\n//\nvar Input = __webpack_require__(/*! ./input/input.js */ \"3ca1\");\n// var Select = require(\"./select/select.js\");\n// var Option = require(\"./select/option.js\");\n// var Button = require(\"./button/button.js\");\n//\n// var Tooltip = require(\"./tooltip/tooltip.js\");\n// var Checkbox = require(\"./checkbox/checkbox.js\");\n// var Radio = require(\"./radio/radio.js\");\n// var Popover = require(\"./popover/popover.js\");\n// var PopoverDirective = require(\"./popover/directive.js\");\n// var Dropdown = require(\"./dropdown/dropdown.js\");\n// var DropdownMenu = require(\"./dropdown/dropdown-menu.js\");\n// var DropdownItem = require(\"./dropdown/dropdown-item.js\");\n// //\n// var Pagination = require(\"./pagination/pagination.js\");\n\n// var InfiniteScroll = require(\"./directives/infinite-scroll.js\");\n// var Lazyload = require(\"./directives/img-lazyload.js\");\n\n// var Clock = require(\"./datetime/picker/time-picker.js\");\n// var Date = require(\"./datetime/picker/date-picker.js\");\n\n// var VueAwesomeSwiper = require(\"./swipre/vue-awesome-swiper.js\");\n\nfunction install(Vue) {\n\n    Vue.component('t-row', Row);\n    Vue.component('t-col', Col);\n\n    Vue.component('t-input', Input);\n    // Vue.component('t-select', Select);\n    // Vue.component('t-option', Option);\n    // Vue.component('t-button', Button);\n\n    // Vue.component('t-tooltip', Tooltip);\n    // Vue.component('t-checkbox', Checkbox);\n    // Vue.component('t-radio', Radio);\n    // Vue.component('t-popover', Popover);\n    // Vue.component('t-dropdown', Dropdown);\n    // Vue.component('t-dropdown-menu', DropdownMenu);\n    // Vue.component('t-dropdown-item', DropdownItem);\n\n    // Vue.component('modal', Modal);\n    // Vue.component('notice', Notice);\n    // Vue.component('message', Message);\n\n    // Vue.component('t-pagination', Pagination);\n\n    // Vue.prototype.$notify = Notice;\n    // Vue.prototype.$message = Message;\n\n    // Vue.directive('InfiniteScroll', InfiniteScroll);\n    // Vue.directive('lazy', Lazyload);\n    // Vue.directive('popover', PopoverDirective);\n\n    // Vue.component('t-clock-picker', Clock);\n    // Vue.component('t-date-picker', Date);\n    // Vue.component('swiper', VueAwesomeSwiper.swiper);\n    // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);\n}\n\nif (window.Vue) {\n    // window.infiniteScroll = InfiniteScroll;\n    install(Vue);\n}\n\n//# sourceURL=webpack:///./components/component.js?");
+
+/***/ }),
+
+/***/ "B7r1":
+/*!*********************************!*\
+  !*** ./components/col/index.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n__webpack_require__(/*! ./index.css */ \"xnse\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"KVyz\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = Vue.extend({\n    name: 'v-col',\n    template: _index2.default,\n    props: {\n        span: {\n            type: Number,\n            default: 24\n        }\n    },\n    computed: {\n        col: function col() {\n            return 'v-col-' + this.span;\n        }\n    }\n\n});\n\n//# sourceURL=webpack:///./components/col/index.js?");
 
 /***/ }),
 
@@ -124,7 +147,29 @@ eval("\n\n/**\n * 组件安装\n */\n// var Modal = require(\"./modal/modal.js\"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"\\n.t-input{\\n    position: relative;\\n    line-height: 1;\\n    width: 180px;\\n}\\n\\n.t-input .t-input_icon{\\n    position: absolute;\\n    right: 0;\\n    top: 0;\\n    width: 36px;\\n    height: 36px;\\n    text-align: center;\\n    line-height: 34px;\\n    cursor: pointer;\\n    user-select: none;\\n}\\n.t-input .t-input_icon.image{\\n    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAQAAAAZxLZ7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhAQQROA5ODYTbAAAAKklEQVQI12Oc2cBQz4AAjcxbDvgyMjjAuOkNzAwMcKHG9Aa4ypkNM6EcAITpCyeWG1arAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTAxLTA0VDE3OjU2OjE0KzA4OjAwfReaGQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wMS0wNFQxNzo1NjoxNCswODowMAxKIqUAAAAASUVORK5CYII=) no-repeat center;\\n}\\n\\n.t-input_icon + .t-input_ori{\\n    padding-right: 36px;\\n}\\n\\n.t-input_ori{\\n    display: inline-block;\\n    padding: 3px 10px;\\n    box-sizing: border-box;\\n    width: 100%;\\n    height: 36px;\\n    font-size: 14px;\\n    color: #666;\\n    background-color: #fff;\\n    background-image: none;\\n    border: 1px solid #F1EDED;\\n    border-radius: 0;\\n    outline: none;\\n    line-height: normal;\\n    border-radius: 4px;\\n}\\n\\n.t-input_ori:hover {\\n    border: 1px solid #8492A6;\\n}\\n\\n.t-input_ori:focus {\\n    border: 1px solid #FF7438;\\n}\\n\\n.t-input.disabled .t-input_ori{\\n    background-color: rgb(239, 242, 247);\\n    color: rgb(187, 187, 187);\\n    cursor: not-allowed;\\n    border-color: rgb(211, 220, 230);\\n}\\n\\n\\n.t-input_large{\\n    font-size: 16px;\\n}\\n.t-input_large .t-input_ori{\\n    height: 42px;\\n}\\n\\n.t-input_small{\\n    font-size: 14px;\\n}\\n.t-input_small .t-input_ori{\\n    height: 30px;\\n}\\n.t-input_small .t-input_icon{\\n    width: 30px;\\n    height: 30px;\\n    line-height: 30px;\\n}\\n.t-input_small .t-input_icon + .t-input_ori{\\n    padding-right: 30px;\\n}\\n\\n.t-input_tiny .t-input_ori{\\n    height: 26px;\\n    font-size: 12px;\\n}\\n.t-input_tiny .t-input_icon{\\n    width: 26px;\\n    height: 26px;\\n    line-height: 26px;\\n}\\n.t-input_tiny .t-input_icon + .t-input_ori{\\n    padding-right: 25px;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/input/input.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"\\n.t-input{\\n    position: relative;\\n    line-height: 1;\\n}\\n\\n.t-input .t-input_icon{\\n    position: absolute;\\n    right: 0;\\n    top: 0;\\n    width: 36px;\\n    height: 36px;\\n    text-align: center;\\n    line-height: 34px;\\n    cursor: pointer;\\n    user-select: none;\\n}\\n.t-input .t-input_icon.image{\\n    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAQAAAAZxLZ7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhAQQROA5ODYTbAAAAKklEQVQI12Oc2cBQz4AAjcxbDvgyMjjAuOkNzAwMcKHG9Aa4ypkNM6EcAITpCyeWG1arAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTAxLTA0VDE3OjU2OjE0KzA4OjAwfReaGQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wMS0wNFQxNzo1NjoxNCswODowMAxKIqUAAAAASUVORK5CYII=) no-repeat center;\\n}\\n\\n.t-input_icon + .t-input_ori{\\n    padding-right: 36px;\\n}\\n\\n.t-input_ori{\\n    display: inline-block;\\n    padding: 3px 10px;\\n    box-sizing: border-box;\\n    width: 100%;\\n    height: 36px;\\n    font-size: 14px;\\n    color: #666;\\n    background-color: #fff;\\n    background-image: none;\\n    border: 1px solid #F1EDED;\\n    border-radius: 0;\\n    outline: none;\\n    line-height: normal;\\n    border-radius: 4px;\\n}\\n\\n.t-input_ori:hover {\\n    border: 1px solid #8492A6;\\n}\\n\\n.t-input_ori:focus {\\n    border: 1px solid #FF7438;\\n}\\n\\n.t-input.disabled .t-input_ori{\\n    background-color: rgb(239, 242, 247);\\n    color: rgb(187, 187, 187);\\n    cursor: not-allowed;\\n    border-color: rgb(211, 220, 230);\\n}\\n\\n\\n.t-input_large{\\n    font-size: 16px;\\n}\\n.t-input_large .t-input_ori{\\n    height: 42px;\\n}\\n\\n.t-input_small{\\n    font-size: 14px;\\n}\\n.t-input_small .t-input_ori{\\n    height: 30px;\\n}\\n.t-input_small .t-input_icon{\\n    width: 30px;\\n    height: 30px;\\n    line-height: 30px;\\n}\\n.t-input_small .t-input_icon + .t-input_ori{\\n    padding-right: 30px;\\n}\\n\\n.t-input_tiny .t-input_ori{\\n    height: 26px;\\n    font-size: 12px;\\n}\\n.t-input_tiny .t-input_icon{\\n    width: 26px;\\n    height: 26px;\\n    line-height: 26px;\\n}\\n.t-input_tiny .t-input_icon + .t-input_ori{\\n    padding-right: 25px;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/input/input.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+
+/***/ }),
+
+/***/ "HVsO":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/.npminstall/css-loader/0.28.11/css-loader!./components/row/index.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".v-row{\\n    -webkit-box-sizing: border-box;\\n    box-sizing: border-box;\\n}\\n.v-row:after, .v-row:before{\\n    content: \\\"\\\";\\n    display: table;\\n}\\n.v-row:after {\\n    clear: both;\\n    visibility: hidden;\\n    font-size: 0;\\n    height: 0;\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/row/index.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+
+/***/ }),
+
+/***/ "KVyz":
+/*!***********************************!*\
+  !*** ./components/col/index.html ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"v-col\\\" :class=\\\"[col]\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/col/index.html?");
 
 /***/ }),
 
@@ -139,6 +184,18 @@ eval("module.exports = \"<div class=\\\"t-input\\\" :class=\\\"[size?('t-input_'
 
 /***/ }),
 
+/***/ "d7Mn":
+/*!*********************************!*\
+  !*** ./components/row/index.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n__webpack_require__(/*! ./index.css */ \"lXQJ\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"+nX+\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = Vue.extend({\n    name: 'v-row',\n    template: _index2.default,\n    props: {\n        gutter: Number,\n        type: String,\n        justify: String,\n        align: String\n    }\n});\n\n//# sourceURL=webpack:///./components/row/index.js?");
+
+/***/ }),
+
 /***/ "kIj4":
 /*!************************************!*\
   !*** ./components/input/input.css ***!
@@ -147,6 +204,39 @@ eval("module.exports = \"<div class=\\\"t-input\\\" :class=\\\"[size?('t-input_'
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../node_modules/.npminstall/css-loader/0.28.11/css-loader!./input.css */ \"BYku\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/.npminstall/style-loader/0.21.0/style-loader/lib/addStyles.js */ \"2j8j\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./components/input/input.css?");
+
+/***/ }),
+
+/***/ "lXQJ":
+/*!**********************************!*\
+  !*** ./components/row/index.css ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/.npminstall/css-loader/0.28.11/css-loader!./index.css */ \"HVsO\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/.npminstall/style-loader/0.21.0/style-loader/lib/addStyles.js */ \"2j8j\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./components/row/index.css?");
+
+/***/ }),
+
+/***/ "sv+o":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/.npminstall/css-loader/0.28.11/css-loader!./components/col/index.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".v-col-1 {\\n    position: relative;\\n    display: block\\n}\\n\\n.v-col-1,.v-col-2,.v-col-3,.v-col-4,.v-col-5,.v-col-6,.v-col-7,.v-col-8,.v-col-9,.v-col-10,.v-col-11,.v-col-12,.v-col-13,.v-col-14,.v-col-15,.v-col-16,.v-col-17,.v-col-18,.v-col-19,.v-col-20,.v-col-21,.v-col-22,.v-col-23,.v-col-24 {\\n    float: left;    \\n}\\n\\n.v-col-24 {\\n    display: block;\\n    width: 100%\\n}\\n\\n.v-col-23 {\\n    display: block;\\n    width: 95.83333333%\\n}\\n\\n.v-col-22 {\\n    display: block;\\n    width: 91.66666667%\\n}\\n\\n.v-col-21 {\\n    display: block;\\n    width: 87.5%\\n}\\n\\n.v-col-20 {\\n    display: block;\\n    width: 83.33333333%\\n}\\n\\n.v-col-19 {\\n    display: block;\\n    width: 79.16666667%\\n}\\n\\n.v-col-18 {\\n    display: block;\\n    width: 75%\\n}\\n\\n.v-col-17 {\\n    display: block;\\n    width: 70.83333333%\\n}\\n\\n.v-col-16 {\\n    display: block;\\n    width: 66.66666667%\\n}\\n\\n.v-col-15 {\\n    display: block;\\n    width: 62.5%\\n}\\n\\n.v-col-14 {\\n    display: block;\\n    width: 58.33333333%\\n}\\n\\n.v-col-13 {\\n    display: block;\\n    width: 54.16666667%\\n}\\n\\n.v-col-12 {\\n    display: block;\\n    width: 50%\\n}\\n\\n.v-col-11 {\\n    display: block;\\n    width: 45.83333333%\\n}\\n\\n.v-col-10 {\\n    display: block;\\n    width: 41.66666667%\\n}\\n\\n.v-col-9 {\\n    display: block;\\n    width: 37.5%\\n}\\n\\n.v-col-8 {\\n    display: block;\\n    width: 33.33333333%\\n}\\n\\n.v-col-7 {\\n    display: block;\\n    width: 29.16666667%\\n}\\n\\n.v-col-6 {\\n    display: block;\\n    width: 25%\\n}\\n\\n.v-col-5 {\\n    display: block;\\n    width: 20%\\n}\\n\\n.v-col-4 {\\n    display: block;\\n    width: 16.66666667%\\n}\\n\\n.v-col-3 {\\n    display: block;\\n    width: 12.5%\\n}\\n\\n.v-col-2 {\\n    display: block;\\n    width: 8.33333333%\\n}\\n\\n.v-col-1 {\\n    display: block;\\n    width: 4.16666667%\\n}\\n\\n.v-col-0 {\\n    display: none\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/col/index.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+
+/***/ }),
+
+/***/ "xnse":
+/*!**********************************!*\
+  !*** ./components/col/index.css ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/.npminstall/css-loader/0.28.11/css-loader!./index.css */ \"sv+o\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/.npminstall/style-loader/0.21.0/style-loader/lib/addStyles.js */ \"2j8j\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./components/col/index.css?");
 
 /***/ }),
 

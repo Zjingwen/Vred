@@ -1,6 +1,9 @@
 /**
  * 组件安装
  */
+let Col = require('./col/index.js');
+let Row = require("./row/index.js");
+
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
 // var Message = require("./message/index.js");
@@ -31,6 +34,9 @@ var Input = require("./input/input.js");
 
 function install(Vue){
     
+    Vue.component('t-row', Row);
+    Vue.component('t-col',Col);
+
     Vue.component('t-input', Input);
     // Vue.component('t-select', Select);
     // Vue.component('t-option', Option);
