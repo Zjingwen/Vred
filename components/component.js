@@ -6,7 +6,7 @@
 // var Notice = require("./notice/notification.js");
 // var Message = require("./message/index.js");
 //
-import Input from "./input/input.js";
+var Input = require("./input/input.js");
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
 // var Button = require("./button/button.js");

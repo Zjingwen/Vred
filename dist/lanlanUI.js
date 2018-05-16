@@ -68,20 +68,27 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__input__ = __webpack_require__(0);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-/* harmony default export */ __webpack_exports__["default"] = (Vue.extend({
-    template: __WEBPACK_IMPORTED_MODULE_0__input__["default"],
-    data: function(){
-      return {
-          currentValue: this.value
-      }
+var _input = __webpack_require__(0);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = Vue.extend({
+    template: _input2.default,
+    data: function data() {
+        return {
+            currentValue: this.value
+        };
     },
     props: {
         type: {
@@ -106,41 +113,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
 
-        updateValue: function(value){
+        updateValue: function updateValue(value) {
             this.currentValue = value.trim();
         },
 
-        handleBlur: function(event){
+        handleBlur: function handleBlur(event) {
             this.$emit('blur', event);
             this.$emit("input", this.$refs.input.value);
         },
 
-        handleFocus: function(event) {
+        handleFocus: function handleFocus(event) {
             this.$emit('focus', event);
         },
 
-        handleIconClick: function(){
+        handleIconClick: function handleIconClick() {
             this.$emit("icon-click", event);
         },
 
-        inputSelect: function() {
+        inputSelect: function inputSelect() {
             this.$refs.input.select();
         }
     },
-    created: function() {
+    created: function created() {
         this.$on('inputSelect', this.inputSelect);
     },
-    watch:{
-        currentValue: function(newV){
+    watch: {
+        currentValue: function currentValue(newV) {
             this.$emit("input", newV);
             this.$emit('change', newV);
         }
     }
-}));
+});
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /**
  * 组件安装
@@ -174,7 +184,7 @@ var Input = __webpack_require__(0);
 
 // var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js");
 
-function install(Vue){
+function install(Vue) {
 
     Vue.component('t-input', Input);
     // Vue.component('t-select', Select);
@@ -208,9 +218,9 @@ function install(Vue){
     // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);
 }
 
-if(window.Vue){
+if (window.Vue) {
     // window.infiniteScroll = InfiniteScroll;
-    install(window.Vue)
+    install(window.Vue);
 }
 
 /***/ })
