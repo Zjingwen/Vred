@@ -28,28 +28,3 @@ module.exports = {
         new webpack.HashedModuleIdsPlugin()
     ]
 }
-
-// const config = {
-//     output: {
-//         'path': path.join(__dirname, ''),
-//         'filename':'[name].js'
-//     },
-//     module: {
-//         loaders: [
-//             {test: /\.css$/, loader: "style-loader!css-loader"},
-//             {test: /\.html$/, loader: 'html-loader'},
-//             {
-//                 test: /\.js$/,
-//                 exclude: /node_modules/,
-//                 include: path.resolve(__dirname, 'views'),
-//                 loader: "babel-loader"
-//             }
-//         ]
-//     },
-//     resolve: {
-//         extensions: ['*', '.js', '.css']
-//     },
-//     plugins: [
-//         new webpack.HashedModuleIdsPlugin()
-//     ]
-// };

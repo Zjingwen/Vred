@@ -10,13 +10,32 @@
 </head>
 <body>
     <div id="app">
-        <t-input></t-input>
+        <h1>size</h1>
+        <p>defalut</p>
+        <t-input v-model='inputValue'></t-input>
+        <p>defalut</p>
+        <t-input v-model='inputValue' size='large'></t-input>
+        <p>defalut</p>
+        <t-input v-model='inputValue' size='small'></t-input>
+        <p>defalut</p>
+        <t-input v-model='inputValue' size='tiny'></t-input>
+<pre>
+    
+</pre>
     </div>
 </body>
 <script src="../dist/lanlanUI.js"></script>
 <script>
     new Vue({
-        el: "#app"
+        el: "#app",
+        data:{
+            inputValue:''
+        },
+        watch:{
+            inputValue(value){
+                console.log(value)
+            }
+        }
     })
 </script>
 </html>

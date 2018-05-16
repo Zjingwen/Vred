@@ -24,7 +24,10 @@ module.exports = Vue.extend({
             type: String,
             default: 'off'
         },
-        size: String,
+        size: {
+            type: String,
+            default: 'small'
+        },
         form: String,
         icon: String,
         imageIcon: Boolean
