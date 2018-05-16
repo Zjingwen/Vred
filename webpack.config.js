@@ -10,12 +10,14 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'style-loader!css-lodaer'
                 }
             },
             {
                 test: /\.html$/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'html-loader'
                 }
@@ -23,7 +25,6 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, 'views'),
                 use: "babel-loader"
             }
         ]
