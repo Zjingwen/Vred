@@ -12,18 +12,28 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="width: 1200px;margin: 0 auto;">
         <t-row>
             <t-col :span='24' style="background: skyblue;">col</t-col>
         </t-row>
-        <t-row>
-            <t-col :span='12' style="background: skyblue;">col</t-col>
-            <t-col :span='12' style="background: sienna;">col</t-col>
+        <t-row :gutter='10'>
+            <t-col :span='12'>
+                <div style="background: skyblue;">col</div>
+            </t-col>
+            <t-col :span='12'>
+                <div style="background: sienna;">col</div>
+            </t-col>
         </t-row>
-        <t-row>
-            <t-col :span='8' style="background: skyblue;">col</t-col>
-            <t-col :span='8' style="background: sienna;">col</t-col>
-            <t-col :span='8' style="background: skyblue;">col</t-col>
+        <t-row :gutter='10'>
+            <t-col :span='8'>
+                <div style="background: skyblue;">col</div>
+            </t-col>
+            <t-col :span='8'>
+                <div style="background: sienna;">col</div>
+            </t-col>
+            <t-col :span='8'>
+                <div style="background: skyblue;">col</div>
+            </t-col>
         </t-row>
         <t-row>
             <t-col :span='6' style="background: sienna;">col</t-col>
@@ -99,5 +109,6 @@
     </div>
 </body>
 <script>
+    Vue.config.devtools = true;
     new Vue({ el: "#app" });
 </script>

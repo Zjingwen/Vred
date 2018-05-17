@@ -78,7 +78,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<div class=\\\"v-row\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/row/index.html?");
+eval("module.exports = \"<div class=\\\"v-row\\\" :style=\\\"styles\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/row/index.html?");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ eval("\n\n/**\n * 组件安装\n */\nvar Col = __webpack_require__(/*! ./col/ind
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./index.css */ \"xnse\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"KVyz\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = Vue.extend({\n    name: 'v-col',\n    template: _index2.default,\n    props: {\n        span: {\n            type: Number,\n            default: 24\n        }\n    },\n    computed: {\n        col: function col() {\n            return 'v-col-' + this.span;\n        }\n    }\n\n});\n\n//# sourceURL=webpack:///./components/col/index.js?");
+eval("\n\n__webpack_require__(/*! ./index.css */ \"xnse\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"KVyz\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nvar _assist = __webpack_require__(/*! ../util/assist */ \"I05C\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nvar prefixCls = 'v-col';\n\nmodule.exports = Vue.extend({\n    name: 'v-col',\n    template: _index2.default,\n    props: {\n        span: {\n            type: Number,\n            default: 24\n        }\n    },\n    data: function data() {\n        return {\n            gutter: 0\n        };\n    },\n    computed: {\n        classs: function classs() {\n            return ['' + prefixCls, _defineProperty({}, prefixCls + '-' + this.span, this.span)];\n        },\n        styles: function styles() {\n            var style = {};\n            if (this.gutter !== 0) {\n                style = {\n                    paddingLeft: this.gutter / 2 + 'px',\n                    paddingRight: this.gutter / 2 + 'px'\n                };\n            }\n\n            return style;\n        }\n    },\n    methods: {\n        updateGutter: function updateGutter() {\n            var Row = (0, _assist.findComponentUpward)(this, 'v-row');\n\n            if (Row) {\n                Row.updateGutter(Row.gutter);\n            }\n        }\n    },\n    mounted: function mounted() {\n        this.updateGutter();\n    }\n\n});\n\n//# sourceURL=webpack:///./components/col/index.js?");
 
 /***/ }),
 
@@ -158,7 +158,19 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npm
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".v-row{\\n    -webkit-box-sizing: border-box;\\n    box-sizing: border-box;\\n}\\n.v-row:after, .v-row:before{\\n    content: \\\"\\\";\\n    display: table;\\n}\\n.v-row:after {\\n    clear: both;\\n    visibility: hidden;\\n    font-size: 0;\\n    height: 0;\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/row/index.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npminstall/css-loader/0.28.11/css-loader/lib/css-base.js */ \"xsKK\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".v-row{\\n    position: relative;\\n    margin-left: 0;\\n    margin-right: 0;\\n    height: auto;\\n    zoom: 1;\\n    display: block;\\n}\\n.v-row:after, .v-row:before{\\n    content: \\\"\\\";\\n    display: table;\\n}\\n.v-row:after {\\n    clear: both;\\n    visibility: hidden;\\n    font-size: 0;\\n    height: 0;\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./components/row/index.css?./node_modules/.npminstall/css-loader/0.28.11/css-loader");
+
+/***/ }),
+
+/***/ "I05C":
+/*!***********************************!*\
+  !*** ./components/util/assist.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.oneOf = oneOf;\nexports.findComponentUpward = findComponentUpward;\nexports.findComponentDownward = findComponentDownward;\nexports.findBrothersComponents = findBrothersComponents;\n// 判断参数是否是其中之一\nfunction oneOf(value, valueList) {\n    for (var i = 0; i < validList.length; i++) {\n        if (value === validList[i]) {\n            return true;\n        }\n    }\n    return false;\n}\n\n// Find components upward\nfunction findComponentUpward(context, componentName, componentNames) {\n    if (typeof componentName === 'string') {\n        componentNames = [componentName];\n    } else {\n        componentNames = componentName;\n    }\n\n    var parent = context.$parent;\n    var name = parent.$options.name;\n    while (parent && (!name || componentNames.indexOf(name) < 0)) {\n        parent = parent.$parent;\n        if (parent) name = parent.$options.name;\n    }\n    return parent;\n}\n\n// Find component downward\nfunction findComponentDownward(context, componentName) {\n    var childrens = context.$children;\n    var children = null;\n\n    if (childrens.length) {\n        var _iteratorNormalCompletion = true;\n        var _didIteratorError = false;\n        var _iteratorError = undefined;\n\n        try {\n            for (var _iterator = childrens[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n                var child = _step.value;\n\n                var name = child.$options.name;\n                if (name === componentName) {\n                    children = child;\n                    break;\n                } else {\n                    children = findComponentDownward(child, componentName);\n                    if (children) break;\n                }\n            }\n        } catch (err) {\n            _didIteratorError = true;\n            _iteratorError = err;\n        } finally {\n            try {\n                if (!_iteratorNormalCompletion && _iterator.return) {\n                    _iterator.return();\n                }\n            } finally {\n                if (_didIteratorError) {\n                    throw _iteratorError;\n                }\n            }\n        }\n    }\n    return children;\n}\n\n// Find brothers components\nfunction findBrothersComponents(context, componentName) {\n    var exceptMe = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;\n\n    var res = context.$parent.$children.filter(function (item) {\n        return item.$options.name === componentName;\n    });\n    var index = res.findIndex(function (item) {\n        return item._uid === context._uid;\n    });\n    if (exceptMe) res.splice(index, 1);\n    return res;\n}\n\n//# sourceURL=webpack:///./components/util/assist.js?");
 
 /***/ }),
 
@@ -169,7 +181,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/.npm
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<div class=\\\"v-col\\\" :class=\\\"[col]\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/col/index.html?");
+eval("module.exports = \"<div :class=\\\"classs\\\" :style=\\\"styles\\\">\\n    <slot></slot>\\n</div>\";\n\n//# sourceURL=webpack:///./components/col/index.html?");
 
 /***/ }),
 
@@ -192,7 +204,7 @@ eval("module.exports = \"<div class=\\\"t-input\\\" :class=\\\"[size?('t-input_'
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./index.css */ \"lXQJ\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"+nX+\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = Vue.extend({\n    name: 'v-row',\n    template: _index2.default,\n    props: {\n        gutter: Number,\n        type: String,\n        justify: String,\n        align: String\n    }\n});\n\n//# sourceURL=webpack:///./components/row/index.js?");
+eval("\n\n__webpack_require__(/*! ./index.css */ \"lXQJ\");\n\nvar _index = __webpack_require__(/*! ./index.html */ \"+nX+\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nvar _assist = __webpack_require__(/*! ../util/assist */ \"I05C\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = Vue.extend({\n    name: 'v-row',\n    template: _index2.default,\n    props: {\n        gutter: {\n            type: Number,\n            default: 0\n        },\n        type: String,\n        justify: String,\n        align: String\n    },\n    computed: {\n        styles: function styles() {\n            var style = {};\n            if (this.gutter !== 0) {\n                style = {\n                    marginLeft: this.gutter / -2 + 'px',\n                    marginRight: this.gutter / -2 + 'px'\n                };\n            }\n\n            return style;\n        }\n    },\n    methods: {\n        updateGutter: function updateGutter(val) {\n            var Col = (0, _assist.findComponentDownward)(this, 'v-col');\n            var Cols = (0, _assist.findBrothersComponents)(Col, 'v-col', false);\n            if (Cols.length) {\n                Cols.forEach(function (child) {\n                    if (val !== 0) {\n                        child.gutter = val;\n                    }\n                });\n            }\n        }\n    },\n    watch: {\n        gutter: function gutter(val) {\n            this.updateGutter(val);\n        }\n    }\n});\n\n//# sourceURL=webpack:///./components/row/index.js?");
 
 /***/ }),
 
