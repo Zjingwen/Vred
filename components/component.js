@@ -5,13 +5,14 @@
 // let Col = require('./col/index.js');
 import col from './col/index.js';
 import row from './row/index.js';
+import { header,content,footer,layout,sider } from './layout/index.js';
 // let row = require("./row/row.js");
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
 // var Message = require("./message/index.js");
 //
-var Input = require("./input/input.js");
+var input = require("./input/input.js");
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
 // var Button = require("./button/button.js");
@@ -38,7 +39,12 @@ var Input = require("./input/input.js");
 let components = {
     col,
     row,
-    Input
+    header,
+    content,
+    footer,
+    layout,
+    sider,
+    input,
 }
 
 
