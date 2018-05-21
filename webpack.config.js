@@ -1,5 +1,6 @@
 let path = require('path');
 let webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
     mode: 'development',
@@ -10,8 +11,13 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /\.css$/,loader: "style-loader!css-loader",},
+            {test: /\.css$/,use:[
+                "vue-style-loader",
+                "style-loader",
+                "css-loader"
+            ]},
             {test: /\.html$/, loader: 'html-loader'},
+            {test: /\.vue$/, loader: 'vue-loader'},
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -25,6 +31,7 @@ module.exports = {
         extensions: ['*', '.js', '.css']
     },
     plugins: [
-        new webpack.HashedModuleIdsPlugin()
+        new webpack.HashedModuleIdsPlugin(),
+        new VueLoaderPlugin()
     ]
 }

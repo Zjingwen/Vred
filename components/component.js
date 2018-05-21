@@ -1,8 +1,11 @@
 /**
  * 组件安装
  */
-let Col = require('./col/index.js');
-let Row = require("./row/index.js");
+// let Col = require('./col/col.js');
+// let Col = require('./col/index.js');
+import col from './col/index.js';
+import row from './row/index.js';
+// let row = require("./row/row.js");
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
@@ -32,12 +35,23 @@ var Input = require("./input/input.js");
 
 // var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js");
 
+let components = {
+    col,
+    row,
+    Input
+}
+
+
+
 function install(Vue){
     
-    Vue.component('t-row', Row);
-    Vue.component('t-col',Col);
+    Object.keys(components).forEach(value=>{
+        Vue.component('t-'+value, components[value]);
+    });
 
-    Vue.component('t-input', Input);
+    // Vue.component('t-row', components['row']);
+    // Vue.component('t-col', col);
+    // Vue.component('t-input', Input);
     // Vue.component('t-select', Select);
     // Vue.component('t-option', Option);
     // Vue.component('t-button', Button);
