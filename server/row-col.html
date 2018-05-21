@@ -10,101 +10,116 @@
     <script src="../dist/lanlanUI.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
-
+<style>
+    #app{
+        width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .v-col,.v-col div{
+        line-height: 3;
+        text-align: center;
+        color: #FFF;
+        background: rgba(0,153,229,.7);
+    }
+    .v-col:nth-child(odd),.v-col:nth-child(odd) div{
+        background: rgba(0, 117, 175, 0.9);
+    }
+</style>
 <body>
-    <div id="app" style="width: 1200px;margin: 0 auto;">
+    <div id="app">
         <t-row>
-            <t-col :span='24' style="background: skyblue;">col</t-col>
+            <t-col :span='24'>col</t-col>
         </t-row>
-        <t-row :gutter='10'>
+        <t-row :gutter='60'>
             <t-col :span='12'>
-                <div style="background: skyblue;">col</div>
+                <div>col</div>
             </t-col>
             <t-col :span='12'>
-                <div style="background: sienna;">col</div>
+                <div>col</div>
             </t-col>
         </t-row>
-        <t-row :gutter='10'>
+        <t-row :gutter='60'>
             <t-col :span='8'>
-                <div style="background: skyblue;">col</div>
-            </t-col>
-            <t-col :span='8'>
-                <div style="background: sienna;">col</div>
+                <div>col</div>
             </t-col>
             <t-col :span='8'>
-                <div style="background: skyblue;">col</div>
+                <div>col</div>
+            </t-col>
+            <t-col :span='8'>
+                <div>col</div>
             </t-col>
         </t-row>
         <t-row>
-            <t-col :span='6' style="background: sienna;">col</t-col>
-            <t-col :span='6' style="background: skyblue;">col</t-col>
-            <t-col :span='6' style="background: sienna;">col</t-col>
-            <t-col :span='6' style="background: skyblue;">col</t-col>
+            <t-col :span='6'>col</t-col>
+            <t-col :span='6'>col</t-col>
+            <t-col :span='6'>col</t-col>
+            <t-col :span='6'>col</t-col>
         </t-row>
         <t-row>
-            <t-col :span='5' style="background: sienna;">col</t-col>
-            <t-col :span='5' style="background: skyblue;">col</t-col>
-            <t-col :span='5' style="background: sienna;">col</t-col>
-            <t-col :span='5' style="background: skyblue;">col</t-col>
-            <t-col :span='5' style="background: sienna;">col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
         </t-row>
         <t-row>
-            <t-col :span='4' style="background: sienna;">col</t-col>
-            <t-col :span='4' style="background: skyblue;">col</t-col>
-            <t-col :span='4' style="background: sienna;">col</t-col>
-            <t-col :span='4' style="background: skyblue;">col</t-col>
-            <t-col :span='4' style="background: sienna;">col</t-col>
-            <t-col :span='4' style="background: skyblue;">col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
         </t-row>
         <t-row>
-            <t-col :span='3' style="background: sienna;">col</t-col>
-            <t-col :span='3' style="background: skyblue;">col</t-col>
-            <t-col :span='3' style="background: sienna;">col</t-col>
-            <t-col :span='3' style="background: skyblue;">col</t-col>
-            <t-col :span='3' style="background: sienna;">col</t-col>
-            <t-col :span='3' style="background: skyblue;">col</t-col>
-            <t-col :span='3' style="background: sienna;">col</t-col>
-            <t-col :span='3' style="background: skyblue;">col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
         </t-row>
         <t-row>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
-            <t-col :span='2' style="background: sienna;">col</t-col>
-            <t-col :span='2' style="background: skyblue;">col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
         </t-row>
         <t-row>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
-            <t-col :span='1' style="background: sienna;">col</t-col>
-            <t-col :span='1' style="background: skyblue;">col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
         </t-row>
     </div>
 </body>
