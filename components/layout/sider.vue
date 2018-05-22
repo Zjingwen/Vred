@@ -1,13 +1,9 @@
 <template>
-    <div :class="classs"><slot></slot></div>
+    <div :style="style" :class="classs"><slot></slot></div>
 </template>
-<style scoped>
+<style lang='css' scoped>
     .v-sider{
-        flex-direction: row;
-        height: 100%;
-        width: 200px;
-        min-width: 200px;
-        max-width: 200px;
+        
     }
 </style>
 <script>
@@ -15,35 +11,23 @@
     export default{
         name: prefixCls,
         props:{
-            // top:{
-            //     type: Number,
-            //     default: 0
-            // },
-            // bottom:{
-            //     type: Number,
-            //     default: 0
-            // }
+           width:{
+               type: Number,
+               default: 200
+           }
         },
         computed:{
-            // style:function(){
-            //     let style = {
-            //         overflow: 'hidden'
-            //     };
-                
-            //     if(this.top){
-            //         style.paddingTop= this.top+'px'
-            //     }
-
-            //     if(this.bottom){
-            //         style.paddingBottom= this.bottom+'px'
-            //     }
-                
-            //     return style;
-            // },
             classs:function(){
                 return [
                     `${prefixCls}`
                 ]
+            },
+            style:function(){
+                return {
+                    width: `${this.width}px`,
+                    minWidth: `${this.width}px`,
+                    maxWidth: `${this.width}px`,
+                }
             }
         }
     }

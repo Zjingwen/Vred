@@ -47,7 +47,6 @@
                     [`${prefixCls}-flex-`+this.justify]: !!this.justify,
                     [`${prefixCls}-flex-`+this.align]: !!this.align
                 };
-                console.log(classs);
                 return classs;
             },
             styles:function(){

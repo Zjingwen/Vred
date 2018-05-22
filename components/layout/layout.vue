@@ -1,11 +1,13 @@
 <template>
     <div :style="style" :class="classs"><slot></slot></div>
 </template>
-<style scoped>
+<style lang='css' scoped>
     .v-layout{
         display: flex;
-        // flex: auto;
-
+        flex-direction: column;
+        flex: auto;
+    }
+    .v-layout-has-sider{
         flex-direction: row;
     }
 </style>
@@ -13,6 +15,11 @@
     const prefixCls = 'v-layout';
     export default{
         name: prefixCls,
+        data:function(){
+            return {
+                hasSider: false
+            }
+        },
         props:{
             top:{
                 type: Number,
@@ -41,9 +48,22 @@
             },
             classs:function(){
                 return [
-                    `${prefixCls}`
+                    `${prefixCls}`,
+                    {
+                        [`${prefixCls}-has-sider`]: this.hasSider
+                    }
                 ]
             }
+        },
+        methods:{
+            findSider:function(){
+                return this.$children.some(child=>{
+                    return child.$options.name === 'v-sider';
+                });
+            }
+        },
+        mounted:function(){
+            this.hasSider = this.findSider();
         }
     }
 </script>

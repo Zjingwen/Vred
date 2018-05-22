@@ -1,7 +1,11 @@
 <template>
     <div  :class="classs" :style="style"><slot></slot></div>
 </template>
-<style lang='stylus' scoped></style>
+<style lang='css' scoped>
+    .v-content{
+        flex: auto;
+    }
+</style>
 <script>
     const prefixCls = 'v-content';
     

@@ -30,265 +30,245 @@
     .demo-content .v-col:nth-child(odd),.v-col:nth-child(odd) div{
         background: rgba(0, 117, 175, 0.9);
     }
+    .v-sider{
+        background: #FF00FF;
+    }
 
 </style>
 <body>
-    <div id="app" v-cloak>
-        <t-header type='fixed' :index='9999'>
-            <t-row>
-                <t-col :span='24'>header</t-col>
-            </t-row>
-        </t-header>
-        <t-layout class='demo-content' :top='100' :bottom='100'>
-            <t-sider>
-                <t-row>
-                    <t-col>col</t-col>
-                    <t-col>col</t-col>
-                    <t-col>col</t-col>
-                    <t-col>col</t-col>
-                    <t-col>col</t-col>
-                </t-row>
-            </t-sider>
-            <t-layout>
-                <t-content>
-                    <h1>基础用法</h1>
-                    <t-row>
-                        <t-col :span='24'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                    </t-row>
-                    <h1>gutter用法</h1>
-                    <t-row :gutter='60'>
-                        <t-col :span='12'>
-                            <div>col</div>
-                        </t-col>
-                        <t-col :span='12'>
-                            <div>col</div>
-                        </t-col>
-                    </t-row>
-                    <br>
-                    <t-row :gutter='60'>
-                        <t-col :span='8'>
-                            <div>col</div>
-                        </t-col>
-                        <t-col :span='8'>
-                            <div>col</div>
-                        </t-col>
-                        <t-col :span='8'>
-                            <div>col</div>
-                        </t-col>
-                    </t-row>
-                    <h1>offset用法</h1>
-                    <t-row>
-                        <t-col :offset='1' :span='5'>col</t-col>
-                        <t-col :offset='1' :span='5'>col</t-col>
-                        <t-col :offset='1' :span='5'>col</t-col>
-                        <t-col :offset='1' :span='5'>col</t-col>
-                    </t-row>
-                    <h1>fiex用法</h1>
-                    <t-row type='flex'>
-                        <t-col :span='24'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex'>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                            <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex'>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                        <t-col :span='4'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex'>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                        <t-col :span='3'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex'>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                        <t-col :span='2'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex'>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                        <t-col :span='1'>col</t-col>
-                    </t-row>
-                    <h1>justify用法</h1>
-                    <t-row type='flex' justify='start'>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='end'>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='center'>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='space-around'>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='space-between'>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                        <t-col :span='5'>col</t-col>
-                    </t-row>
-                    <h1>align用法</h1>
-                    <t-row type='flex' align='top'>
-                        <t-col :span='6'><div style="height: 140px;">col</div></t-col>
-                        <t-col :span='6'><div style="height: 100px;">col</div></t-col>
-                        <t-col :span='6'><div>col</div></t-col>
-                        <t-col :span='6'><div style="height: 80px;">col</div></t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='center' align='middle'>
-                        <t-col :span='6'><div style="height: 140px;">col</div></t-col>
-                        <t-col :span='6'><div style="height: 100px;">col</div></t-col>
-                        <t-col :span='6'><div>col</div></t-col>
-                        <t-col :span='6'><div style="height: 80px;">col</div></t-col>
-                    </t-row>
-                    <br>
-                    <t-row type='flex' justify='center' align='bottom'>
-                        <t-col :span='6'><div style="height: 140px;">col</div></t-col>
-                        <t-col :span='6'><div style="height: 100px;">col</div></t-col>
-                        <t-col :span='6'><div>col</div></t-col>
-                        <t-col :span='6'><div style="height: 80px;">col</div></t-col>
-                    </t-row>
-                </t-content>
-            </t-layout>
-        </t-layout>
-        <t-footer type='fixed' :index='9999'>
-            footer
-        </t-footer>
+    <div id="app" class='demo-content' v-cloak>
+        <h1>基础用法</h1>
+        <t-row>
+            <t-col :span='24'>col</t-col>
+        </t-row>
+        <br>
+        <t-row>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+        </t-row>
+        <br>
+        <t-row>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+        </t-row>
+        <br>
+        <t-row>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+        </t-row>
+        <br>
+        <t-row>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+        </t-row>
+        <h1>gutter用法</h1>
+        <t-row :gutter='60'>
+            <t-col :span='12'>
+                <div>col</div>
+            </t-col>
+            <t-col :span='12'>
+                <div>col</div>
+            </t-col>
+        </t-row>
+        <br>
+        <t-row :gutter='60'>
+            <t-col :span='8'>
+                <div>col</div>
+            </t-col>
+            <t-col :span='8'>
+                <div>col</div>
+            </t-col>
+            <t-col :span='8'>
+                <div>col</div>
+            </t-col>
+        </t-row>
+        <h1>offset用法</h1>
+        <t-row>
+            <t-col :offset='1' :span='5'>col</t-col>
+            <t-col :offset='1' :span='5'>col</t-col>
+            <t-col :offset='1' :span='5'>col</t-col>
+            <t-col :offset='1' :span='5'>col</t-col>
+        </t-row>
+        <h1>fiex用法</h1>
+        <t-row type='flex'>
+            <t-col :span='24'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex'>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+                <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex'>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+            <t-col :span='4'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex'>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+            <t-col :span='3'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex'>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+            <t-col :span='2'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex'>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+            <t-col :span='1'>col</t-col>
+        </t-row>
+        <h1>justify用法</h1>
+        <t-row type='flex' justify='start'>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='end'>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='center'>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='space-around'>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='space-between'>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+            <t-col :span='5'>col</t-col>
+        </t-row>
+        <h1>align用法</h1>
+        <t-row type='flex' align='top'>
+            <t-col :span='6'><div style="height: 140px;">col</div></t-col>
+            <t-col :span='6'><div style="height: 100px;">col</div></t-col>
+            <t-col :span='6'><div>col</div></t-col>
+            <t-col :span='6'><div style="height: 80px;">col</div></t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='center' align='middle'>
+            <t-col :span='6'><div style="height: 140px;">col</div></t-col>
+            <t-col :span='6'><div style="height: 100px;">col</div></t-col>
+            <t-col :span='6'><div>col</div></t-col>
+            <t-col :span='6'><div style="height: 80px;">col</div></t-col>
+        </t-row>
+        <br>
+        <t-row type='flex' justify='center' align='bottom'>
+            <t-col :span='6'><div style="height: 140px;">col</div></t-col>
+            <t-col :span='6'><div style="height: 100px;">col</div></t-col>
+            <t-col :span='6'><div>col</div></t-col>
+            <t-col :span='6'><div style="height: 80px;">col</div></t-col>
+        </t-row>
     </div>
 </body>
 <script>
