@@ -1,22 +1,21 @@
-/**
- * 组件安装
- */
-// let Col = require('./col/col.js');
-// let Col = require('./col/index.js');
 import col from './col/index.js';
 import row from './row/index.js';
 import { header,content,footer,layout,sider } from './layout/index.js';
-// let row = require("./row/row.js");
+
+import button from './button/index.js';
+
+var input = require("./input/input.js");
+
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
 // var Message = require("./message/index.js");
 //
-var input = require("./input/input.js");
+
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
-// var Button = require("./button/button.js");
-//
+
+
 // var Tooltip = require("./tooltip/tooltip.js");
 // var Checkbox = require("./checkbox/checkbox.js");
 // var Radio = require("./radio/radio.js");
@@ -44,6 +43,7 @@ let components = {
     footer,
     layout,
     sider,
+    button,
     input,
 }
 

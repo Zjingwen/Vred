@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>button</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../dist/lanlanUI.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<style>
+
+</style>
+<body>
+    <div id="app" v-cloak>
+        <t-header>header</t-header>
+        <t-layout>
+            <t-sider>sider</t-sider>
+            <t-content>
+                <div id="contents"></div>
+            </t-content>
+        </t-layout>
+        <t-footer>footer</t-footer>
+    </div>
+</body>
+<script type="text/template" id="contents-template">
+    <div>
+        <div>
+            <h1>size</h1>
+            <hr>
+            <p>tiny 小</p>
+            <t-button size='tiny'>tiny 小</t-button>
+            <br>
+            <br>
+            <p>default 默认</p>
+            <t-button size='default'>default</t-button>
+            <br>
+            <br>
+            <p>large 大</p>
+            <t-button size='large'>large</t-button>
+            <br>
+            <br>
+            <p>long 长度自适应</p>
+            <t-button size='long'>long</t-button>
+            <br>
+            <br>
+            <p>auto 长宽自适应</p>
+            <t-button size='auto' :width='120' :height='50'>auto</t-button>
+        </div>
+        <div>
+            <h1>type</h1>
+            <hr>
+            <t-button>default</t-button>
+            <t-button type='text'>text</t-button>
+            <t-button type='warning'>warning</t-button>
+            <t-button type='error'>error</t-button>
+        </div>
+    </div>
+</script>
+<script>
+    Vue.config.devtools = true;
+    new Vue({ el: "#app" });
+
+    let content = Vue.extend({
+        template: document.getElementById('contents-template')
+    });
+    new content().$mount('#contents');
+</script>

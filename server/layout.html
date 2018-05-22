@@ -29,6 +29,18 @@
 </style>
 <body>
     <div id="app" v-cloak>
+        <t-header>header</t-header>
+        <t-layout>
+            <t-sider>sider</t-sider>
+            <t-content>
+                <div id="contents"></div>
+            </t-content>
+        </t-layout>
+        <t-footer>footer</t-footer>
+    </div>
+</body>
+<script type="text/template" id="contents-template">
+    <div>
         <h1>无sider</h1>
         <t-header>header</t-header>
         <t-layout class='demo-content'>
@@ -66,12 +78,17 @@
             <t-content>
                 <p v-for="i in 10" :key='i' v-text='i'></p>
             </t-content>
-            <t-sider width="300">sider</t-sider>
+            <t-sider width="400">sider</t-sider>
         </t-layout>
         <t-footer>footer</t-footer>
     </div>
-</body>
+</script>
 <script>
     Vue.config.devtools = true;
     new Vue({ el: "#app" });
+
+    let content = Vue.extend({
+        template: document.getElementById('contents-template')
+    });
+    new content().$mount('#contents');
 </script>

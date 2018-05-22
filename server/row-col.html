@@ -37,6 +37,18 @@
 </style>
 <body>
     <div id="app" class='demo-content' v-cloak>
+        <t-header>header</t-header>
+        <t-layout>
+            <t-sider>sider</t-sider>
+            <t-content>
+                <div id="contents"></div>
+            </t-content>
+        </t-layout>
+        <t-footer>footer</t-footer>
+    </div>
+</body>
+<script type="text/template" id="contents-template">
+    <div>
         <h1>基础用法</h1>
         <t-row>
             <t-col :span='24'>col</t-col>
@@ -270,8 +282,13 @@
             <t-col :span='6'><div style="height: 80px;">col</div></t-col>
         </t-row>
     </div>
-</body>
+</script>
 <script>
     Vue.config.devtools = true;
     new Vue({ el: "#app" });
+
+    let content = Vue.extend({
+        template: document.getElementById('contents-template')
+    });
+    new content().$mount('#contents');
 </script>
