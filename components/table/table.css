@@ -1,0 +1,12 @@
+.v-table{
+    width: 100%;
+    border: 1px solid #e9eaec;
+}
+
+.v-table-head{
+    background: #f8f8f9;
+}
+.v-table-head tr{
+    border-bottom: 1px solid #e9eaec;
+    font-size: 12px;
+}

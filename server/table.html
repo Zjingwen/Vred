@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>row-col</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../dist/lanlanUI.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<style>
+    
+</style>
+<body>
+    <div id="app" class='demo-content' v-cloak>
+        <t-header>header</t-header>
+        <t-layout>
+            <t-sider>sider</t-sider>
+            <t-content>
+                <div id="contents"></div>
+            </t-content>
+        </t-layout>
+        <t-footer>footer</t-footer>
+    </div>
+</body>
+<script type="text/template" id="contents-template">
+    <div style="max-width: 1200px;">
+        <t-table >
+            <t-thead>
+                <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                </tr>
+            </t-thead>
+            <t-tbody>
+                <tr>
+                    <td>January</td>
+                    <td>January</td>
+                    <td>January</td>
+                    <td>January</td>
+                    <td>January</td>
+                </tr>
+            </t-tbody>
+        </t-table>
+    </div>
+</script>
+<script>
+    Vue.config.devtools = true;
+    new Vue({ el: "#app" });
+
+    let content = Vue.extend({
+        template: document.getElementById('contents-template')
+    });
+    new content().$mount('#contents');
+</script>

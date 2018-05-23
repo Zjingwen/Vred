@@ -3,6 +3,7 @@ import row from './row/index.js';
 import { header,content,footer,layout,sider } from './layout/index.js';
 
 import button from './button/index.js';
+import { table,thead,tbody,tr } from './table/index.js';
 
 var input = require("./input/input.js");
 
@@ -38,13 +39,20 @@ var input = require("./input/input.js");
 let components = {
     col,
     row,
+    
     header,
     content,
     footer,
     layout,
     sider,
+
     button,
     input,
+
+    table,
+    thead,
+    tbody,
+    tr,
 }
 
 
