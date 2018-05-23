@@ -2,10 +2,15 @@
     outline: none;
     cursor: pointer;
     box-sizing: border-box;
-    cursor: pointer;
     border: none;
     background: none;
     border-radius: 4px;
+}
+.t-btn.disabled, .t-btn[disabled],.t-btn.disabled:hover,.t-btn[disabled]:hover{
+    cursor: not-allowed;
+    color: #bbbec4;
+    background-color: #f7f7f7;
+    border-color: #dddee1;
 }
 
 .t-btn-size-tiny{

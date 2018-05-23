@@ -31,24 +31,25 @@
             <h1>size</h1>
             <hr>
             <p>tiny 小</p>
-            <t-button size='tiny'>tiny 小</t-button>
+            <t-button size='tiny' @click="handleClick('tiny')" :disabled="false">tiny 小</t-button>
             <br>
             <br>
             <p>default 默认</p>
-            <t-button size='default'>default</t-button>
+            <t-button size='default' @click="handleClick('default')" :disabled="true">default</t-button>
             <br>
             <br>
             <p>large 大</p>
-            <t-button size='large'>large</t-button>
+            <t-button size='large' :htmlType="type" @click="handleClick('large')">large</t-button>
             <br>
             <br>
             <p>long 长度自适应</p>
-            <t-button size='long'>long</t-button>
+            <t-button size='long' @click="handleClick('long')">long</t-button>
             <br>
             <br>
             <p>auto 长宽自适应</p>
-            <t-button size='auto' :width='120' :height='50'>auto</t-button>
+            <t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
         </div>
+        <br>
         <div>
             <h1>type</h1>
             <hr>
@@ -64,7 +65,17 @@
     new Vue({ el: "#app" });
 
     let content = Vue.extend({
-        template: document.getElementById('contents-template')
+        template: document.getElementById('contents-template'),
+        data:function(){
+            return {
+                type:'submit'
+            }
+        },
+        methods:{
+            handleClick:function(val){
+                console.log(val);
+            }
+        }
     });
     new content().$mount('#contents');
 </script>

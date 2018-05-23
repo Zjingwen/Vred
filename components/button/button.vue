@@ -2,13 +2,13 @@
     <button
         class="t-btn"
         :disabled="disabled"
-        :type="type"
+        :type="htmlType"
         :class="classs"
         :style="style"
         @click="handleClick"
     ><span><slot></slot></span></button>
 </template>
-<style src='./button.css' lang="css" scoped></style>
+<style src='./button.css' scoped lang="css"></style>
 <script>
     import { oneOf } from '../util/assist';
 
@@ -23,10 +23,6 @@
                 validator:function(val){
                     return oneOf(val,['default','text','warning','error'])
                 }
-            },
-            icon: {
-                type: String,
-                default: ''
             },
             width:{
                 type: Number,
@@ -43,7 +39,17 @@
                     return oneOf(val,['default','tiny','large','long','auto'])
                 }
             },
-            disabled: Boolean
+            disabled: {
+                type: Boolean,
+                default: true
+            },
+            htmlType: {
+                type: String,
+                default: 'button',
+                validator:function(val){
+                    return oneOf(val,['button','submit','reset'])
+                }
+            }
         },
         computed:{
             classs:function(){
@@ -71,7 +77,6 @@
             }
         },
         methods: {
-
             handleClick: function(event){
                 this.$emit("click",event);
             }
