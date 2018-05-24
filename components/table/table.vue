@@ -1,11 +1,7 @@
 <template>
     <table cellspacing="0" cellpadding="0" border="0" :class="classs">
         <colgroup>
-            <col width='20%'></col>
-            <col width='10%'></col>
-            <col width='10%'></col>
-            <col width='10%'></col>
-            <col width='10%'></col>
+            <col v-for='(item,index) in width' :key='index' :width='item'></col>
         </colgroup>
         <slot></slot>
     </table>
@@ -23,8 +19,6 @@
             width:{
                 type: Array,
                 default: function(){
-                    console.log(findComponentDownward(this,'v-table-head'))
-                    console.log(this.$children);
                     return []
                 }
             }
@@ -40,11 +34,22 @@
         },
         methods:{
             widthHandle:function(){
-                console.log(this.width);
+                let componentNode = findComponentDownward(this,'v-table-tr');
+                let width = this.width;
+                let length = componentNode.$el.children.length;
+                
+                if(length && !width.length){
+                    let num = 100 / length;
+                    for(let i = 0;i < length; i++){
+                        this.$set(this.width,i,`${num}`);
+                    }
+                    
+                };
+
             }
         },
         mounted:function(){
-            this.widthHandle();
+            if(!this.width.length) this.widthHandle();
         }
     }
 </script>

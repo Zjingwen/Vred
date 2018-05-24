@@ -5,8 +5,23 @@
 
 .v-table-head{
     background: #f8f8f9;
+    font-weight: bold;
+    font-size: 14px;
 }
 .v-table-head tr{
     border-bottom: 1px solid #e9eaec;
+}
+.v-table-head tr th{
+    padding: 15px 0;
+}
+
+.v-table-body{
     font-size: 12px;
+    text-align: center;
+}
+.v-table-body tr{
+    border-bottom: 1px solid #e9eaec;
+}
+.v-table-body tr td{
+    padding: 15px 0;
 }

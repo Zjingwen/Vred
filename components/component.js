@@ -58,7 +58,6 @@ let components = {
 
 
 function install(Vue){
-    
     Object.keys(components).forEach(value=>{
         Vue.component('t-'+value, components[value]);
     });
