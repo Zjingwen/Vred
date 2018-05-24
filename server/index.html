@@ -5,34 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>lanlanUI</title>
-    <script src="../node_modules/vue/dist/vue.js"></script>
-    <script src="../dist/lanlanUI.js"></script>
-    <link rel="stylesheet" href="index.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.1/dist/vue-router.js"></script>
+
+    <script src="./lib/lanlanUI.js"></script>
+    <link rel="stylesheet" href="./lib/index.css">
 </head>
 <body>
-<div id="app">
-    <t-header>header</t-header>
-    <t-layout>
-        <t-sider>
-            <a href="layout.html">layout</a>
-            <br>
-            <a href="row-col.html">row-col</a>
-            <br>
-            <a href="button.html">button</a>
-            <br>
-            <a href="input.html">input</a>
-            <br>
-            <a href="table.html">table</a>
-            <br>
-        </t-sider>
-        <t-content>content</t-content>
-    </t-layout>
-    <t-footer>footer</t-footer>
-</div>
-
+    <div id="app"><router-view></router-view></div>
 </body>
-<script>
-    Vue.config.devtools = true;
-    new Vue({ el: "#app" });
-</script>
+    <script src='./lib/index.js'></script>
 </html>

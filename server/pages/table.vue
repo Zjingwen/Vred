@@ -1,0 +1,78 @@
+<template>
+    <div>
+        <headers></headers>
+        <contents>
+            <div style='padding-right:20px;'>
+                <t-table :width="[10,10,10,20,25,30]">
+                    <t-thead>
+                        <t-tr>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                        </t-tr>
+                        <t-tr>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                        </t-tr>
+                        <t-tr>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                        </t-tr>
+                    </t-thead>
+                    <t-tbody>
+                        <t-tr>
+                            <td>第一天</td>
+                            <td>第二天</td>
+                            <td>第三天</td>
+                            <td>第四天</td>
+                            <td>第五天</td>
+                            <td>第六天</td>
+                        </t-tr>
+                        <t-tr>
+                            <td>第一天</td>
+                            <td>第二天</td>
+                            <td>第三天</td>
+                            <td>第四天</td>
+                            <td>第五天</td>
+                            <td>第六天</td>
+                        </t-tr>
+                        <t-tr>
+                            <td>第一天<br>第一天+1</td>
+                            <td>第二天</td>
+                            <td>第三天</td>
+                            <td>第四天</td>
+                            <td>第五天</td>
+                            <td>第六天</td>
+                        </t-tr>
+                        <t-tr>
+                            <td>第一天</td>
+                            <td>第二天</td>
+                            <td>第三天</td>
+                            <td>第四天</td>
+                            <td>第五天</td>
+                            <td>第六天<br>第六天+1</td>
+                        </t-tr>
+                    </t-tbody>
+                </t-table>
+            </div>
+        </contents>
+        <footers></footers>
+    </div>
+</template>
+<style lang="css" scoped></style>
+<script>
+    export default{
+        
+    }
+</script>

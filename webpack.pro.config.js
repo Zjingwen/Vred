@@ -3,11 +3,13 @@ let webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-    mode: 'development',
-    entry: path.resolve(__dirname, 'components/component.js'),
+    mode: 'production',
+    entry: {
+        lanlanUI: path.resolve(__dirname, 'components/component.js'),
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'lanlanUI.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
