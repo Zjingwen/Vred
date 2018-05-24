@@ -22,6 +22,12 @@
             <br>
             <p>auto 长宽自适应</p>
             <t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
+            <h1>type</h1>
+            <hr>
+            <t-button>default</t-button>
+            <t-button type='text'>text</t-button>
+            <t-button type='warning'>warning</t-button>
+            <t-button type='error'>error</t-button>
         </contents>
         <footers></footers>
     </div>
