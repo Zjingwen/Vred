@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style src='./row.css' lang='styles' scoped></style>
+<style src='./row.css' lang='css' scoped></style>
 
 <script>
     import { findComponentDownward, findBrothersComponents, oneOf} from '../util/assist';
