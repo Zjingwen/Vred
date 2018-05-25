@@ -1,5 +1,7 @@
 <template>
-    <div :class='classs'>menu-item-group</div>
+    <div :class='classs'>
+        <slot></slot>
+    </div>
 </template>
 <style lang="css" src='./index.css' scoped></style>
 <script>

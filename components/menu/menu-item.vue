@@ -1,5 +1,5 @@
 <template>
-    <div :class='classs'>menu-item</div>
+    <div :class='classs'><slot></slot></div>
 </template>
 <style lang="css" src='./index.css' scoped></style>
 <script>
