@@ -1,14 +1,14 @@
 <template>
-    <t-header>header</t-header>
+    <t-header class='v-header-demo' :width="1200">header</t-header>
 </template>
 <style lang="css" scoped>
-    .v-header{
-        text-align: center;
+    .v-header-demo{
         height: 36px;
         line-height: 36px;
-        background: #000;
-        color: #FFF;
-        font-size: 12px;
+        background-color: #FFF;
+        color: #000;
+        font-size: 15px;
+        margin-bottom: 20px;
     }
 </style>
 <script>

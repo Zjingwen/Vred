@@ -1,7 +1,18 @@
 <template>
-    <div :class="classs" :style="styles"><slot></slot></div>
+    <div :class="classs">
+        <div class='v-header-width' :style="styles">
+            <slot></slot>
+        </div>
+    </div>
 </template>
-<style lang='stylus' scoped></style>
+<style lang='css' scoped>
+    .v-header{
+        width: 100%;
+    }
+    .v-header-width{
+        margin: 0 auto;
+    }
+</style>
 <script>
     import { oneOf } from '../util/assist';
     const prefixCls = 'v-header';
@@ -28,8 +39,7 @@
         computed:{
             styles:function(){
                 let style = {
-                    width: this.width + '%',
-                    overflow: 'hidden',
+                    maxWidth: this.width + 'px'
                 };
 
                 if(this.type){
