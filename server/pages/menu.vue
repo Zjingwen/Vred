@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents>
+        <contents :linkName='linkName'>
             <t-row>
                 <t-col :span='24'>
                     <t-menu :active-name="1" @on:select="onClickHandle1">
@@ -193,6 +193,11 @@
 </style>
 <script>
     export default{
+        data:function(){
+            return {
+                linkName:'导航'
+            }
+        },
         methods:{
             onClickHandle1: function(val){
                 console.group('onClickHandle1');

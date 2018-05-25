@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents>
+        <contents :linkName='linkName'>
             <div style='padding-right:20px;'>
                 <t-table :width="[10,10,10,20,25,30]">
                     <t-thead>
@@ -73,6 +73,10 @@
 <style lang="css" scoped></style>
 <script>
     export default{
-        
+        data:function(){
+            return {
+                linkName: '表格'
+            }
+        }
     }
 </script>

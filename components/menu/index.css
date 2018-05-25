@@ -41,6 +41,7 @@
 .v-menu-vertical{
     display: inline-block;
     width: 200px;
+    height: 100%;
 }
 .v-menu-vertical .v-menu-item-sub{
     height: 60px;

@@ -3,6 +3,10 @@ import contents from './webComponents/contents.vue';
 import headers from './webComponents/headers.vue';
 import footers from './webComponents/footers.vue';
 
+Vue.config.devtools = true;
+
+Vue.use(VueRouter);
+
 const components = {
     contents,
     headers,
@@ -17,7 +21,7 @@ function install(Vue){
 
 install(Vue);
 
-const router = new VueRouter({
+var router = new VueRouter({
     routes
 })
 

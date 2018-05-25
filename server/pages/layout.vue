@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents>
+        <contents :linkName='linkName'>
             <h1>无sider</h1>
             <t-header>header</t-header>
             <t-layout class='demo-content'>
@@ -64,6 +64,10 @@
 </style>
 <script>
     export default{
-        
+        data:function(){
+            return {
+                linkName: '布局'
+            }
+        }
     }
 </script>

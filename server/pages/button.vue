@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents>
+        <contents :linkName='linkName'>
             <h1>size</h1>
             <hr>
             <p>tiny 小</p>
@@ -37,7 +37,8 @@
     export default{
         data:function(){
             return {
-                type:'submit'
+                type:'submit',
+                linkName: '按钮'
             }
         },
         methods:{

@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents class='demo-content'>
+        <contents :linkName='linkName' class='demo-content'>
             <h1>基础用法</h1>
             <t-row>
                 <t-col :span='24'>col</t-col>
@@ -255,6 +255,10 @@
 </style>
 <script>
     export default{
-        
+        data:function(){
+            return {
+                linkName: '栅栏'
+            }
+        }
     }
 </script>

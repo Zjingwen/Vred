@@ -1,7 +1,7 @@
 <template>
     <div>
         <headers></headers>
-        <contents>
+        <contents :linkName='linkName'>
             <h1>input</h1>
             <h2>size</h2>
             <p>defalut</p>
@@ -21,7 +21,8 @@
     export default{
         data:function(){
             return {
-                inputValue:''
+                inputValue:'',
+                linkName:'输入框'
             }
         },
         watch:{
