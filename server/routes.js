@@ -4,6 +4,7 @@ import button from './pages/button.vue';
 import layout from './pages/layout.vue';
 import table from './pages/table.vue';
 import input from './pages/input.vue';
+import menu from './pages/menu.vue';
 
 export default [
     { 
@@ -25,6 +26,11 @@ export default [
         path: '/layout',
         name: '布局',
         component: layout
+    },
+    { 
+        path: '/menu',
+        name: '导航',
+        component: menu
     },
     { 
         path: '/table',

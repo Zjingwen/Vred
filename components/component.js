@@ -2,9 +2,12 @@ import col from './col/index.js';
 import row from './row/index.js';
 import { header,content,footer,layout,sider } from './layout/index.js';
 
-import button from './button/index.js';
 import { table,thead,tbody,tr } from './table/index.js';
 
+import { menu, menuItem, menuGroup, menuSub } from './menu/index.js';
+
+
+import button from './button/index.js';
 var input = require("./input/input.js");
 
 
@@ -53,6 +56,11 @@ let components = {
     thead,
     tbody,
     tr,
+
+    menu,
+    menuItem,
+    menuGroup,
+    menuSub
 }
 
 
