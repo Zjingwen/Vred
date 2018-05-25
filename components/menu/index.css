@@ -1,10 +1,28 @@
 .v-menu{
     display: block;
-    height: 60px;
-    line-height: 60px;
     position: relative;
 }
-.v-menu::after{
+
+.v-menu-item-sub{
+    height: inherit;
+    line-height: inherit;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.v-menu-horizontal .v-menu-item-sub.active{
+    border-bottom: 2px solid #FF773D;
+    color: #FF773D;
+}
+
+.v-menu-horizontal{
+    height: 60px;
+    line-height: 60px;
+}
+
+.v-menu-horizontal::after{
     content: '';
     display: block;
     position: absolute;
@@ -16,17 +34,31 @@
     background: #dddee1;
 }
 
-.v-menu-item-sub{
+.v-menu-horizontal .v-menu-item-sub{
     float: left;
-    height: inherit;
-    line-height: inherit;
-    padding: 0 20px;
-    position: relative;
-    z-index: 3;
-    cursor: pointer;
 }
 
-.v-menu-item-sub.active{
-    border-bottom: 2px solid #FF773D;
+.v-menu-vertical{
+    display: inline-block;
+    width: 200px;
+}
+.v-menu-vertical .v-menu-item-sub{
+    height: 60px;
+    line-height: 60px;
+}
+.v-menu-vertical::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    z-index: 1;
+    background: #dddee1;
+}
+
+.v-menu-vertical .v-menu-item-sub.active{
+    border-right: 2px solid #FF773D;
     color: #FF773D;
 }

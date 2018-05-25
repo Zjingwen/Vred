@@ -1,11 +1,11 @@
 <template>
-    <ul :class='classs'>
+    <ul :class='classs' :style='style'>
         <slot></slot>
     </ul>
 </template>
 <style lang="css" src='./index.css' scoped></style>
 <script>
-    import { findComponentUpward, findComponentsDownward } from '../util/assist';
+    import { oneOf, findComponentUpward, findComponentsDownward } from '../util/assist';
 
     const profixCls = 'v-menu';
 
@@ -15,15 +15,37 @@
             activeName:{
                 type: [String,Number],
                 default: ''
+            },
+            mode:{
+                type: String,
+                default: 'horizontal',
+                validator:function(val){
+                    return oneOf(val,['horizontal','vertical'])
+                }
+            },
+            width:{
+                type: Number,
+                default: 0
             }
         },
         computed:{
             classs:function(){
                 let classs = [
-                    `${profixCls}`
+                    `${profixCls}`,
+                    `${profixCls}-${this.mode}`
                 ];
 
                 return classs;
+            },
+            style:function(){
+                let style = {};
+                
+                if(this.width !== 0){
+                    style.width = this.width + 'px';
+                }
+
+                return style;
+                
             }
         },
         methods:{
