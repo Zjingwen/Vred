@@ -8,7 +8,17 @@ import { menu, menuItem, menuGroup, menuSub } from './menu/index.js';
 
 
 import button from './button/index.js';
+
 var input = require("./input/input.js");
+
+// Vue.use(tooltip)
+
+//第三方
+// import { tooltip, popover, closePopover } from 'v-tooltip'
+// Vue.directive('tooltip', tooltip)
+// Vue.directive('close-popover', closePopover)
+
+import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
 
 
 // var Modal = require("./modal/modal.js");
@@ -20,7 +30,7 @@ var input = require("./input/input.js");
 // var Option = require("./select/option.js");
 
 
-// var Tooltip = require("./tooltip/tooltip.js");
+
 // var Checkbox = require("./checkbox/checkbox.js");
 // var Radio = require("./radio/radio.js");
 // var Popover = require("./popover/popover.js");
@@ -51,6 +61,7 @@ let components = {
 
     button,
     input,
+    
 
     table,
     thead,
@@ -70,17 +81,15 @@ function install(Vue){
         Vue.component('t-'+value, components[value]);
     });
 
-    // Vue.component('t-row', components['row']);
-    // Vue.component('t-col', col);
-    // Vue.component('t-input', Input);
+    Vue.component('t-popover', VPopover);
+    Vue.directive('tooltip', VTooltip);
+    Vue.directive('close-popover', VClosePopover);
+
     // Vue.component('t-select', Select);
     // Vue.component('t-option', Option);
-    // Vue.component('t-button', Button);
 
-    // Vue.component('t-tooltip', Tooltip);
     // Vue.component('t-checkbox', Checkbox);
     // Vue.component('t-radio', Radio);
-    // Vue.component('t-popover', Popover);
     // Vue.component('t-dropdown', Dropdown);
     // Vue.component('t-dropdown-menu', DropdownMenu);
     // Vue.component('t-dropdown-item', DropdownItem);

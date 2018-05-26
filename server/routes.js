@@ -5,6 +5,7 @@ import layout from './pages/layout.vue';
 import table from './pages/table.vue';
 import input from './pages/input.vue';
 import menu from './pages/menu.vue';
+import tooltip from './pages/tooltip.vue';
 
 export default [
     { 
@@ -41,5 +42,10 @@ export default [
         path: '/input',
         name: '输入框',
         component: input
+    },
+    {
+        path: '/tooltip',
+        name: '气泡提示',
+        component: tooltip
     }
 ];
