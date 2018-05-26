@@ -156,7 +156,7 @@
                     </t-menu>
                 </t-col>
                 <t-col :span='8'>
-                    <t-menu :width='300' mode='vertical' :active-name="3" @on:select="onClickHandle6">
+                    <t-menu :width='300' :height='30' mode='vertical' :active-name="3" @on:select="onClickHandle6">
                         <t-menuSub :name='1'>
                             <template slot="title">menuSub 1</template>
                             <!--<t-menuGroup>

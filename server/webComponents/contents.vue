@@ -1,9 +1,9 @@
 <template>
     <t-layout class='v-contents'>
         <t-sider>
-            <t-menu :width='180' mode='vertical' :active-name='linkName'>
+            <t-menu :width='180' :height='45' mode='vertical' :active-name='linkName' @on:select='routerHandle'>
                 <t-menuSub v-for="(item,index) in routes" :key='index' :name='item.name'>
-                    <router-link class='link' :key='index' :to="item.path">{{item.name}}</router-link>
+                    {{item.name}}
                 </t-menuSub>
             </t-menu>
         </t-sider>
@@ -21,9 +21,8 @@
         padding-top : 20px;
         margin-bottom: 20px;
         min-height: 800px;
-    }
-    .link{
-        display: block;
+
+        font-size: 14px;
     }
 </style>
 <script>
@@ -39,6 +38,18 @@
         data:function(){
             return {
                 routes: routes
+            }
+        },
+        methods:{
+            routerHandle:function(name){
+                this.routes.forEach(function(val){
+                    if(name == val.name){
+                        this.$router.push({
+                            path: val.path
+                        });
+                    }
+                }.bind(this));
+            
             }
         }
     }
