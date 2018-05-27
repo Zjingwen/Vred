@@ -1,5 +1,6 @@
 import col from './col/index.js';
 import row from './row/index.js';
+
 import { header,content,footer,layout,sider } from './layout/index.js';
 
 import { table,thead,tbody,tr } from './table/index.js';
@@ -9,20 +10,10 @@ import { menu, menuItem, menuGroup, menuSub } from './menu/index.js';
 
 import button from './button/index.js';
 
+//第三方库，自动全局安装
+import tooltip from './tooltip/index.js';
+
 var input = require("./input/input.js");
-
-// Vue.use(tooltip)
-
-
-// import { tooltip, popover, closePopover } from 'v-tooltip'
-// Vue.directive('tooltip', tooltip)
-// Vue.directive('close-popover', closePopover)
-
-/**
- * https://akryum.github.io/v-tooltip/
- */
-import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
-
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
@@ -64,7 +55,6 @@ let components = {
 
     button,
     input,
-    
 
     table,
     thead,
@@ -83,11 +73,6 @@ function install(Vue){
     Object.keys(components).forEach(value=>{
         Vue.component('t-'+value, components[value]);
     });
-
-    Vue.component('t-popover', VPopover);
-    Vue.directive('tooltip', VTooltip);
-    Vue.directive('close-popover', VClosePopover);
-
     // Vue.component('t-select', Select);
     // Vue.component('t-option', Option);
 
