@@ -13,11 +13,14 @@ var input = require("./input/input.js");
 
 // Vue.use(tooltip)
 
-//第三方
+
 // import { tooltip, popover, closePopover } from 'v-tooltip'
 // Vue.directive('tooltip', tooltip)
 // Vue.directive('close-popover', closePopover)
 
+/**
+ * https://akryum.github.io/v-tooltip/
+ */
 import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
 
 
