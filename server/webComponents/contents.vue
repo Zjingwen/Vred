@@ -8,9 +8,7 @@
             </t-menu>
         </t-sider>
         <t-content><slot></slot></t-content>
-        <t-sider>
-            留用
-        </t-sider>
+        <t-sider></t-sider>
     </t-layout>
 </template>
 <style lang="css">

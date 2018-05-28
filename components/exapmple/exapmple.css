@@ -17,6 +17,7 @@
 .t-exapmple-horizontal .t-exapmple-code{
     padding: 20px;
     padding-bottom: 0;
+    overflow-y: scroll;
 }
 
 
