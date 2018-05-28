@@ -9,7 +9,7 @@
             </pre>
             <div :class="[`${prefixCls}-split`]"></div>
             <pre :class="[`${prefixCls}-code`]" v-highligh>
-                <slot name="code"></slot>
+<slot name="code"></slot>
             </pre>
         </div>
         <div v-else>
@@ -18,7 +18,7 @@
                     <slot name="view"></slot>
                 </div>
                 <pre :class="[`${prefixCls}-markdown`]" v-showdown>
-                    <slot name="markdown"></slot>
+<slot name="markdown"></slot>
                 </pre>
             </div><div class="row">
                 <pre :class="[`${prefixCls}-code`]" v-highligh>

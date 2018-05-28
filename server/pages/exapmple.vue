@@ -8,11 +8,11 @@
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-<textarea slot="markdown">
+            <textarea slot="markdown">
 #### zhoujingwen
 如果
-</textarea>
-<textarea slot="code">
+            </textarea>
+            <textarea slot="code">
 <template>
     <t-row>1111</t-row>
 </template>  
@@ -26,20 +26,20 @@ export default{
     }
 }
 </script>
-</textarea>
+            </textarea>
             </t-exapmple>
             <br/>
-                        <t-exapmple mode='vertical'>
+            <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-row>
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-<textarea slot="markdown">
+            <textarea slot="markdown">
 #### zhoujingwen
 如果
-</textarea>
-<textarea slot="code">
+            </textarea>
+            <textarea slot="code">
 <template>
     <t-row>1111</t-row>
 </template>  
@@ -65,7 +65,7 @@ export default{
     }
 }
 </script>
-</textarea>
+            </textarea>
             </t-exapmple>
         </contents>
         <footers></footers>
