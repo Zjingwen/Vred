@@ -8,25 +8,8 @@
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-            <textarea slot="markdown">
-#### zhoujingwen
-如果
-            </textarea>
-            <textarea slot="code">
-<template>
-    <t-row>1111</t-row>
-</template>  
-
-<script>
-export default{
-    data:function(){
-        return {
-            linkName: '例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示',
-        }
-    }
-}
-</script>
-            </textarea>
+            <textarea slot="markdown" v-text="info"></textarea>
+            <textarea slot="code" v-text="code"></textarea>
             </t-exapmple>
             <br/>
             <t-exapmple mode='vertical'>
@@ -35,37 +18,8 @@ export default{
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-            <textarea slot="markdown">
-#### zhoujingwen
-如果
-            </textarea>
-            <textarea slot="code">
-<template>
-    <t-row>1111</t-row>
-</template>  
-
-<script>
-export default{
-    data:function(){
-        return {
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            data1:1,
-            linkName: '例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示例子展示',
-        }
-    }
-}
-</script>
-            </textarea>
+            <textarea slot="markdown" v-text="info"></textarea>
+            <textarea slot="code" v-text="code"></textarea>
             </t-exapmple>
         </contents>
         <footers></footers>
@@ -73,10 +27,15 @@ export default{
 </template>
 <style lang="css"></style>
 <script>
+    import info from '../doc/exapmple-info.md';
+    import code from '../doc/exapmple-code.md';
+
     export default{
         data:function(){
             return {
                 linkName: '例子展示',
+                info: info,
+                code: code
             }
         }
     }

@@ -34,6 +34,15 @@ module.exports = {
                     loader: "babel-loader"
                 }
             },
+            {
+                test: /\.md$/,
+                exclude: /node_modules/,
+                use:[{
+                        loader: "html-loader"
+                    },{
+                        loader: "markdown-loader",
+                    }]
+            },
         ]
     },
     resolve: {
