@@ -1,15 +1,31 @@
 <template>
     <div :class="classs">
-        <div :class="[`${prefixCls}-view`]">
-            <slot name="view"></slot>
+        <div v-if='mode == "horizontal"'>
+            <div :class="[`${prefixCls}-view`]">
+                <slot name="view"></slot>
+            </div>
+            <pre :class="[`${prefixCls}-markdown`]" v-showdown>
+                <slot name="markdown"></slot>
+            </pre>
+            <div :class="[`${prefixCls}-split`]"></div>
+            <pre :class="[`${prefixCls}-code`]" v-highligh>
+                <slot name="code"></slot>
+            </pre>
         </div>
-        <pre :class="[`${prefixCls}-markdown`]" v-showdown>
-            <slot name="markdown"></slot>
-        </pre>
-        <div :class="[`${prefixCls}-split`]"></div>
-        <pre :class="[`${prefixCls}-code`]" v-highligh>
-            <slot name="code"></slot>
-        </pre>
+        <div v-else>
+            <div class="row">
+                <div :class="[`${prefixCls}-view`]">
+                    <slot name="view"></slot>
+                </div>
+                <pre :class="[`${prefixCls}-markdown`]" v-showdown>
+                    <slot name="markdown"></slot>
+                </pre>
+            </div><div class="row">
+                <pre :class="[`${prefixCls}-code`]" v-highligh>
+                    <slot name="code"></slot>
+                </pre>
+            </div>
+        </div>
     </div>
 </template>
 <style src='./exapmple.css' scoped></style>
@@ -17,7 +33,6 @@
     import { oneOf } from '../util/assist';
     import { highlight } from 'highlight.js';
     import showdown from 'showdown';
-
     import 'highlight.js/styles/solarized-light.css';
 
     let prefixCls = 't-exapmple';
@@ -36,7 +51,7 @@
                     let converter = new showdown.Converter();
                     let block = el.querySelectorAll('textarea')[0].value;
                     let html = converter.makeHtml(block);
-                    
+
                     el.innerHTML = html;
                 }
             }

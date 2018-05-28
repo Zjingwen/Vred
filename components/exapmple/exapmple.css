@@ -1,20 +1,43 @@
-.t-exapmple{
+.t-exapmple.t-exapmple-horizontal{
     border: 1px solid #eee;
     border-radius: 6px;
     padding: 20px 0;
 }
-.t-exapmple-view{
+.t-exapmple-horizontal .t-exapmple-view{
     padding: 0 20px;
     margin-bottom: 20px;
 }
-.t-exapmple-split{
+.t-exapmple-horizontal .t-exapmple-split{
     border: 1px dashed #eee;
 }
-.t-exapmple-markdown{
+.t-exapmple-horizontal .t-exapmple-markdown{
     border-top: 1px solid #eee;
     padding: 20px;
 }
-.t-exapmple-code{
+.t-exapmple-horizontal .t-exapmple-code{
     padding: 20px;
     padding-bottom: 0;
+}
+
+
+.t-exapmple.t-exapmple-vertical{
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+.t-exapmple-vertical .row{
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+.t-exapmple-vertical .t-exapmple-code{
+    padding: 20px;
+    border-left: 1px dashed #eee;
+    overflow-y: scroll;
+}
+.t-exapmple-vertical .t-exapmple-view{
+    padding: 20px;
+}
+.t-exapmple-vertical .t-exapmple-markdown{
+    border-top: 1px solid #eee;
+    padding: 20px;
 }
