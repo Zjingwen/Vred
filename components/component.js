@@ -1,17 +1,20 @@
-import col from './col/index.js';
-import row from './row/index.js';
+import col from './col/index';
+import row from './row/index';
 
-import { header,content,footer,layout,sider } from './layout/index.js';
+import { header,content,footer,layout,sider } from './layout/index';
 
-import { table,thead,tbody,tr } from './table/index.js';
+import { table,thead,tbody,tr } from './table/index';
 
-import { menu, menuItem, menuGroup, menuSub } from './menu/index.js';
+import { menu, menuItem, menuGroup, menuSub } from './menu/index';
 
 
-import button from './button/index.js';
+import button from './button/index';//按钮
 
-//第三方库，自动全局安装
-import tooltip from './tooltip/index.js';
+import tooltip from './tooltip/index';//第三方库，自动全局安装
+
+import exapmple from './exapmple/index';//例子展示
+
+//代码展示
 
 var input = require("./input/input.js");
 
@@ -60,6 +63,7 @@ let components = {
     thead,
     tbody,
     tr,
+    exapmple,
 
     menu,
     menuItem,

@@ -1,0 +1,20 @@
+.t-exapmple{
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 20px 0;
+}
+.t-exapmple-view{
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.t-exapmple-split{
+    border: 1px dashed #eee;
+}
+.t-exapmple-markdown{
+    border-top: 1px solid #eee;
+    padding: 20px;
+}
+.t-exapmple-code{
+    padding: 20px;
+    padding-bottom: 0;
+}

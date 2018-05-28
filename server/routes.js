@@ -6,6 +6,7 @@ import table from './pages/table.vue';
 import input from './pages/input.vue';
 import menu from './pages/menu.vue';
 import tooltip from './pages/tooltip.vue';
+import exapmple from './pages/exapmple.vue';
 
 export default [
     { 
@@ -47,5 +48,10 @@ export default [
         path: '/tooltip',
         name: '气泡提示',
         component: tooltip
+    },
+    {
+        path: '/exapmple',
+        name: '例子展示',
+        component: exapmple
     }
 ];

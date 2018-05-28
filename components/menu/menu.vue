@@ -20,7 +20,7 @@
                 type: String,
                 default: 'horizontal',
                 validator:function(val){
-                    return oneOf(val,['horizontal','vertical'])
+                    return oneOf(val,['horizontal','vertical'])//horizontal（水平） 和 vertical（垂直）
                 }
             },
             width:{
