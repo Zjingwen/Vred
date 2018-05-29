@@ -2,48 +2,85 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <h1>size</h1>
-            <hr>
-            <p>tiny 小</p>
-            <t-button size='tiny' @click="handleClick('tiny')" :disabled="true">tiny 小</t-button>
+            <h1>按钮-size</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-button size='tiny'>tiny 小</t-button>
+                    <br>
+                    <br>
+                    <t-button size='default' @click="handleClick('default')">default</t-button>
+                    <br>
+                    <br>
+                    <t-button size='large' :htmlType="type" @click="handleClick('large')">large</t-button>
+                    <br>
+                    <br>
+                    <t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
+                    <br>
+                    <br>
+                    <t-button size='default' long @click="handleClick('auto')">long</t-button>
+                </div>
+                <textarea slot="markdown" v-html="sizeMd"></textarea>
+                <textarea slot="code" v-html="sizeHtml"></textarea>
+            </t-exapmple>
             <br>
-            <br>
-            <p>default 默认</p>
-            <t-button size='default' @click="handleClick('default')">default</t-button>
-            <br>
-            <br>
-            <p>large 大</p>
-            <t-button size='large' :htmlType="type" @click="handleClick('large')">large</t-button>
-            <br>
-            <br>
-            <p>long 长度自适应</p>
-            <t-button size='long' @click="handleClick('long')">long</t-button>
-            <br>
-            <br>
-            <p>auto 长宽自适应</p>
-            <t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
-            <h1>type</h1>
-            <hr>
-            <t-button>default</t-button>
-            <t-button type='text'>text</t-button>
-            <t-button type='warning'>warning</t-button>
-            <t-button type='error'>error</t-button>
+            <h1>按钮-disabled</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-button>default</t-button>
+                    <br><br>
+                    <t-button type='text'>text</t-button>
+                    <br><br>
+                    <t-button type='warning'>warning</t-button>
+                    <br><br>
+                    <t-button type='error'>error</t-button>
+                </div>
+                <textarea slot="markdown" v-html="typeMd"></textarea>
+                <textarea slot="code" v-html="typeHtml"></textarea>
+            </t-exapmple>
+            <h1>按钮-click</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-button size='default' @click="handleClick('default')">click</t-button>
+                </div>
+                <textarea slot="markdown" v-html="clickMd"></textarea>
+                <textarea slot="code" v-html="clickHtml"></textarea>
+            </t-exapmple>
         </contents>
         <footers></footers>
     </div>
 </template>
 <style lang="css"></style>
 <script>
+    import sizeHtml from '../doc/button/size.html';
+    import sizeMd from '../doc/button/size.md';
+
+    import disabledHtml from '../doc/button/disabled.html';
+    import disabledMd from '../doc/button/disabled.md';
+
+    import typeHtml from '../doc/button/type.html';
+    import typeMd from '../doc/button/type.md';
+
+    import clickHtml from '../doc/button/click.html';
+    import clickMd from '../doc/button/click.md';
+
     export default{
         data:function(){
             return {
                 type:'submit',
-                linkName: '按钮'
+                linkName: '按钮',
+                sizeHtml: sizeHtml,
+                sizeMd: sizeMd,
+                disabledHtml: disabledHtml,
+                disabledMd: disabledMd,
+                typeHtml: typeHtml,
+                typeMd: typeMd,
+                clickHtml: clickHtml,
+                clickMd: clickMd,
             }
         },
         methods:{
             handleClick:function(val){
-                console.log(val);
+                alert(val);
             }
         }
     }

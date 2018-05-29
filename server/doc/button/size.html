@@ -1,0 +1,13 @@
+<t-button size='tiny' @click="handleClick('tiny')" :disabled="true">tiny 小</t-button>
+<br>
+<br>
+<t-button size='default' @click="handleClick('default')">default</t-button>
+<br>
+<br>
+<t-button size='large' :htmlType="type" @click="handleClick('large')">large</t-button>
+<br>
+<br>
+<t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
+<br>
+<br>
+<t-button size='default' long @click="handleClick('auto')">long</t-button>

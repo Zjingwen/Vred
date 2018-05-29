@@ -26,9 +26,7 @@
     padding: 8px 28px;
 }
 .t-btn-size-long{
-    font-size: 14px;
-    padding: 6px 18px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .t-btn-type-default{

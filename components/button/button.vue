@@ -36,8 +36,12 @@
                 type: String,
                 default: 'default',
                 validator:function(val){
-                    return oneOf(val,['default','tiny','large','long','auto'])
+                    return oneOf(val,['default','tiny','large','auto'])
                 }
+            },
+            long: {
+                type: Boolean,
+                default: false  
             },
             disabled: {
                 type: Boolean,
@@ -56,23 +60,20 @@
                 let classs = [];
                 
                 classs = [
-                    [`${prefixCls}-type-`+this.type]
+                    [`${prefixCls}-type-`+this.type],
+                    this.size != 'auto' ? [`${prefixCls}-size-`+this.size] : '',
+                    this.long ? [`${prefixCls}-size-long`] : ''
                 ];
 
-                if(this.size != 'auto'){
-                    classs.push([`${prefixCls}-size-`+this.size])
-                }
-
-                return classs ;
+                return classs;
             },
             style:function(){
-                let style = {};
-
-                if(this.size == 'auto'){
-                    style.width = this.width+'px';
-                    style.height = this.height+'px';
-                    style.lineHeight = this.height+'px';
+                let style = {
+                   width: this.size == 'auto' ?  this.width+'px' : '' ,
+                   height: this.size == 'auto' ?  this.height+'px' : '' ,
+                   lineHeight: this.size == 'auto' ?  this.height+'px' : '' ,
                 };
+
                 return style;
             }
         },
