@@ -5,19 +5,19 @@
             <h1>按钮-size</h1>
             <t-exapmple mode='vertical'>
                 <div slot="view">
-                    <t-button size='tiny'>tiny 小</t-button>
+                    <t-button size='tiny'>tiny</t-button>
                     <br>
                     <br>
-                    <t-button size='default' @click="handleClick('default')">default</t-button>
+                    <t-button size='default'>default</t-button>
                     <br>
                     <br>
-                    <t-button size='large' :htmlType="type" @click="handleClick('large')">large</t-button>
+                    <t-button size='large' :htmlType="type">large</t-button>
                     <br>
                     <br>
-                    <t-button size='auto' :width='120' :height='50' @click="handleClick('auto')">auto</t-button>
+                    <t-button size='auto' :width='120' :height='50'>auto</t-button>
                     <br>
                     <br>
-                    <t-button size='default' long @click="handleClick('auto')">long</t-button>
+                    <t-button size='default' long>long</t-button>
                 </div>
                 <textarea slot="markdown" v-html="sizeMd"></textarea>
                 <textarea slot="code" v-html="sizeHtml"></textarea>
@@ -36,6 +36,19 @@
                 </div>
                 <textarea slot="markdown" v-html="typeMd"></textarea>
                 <textarea slot="code" v-html="typeHtml"></textarea>
+            </t-exapmple>
+            <br>
+            <h1>按钮-htmlType</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-button htmlType="button">button</t-button>
+                    <br><br>
+                    <t-button htmlType="submit">submit</t-button>
+                    <br><br>
+                    <t-button htmlType="reset">reset</t-button>
+                </div>
+                <textarea slot="markdown" v-html="htmlTypeMd"></textarea>
+                <textarea slot="code" v-html="htmlTypeHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>按钮-click</h1>
@@ -64,6 +77,9 @@
     import clickHtml from '../doc/button/click.html';
     import clickMd from '../doc/button/click.md';
 
+    import htmlTypeHtml from '../doc/button/htmlType.html';
+    import htmlTypeMd from '../doc/button/htmlType.md';
+
     export default{
         data:function(){
             return {
@@ -77,6 +93,8 @@
                 typeMd: typeMd,
                 clickHtml: clickHtml,
                 clickMd: clickMd,
+                htmlTypeHtml: htmlTypeHtml,
+                htmlTypeMd: htmlTypeMd,
             }
         },
         methods:{
