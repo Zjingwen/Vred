@@ -2,7 +2,7 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <t-exapmple mode='horizontal'>
+            <t-exapmple mode='horizontal' more>
                 <div slot="view">
                     <t-row>
                         <t-col :span='24'>col</t-col>
@@ -12,7 +12,7 @@
             <textarea slot="code" v-text="code"></textarea>
             </t-exapmple>
             <br/>
-            <t-exapmple mode='vertical'>
+            <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row>
                         <t-col :span='24'>col</t-col>

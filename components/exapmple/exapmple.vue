@@ -1,10 +1,10 @@
 <template>
-    <div :class="classs">
+    <div :class="classs" :style="style">
         <div v-if='mode == "horizontal"'>
-            <div :class="[`${prefixCls}-view`]">
+            <div ref="view" :class="[`${prefixCls}-view`]">
                 <slot name="view"></slot>
             </div>
-            <pre :class="[`${prefixCls}-markdown`]" v-showdown>
+            <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown>
                 <slot name="markdown"></slot>
             </pre>
             <div :class="[`${prefixCls}-split`]"></div>
@@ -14,10 +14,10 @@
         </div>
         <div v-else>
             <div class="row">
-                <div :class="[`${prefixCls}-view`]">
+                <div ref="view" :class="[`${prefixCls}-view`]">
                     <slot name="view"></slot>
                 </div>
-                <pre :class="[`${prefixCls}-markdown`]" v-showdown>
+                <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown>
 <slot name="markdown"></slot>
                 </pre>
             </div><div class="row">
@@ -26,6 +26,7 @@
                 </pre>
             </div>
         </div>
+        <div v-if='more' class="more" @click='moreHandle'>↑</div>
     </div>
 </template>
 <style src='./exapmple.css' scoped></style>
@@ -58,7 +59,9 @@
         },
         data:function(){
             return {
-                prefixCls: prefixCls
+                prefixCls: prefixCls,
+                staticHeight: '',
+                styleHeigiht: ''
             }
         },
         props: {
@@ -69,6 +72,27 @@
                     return oneOf(val,['horizontal','vertical'])//horizontal（水平） 和 vertical（垂直）
                 }
             },
+            more:{
+                type: Boolean,
+                default: false
+            }
+        },
+        mounted:function(){
+            
+            if(this.more){
+                const viewHeight = this.$refs['view'].offsetHeight+40;
+                const markdownHeight = this.$refs['markdown'].offsetHeight;
+
+                if(this.mode == 'horizontal'){
+                    this.styleHeigiht = viewHeight + markdownHeight +34;
+                    this.staticHeight = viewHeight + markdownHeight +34;
+                }else{
+                    this.styleHeigiht = viewHeight + markdownHeight;
+                    this.staticHeight = viewHeight + markdownHeight;
+                }
+                
+            }
+
         },
         computed:{
             classs:function(){
@@ -78,6 +102,32 @@
                 ];
 
                 return classs;
+            },
+            style:function(){
+                
+                if(!this.more) return {};
+                
+                let style = {};
+
+                style.overflow = 'hidden';
+                style.paddingBottom = '40px';
+
+                style.height = typeof this.staticHeight == 'number' ? 
+                    `${this.staticHeight}px` : this.staticHeight ;
+
+                return style;
+            }
+        },
+        methods:{
+            moreHandle:function(){
+
+                if(this.staticHeight == 'auto'){
+
+                    this.staticHeight = this.styleHeigiht;
+                }else{
+
+                    this.staticHeight = 'auto';
+                }
             }
         }
     }

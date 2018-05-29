@@ -4,7 +4,7 @@
         <contents :linkName='linkName' class='demo-content'>
             <h1>基础用法栅栏系统</h1>
             <br>
-            <t-exapmple>
+            <t-exapmple mode='vertical' more>
                 <div slot="view">
                 <t-row>
                     <t-col :span='24'>col</t-col>
@@ -86,7 +86,7 @@
             <br>
             <h1>flex模式</h1>
             <br>
-            <t-exapmple>
+            <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex'>
                         <t-col :span='3'>col</t-col>
@@ -147,7 +147,7 @@
             <br>
             <h1>flex模式——justify用法</h1>
             <br>
-            <t-exapmple>
+            <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex' justify='start'>
                         <t-col :span='5'>col</t-col>
@@ -190,7 +190,7 @@
             <br>
             <h1>flex模式——align用法</h1>
             <br>
-            <t-exapmple>
+            <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex' align='top'>
                         <t-col :span='6'><div style="height: 140px;">col</div></t-col>
