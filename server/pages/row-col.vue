@@ -3,7 +3,6 @@
         <headers></headers>
         <contents :linkName='linkName' class='demo-content'>
             <h1>基础用法栅栏系统</h1>
-            <br>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
                 <t-row>
@@ -84,7 +83,21 @@
                 <textarea slot="code" v-text="staticHtml"></textarea>
             </t-exapmple>
             <br>
-            <h1>flex模式</h1>
+            <h1>基础模式下的gutter</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-row :gutter="10">
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0,153,229,.7)">col</div></t-col>
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                    </t-row>
+                </div>
+                <textarea slot="markdown" v-text="gutterMd"></textarea>
+                <textarea slot="code" v-text="gutterHtml"></textarea>
+            </t-exapmple>
             <br>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
@@ -146,7 +159,6 @@
             </t-exapmple>
             <br>
             <h1>flex模式——justify用法</h1>
-            <br>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex' justify='start'>
@@ -189,8 +201,7 @@
             </t-exapmple>
             <br>
             <h1>flex模式——align用法</h1>
-            <br>
-            <t-exapmple mode='vertical' more>
+            <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-row type='flex' align='top'>
                         <t-col :span='6'><div style="height: 140px;">col</div></t-col>
@@ -247,6 +258,9 @@
 
     import alignHtml from "../doc/row/align.html";
     import alignMd from "../doc/row/align.md";
+
+    import gutterHtml from "../doc/row/gutter.html";
+    import gutterMd from "../doc/row/gutter.md";
     
 
     export default{
@@ -260,7 +274,9 @@
                 justifyHtml: justifyHtml,
                 justifyMd: justifyMd,
                 alignHtml: alignHtml,
-                alignMd: alignMd
+                alignMd: alignMd,
+                gutterHtml: gutterHtml,
+                gutterMd: gutterMd,
             }
         }
     }
