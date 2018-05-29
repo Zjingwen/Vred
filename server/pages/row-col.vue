@@ -80,8 +80,8 @@
                     <t-col :span='1'>col</t-col>
                 </t-row>
                 </div>
-                <textarea slot="markdown" v-text="code1Md"></textarea>
-                <textarea slot="code" v-text="code1Html"></textarea>
+                <textarea slot="markdown" v-text="staticMd"></textarea>
+                <textarea slot="code" v-text="staticHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>flex模式</h1>
@@ -141,8 +141,8 @@
                         <t-col :span='1'>col</t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="code2Md"></textarea>
-                <textarea slot="code" v-text="code2Html"></textarea>
+                <textarea slot="markdown" v-text="flexMd"></textarea>
+                <textarea slot="code" v-text="flexHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>flex模式——justify用法</h1>
@@ -184,8 +184,8 @@
                         <t-col :span='5'>col</t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="code3Md"></textarea>
-                <textarea slot="code" v-text="code3Html"></textarea>
+                <textarea slot="markdown" v-text="justifyMd"></textarea>
+                <textarea slot="code" v-text="justifyHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>flex模式——align用法</h1>
@@ -213,8 +213,8 @@
                         <t-col :span='6'><div style="height: 80px;">col</div></t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="code4Md"></textarea>
-                <textarea slot="code" v-text="code4Html"></textarea>
+                <textarea slot="markdown" v-text="alignMd"></textarea>
+                <textarea slot="code" v-text="alignHtml"></textarea>
             </t-exapmple>
         </contents>
         <footers></footers>
@@ -236,31 +236,31 @@
     }
 </style>
 <script>
-    import code1Html from "../doc/row/code1.html";
-    import code1Md from "../doc/row/code1.md";
+    import staticHtml from "../doc/row/static.html";
+    import staticMd from "../doc/row/static.md";
 
-    import code2Html from "../doc/row/code2.html";
-    import code2Md from "../doc/row/code2.md";
+    import flexHtml from "../doc/row/flex.html";
+    import flexMd from "../doc/row/flex.md";
 
-    import code3Html from "../doc/row/code3.html";
-    import code3Md from "../doc/row/code3.md";
+    import justifyHtml from "../doc/row/justify.html";
+    import justifyMd from "../doc/row/justify.md";
 
-    import code4Html from "../doc/row/code4.html";
-    import code4Md from "../doc/row/code4.md";
+    import alignHtml from "../doc/row/align.html";
+    import alignMd from "../doc/row/align.md";
     
 
     export default{
         data:function(){
             return {
                 linkName: '栅栏',
-                code1Html: code1Html,
-                code1Md: code1Md,
-                code2Html: code2Html,
-                code2Md: code2Md,
-                code3Html: code3Html,
-                code3Md: code3Md,
-                code4Html: code4Html,
-                code4Md: code4Md
+                staticHtml: staticHtml,
+                staticMd: staticMd,
+                flexHtml: flexHtml,
+                flexMd: flexMd,
+                justifyHtml: justifyHtml,
+                justifyMd: justifyMd,
+                alignHtml: alignHtml,
+                alignMd: alignMd
             }
         }
     }

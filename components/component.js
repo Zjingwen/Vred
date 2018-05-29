@@ -1,11 +1,11 @@
-import col from './col/index';
-import row from './row/index';
+import col from './col/index';//列
+import row from './row/index';//行
 
-import { header,content,footer,layout,sider } from './layout/index';
+import { header,content,footer,layout,sider } from './layout/index';//布局
 
-import { table,thead,tbody,tr } from './table/index';
+import { table,thead,tbody,tr } from './table/index';//表单
 
-import { menu, menuItem, menuGroup, menuSub } from './menu/index';
+import { menu, menuItem, menuGroup, menuSub } from './menu/index';//导航栏
 
 
 import button from './button/index';//按钮
@@ -13,8 +13,6 @@ import button from './button/index';//按钮
 import tooltip from './tooltip/index';//第三方库，自动全局安装
 
 import exapmple from './exapmple/index';//例子展示
-
-//代码展示
 
 var input = require("./input/input.js");
 
