@@ -1,5 +1,9 @@
 .t-exapmple{
     position: relative;
+    
+}
+.t-exapmple-frome{
+    display: flex;
 }
 .t-exapmple.t-exapmple-horizontal{
     border: 1px solid #eee;
@@ -31,14 +35,15 @@
     border-radius: 6px;
 }
 .t-exapmple-vertical .row{
+    display: block;
     width: 49%;
-    display: inline-block;
-    vertical-align: top;
+    /* height: 100%; */
 }
 .t-exapmple-vertical .t-exapmple-code{
     padding: 20px;
     border-left: 1px dashed #eee;
     overflow-y: scroll;
+    height: 100%;
 }
 .t-exapmple-vertical .t-exapmple-view{
     padding: 20px;

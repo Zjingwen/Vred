@@ -37,6 +37,7 @@
                 <textarea slot="markdown" v-html="typeMd"></textarea>
                 <textarea slot="code" v-html="typeHtml"></textarea>
             </t-exapmple>
+            <br>
             <h1>按钮-click</h1>
             <t-exapmple mode='vertical'>
                 <div slot="view">
