@@ -25,3 +25,6 @@
 .v-table-body tr td{
     padding: 15px 0;
 }
+.v-table-th{
+    margin: 0 10px;
+}

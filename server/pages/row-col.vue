@@ -242,9 +242,6 @@
     .demo-content .v-col:nth-child(odd),.v-col:nth-child(odd) div{
         background: rgba(0, 117, 175, 0.9);
     }
-    .v-sider{
-        background: #FF00FF;
-    }
 </style>
 <script>
     import staticHtml from "../doc/row/static.html";

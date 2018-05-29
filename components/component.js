@@ -1,9 +1,9 @@
 import col from './col/index';//列
 import row from './row/index';//行
 
-import { header,content,footer,layout,sider } from './layout/index';//布局
+import { header, content, footer, layout, sider } from './layout/index';//布局
 
-import { table,thead,tbody,tr } from './table/index';//表单
+import { table, thead, tbody, tr, th } from './table/index';//表单
 
 import { menu, menuItem, menuGroup, menuSub } from './menu/index';//导航栏
 
@@ -61,6 +61,8 @@ let components = {
     thead,
     tbody,
     tr,
+    th,
+    
     exapmple,
 
     menu,

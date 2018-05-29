@@ -6,28 +6,28 @@
                 <t-table :width="[10,10,10,20,25,30]">
                     <t-thead>
                         <t-tr>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                            <th>星期六</th>
+                            <t-th>星期一</t-th>
+                            <t-th>星期二</t-th>
+                            <t-th>星期三</t-th>
+                            <t-th>星期四</t-th>
+                            <t-th>星期五</t-th>
+                            <t-th>星期六</t-th>
                         </t-tr>
                         <t-tr>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                            <th>星期六</th>
+                            <t-th>星期一</t-th>
+                            <t-th>星期二</t-th>
+                            <t-th>星期三</t-th>
+                            <t-th>星期四</t-th>
+                            <t-th>星期五</t-th>
+                            <t-th>星期六</t-th>
                         </t-tr>
                         <t-tr>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                            <th>星期六</th>
+                            <t-th>星期一</t-th>
+                            <t-th>星期二</t-th>
+                            <t-th>星期三</t-th>
+                            <t-th>星期四</t-th>
+                            <t-th>星期五</t-th>
+                            <t-th>星期六</t-th>
                         </t-tr>
                     </t-thead>
                     <t-tbody>
