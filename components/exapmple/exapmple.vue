@@ -1,6 +1,6 @@
 <template>
     <div :class="classs" :style="style">
-        <div v-if='mode == "horizontal"' :class="[`${prefixCls}-frome`]">
+        <div v-if='mode == "horizontal"'>
             <div ref="view" :class="[`${prefixCls}-view`]">
                 <slot name="view"></slot>
             </div>
