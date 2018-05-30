@@ -83,20 +83,27 @@
                 <textarea slot="code" v-text="staticHtml"></textarea>
             </t-exapmple>
             <br>
+            <h1>基础模式下的offset</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view"></div>
+                <textarea slot="markdown"></textarea>
+                <textarea slot="code"></textarea>
+            </t-exapmple>
+            <br>
             <h1>基础模式下的gutter</h1>
             <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-row :gutter="10">
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0,153,229,.7)">col</div></t-col>
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
-                        <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :offset='1' :span="4" style="background:none;"><div style="background:rgba(0,153,229,.7)">col</div></t-col>
+                        <t-col :offset='2' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :offset='3' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :offset='4' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :offset='5' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
+                        <t-col :offset='6' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="gutterMd"></textarea>
-                <textarea slot="code" v-text="gutterHtml"></textarea>
+                <textarea slot="markdown" v-text="offsetMd"></textarea>
+                <textarea slot="code" v-text="offsetHtml"></textarea>
             </t-exapmple>
             <br>
             <t-exapmple mode='vertical' more>
@@ -258,6 +265,9 @@
 
     import gutterHtml from "../doc/row/gutter.html";
     import gutterMd from "../doc/row/gutter.md";
+
+    import offsetHtml from "../doc/row/offset.html";
+    import offsetMd from "../doc/row/offset.md";
     
 
     export default{
@@ -274,6 +284,8 @@
                 alignMd: alignMd,
                 gutterHtml: gutterHtml,
                 gutterMd: gutterMd,
+                offsetHtml: offsetHtml,
+                offsetMd: offsetMd,
             }
         }
     }
