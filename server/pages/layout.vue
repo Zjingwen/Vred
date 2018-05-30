@@ -3,25 +3,51 @@
         <headers></headers>
         <contents :linkName='linkName'>
             <h1>无sider</h1>
-            <t-header>header</t-header>
-            <t-layout class='demo-content'>
-                <t-content>
-                    <p v-for="i in 10" :key='i' v-text='i'></p>
-                </t-content>
-            </t-layout>
-            <t-footer>footer</t-footer>
+            <t-exapmple more>
+                <div slot="view">
+                    <t-header>header</t-header>
+                    <t-layout class='demo-content'>
+                        <t-content>
+                            <p v-for="i in 10" :key='i' v-text='i'></p>
+                        </t-content>
+                    </t-layout>
+                    <t-footer>footer</t-footer>
+                </div>
+                <textarea slot="markdown" v-html="noSiferMd"></textarea>
+                <textarea slot="code" v-html="noSiferHtml"></textarea>
+            </t-exapmple>
             <br>
             <h1>左sider</h1>
-            <t-header>header</t-header>
-            <t-layout class='demo-content'>
-                <t-sider>sider</t-sider>
-                <t-content>
-                    <p v-for="i in 10" :key='i' v-text='i'></p>
-                </t-content>
-            </t-layout>
-            <t-footer>footer</t-footer>
+            <t-exapmple more>
+                <div slot="view">
+                    <t-header>header</t-header>
+                    <t-layout class='demo-content'>
+                        <t-sider>sider</t-sider>
+                        <t-content>
+                            <p v-for="i in 10" :key='i' v-text='i'></p>
+                        </t-content>
+                    </t-layout>
+                    <t-footer>footer</t-footer>
+                </div>
+                <textarea slot="markdown" v-html="leftSiferMd"></textarea>
+                <textarea slot="code" v-html="leftSiferHtml"></textarea>
+            </t-exapmple>
             <br>
             <h1>左sider</h1>
+            <t-exapmple more>
+                <div slot="view">
+                    <t-header>header</t-header>
+                    <t-layout class='demo-content'>
+                        <t-sider>sider</t-sider>
+                        <t-content>
+                            <p v-for="i in 10" :key='i' v-text='i'></p>
+                        </t-content>
+                    </t-layout>
+                    <t-footer>footer</t-footer>
+                </div>
+                <textarea slot="markdown" v-html="leftSiferMd"></textarea>
+                <textarea slot="code" v-html="leftSiferHtml"></textarea>
+            </t-exapmple>
             <t-layout>
                 <t-sider>sider</t-sider>
                 <t-layout class='demo-content'>
@@ -51,7 +77,7 @@
         text-align: center;
         height: 36px;
         line-height: 36px;
-        background: #000;
+        background: #b3c0d1;
         color: #FFF;
         font-size: 12px;
     }
@@ -63,10 +89,20 @@
     }
 </style>
 <script>
+    import noSiferHtml from '../doc/layout/no-sider.html';
+    import noSiferMd from '../doc/layout/no-sider.md';
+    
+    import leftSiferHtml from '../doc/layout/left-sider.html';
+    import leftSiferMd from '../doc/layout/left-sider.md';
+
     export default{
         data:function(){
             return {
-                linkName: '布局'
+                linkName: '布局',
+                noSiferHtml: noSiferHtml,
+                noSiferMd: noSiferMd,
+                leftSiferHtml: leftSiferHtml,
+                leftSiferMd: leftSiferMd
             }
         }
     }
