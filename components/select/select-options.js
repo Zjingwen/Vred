@@ -1,41 +1,40 @@
 
-var vuePopper = require("../util/vue-popper.js");
+let vuePopper = require('../util/vue-popper.js');
 
 module.exports = Vue.extend({
 
-    componentName: 'TSelectOptions',
+  componentName: 'TSelectOptions',
 
-    template: '<div class="t-select_options" :style="{minWidth: width }"><slot></slot></div>',
+  template: '<div class="t-select_options" :style="{minWidth: width }"><slot></slot></div>',
 
-    mixins: [vuePopper],
+  mixins: [vuePopper],
 
-    props: {
-        placement: {
-            default: 'bottom'
-        },
-        boundariesPadding: {
-            default: 0
-        }
+  props: {
+    placement: {
+      default: 'bottom',
     },
-
-    data: function() {
-        return {
-            width: ''
-        };
+    boundariesPadding: {
+      default: 0,
     },
+  },
 
-    watch: {
-        '$parent.inputWidth': function() {
-            this.width = this.$parent.$el.getBoundingClientRect().width + 'px';
-        }
+  data: function() {
+    return {
+      width: '',
+    };
+  },
+
+  watch: {
+    '$parent.inputWidth': function() {
+      this.width = this.$parent.$el.getBoundingClientRect().width + 'px';
     },
+  },
 
-    mounted: function(){
+  mounted: function() {
+    this.popperEl = this.$el;
+    this.referenceEl = this.$parent.$refs.referenceInput.$el;
 
-        this.popperEl = this.$el;
-        this.referenceEl = this.$parent.$refs.referenceInput.$el;
-
-        this.$on('updatePopper',this.updatePopper);
-        this.$on('destroyPopper',this.destroyPopper);
-    }
+    this.$on('updatePopper', this.updatePopper);
+    this.$on('destroyPopper', this.destroyPopper);
+  },
 });

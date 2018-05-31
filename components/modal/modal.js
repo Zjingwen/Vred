@@ -4,119 +4,117 @@
  * 使用
  */
 require('./modal.css');
-var template = require("./modal.html");
+let template = require('./modal.html');
 
 module.exports = Vue.extend({
 
-    componentName: 'TModal',
+  componentName: 'TModal',
 
-    template: template,
+  template: template,
 
-    props: {
-        value: Boolean,
+  props: {
+    value: Boolean,
 
-        title: String,
+    title: String,
 
-        customClass: String,
+    customClass: String,
 
-        top: String,
-        width: String,
-        height: String,
+    top: String,
+    width: String,
+    height: String,
 
-        innerScroll: {
-            type: Boolean,
-            default: false
-        },
-
-        lockScroll: {
-            type: Boolean,
-            default:true
-        },
-
-        modal: {
-            type: Boolean,
-            default:true
-        },
-        modalClose: {
-            type: Boolean,
-            default: true
-        },
-        size: {
-            type: String,
-            default: 'small'
-        }
+    innerScroll: {
+      type: Boolean,
+      default: false,
     },
 
-    data: function() {
-        return {
-            visible: false
-        };
+    lockScroll: {
+      type: Boolean,
+      default: true,
     },
 
-    mounted: function(){
-        //document.body.appendChild(this.$el);
+    modal: {
+      type: Boolean,
+      default: true,
     },
-
-    watch: {
-        value: function(val) {
-            this.visible = val;
-        },
-        visible: function(val) {
-
-            this.$emit('input', val);
-
-            if (val) {
-                this.$emit('open');
-
-                this.lockScroll?document.body.style.overflow = 'hidden':'';
-
-                this.$nextTick(function(){
-                    this.$refs.modal.scrollTop = 0;
-                }.bind(this));
-
-            } else {
-                this.$emit('close');
-                this.lockScroll?document.body.style.overflow = '':'';
-            }
-        }
+    modalClose: {
+      type: Boolean,
+      default: true,
     },
-
-    computed: {
-        'sizeClass': function(){
-            return 't-' + this.size;
-        },
-        'modalClass': function(){
-            return this.modal?'t-mask':'';
-        },
-        'scrollClass': function(){
-          return this.innerScroll?'t-scroll':'';
-        },
-        'style': function(){
-            var style = {};
-            if(this.width){
-                style['width'] = this.width;
-            }
-            if(this.height){
-                style['height'] = this.height;
-            }
-            if(this.top){
-                style['top'] = this.top;
-            }
-            return style;
-        }
+    size: {
+      type: String,
+      default: 'small',
     },
+  },
 
-    methods: {
-        //ok: function(){
-        //    this.visible = false;
-        //},
-        close: function(){
-            this.visible = false;
-        },
-        modalClickClose: function(){
-            if(this.modalClose){
-                this.visible = false;
-            }
-        }
-    }
+  data: function() {
+    return {
+      visible: false,
+    };
+  },
+
+  mounted: function() {
+    // document.body.appendChild(this.$el);
+  },
+
+  watch: {
+    value: function(val) {
+      this.visible = val;
+    },
+    visible: function(val) {
+      this.$emit('input', val);
+
+      if (val) {
+        this.$emit('open');
+
+        this.lockScroll?document.body.style.overflow = 'hidden':'';
+
+        this.$nextTick(function() {
+          this.$refs.modal.scrollTop = 0;
+        }.bind(this));
+      } else {
+        this.$emit('close');
+        this.lockScroll?document.body.style.overflow = '':'';
+      }
+    },
+  },
+
+  computed: {
+    'sizeClass': function() {
+      return 't-' + this.size;
+    },
+    'modalClass': function() {
+      return this.modal?'t-mask':'';
+    },
+    'scrollClass': function() {
+      return this.innerScroll?'t-scroll':'';
+    },
+    'style': function() {
+      let style = {};
+      if (this.width) {
+        style['width'] = this.width;
+      }
+      if (this.height) {
+        style['height'] = this.height;
+      }
+      if (this.top) {
+        style['top'] = this.top;
+      }
+      return style;
+    },
+  },
+
+  methods: {
+    // ok: function(){
+    //    this.visible = false;
+    // },
+    close: function() {
+      this.visible = false;
+    },
+    modalClickClose: function() {
+      if (this.modalClose) {
+        this.visible = false;
+      }
+    },
+  },
 });

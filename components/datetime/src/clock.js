@@ -1,12 +1,12 @@
 
-require("./clock.css");
-var template = require("./clock.html");
+require('./clock.css');
+let template = require('./clock.html');
 
 module.exports = {
 
     template: template,
 
-    data: function(){
+    data: function() {
       return {
           visible: false,
           format: 'HH:mm:ss',
@@ -20,46 +20,46 @@ module.exports = {
           minuteDial: [],
           secondDial: [],
           value: [],
-          svgNS: "http://www.w3.org/2000/svg"
-      }
+          svgNS: 'http://www.w3.org/2000/svg',
+      };
     },
 
-    mounted: function(){
+    mounted: function() {
         this.panelCreated();
 
-        if(this.svgSupported){
+        if (this.svgSupported) {
             this.canvasPointer();
         }
         this.setClockPointer();
     },
 
     watch: {
-        inputValue: function(val){
-            this.$emit("pick", val)
+        inputValue: function(val) {
+            this.$emit('pick', val);
         },
-        visible: function(val){
-            if(val){
+        visible: function(val) {
+            if (val) {
                 this.dial = 0;
                 this.currentTime();
-                this.setClockPointer()
+                this.setClockPointer();
             }
-        }
+        },
     },
 
     computed: {
 
-        inputValue: function(){
-            if(!Array.isArray(this.value)){
-                this.value = this.value == '' ? []: this.value.split(":");
+        inputValue: function() {
+            if (!Array.isArray(this.value)) {
+                this.value = this.value == '' ? []: this.value.split(':');
             }
-            return this.value.join(":")
+            return this.value.join(':');
         },
-        diameter: function(){
-            return this.dialRadius * 2
+        diameter: function() {
+            return this.dialRadius * 2;
         },
-        svgSupported: function(){
-            if('SVGAngle' in window){
-                var supported, el = document.createElement('div');
+        svgSupported: function() {
+            if ('SVGAngle' in window) {
+                let supported, el = document.createElement('div');
                 el.innerHTML = '<svg/>';
                 supported = (el.firstChild && el.firstChild.namespaceURI) == this.svgNS;
                 el.innerHTML = '';
@@ -67,46 +67,45 @@ module.exports = {
             }
             return false;
         },
-        isHour: function(){
+        isHour: function() {
             return this.dial == 0;
-        }
+        },
     },
 
     methods: {
 
-        createSvgElement: function (name) {
+        createSvgElement: function(name) {
             return document.createElementNS(this.svgNS, name);
         },
 
-        canvasPointer: function(){
-
-            var canvas = this.$refs.canvas;
-            var svg = this.createSvgElement('svg');
+        canvasPointer: function() {
+            let canvas = this.$refs.canvas;
+            let svg = this.createSvgElement('svg');
             svg.setAttribute('width', this.diameter);
             svg.setAttribute('height', this.diameter);
 
-            var g = this.createSvgElement('g');
+            let g = this.createSvgElement('g');
             g.setAttribute('transform', 'translate(' + this.dialRadius + ',' + this.dialRadius + ')');
 
-            var bearing = this.createSvgElement('circle');
+            let bearing = this.createSvgElement('circle');
             bearing.setAttribute('class', 't-clock_circle-center');
             bearing.setAttribute('cx', 0);
             bearing.setAttribute('cy', 0);
             bearing.setAttribute('r', 3);
 
-            var hand = this.createSvgElement('line');
+            let hand = this.createSvgElement('line');
             hand.setAttribute('x1', 0);
             hand.setAttribute('y1', 0);
-            //hand.setAttribute('x2', 0);
-            //hand.setAttribute('y2', this.outerRadius);
+            // hand.setAttribute('x2', 0);
+            // hand.setAttribute('y2', this.outerRadius);
 
-            var bg = this.createSvgElement('circle');
+            let bg = this.createSvgElement('circle');
             bg.setAttribute('class', 't-clock_circle-bg');
             bg.setAttribute('r', this.tickRadius);
             bg.setAttribute('cx', 0);
             bg.setAttribute('cy', this.outerRadius);
 
-            var fg = this.createSvgElement('circle');
+            let fg = this.createSvgElement('circle');
             fg.setAttribute('class', 't-clock_circle-fg');
             fg.setAttribute('r', 3.5);
             fg.setAttribute('cx', 0);
@@ -127,10 +126,10 @@ module.exports = {
             this.canvas = canvas;
         },
 
-        panelCreated: function(){
-            var radian, radius,num;
-            //hour
-            if(this.twelveHour){
+        panelCreated: function() {
+            let radian, radius, num;
+            // hour
+            if (this.twelveHour) {
                 for (var i = 1; i <= 12; i++) {
                     radian = i * 30 * Math.PI / 180;
                     radius = this.outerRadius;
@@ -138,11 +137,10 @@ module.exports = {
                     this.hourDial.push({
                         left: this.dialRadius + Math.sin(radian) * radius - this.tickRadius,
                         top: this.dialRadius - Math.cos(radian) * radius - this.tickRadius,
-                        num: i
-                    })
+                        num: i,
+                    });
                 }
-            }else{
-
+            } else {
                 for (var i = 0; i < 24; i++) {
                     radian = i * 15 * Math.PI / 180;
                     radius = this.outerRadius;
@@ -150,63 +148,62 @@ module.exports = {
                     this.hourDial.push({
                         left: this.dialRadius + Math.sin(radian) * radius - this.tickRadius,
                         top: this.dialRadius - Math.cos(radian) * radius - this.tickRadius,
-                        num: i === 0 ? '00' : i
-                    })
+                        num: i === 0 ? '00' : i,
+                    });
                 }
-
             }
-            //minute, second
-            for (var j = 0; j < 12; j ++) {
+            // minute, second
+            for (let j = 0; j < 12; j ++) {
                 radian = j * 30 * Math.PI / 180;
                 radius = this.outerRadius;
                 num = j*5;
                 this.minuteDial.push({
                     left: this.dialRadius + Math.sin(radian) * radius - this.tickRadius,
                     top: this.dialRadius - Math.cos(radian) * radius - this.tickRadius,
-                    num: num < 10 ? '0'+ num : num
+                    num: num < 10 ? '0'+ num : num,
                 });
-                if(this.showSecond){
+                if (this.showSecond) {
                     this.secondDial.push({
                         left: this.dialRadius + Math.sin(radian) * radius - this.tickRadius,
                         top: this.dialRadius - Math.cos(radian) * radius - this.tickRadius,
-                        num: num < 10 ? '0'+ num : num
-                    })
+                        num: num < 10 ? '0'+ num : num,
+                    });
                 }
             }
 
             this.currentTime();
         },
 
-        currentTime: function(){
-            var _hour,_minute,_second;
-            if(this.value.length > 0){
-                var date = this.value;
+        currentTime: function() {
+            let _hour, _minute, _second;
+            if (this.value.length > 0) {
+                let date = this.value;
                 _hour = Number(date[0]);
                 _minute = Number(date[1]);
                 _second = Number(date[2]);
-            }else{
-                var now = new Date();
+            } else {
+                let now = new Date();
                 _hour = now.getHours();
                 _minute = now.getMinutes();
                 _second = now.getSeconds();
             }
 
-            this.value[0] = _hour   < 10 ? '0'+ _hour   : _hour;
+            this.value[0] = _hour < 10 ? '0'+ _hour : _hour;
             this.value[1] = _minute < 10 ? '0'+ _minute : _minute;
-            if(this.showSecond)
-                this.value[2] = _second < 10 ? '0'+ _second : _second;
+            if (this.showSecond) {
+this.value[2] = _second < 10 ? '0'+ _second : _second;
+}
         },
 
-        setClockPointer: function(radian){
+        setClockPointer: function(radian) {
+            let radius = this.outerRadius;
 
-            var radius = this.outerRadius;
-
-            if(typeof radian == 'undefined'){
+            if (typeof radian == 'undefined') {
                 var unit = this.dial == 0 ? 15 : (this.dial < 3 ? 6 : 30),
                     radian = this.value[this.dial] * unit * Math.PI / 180;
             }
 
-            var cx = Math.sin(radian) * radius, cy = - Math.cos(radian) * radius;
+            let cx = Math.sin(radian) * radius, cy = - Math.cos(radian) * radius;
 
             this.hand.setAttribute('x2', cx);
             this.hand.setAttribute('y2', cy);
@@ -216,7 +213,7 @@ module.exports = {
             this.fg.setAttribute('cy', cy);
         },
 
-        setDial: function(dial){
+        setDial: function(dial) {
             this.dial = dial;
             this.setClockPointer();
         },
@@ -226,8 +223,8 @@ module.exports = {
          * @param e
          * @param space 数值之间的间隙
          */
-        tickMouseDown: function(e, space){
-            var plate = this.canvas.parentNode,
+        tickMouseDown: function(e, space) {
+            let plate = this.canvas.parentNode,
                 clockEl = this.$el,
                 isTouch = /^touch/.test(e.type),
                 // 圆心
@@ -244,42 +241,41 @@ module.exports = {
             }
             e.preventDefault();
 
-            var radian = Math.atan2(dx, -dy);
-            //console.log("_radian:",radian);
-            var unit = Math.PI / (this.isHour ? 12 : 30);
+            let radian = Math.atan2(dx, -dy);
+            // console.log("_radian:",radian);
+            let unit = Math.PI / (this.isHour ? 12 : 30);
 
             // Radian should in range [0, 2PI]
             if (radian < 0) {
                 radian = Math.PI * 2 + radian;
             }
             // Get the round value
-            var value = Math.round(radian / unit);
+            let value = Math.round(radian / unit);
             value = (this.dial == 0 && value == 24) || value == 60 ? 0 : value;
-            var _value = Number(value) < 10 ? '0' + value : value;
+            let _value = Number(value) < 10 ? '0' + value : value;
             this.value.splice(this.dial, 1, _value);
 
             radian = value * unit;
-            //console.log("_radian:",radian);
+            // console.log("_radian:",radian);
 
             this.setClockPointer(radian);
 
-            if((this.showSecond && this.dial < 2) || (!this.showSecond && this.dial < 1)){
-                setTimeout(function(){
+            if ((this.showSecond && this.dial < 2) || (!this.showSecond && this.dial < 1)) {
+                setTimeout(function() {
                     this.dial += 1;
                     this.setClockPointer();
                 }.bind(this), 0);
-            }else{
-
-                if(this.$options.autoClose){
-                    this.$emit("dodestroy");
+            } else {
+                if (this.$options.autoClose) {
+                    this.$emit('dodestroy');
                 }
             }
         },
 
-        gapMouseDown: function(e){
-            if(e.target.className !== 't-clock_tick'){
+        gapMouseDown: function(e) {
+            if (e.target.className !== 't-clock_tick') {
                 this.tickMouseDown(e, true);
             }
-        }
-    }
+        },
+    },
 };

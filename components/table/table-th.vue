@@ -5,17 +5,17 @@
 <style src='./table.css' lang="css" scoped></style>
 
 <script>
-    const prefixCls = 'v-table-th';
-    export default {
-        name: prefixCls,
-        computed:{
-            classs:function(){
-                let classs = [
-                    `${prefixCls}`
-                ];
+const prefixCls = 'v-table-th';
+export default {
+  name: prefixCls,
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+      ];
 
-                return classs;
-            }
-        }
-    }
+      return classs;
+    },
+  },
+};
 </script>

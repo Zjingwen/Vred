@@ -1,17 +1,15 @@
 
 function broadcast(componentName, eventName, params) {
-
-  for (var i = 0; i < this.$children.length; i++) {
-    var child = this.$children[i];
-    var name = child.$options.componentName;
+  for (let i = 0; i < this.$children.length; i++) {
+    let child = this.$children[i];
+    let name = child.$options.componentName;
 
     if (name === componentName) {
-      child.$emit.apply(child, [eventName].concat(params));
+      child.$emit(...[eventName].concat(params));
     } else {
       broadcast.apply(child, [componentName, eventName].concat([params]));
     }
   }
-
 }
 
 module.exports = {
@@ -19,8 +17,8 @@ module.exports = {
   methods: {
 
     dispatch: function(componentName, eventName, params) {
-      var parent = this.$parent || this.$root;
-      var name = parent.$options.componentName;
+      let parent = this.$parent || this.$root;
+      let name = parent.$options.componentName;
 
       while (parent && (!name || name !== componentName)) {
         parent = parent.$parent;
@@ -30,13 +28,13 @@ module.exports = {
         }
       }
       if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
+        parent.$emit(...[eventName].concat(params));
       }
     },
 
     broadcast: function(componentName, eventName, params) {
       broadcast.call(this, componentName, eventName, params);
-    }
-  }
+    },
+  },
 
 };

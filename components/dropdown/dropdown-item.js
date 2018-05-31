@@ -1,33 +1,32 @@
 
-var emitter = require("../mixins/emitter.js");
+let emitter = require('../mixins/emitter.js');
 
 module.exports = {
 
-    componentName: 'TDropdownItem',
+  componentName: 'TDropdownItem',
 
-    mixins: [emitter],
+  mixins: [emitter],
 
-    props: {
-        command: String,
-        disabled: Boolean,
-        divided: Boolean
+  props: {
+    command: String,
+    disabled: Boolean,
+    divided: Boolean,
+  },
+
+  methods: {
+    handleClick: function() {
+      this.dispatch('TDropdown', 'menu-item-click', [this.command, this]);
     },
+  },
 
-    methods:{
-        handleClick: function(){
-            this.dispatch('TDropdown', 'menu-item-click', [this.command, this]);
-        }
-    },
-
-    render: function(h){
-
-        return h('li',
-            {
-                class:{'t-dropdown_item': true},
-                on:{
-                    click: this.handleClick
-                }
-            },
-            [this.$slots.default]);
-    }
+  render: function(h) {
+    return h('li',
+      {
+        class: {'t-dropdown_item': true},
+        on: {
+          click: this.handleClick,
+        },
+      },
+      [this.$slots.default]);
+  },
 };

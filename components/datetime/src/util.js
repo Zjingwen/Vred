@@ -14,14 +14,14 @@ function isDate(date) {
  * time.format('y-m-d');    // "2014-7-3 "
  * time.format('m y');      // "July 2014"
  * @param str
- * @returns {*}
+ * @return {*}
  */
 function formatDate(str) {
-    var monthName = [
+    let monthName = [
             'January', 'February', 'March',
             'April', 'May', 'June',
             'July', 'Aguest', 'September',
-            'October', 'November', 'December'
+            'October', 'November', 'December',
         ],
         year = this.getFullYear(),
         month = this.getMonth(),
@@ -36,5 +36,5 @@ function formatDate(str) {
 
 module.exports = {
     isDate: isDate,
-    formatDate: formatDate
+    formatDate: formatDate,
 };

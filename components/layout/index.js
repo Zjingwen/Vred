@@ -4,4 +4,4 @@ import footer from './footer.vue';
 import layout from './layout.vue';
 import sider from './sider.vue';
 
-export { header,content,footer,layout,sider }
+export {header, content, footer, layout, sider};

@@ -1,20 +1,23 @@
-import col from './col/index';//列
-import row from './row/index';//行
+import col from './col/index';// 列
+import row from './row/index';// 行
 
-import { header, content, footer, layout, sider } from './layout/index';//布局
+import {header, content, footer, layout, sider} from './layout/index';// 布局
 
-import { table, thead, tbody, tr, th } from './table/index';//表单
+import {table, thead, tbody, tr, th} from './table/index';// 表单
 
-import { menu, menuItem, menuGroup, menuSub } from './menu/index';//导航栏
+import {menu, menuItem, menuGroup, menuSub} from './menu/index';// 导航栏
 
 
-import button from './button/index';//按钮
+import button from './button/index';// 按钮
 
-import tooltip from './tooltip/index';//第三方库，自动全局安装
+/**
+ * 第三方库，自动全局安装
+ */
+import tooltip from './tooltip/index';
 
-import exapmple from './exapmple/index';//例子展示
+import exapmple from './exapmple/index';// 例子展示
 
-var input = require("./input/input.js");
+let input = require('./input/input.js');
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
@@ -23,7 +26,6 @@ var input = require("./input/input.js");
 
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
-
 
 
 // var Checkbox = require("./checkbox/checkbox.js");
@@ -47,34 +49,27 @@ var input = require("./input/input.js");
 let components = {
     col,
     row,
-    
     header,
     content,
     footer,
     layout,
     sider,
-
     button,
     input,
-
     table,
     thead,
     tbody,
     tr,
     th,
-    
     exapmple,
-
     menu,
     menuItem,
     menuGroup,
-    menuSub
-}
+    menuSub,
+};
 
-
-
-function install(Vue){
-    Object.keys(components).forEach(value=>{
+function install(Vue) {
+    Object.keys(components).forEach( (value)=>{
         Vue.component('t-'+value, components[value]);
     });
     // Vue.component('t-select', Select);
@@ -103,10 +98,10 @@ function install(Vue){
     // Vue.component('t-date-picker', Date);
     // Vue.component('swiper', VueAwesomeSwiper.swiper);
     // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);
-}
+};
 
 
-if(window.Vue){
+if (window.Vue) {
     // window.infiniteScroll = InfiniteScroll;
     install(Vue);
 }

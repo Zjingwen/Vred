@@ -4,4 +4,4 @@ import tbody from './table-body.vue';
 import tr from './table-tr.vue';
 import th from './table-th.vue';
 
-export { table, thead, tbody, tr, th };
+export {table, thead, tbody, tr, th};

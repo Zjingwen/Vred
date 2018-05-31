@@ -3,18 +3,18 @@
 </template>
 <style lang="css" src='./index.css' scoped></style>
 <script>
-    const profixCls = 'v-menu-item';
+const profixCls = 'v-menu-item';
 
-    export default{
-        name: profixCls,
-        computed:{
-            classs:function(){
-                let classs = [
-                    `${profixCls}`
-                ];
+export default{
+  name: profixCls,
+  computed: {
+    classs: function() {
+      let classs = [
+        `${profixCls}`,
+      ];
 
-                return classs;
-            }
-        }
-    }
+      return classs;
+    },
+  },
+};
 </script>

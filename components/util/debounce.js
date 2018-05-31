@@ -1,6 +1,6 @@
 /* eslint-disable no-undefined */
 
-var throttle = require('./throttle');
+let throttle = require('./throttle');
 
 /**
  * Debounce execution of a function. Debouncing, unlike throttling,
@@ -16,6 +16,6 @@ var throttle = require('./throttle');
  *
  * @return {Function} A new, debounced function.
  */
-module.exports = function ( delay, atBegin, callback ) {
-	return callback === undefined ? throttle(delay, atBegin, false) : throttle(delay, callback, atBegin !== false);
+module.exports = function( delay, atBegin, callback ) {
+  return callback === undefined ? throttle(delay, atBegin, false) : throttle(delay, callback, atBegin !== false);
 };

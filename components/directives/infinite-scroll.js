@@ -2,214 +2,211 @@
  * https://github.com/ElemeFE/vue-infinite-scroll
  * @type {string}
  */
-var ctx = '$InfiniteScroll$';
+let ctx = '$InfiniteScroll$';
 
-var throttle = function (fn, delay) {
+let throttle = function(fn, delay) {
     var now, lastExec, timer, context, args; //eslint-disable-line
 
-    var execute = function () {
-        fn.apply(context, args);
-        lastExec = now;
-    };
+  let execute = function() {
+    fn.apply(context, args);
+    lastExec = now;
+  };
 
-    return function () {
-        context = this;
-        args = arguments;
+  return function() {
+    context = this;
+    args = arguments;
 
-        now = Date.now();
+    now = Date.now();
 
-        if (timer) {
-            clearTimeout(timer);
-            timer = null;
-        }
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
 
-        if (lastExec) {
-            var diff = delay - (now - lastExec);
-            if (diff < 0) {
-                execute();
-            } else {
-                timer = setTimeout(function(){
-                    execute();
-                }, diff);
-            }
-        } else {
-            execute();
-        }
-    };
+    if (lastExec) {
+      let diff = delay - (now - lastExec);
+      if (diff < 0) {
+        execute();
+      } else {
+        timer = setTimeout(function() {
+          execute();
+        }, diff);
+      }
+    } else {
+      execute();
+    }
+  };
 };
 
-var getScrollTop = function (element) {
-    if (element === window) {
-        return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
-    }
-    return element.scrollTop;
+let getScrollTop = function(element) {
+  if (element === window) {
+    return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
+  }
+  return element.scrollTop;
 };
 
-var getScrollEventTarget = function (element) {
-    var getComputedStyle = document.defaultView.getComputedStyle;
-    var currentNode = element;
-    // bugfix, see http://w3help.org/zh-cn/causes/SD9013 and http://stackoverflow.com/questions/17016740/onscroll-function-is-not-working-for-chrome
-    while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
-        var overflowY = getComputedStyle(currentNode).overflowY;
-        if (overflowY === 'scroll' || overflowY === 'auto') {
-            return currentNode;
-        }
-        currentNode = currentNode.parentNode;
+let getScrollEventTarget = function(element) {
+  let getComputedStyle = document.defaultView.getComputedStyle;
+  let currentNode = element;
+  // bugfix, see http://w3help.org/zh-cn/causes/SD9013 and http://stackoverflow.com/questions/17016740/onscroll-function-is-not-working-for-chrome
+  while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
+    let overflowY = getComputedStyle(currentNode).overflowY;
+    if (overflowY === 'scroll' || overflowY === 'auto') {
+      return currentNode;
     }
-    return window;
+    currentNode = currentNode.parentNode;
+  }
+  return window;
 };
 
 /**
  * 获取元素,可见高度
  * @param element
- * @returns {number}
+ * @return {number}
  */
-var getVisibleHeight = function (element) {
-    if (element === window) {
-        return document.documentElement.clientHeight;
-    }
-    return element.clientHeight;
+let getVisibleHeight = function(element) {
+  if (element === window) {
+    return document.documentElement.clientHeight;
+  }
+  return element.clientHeight;
 };
 
-var getElementTop = function (element) {
-    if (element === window) {
-        return getScrollTop(window);
-    }
-    return element.getBoundingClientRect().top + getScrollTop(window);
+let getElementTop = function(element) {
+  if (element === window) {
+    return getScrollTop(window);
+  }
+  return element.getBoundingClientRect().top + getScrollTop(window);
 };
 
-var isAttached = function (element) {
-    var currentNode = element.parentNode;
-    while (currentNode) {
-        if (currentNode.tagName === 'HTML') {
-            return true;
-        }
-        if (currentNode.nodeType === 11) {
-            return false;
-        }
-        currentNode = currentNode.parentNode;
+let isAttached = function(element) {
+  let currentNode = element.parentNode;
+  while (currentNode) {
+    if (currentNode.tagName === 'HTML') {
+      return true;
     }
-    return false;
+    if (currentNode.nodeType === 11) {
+      return false;
+    }
+    currentNode = currentNode.parentNode;
+  }
+  return false;
 };
 
-var doBind = function () {
+let doBind = function() {
     if (this.binded) return; // eslint-disable-line
-    this.binded = true;
+  this.binded = true;
 
-    var directive = this;
-    var element = directive.el;
+  let directive = this;
+  let element = directive.el;
 
-    directive.scrollEventTarget = getScrollEventTarget(element);
-    directive.scrollListener = throttle(doCheck.bind(directive), 250);
-    directive.scrollEventTarget.addEventListener('scroll', directive.scrollListener);
+  directive.scrollEventTarget = getScrollEventTarget(element);
+  directive.scrollListener = throttle(doCheck.bind(directive), 250);
+  directive.scrollEventTarget.addEventListener('scroll', directive.scrollListener);
 
-    var disabledExpr = element.getAttribute('infinite-scroll-disabled');
-    var disabled = false;
+  let disabledExpr = element.getAttribute('infinite-scroll-disabled');
+  let disabled = false;
 
-    if (disabledExpr) {
-        this.vm.$watch(disabledExpr, function(value) {
-            directive.disabled = value;
-            if (!value && directive.immediateCheck) {
-                doCheck.call(directive);
-            }
-        });
-        disabled = Boolean(directive.vm[disabledExpr]);
-    }
-    directive.disabled = disabled;
-
-    var distanceExpr = element.getAttribute('infinite-scroll-distance');
-    var distance = 0;
-    if (distanceExpr) {
-        distance = Number(directive.vm[distanceExpr] || distanceExpr);
-        if (isNaN(distance)) {
-            distance = 0;
-        }
-    }
-    directive.distance = distance;
-
-    // 立即执行检查
-    var immediateCheckExpr = element.getAttribute('infinite-scroll-immediate-check');
-    var immediateCheck = true;
-    if (immediateCheckExpr) {
-        immediateCheck = Boolean(directive.vm[immediateCheckExpr]);
-    }
-    directive.immediateCheck = immediateCheck;
-
-    if (immediateCheck) {
+  if (disabledExpr) {
+    this.vm.$watch(disabledExpr, function(value) {
+      directive.disabled = value;
+      if (!value && directive.immediateCheck) {
         doCheck.call(directive);
-    }
+      }
+    });
+    disabled = Boolean(directive.vm[disabledExpr]);
+  }
+  directive.disabled = disabled;
 
-    var eventName = element.getAttribute('infinite-scroll-listen-for-event');
-    if (eventName) {
-        directive.vm.$on(eventName, function() {
-            doCheck.call(directive);
-        });
+  let distanceExpr = element.getAttribute('infinite-scroll-distance');
+  let distance = 0;
+  if (distanceExpr) {
+    distance = Number(directive.vm[distanceExpr] || distanceExpr);
+    if (isNaN(distance)) {
+      distance = 0;
     }
+  }
+  directive.distance = distance;
+
+  // 立即执行检查
+  let immediateCheckExpr = element.getAttribute('infinite-scroll-immediate-check');
+  let immediateCheck = true;
+  if (immediateCheckExpr) {
+    immediateCheck = Boolean(directive.vm[immediateCheckExpr]);
+  }
+  directive.immediateCheck = immediateCheck;
+
+  if (immediateCheck) {
+    doCheck.call(directive);
+  }
+
+  let eventName = element.getAttribute('infinite-scroll-listen-for-event');
+  if (eventName) {
+    directive.vm.$on(eventName, function() {
+      doCheck.call(directive);
+    });
+  }
 };
 
-var doCheck = function (force) {
-    var scrollEventTarget = this.scrollEventTarget;
-    var element = this.el;
-    var distance = this.distance;
+var doCheck = function(force) {
+  let scrollEventTarget = this.scrollEventTarget;
+  let element = this.el;
+  let distance = this.distance;
 
     if (force !== true && this.disabled) return; //eslint-disable-line
-    var viewportScrollTop = getScrollTop(scrollEventTarget);
-    var viewportBottom = viewportScrollTop + getVisibleHeight(scrollEventTarget);
+  let viewportScrollTop = getScrollTop(scrollEventTarget);
+  let viewportBottom = viewportScrollTop + getVisibleHeight(scrollEventTarget);
 
-    var shouldTrigger = false;
+  let shouldTrigger = false;
 
-    if (scrollEventTarget === element) {
-        shouldTrigger = scrollEventTarget.scrollHeight - viewportBottom <= distance;
-    } else {
-        var elementBottom = getElementTop(element) - getElementTop(scrollEventTarget) + element.offsetHeight + viewportScrollTop;
+  if (scrollEventTarget === element) {
+    shouldTrigger = scrollEventTarget.scrollHeight - viewportBottom <= distance;
+  } else {
+    let elementBottom = getElementTop(element) - getElementTop(scrollEventTarget) + element.offsetHeight + viewportScrollTop;
 
-        shouldTrigger = viewportBottom + distance >= elementBottom;
-    }
+    shouldTrigger = viewportBottom + distance >= elementBottom;
+  }
 
-    if (shouldTrigger && this.expression) {
-        this.expression();
-    }
+  if (shouldTrigger && this.expression) {
+    this.expression();
+  }
 };
 
 module.exports = {
-    bind: function(el, binding, vnode) {
+  bind: function(el, binding, vnode) {
+    el[ctx] = {
+      el: el,
+      vm: vnode.context,
+      expression: binding.value,
+    };
 
-        el[ctx] = {
-            el:el,
-            vm: vnode.context,
-            expression: binding.value
-        };
+    let args = arguments;
 
-        var args = arguments;
+    el[ctx].vm.$on('hook:mounted', function() {
+      el[ctx].vm.$nextTick(function() {
+        if (isAttached(el)) {
+          doBind.call(el[ctx], args);
+        }
 
-        el[ctx].vm.$on('hook:mounted', function () {
-            el[ctx].vm.$nextTick(function () {
+        el[ctx].bindTryCount = 0;
 
-                if (isAttached(el)) {
-                    doBind.call(el[ctx], args);
-                }
-
-                el[ctx].bindTryCount = 0;
-
-                var tryBind = function() {
-
+        var tryBind = function() {
                     if (el[ctx].bindTryCount > 10) return; //eslint-disable-line
 
-                    el[ctx].bindTryCount++;
+          el[ctx].bindTryCount++;
 
-                    if (isAttached(el)) {
-                        doBind.call(el[ctx], args);
-                    } else {
-                        setTimeout(tryBind, 50);
-                    }
-                };
+          if (isAttached(el)) {
+            doBind.call(el[ctx], args);
+          } else {
+            setTimeout(tryBind, 50);
+          }
+        };
 
-                tryBind();
-            });
-        });
-    },
+        tryBind();
+      });
+    });
+  },
 
-    unbind: function(el) {
-        el[ctx].scrollEventTarget.removeEventListener('scroll', el[ctx].scrollListener);
-    }
+  unbind: function(el) {
+    el[ctx].scrollEventTarget.removeEventListener('scroll', el[ctx].scrollListener);
+  },
 };
