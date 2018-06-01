@@ -19,8 +19,8 @@
                     <br>
                     <t-button size='default' long>long</t-button>
                 </div>
-                <textarea slot="markdown" v-html="sizeMd"></textarea>
-                <textarea slot="code" v-html="sizeHtml"></textarea>
+                <div slot="markdown" v-html="sizeMd"></div>
+                <textarea slot="code" v-text="sizeHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>按钮-disabled</h1>
@@ -34,8 +34,8 @@
                     <br><br>
                     <t-button type='error'>error</t-button>
                 </div>
-                <textarea slot="markdown" v-html="typeMd"></textarea>
-                <textarea slot="code" v-html="typeHtml"></textarea>
+                <div slot="markdown" v-html="typeMd"></div>
+                <textarea slot="code" v-text="typeHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>按钮-htmlType</h1>
@@ -47,7 +47,7 @@
                     <br><br>
                     <t-button htmlType="reset">reset</t-button>
                 </div>
-                <textarea slot="markdown" v-html="htmlTypeMd"></textarea>
+                <div slot="markdown" v-html="htmlTypeMd"></div>
                 <textarea slot="code" v-html="htmlTypeHtml"></textarea>
             </t-exapmple>
             <br>
@@ -56,7 +56,7 @@
                 <div slot="view">
                     <t-button size='default' @click="handleClick('default')">click</t-button>
                 </div>
-                <textarea slot="markdown" v-html="clickMd"></textarea>
+                <div slot="markdown" v-html="clickMd"></div>
                 <textarea slot="code" v-html="clickHtml"></textarea>
             </t-exapmple>
         </contents>

@@ -1,11 +1,12 @@
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
+
 
 module.exports = {
   mode: 'development',
   entry: {
-    lanlanUI: path.resolve(__dirname, 'components/component.js'),
+    ui: path.resolve(__dirname, 'components/component.js'),
     index: path.resolve(__dirname, 'server/index.js'),
   },
   output: {
@@ -48,7 +49,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.css'],
+    extensions: ['*', '.js', '.css', '.vue'],
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),

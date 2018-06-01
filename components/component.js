@@ -1,5 +1,5 @@
 import col from './col/index';// 列
-import row from './row/index';// 行
+import row from './row/index';//   行
 
 import {header, content, footer, layout, sider} from './layout/index';// 布局
 
@@ -14,9 +14,10 @@ import button from './button/index';// 按钮
  */
 import './tooltip/index';
 
-import exapmple from './exapmple/index';// 例子展示
+import exapmple from './exapmple/index';// 例子展示, @TODO:jingwen 体积太大
 
-let input = require('./input/input.js');
+let input = require('./input/input.js');// 输入框
+
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");

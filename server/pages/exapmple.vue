@@ -8,7 +8,7 @@
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-            <textarea slot="markdown" v-text="info"></textarea>
+            <div slot="markdown" v-html="info"></div>
             <textarea slot="code" v-text="code"></textarea>
             </t-exapmple>
             <br/>
@@ -18,7 +18,7 @@
                         <t-col :span='24'>col</t-col>
                     </t-row>
                 </div>
-            <textarea slot="markdown" v-text="info"></textarea>
+            <div slot="markdown" v-html="info"></div>
             <textarea slot="code" v-text="code"></textarea>
             </t-exapmple>
         </contents>

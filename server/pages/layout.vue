@@ -13,8 +13,8 @@
                     </t-layout>
                     <t-footer>footer</t-footer>
                 </div>
-                <textarea slot="markdown" v-html="noSiferMd"></textarea>
-                <textarea slot="code" v-html="noSiferHtml"></textarea>
+                <div slot="markdown" v-html="noSiferMd"></div>
+                <textarea slot="code" v-text="noSiferHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>左sider</h1>
@@ -29,7 +29,7 @@
                     </t-layout>
                     <t-footer>footer</t-footer>
                 </div>
-                <textarea slot="markdown" v-html="leftSiferMd"></textarea>
+                <div slot="markdown" v-html="leftSiferMd"></div>
                 <textarea slot="code" v-html="leftSiferHtml"></textarea>
             </t-exapmple>
             <br>
@@ -45,8 +45,8 @@
                     </t-layout>
                     <t-footer>footer</t-footer>
                 </div>
-                <textarea slot="markdown" v-html="leftSiferMd"></textarea>
-                <textarea slot="code" v-html="leftSiferHtml"></textarea>
+                <div slot="markdown" v-html="leftSiferMd"></div>
+                <textarea slot="code" v-text="leftSiferHtml"></textarea>
             </t-exapmple>
             <br>
             <h1>右sider</h1>
@@ -61,8 +61,8 @@
                         </t-layout>
                     <t-footer>footer</t-footer>
                 </div>
-                <textarea slot="markdown" v-html="rightSiferMd"></textarea>
-                <textarea slot="code" v-html="rightSiferHtml"></textarea>
+                <div slot="markdown" v-html="rightSiferMd"></div>
+                <textarea slot="code" v-text="rightSiferHtml"></textarea>
             </t-exapmple>
             
         </contents>

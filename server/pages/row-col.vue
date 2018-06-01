@@ -5,81 +5,81 @@
             <h1>基础用法栅栏系统</h1>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
-                <t-row>
-                    <t-col :span='24'>col</t-col>
-                </t-row>
-                <br>
-                <t-row>
-                    <t-col :span='5'>col</t-col>
-                    <t-col :span='5'>col</t-col>
-                    <t-col :span='5'>col</t-col>
-                    <t-col :span='5'>col</t-col>
-                    <t-col :span='5'>col</t-col>
-                </t-row>
-                <br>
-                <t-row>
-                    <t-col :span='4'>col</t-col>
-                    <t-col :span='4'>col</t-col>
-                    <t-col :span='4'>col</t-col>
-                    <t-col :span='4'>col</t-col>
-                    <t-col :span='4'>col</t-col>
-                    <t-col :span='4'>col</t-col>
-                </t-row>
-                <br>
-                <t-row>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                    <t-col :span='3'>col</t-col>
-                </t-row>
-                <br>
-                <t-row>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                    <t-col :span='2'>col</t-col>
-                </t-row>
-                <br>
-                <t-row>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                    <t-col :span='1'>col</t-col>
-                </t-row>
+                    <t-row>
+                        <t-col :span='24'>col</t-col>
+                    </t-row>
+                    <br>
+                    <t-row>
+                        <t-col :span='5'>col</t-col>
+                        <t-col :span='5'>col</t-col>
+                        <t-col :span='5'>col</t-col>
+                        <t-col :span='5'>col</t-col>
+                        <t-col :span='5'>col</t-col>
+                    </t-row>
+                    <br>
+                    <t-row>
+                        <t-col :span='4'>col</t-col>
+                        <t-col :span='4'>col</t-col>
+                        <t-col :span='4'>col</t-col>
+                        <t-col :span='4'>col</t-col>
+                        <t-col :span='4'>col</t-col>
+                        <t-col :span='4'>col</t-col>
+                    </t-row>
+                    <br>
+                    <t-row>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                        <t-col :span='3'>col</t-col>
+                    </t-row>
+                    <br>
+                    <t-row>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                        <t-col :span='2'>col</t-col>
+                    </t-row>
+                    <br>
+                    <t-row>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                        <t-col :span='1'>col</t-col>
+                    </t-row>
                 </div>
-                <textarea slot="markdown" v-text="staticMd"></textarea>
+                <div slot="markdown" v-html="staticMd"></div>
                 <textarea slot="code" v-text="staticHtml"></textarea>
             </t-exapmple>
             <br>
@@ -95,7 +95,7 @@
                         <t-col :offset='6' :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="offsetMd"></textarea>
+                <div slot="markdown" v-html="offsetMd"></div>
                 <textarea slot="code" v-text="offsetHtml"></textarea>
             </t-exapmple>
             <br>
@@ -111,7 +111,7 @@
                         <t-col :span="4" style="background:none;"><div style="background:rgba(0, 117, 175, 0.9)">col</div></t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="gutterMd"></textarea>
+                <div slot="markdown" v-html="gutterMd"></div>
                 <textarea slot="code" v-text="gutterHtml"></textarea>
             </t-exapmple>
             <br>
@@ -171,7 +171,7 @@
                         <t-col :span='1'>col</t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="flexMd"></textarea>
+                <div slot="markdown" v-html="flexMd"></div>
                 <textarea slot="code" v-text="flexHtml"></textarea>
             </t-exapmple>
             <br>
@@ -241,7 +241,7 @@
                         <t-col :span='6'><div style="height: 80px;">col</div></t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="alignMd"></textarea>
+                <div slot="markdown" v-html="alignMd"></div>
                 <textarea slot="code" v-text="alignHtml"></textarea>
             </t-exapmple>
         </contents>

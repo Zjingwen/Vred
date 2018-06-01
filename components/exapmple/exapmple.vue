@@ -4,7 +4,7 @@
             <div ref="view" :class="[`${prefixCls}-view`]">
                 <slot name="view"></slot>
             </div>
-            <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown>
+            <pre ref="markdown" :class="[`${prefixCls}-markdown`]">
                 <slot name="markdown"></slot>
             </pre>
             <div :class="[`${prefixCls}-split`]"></div>
@@ -15,7 +15,7 @@
                 <div ref="view" :class="[`${prefixCls}-view`]">
                     <slot name="view"></slot>
                 </div>
-                <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown><slot name="markdown"></slot></pre>
+                <pre ref="markdown" :class="[`${prefixCls}-markdown`]"><slot name="markdown"></slot></pre>
             </div><div class="row">
                 <pre :class="[`${prefixCls}-code`]" v-highligh>
                     <slot name="code"></slot>
@@ -29,7 +29,6 @@
 <script>
 import {oneOf} from '../util/assist';
 import {highlight} from 'highlight.js';
-import showdown from 'showdown';
 import 'highlight.js/styles/solarized-light.css';
 
 let prefixCls = 't-exapmple';
@@ -41,15 +40,6 @@ export default {
       inserted: function(el, binding, vnode, oldVnode) {
         let block = highlight('html', el.querySelectorAll('textarea')[0].value);
         el.innerHTML = block.value;
-      },
-    },
-    showdown: {
-      inserted: function(el, binding, vnode, oldVnode) {
-        let converter = new showdown.Converter();
-        let block = el.querySelectorAll('textarea')[0].value;
-        let html = converter.makeHtml(block);
-
-        el.innerHTML = html;
       },
     },
   },

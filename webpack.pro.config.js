@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const NAME = require('./package.json').name;
+const PKG = require('./package.json');
 
 module.exports = {
   mode: 'production',
@@ -14,8 +14,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `${NAME}.min.js`,
-    library: NAME,
+    filename: `${PKG.name}.min.js`,
+    library: PKG.name,
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -44,7 +44,7 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: `${NAME}.min.css`,
+      filename: `${PKG.name}.min.css`,
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/,
