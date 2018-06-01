@@ -1,4 +1,3 @@
-
 module.exports = {
   on: (function() {
     if (document.addEventListener) {
@@ -33,7 +32,7 @@ module.exports = {
   })(),
 
   once: function(el, event, fn) {
-    var listener = function() {
+    let listener = function() {
       if (fn) {
         fn.apply(this, arguments);
       }

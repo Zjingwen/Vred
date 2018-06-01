@@ -1,7 +1,7 @@
 
 let instances = {};
 
-var PopupManager = {
+let PopupManager = {
   zIndex: 2000,
 
   getInstance: function(id) {

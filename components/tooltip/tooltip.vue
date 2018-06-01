@@ -111,8 +111,8 @@
 const profixCls = 't-tooltip';
 
 /**
-    * https://akryum.github.io/v-tooltip/
-    */
+* https://akryum.github.io/v-tooltip/
+*/
 import {VTooltip, VPopover, VClosePopover} from 'v-tooltip';
 
 Vue.component('t-popover', VPopover);
