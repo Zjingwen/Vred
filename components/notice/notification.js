@@ -40,7 +40,7 @@ function Notification(options) {
 Notification.close = function(id, userOnClose) {
   let index;
   let removedHeight;
-  for (var i = 0, len = instances.length; i < len; i++) {
+  for (let i = 0, len = instances.length; i < len; i++) {
     if (id === instances[i].id) {
       if (typeof userOnClose === 'function') {
         userOnClose(instances[i]);

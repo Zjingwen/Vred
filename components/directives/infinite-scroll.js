@@ -59,11 +59,6 @@ let getScrollEventTarget = function(element) {
   return window;
 };
 
-/**
- * 获取元素,可见高度
- * @param element
- * @return {number}
- */
 let getVisibleHeight = function(element) {
   if (element === window) {
     return document.documentElement.clientHeight;
@@ -147,7 +142,7 @@ let doBind = function() {
   }
 };
 
-var doCheck = function(force) {
+let doCheck = function(force) {
   let scrollEventTarget = this.scrollEventTarget;
   let element = this.el;
   let distance = this.distance;
@@ -189,8 +184,8 @@ module.exports = {
 
         el[ctx].bindTryCount = 0;
 
-        var tryBind = function() {
-                    if (el[ctx].bindTryCount > 10) return; //eslint-disable-line
+        let tryBind = function() {
+          if (el[ctx].bindTryCount > 10) return; //eslint-disable-line
 
           el[ctx].bindTryCount++;
 

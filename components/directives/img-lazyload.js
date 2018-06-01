@@ -1,7 +1,6 @@
-
-let DEFAULT_URL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-  LOADING_URL = 'http://oss2.lanlanlife.com/77dcc7918b7ecdc1f841709c38f1546b_28x28.gif',
-  DEFAULT_EVENTS = ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove'];
+const DEFAULT_URL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+const LOADING_URL = 'http://oss2.lanlanlife.com/77dcc7918b7ecdc1f841709c38f1546b_28x28.gif';
+const DEFAULT_EVENTS = ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove'];
 
 let _ = {
   on: function(el, type, func) {
@@ -15,7 +14,7 @@ let _ = {
 function find(arr, el) {
   let item;
   for (let i = 0, len = arr.length; i < len; i++) {
-    if (arr[i].el == el) {
+    if (arr[i].el === el) {
       item = arr[i];
       break;
     }
@@ -29,7 +28,8 @@ function remove(arr, item) {
 }
 
 function throttle(action, delay) {
-  let timeout = null, lastRun = 0;
+  let timeout = null;
+  let lastRun = 0;
   return function() {
     if (timeout) return;
     let elapsed = Date.now() - lastRun;
@@ -105,14 +105,14 @@ Listeners.prototype.checkInView = function() {
   this.getRect();
   let inView;
 
-  if (this.$parent != window) {
+  if (this.$parent !== window) {
     let pRect = this.$parent.getBoundingClientRect();
-    let _top = this.rect.top > pRect.top && pRect.bottom > this.rect.top,
-      _left = this.rect.left > pRect.left && pRect.right > this.rect.left;
+    let _top = this.rect.top > pRect.top && pRect.bottom > this.rect.top;
+    let _left = this.rect.left > pRect.left && pRect.right > this.rect.left;
     inView = _top && _left;
   } else {
-    let topBottom = this.rect.top < window.innerHeight * this.preLoad && this.rect.bottom > 0,
-      leftRight = this.rect.left < window.innerWidth * this.preLoad && this.rect.right > 0;
+    let topBottom = this.rect.top < window.innerHeight * this.preLoad && this.rect.bottom > 0;
+    let leftRight = this.rect.left < window.innerWidth * this.preLoad && this.rect.right > 0;
     inView = topBottom && leftRight;
   }
   return inView;
@@ -232,8 +232,8 @@ let Lazy = (function() {
     let value = handleValue(binding.value);
 
     Vue.nextTick(function() {
-      let container = Object.keys(binding.modifiers)[0],
-        $parent; // 支持 指定的 ref, id 来标记夫节点
+      let container = Object.keys(binding.modifiers)[0];
+      let $parent; // 支持 指定的 ref, id 来标记夫节点
 
       if (container) {
         $parent = vnode.context.$refs[container];

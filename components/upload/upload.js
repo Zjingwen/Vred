@@ -60,7 +60,7 @@ let upload = Vue.extend({
     // 一个计算属性的 getter
     class_: function() {
       // `this` 指向 vm 实例
-      return this.type == 'single'?'single':'double';
+      return this.type === 'single'?'single':'double';
     },
   },
   components: {
@@ -83,26 +83,24 @@ let upload = Vue.extend({
         };
       }
 
-      $('#'+id).fileupload(
-        {
-          'url': uploadHost+'/writer/util/upload',
-          'dataType': 'json',
-          'sequentialUploads': true,
-          'formData': imageFormData,
-          'xhrFields': {withCredentials: true},
-          'add': function(e, data) {
-            vm.uploadStatus = '( 图片上传中... )';
-            data.submit();
-          },
-        }
-      ).bind('fileuploaddone', function(e, data) {
+      $('#'+id).fileupload({
+        'url': uploadHost+'/writer/util/upload',
+        'dataType': 'json',
+        'sequentialUploads': true,
+        'formData': imageFormData,
+        'xhrFields': {withCredentials: true},
+        'add': function(e, data) {
+          vm.uploadStatus = '( 图片上传中... )';
+          data.submit();
+        },
+      }).bind('fileuploaddone', function(e, data) {
         let json = data.result;
         vm.uploadStatus = '(完成)';
         if (json == null) {
 
         } else {
           let code = json.status.code;
-          if (code == 1001) {
+          if (code === 1001) {
             vm.image.src = json.result.src;
             vm.image.key = json.result.key;
           } else {
@@ -126,7 +124,7 @@ let upload = Vue.extend({
         self.coordinateH = c.h;
       }
 
-      $('#'+imgId).Jcrop({
+      $('#'+imgId).jcrop({
         onChange: showCoords,
         onSelect: showCoords,
         boxWidth: 750,
@@ -139,14 +137,15 @@ let upload = Vue.extend({
     },
     transformImageInit: function() {
       let self = this;
-      let imageObj1, imageObj2;
+      let imageObj1;
+      let imageObj2;
       // var coordinateLTX,coordinateLTY,coordinateW,coordinateH;
-      if (this.statu == 'image2') {
-        var itemsComponent = vm.$refs.doubleImageRef;
+      if (this.statu === 'image2') {
+        let itemsComponent = vm.$refs.doubleImageRef;
         imageObj1 = itemsComponent.double.images[0];
         imageObj2 = itemsComponent.double.images[1];
       } else {
-        var itemsComponent = vm.$refs.itemsRef;
+        let itemsComponent = vm.$refs.itemsRef;
         imageObj1 = itemsComponent.image[0];
         imageObj2 = itemsComponent.image[1];
       }
@@ -165,7 +164,10 @@ let upload = Vue.extend({
 
       let rate1 = _img1W/_img1H;
       let rate2 = _img2W/_img2H;
-      let w, h, x, y;
+      let w;
+      let h;
+      let x;
+      let y;
       // 裁剪第一张
       if (imageObj1.src === this.image.src) {
         // 宽度固定
@@ -176,7 +178,7 @@ let upload = Vue.extend({
           y = 0;
         }
 
-        if (rate1 == rate2) {
+        if (rate1 === rate2) {
           h = _img1H;
           w = _img1W;
           x = 0;
@@ -200,7 +202,7 @@ let upload = Vue.extend({
           y = 0;
         }
 
-        if (rate2 == rate1) {
+        if (rate2 === rate1) {
           h = _img2H;
           w = _img2W;
           x = 0;
@@ -222,18 +224,18 @@ let upload = Vue.extend({
     },
     handleImage: function(handleType) {
       let uploadHost = 'http://upload.lanlanlife.com';
-      this.url = handleType == 'blur' ? uploadHost+'/writer/util/blurImage': uploadHost+'/writer/util/cut';
+      this.url = handleType === 'blur' ? uploadHost+'/writer/util/blurImage': uploadHost+'/writer/util/cut';
 
-      if (this.image.src == '') {
+      if (this.image.src === '') {
         alert('请先上传图片,再进行相关操作!');
         return;
       }
 
-      if (handleType == 'cut' || handleType == 'blur') {
+      if (handleType === 'cut' || handleType === 'blur') {
         $('body').css('overflow', 'hidden');
         this.show = true;
         this.imageCutBlurInit();
-      } else if (handleType == 'transform') {
+      } else if (handleType === 'transform') {
         this.transformImageInit();
         this.request();
       }
@@ -264,7 +266,7 @@ let upload = Vue.extend({
           } else {
             let code = json.status.code;
 
-            if (code == 1001) {
+            if (code === 1001) {
               vm.image.src = json.result.imageSrc;
               vm.image.key = json.result.imageKey;
 

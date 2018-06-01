@@ -6,7 +6,7 @@
 </template>
 <style lang="css" src='./index.css' scoped></style>
 <script>
-import {findComponentUpward, findComponentsDownward} from '../util/assist';
+import {findComponentUpward} from '../util/assist';
 const profixCls = 'v-menu-item-sub';
 
 export default{

@@ -1,7 +1,7 @@
 <template>
     <table cellspacing="0" cellpadding="0" border="0" :class="classs">
         <colgroup>
-            <col v-for='(item,index) in width' :key='index' :width='item'></col>
+            <col v-for='(item,index) in width' :key='index' :width='item' />
         </colgroup>
         <slot></slot>
     </table>

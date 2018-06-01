@@ -36,7 +36,6 @@ module.exports = {
         name: 'show',
         value: this.showPopper,
       }],
-    }, [this.$slots.default]
-    );
+    }, [this.$slots.default]);
   },
 };

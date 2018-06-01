@@ -62,7 +62,7 @@ module.exports = Vue.extend({
         if (!this.$el || !reference ||
                     this.$el.contains(e.target) ||
                     reference.contains(e.target) ||
-                    !popper || popper.contains(e.target) || e.target.nodeName == 'TD'
+                    !popper || popper.contains(e.target) || e.target.nodeName === 'TD'
         ) return;
         this.showPopper = false;
       }.bind(this));

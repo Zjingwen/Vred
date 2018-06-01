@@ -61,7 +61,7 @@ export default {
 
       classs = [
         [`${prefixCls}-type-`+this.type],
-        this.size != 'auto' ? [`${prefixCls}-size-`+this.size] : '',
+        this.size !== 'auto' ? [`${prefixCls}-size-`+this.size] : '',
         this.long ? [`${prefixCls}-size-long`] : '',
       ];
 
@@ -69,9 +69,9 @@ export default {
     },
     style: function() {
       let style = {
-        width: this.size == 'auto' ? this.width+'px' : '',
-        height: this.size == 'auto' ? this.height+'px' : '',
-        lineHeight: this.size == 'auto' ? this.height+'px' : '',
+        width: this.size === 'auto' ? this.width+'px' : '',
+        height: this.size === 'auto' ? this.height+'px' : '',
+        lineHeight: this.size === 'auto' ? this.height+'px' : '',
       };
 
       return style;

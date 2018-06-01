@@ -145,7 +145,7 @@ module.exports = Vue.extend({
           this.selectedLabel = option.label;
           this.$emit('input', option.value);
         }
-        if (this.value == '') {
+        if (this.value === '') {
           this.selected = '';
           this.selectedLabel = '';
           this.$emit('input', '');
@@ -154,14 +154,14 @@ module.exports = Vue.extend({
     },
 
     navigateOptions: function(direction) {
-      if (direction == 'next') {
+      if (direction === 'next') {
         this.hoverIndex++;
-        if (this.hoverIndex == this.options.length) {
+        if (this.hoverIndex === this.options.length) {
           this.hoverIndex = 0;
         }
       }
 
-      if (direction == 'prev') {
+      if (direction === 'prev') {
         this.hoverIndex--;
         if (this.hoverIndex < 0) {
           this.hoverIndex = this.options.length - 1;

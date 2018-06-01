@@ -8,18 +8,14 @@
                 <slot name="markdown"></slot>
             </pre>
             <div :class="[`${prefixCls}-split`]"></div>
-            <pre :class="[`${prefixCls}-code`]" v-highligh>
-<slot name="code"></slot>
-            </pre>
+            <pre :class="[`${prefixCls}-code`]" v-highligh><slot name="code"></slot></pre>
         </div>
         <div :class="[`${prefixCls}-frome`]" v-else>
             <div class="row">
                 <div ref="view" :class="[`${prefixCls}-view`]">
                     <slot name="view"></slot>
                 </div>
-                <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown>
-<slot name="markdown"></slot>
-                </pre>
+                <pre ref="markdown" :class="[`${prefixCls}-markdown`]" v-showdown><slot name="markdown"></slot></pre>
             </div><div class="row">
                 <pre :class="[`${prefixCls}-code`]" v-highligh>
                     <slot name="code"></slot>
@@ -82,7 +78,7 @@ export default {
       const viewHeight = this.$refs['view'].offsetHeight+40;
       const markdownHeight = this.$refs['markdown'].offsetHeight;
 
-      if (this.mode == 'horizontal') {
+      if (this.mode === 'horizontal') {
         this.styleHeigiht = viewHeight + markdownHeight +34;
         this.staticHeight = viewHeight + markdownHeight +34;
       } else {
@@ -108,7 +104,7 @@ export default {
       style.overflow = 'hidden';
       style.paddingBottom = '40px';
 
-      style.height = typeof this.staticHeight == 'number' ?
+      style.height = typeof this.staticHeight === 'number' ?
         `${this.staticHeight}px` : this.staticHeight;
 
       return style;
@@ -116,7 +112,7 @@ export default {
   },
   methods: {
     moreHandle: function() {
-      if (this.staticHeight == 'auto') {
+      if (this.staticHeight === 'auto') {
         this.staticHeight = this.styleHeigiht;
       } else {
         this.staticHeight = 'auto';

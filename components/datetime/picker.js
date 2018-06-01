@@ -3,7 +3,6 @@ let template = require('./picker.html');
 
 let vuePopper = require('../util/vue-popper.js');
 let Clickoutside = require('../directives/clickoutside.js');
-let util = require('./src/util.js');
 
 module.exports = {
 

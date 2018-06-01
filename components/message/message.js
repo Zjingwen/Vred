@@ -36,7 +36,7 @@ module.exports = {
   computed: {
     typeImg: function() {
       // 暂时 不显示其他 img
-      if (this.type != 'success') return '';
+      if (this.type !== 'success') return '';
       return this.typeMap[this.type];
     },
   },

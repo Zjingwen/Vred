@@ -1,4 +1,3 @@
-<template></template>
 <style lang="css">
     .tooltip {
         display: inline-block !important;
@@ -108,7 +107,7 @@
     }
 </style>
 <script>
-const profixCls = 't-tooltip';
+// const profixCls = 't-tooltip';
 
 /**
 * https://akryum.github.io/v-tooltip/
