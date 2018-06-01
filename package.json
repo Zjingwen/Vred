@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.pro.config.js",
     "server": "webpack-dev-server --inline --open --config webpack.dev.config.js",
     "dev": "concurrently \"npm run watch\" \"npm run server\"",
-    "line": "eslint --ext components/**/*.{js,vue}"
+    "line": "eslint --ext components/**/*.{js,vue}",
+    "test": "npm run line"
   },
   "author": "",
   "license": "ISC",
