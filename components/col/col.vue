@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style src='./col.css' lang='stylus' scoped></style>
+<style src='./col.css' lang='css'></style>
 
 <script>
 import {findComponentUpward} from '../util/assist';

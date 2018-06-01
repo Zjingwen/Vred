@@ -1,7 +1,7 @@
 <template>
     <div  :class="classs" :style="style"><slot></slot></div>
 </template>
-<style lang='css' scoped>
+<style lang='css'>
     .v-content{
         flex: auto;
     }

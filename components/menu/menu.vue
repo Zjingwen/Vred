@@ -3,7 +3,7 @@
         <slot></slot>
     </ul>
 </template>
-<style lang="css" src='./index.css' scoped></style>
+<style src='./index.css' lang='css'></style>
 <script>
 import {oneOf, findComponentsDownward} from '../util/assist';
 

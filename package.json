@@ -1,8 +1,8 @@
 {
-  "name": "vue-component",
+  "name": "vred",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "description": "基于vue and 抄袭各种其他库的库",
+  "main": "dist/vred.min.js",
   "scripts": {
     "watch": "webpack -w --config webpack.dev.config.js",
     "build": "webpack --config webpack.pro.config.js",
@@ -22,8 +22,11 @@
     "highlight.js": "^9.12.0",
     "html-loader": "^0.5.5",
     "markdown-loader": "^2.0.2",
+    "mini-css-extract-plugin": "^0.4.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.2",
     "showdown": "^1.8.6",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "v-tooltip": "^2.0.0-rc.32",
     "vue": "^2.5.16",
     "vue-eslint-parser": "^2.0.3",

@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     lanlanUI: path.resolve(__dirname, 'components/component.js'),
-    index: path.resolve(__dirname,'server/index.js')
+    index: path.resolve(__dirname, 'server/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'server/lib'),

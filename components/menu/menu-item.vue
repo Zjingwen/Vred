@@ -1,7 +1,7 @@
 <template>
     <div :class='classs'><slot></slot></div>
 </template>
-<style lang="css" src='./index.css' scoped></style>
+<style src='./index.css' lang='css'></style>
 <script>
 const profixCls = 'v-menu-item';
 

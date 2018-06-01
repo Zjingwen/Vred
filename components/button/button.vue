@@ -8,7 +8,7 @@
         @click="handleClick"
     ><span><slot></slot></span></button>
 </template>
-<style src='./button.css' scoped lang="css"></style>
+<style src='./button.css' lang="css"></style>
 <script>
 import {oneOf} from '../util/assist';
 

@@ -4,7 +4,7 @@
         <slot></slot>
     </li>
 </template>
-<style lang="css" src='./index.css' scoped></style>
+<style src='./index.css' lang="css"></style>
 <script>
 import {findComponentUpward} from '../util/assist';
 const profixCls = 'v-menu-item-sub';

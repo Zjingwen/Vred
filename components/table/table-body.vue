@@ -2,7 +2,7 @@
     <tbody :class="classs"><slot></slot></tbody>
 </template>
 
-<style src='./table.css' lang="css" scoped></style>
+<style src='./table.css' lang="css"></style>
 
 <script>
 const prefixCls = 'v-table-body';

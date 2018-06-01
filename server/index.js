@@ -8,23 +8,23 @@ Vue.config.devtools = true;
 Vue.use(VueRouter);
 
 const components = {
-    contents,
-    headers,
-    footers
-}
+  contents,
+  headers,
+  footers,
+};
 
-function install(Vue){
-    Object.keys(components).forEach(value=>{
-        Vue.component(value, components[value]);
-    });
+function install(Vue) {
+  Object.keys(components).forEach((value)=>{
+    Vue.component(value, components[value]);
+  });
 }
 
 install(Vue);
 
-var router = new VueRouter({
-    routes
-})
+let router = new VueRouter({
+  routes,
+});
 
-const app = new Vue({
-    router
-}).$mount('#app')
+new Vue({
+  router,
+}).$mount('#app');

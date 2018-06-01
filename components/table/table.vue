@@ -7,7 +7,7 @@
     </table>
 </template>
 
-<style src='./table.css' lang="css" scoped></style>
+<style src='./table.css' lang="css"></style>
 
 <script>
 import {findComponentDownward} from '../util/assist.js';

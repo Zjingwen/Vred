@@ -5,7 +5,7 @@
         </div>
     </div>
 </template>
-<style lang='css' scoped>
+<style lang='css'>
     .v-header{
         width: 100%;
     }

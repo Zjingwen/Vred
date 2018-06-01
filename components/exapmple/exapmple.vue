@@ -25,7 +25,7 @@
         <div v-if='more' class="more" @click='moreHandle'>↑</div>
     </div>
 </template>
-<style src='./exapmple.css' scoped></style>
+<style src='./exapmple.css' lang='css'></style>
 <script>
 import {oneOf} from '../util/assist';
 import {highlight} from 'highlight.js';

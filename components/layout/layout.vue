@@ -1,7 +1,7 @@
 <template>
     <div :style="style" :class="classs"><slot></slot></div>
 </template>
-<style lang='css' scoped>
+<style lang='css'>
     .v-layout{
         display: flex;
         flex-direction: column;

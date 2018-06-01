@@ -2,7 +2,7 @@
     <th><div><span :class='classs'><slot></slot></span></div></th>
 </template>
 
-<style src='./table.css' lang="css" scoped></style>
+<style src='./table.css' lang="css"></style>
 
 <script>
 const prefixCls = 'v-table-th';
