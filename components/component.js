@@ -14,7 +14,10 @@ import button from './button/index';// 按钮
  */
 import './tooltip/index';
 
-import exapmple from './exapmple/index';// 例子展示, @TODO:jingwen 体积太大
+/**
+ * @TODO:jingwen exapmple组件体积太大
+ */
+import exapmple from './exapmple/index'; //例子展示
 
 let input = require('./input/input.js');// 输入框
 

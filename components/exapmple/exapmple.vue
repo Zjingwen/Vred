@@ -1,5 +1,5 @@
 <template>
-    <div :class="classs" :style="style">
+    <div :class='classs' :style='style'>
         <div v-if='mode == "horizontal"'>
             <div ref="view" :class="[`${prefixCls}-view`]">
                 <slot name="view"></slot>
@@ -55,7 +55,7 @@ export default {
       type: String,
       default: 'horizontal',
       validator: function(val) {
-        return oneOf(val, ['horizontal', 'vertical']);// horizontal（水平） 和 vertical（垂直）
+        return oneOf(val, ['horizontal', 'vertical']); // horizontal（水平） 和 vertical（垂直）
       },
     },
     more: {
@@ -65,12 +65,12 @@ export default {
   },
   mounted: function() {
     if (this.more) {
-      const viewHeight = this.$refs['view'].offsetHeight+40;
+      const viewHeight = this.$refs['view'].offsetHeight + 40;
       const markdownHeight = this.$refs['markdown'].offsetHeight;
 
       if (this.mode === 'horizontal') {
-        this.styleHeigiht = viewHeight + markdownHeight +34;
-        this.staticHeight = viewHeight + markdownHeight +34;
+        this.styleHeigiht = viewHeight + markdownHeight + 34;
+        this.staticHeight = viewHeight + markdownHeight + 34;
       } else {
         this.styleHeigiht = viewHeight + markdownHeight;
         this.staticHeight = viewHeight + markdownHeight;
@@ -79,10 +79,7 @@ export default {
   },
   computed: {
     classs: function() {
-      let classs = [
-        `${prefixCls}`,
-        `${prefixCls}-${this.mode}`,
-      ];
+      let classs = [`${prefixCls}`, `${prefixCls}-${this.mode}`];
 
       return classs;
     },
@@ -94,8 +91,10 @@ export default {
       style.overflow = 'hidden';
       style.paddingBottom = '40px';
 
-      style.height = typeof this.staticHeight === 'number' ?
-        `${this.staticHeight}px` : this.staticHeight;
+      style.height =
+        typeof this.staticHeight === 'number'
+          ? `${this.staticHeight}px`
+          : this.staticHeight;
 
       return style;
     },
@@ -111,4 +110,3 @@ export default {
   },
 };
 </script>
-

@@ -1,0 +1,13 @@
+#### tootip的基础用法
+* 上左:v-tooltip.top-start
+* 上中:v-tooltip.top
+* 上右:v-tooltip.top-end
+* 左上:v-tooltip.left-start
+* 右上:v-tooltip.right-start
+* 左中:v-tooltip.left
+* 右中:v-tooltip.right
+* 左下:v-tooltip.left-end
+* 右下:v-tooltip.right
+* 下左:v-tooltip.bottom-start
+* 下中:v-tooltip.bottom
+* 下右:v-tooltip.bottom-end
