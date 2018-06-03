@@ -2,83 +2,86 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <!-- <h1>tooltip提示基础用用法</h1>
+            <h1>tooltip提示基础用用法</h1>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.top-start="msg">上左</t-button>
+                            <t-tooltip content='top-start' placement='top-start'>
+                                <t-button size='tiny'>上左</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.top="msg">上中</t-button>
+                            <t-tooltip content='top' placement='top'>
+                                <t-button size='tiny'>上中</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.top-end="msg">上右</t-button>
-                        </t-col>
-                    </t-row>
-                    <t-row type='flex' justify='space-between' class='mb10-ce'>
-                        <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.left-start="msg">左上</t-button>
-                        </t-col>
-                        <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.right-start="msg">右上</t-button>
+                            <t-tooltip content='top-end' placement='top-end'>
+                                <t-button size='tiny'>上右</t-button>
+                            </t-tooltip>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.left="msg">左中</t-button>
+                            <t-tooltip content='left-start' placement='left-start'>
+                                <t-button size='tiny'>左上</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.right="msg">右中</t-button>
+                            <t-tooltip content='right-start' placement='right-start'>
+                                <t-button size='tiny'>右上</t-button>
+                            </t-tooltip>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.left-end="msg">左下</t-button>
+                            <t-tooltip content='left' placement='left'>
+                                <t-button size='tiny'>右上</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.right-end="msg">右下</t-button>
+                            <t-tooltip content='right' placement='right'>
+                                <t-button size='tiny'>右中</t-button>
+                            </t-tooltip>
+                        </t-col>
+                    </t-row>
+                    <t-row type='flex' justify='space-between' class='mb10-ce'>
+                        <t-col :span='5'>
+                            <t-tooltip content='left-end' placement='left-end'>
+                                <t-button size='tiny'>左下</t-button>
+                            </t-tooltip>
+                        </t-col>
+                        <t-col :span='5'>
+                            <t-tooltip content='right-end' placement='right-end'>
+                                <t-button size='tiny'>右下</t-button>
+                            </t-tooltip>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='center' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.bottom-start="msg">下左</t-button>
+                            <t-tooltip content='bottom-start' placement='bottom-start'>
+                                <t-button size='tiny'>下左</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.bottom="msg">下中</t-button>
+                            <t-tooltip content='bottom' placement='bottom'>
+                                <t-button size='tiny'>下中</t-button>
+                            </t-tooltip>
                         </t-col>
                         <t-col :span='5'>
-                            <t-button size='tiny' v-tooltip.bottom-end="msg">下右</t-button>
+                            <t-tooltip content='bottom-end' placement='bottom-end'>
+                                <t-button size='tiny'>下右</t-button>
+                            </t-tooltip>
                         </t-col>
                     </t-row>
                 </div>
                 <div slot="markdown" v-html="tooltipMd"></div>
                 <textarea slot="code" v-html="tooltipHtml"></textarea>
             </t-exapmple>
-            <br>
-            <h1>loadingContent</h1>
-            <t-button size='tiny'
-                v-tooltip='loading'
-            >loading</t-button>
-            <br>
-            <h1>控制显示隐藏</h1>
-            <t-row>
-                <t-col :span='24'>
-                    <t-button size='tiny'
-                        v-tooltip="{
-                            content: msg,
-                            show: isOpen,
-                            trigger: 'manual',
-                            placement: 'top'    
-                        }"
-                    >控制显示隐藏</t-button>
-                </t-col>
-                <t-col :span='24'>
-                    show:&nbsp;<input type="radio" name="open" v-model='isOpen' :value="true"/>
-                    hide:<input type="radio" name="open" v-model='isOpen' :value="false"/>
-                </t-col>
-            </t-row> -->
-            <t-tooltip></t-tooltip>
+            <!-- <t-tooltip content='tooltip-test'>
+                <t-button size='tiny'>test</t-button>
+            </t-tooltip> -->
         </contents>
         <footers></footers>
     </div>
