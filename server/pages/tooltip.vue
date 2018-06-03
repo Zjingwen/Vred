@@ -2,7 +2,7 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <h1>tooltip提示基础用用法</h1>
+            <!-- <h1>tooltip提示基础用用法</h1>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
@@ -56,6 +56,29 @@
                 <textarea slot="code" v-html="tooltipHtml"></textarea>
             </t-exapmple>
             <br>
+            <h1>loadingContent</h1>
+            <t-button size='tiny'
+                v-tooltip='loading'
+            >loading</t-button>
+            <br>
+            <h1>控制显示隐藏</h1>
+            <t-row>
+                <t-col :span='24'>
+                    <t-button size='tiny'
+                        v-tooltip="{
+                            content: msg,
+                            show: isOpen,
+                            trigger: 'manual',
+                            placement: 'top'    
+                        }"
+                    >控制显示隐藏</t-button>
+                </t-col>
+                <t-col :span='24'>
+                    show:&nbsp;<input type="radio" name="open" v-model='isOpen' :value="true"/>
+                    hide:<input type="radio" name="open" v-model='isOpen' :value="false"/>
+                </t-col>
+            </t-row> -->
+            <t-tooltip></t-tooltip>
         </contents>
         <footers></footers>
     </div>
@@ -75,7 +98,11 @@ export default {
     return {
       linkName: "气泡提示",
       msg: "气泡提示，气泡提示，气泡提示，<br>气泡提示，气泡提示。",
-      isOpen: true,
+      loading:{
+          content: 'asyncContent',
+          loadingContent: '<i>Loading...</i>',
+      },
+      isOpen: false,
       tooltipHtml: tooltipHtml,
       tooltipMd: tooltipMd
     };

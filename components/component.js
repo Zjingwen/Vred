@@ -12,12 +12,12 @@ import button from './button/index';// 按钮
 /**
  * 第三方库，自动全局安装
  */
-import './tooltip/index';
+import tooltip from './tooltip/index';
 
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
-import exapmple from './exapmple/index'; //例子展示
+import exapmple from './exapmple/index';// 例子展示
 
 let input = require('./input/input.js');// 输入框
 
@@ -69,6 +69,7 @@ let components = {
   menuItem,
   menuGroup,
   menuSub,
+  tooltip,
 };
 
 function install(Vue) {
