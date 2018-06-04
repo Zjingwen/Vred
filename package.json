@@ -24,9 +24,10 @@
     "markdown-loader": "^2.0.2",
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "popper.js": "^1.14.3",
     "style-loader": "^0.21.0",
+    "tooltip.js": "^1.2.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "v-tooltip": "^2.0.0-rc.32",
     "vue": "^2.5.16",
     "vue-eslint-parser": "^2.0.3",
     "vue-loader": "^15.1.0",
@@ -39,7 +40,6 @@
   "dependencies": {
     "eslint": "^4.10.0",
     "eslint-config-google": "^0.9.1",
-    "eslint-plugin-vue": "^4.5.0",
-    "popper.js": "^1.14.3"
+    "eslint-plugin-vue": "^4.5.0"
   }
 }

@@ -1,6 +1,5 @@
-.tooltip {
+.t-popper {
   display: inline-block !important;
-  z-index: 10000;
 }
 
 .tooltip .tooltip-inner {

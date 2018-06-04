@@ -7,72 +7,72 @@
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-tooltip content='top-start' placement='top-start'>
-                                <t-button size='tiny'>上左</t-button>
-                            </t-tooltip>
+                            <t-popper content='top-start' placement='top-start' :isOpen='true' trigger='click'>
+                                <t-button size='tiny'>上左-click</t-button>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='top' placement='top'>
-                                <t-button size='tiny'>上中</t-button>
-                            </t-tooltip>
+                            <t-popper content='top' placement='top' trigger='click'>
+                                <t-button size='tiny'>上中-click</t-button>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='top-end' placement='top-end'>
+                            <t-popper content='top-end' placement='top-end'>
                                 <t-button size='tiny'>上右</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-tooltip content='left-start' placement='left-start'>
+                            <t-popper content='left-start' placement='left-start'>
                                 <t-button size='tiny'>左上</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='right-start' placement='right-start'>
+                            <t-popper content='right-start' placement='right-start'>
                                 <t-button size='tiny'>右上</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-tooltip content='left' placement='left'>
+                            <t-popper content='left' placement='left'>
                                 <t-button size='tiny'>右上</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='right' placement='right'>
+                            <t-popper content='right' placement='right'>
                                 <t-button size='tiny'>右中</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-tooltip content='left-end' placement='left-end'>
+                            <t-popper content='left-end' placement='left-end'>
                                 <t-button size='tiny'>左下</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='right-end' placement='right-end'>
+                            <t-popper content='right-end' placement='right-end'>
                                 <t-button size='tiny'>右下</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='center' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-tooltip content='bottom-start' placement='bottom-start'>
+                            <t-popper content='bottom-start' placement='bottom-start'>
                                 <t-button size='tiny'>下左</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='bottom' placement='bottom'>
+                            <t-popper content='bottom' placement='bottom'>
                                 <t-button size='tiny'>下中</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-tooltip content='bottom-end' placement='bottom-end'>
+                            <t-popper content='bottom-end' placement='bottom-end'>
                                 <t-button size='tiny'>下右</t-button>
-                            </t-tooltip>
+                            </t-popper>
                         </t-col>
                     </t-row>
                 </div>

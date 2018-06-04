@@ -9,10 +9,7 @@ import {menu, menuItem, menuGroup, menuSub} from './menu/index';// 导航栏
 
 import button from './button/index';// 按钮
 
-/**
- * 第三方库，自动全局安装
- */
-import tooltip from './tooltip/index';
+import popper from './popper/index';// 气泡提示
 
 /**
  * @TODO:jingwen exapmple组件体积太大
@@ -69,7 +66,7 @@ let components = {
   menuItem,
   menuGroup,
   menuSub,
-  tooltip,
+  popper,
 };
 
 function install(Vue) {
