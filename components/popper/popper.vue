@@ -4,11 +4,11 @@
     @mouseleave="handleMouseleave"
   >
     <div ref='referenceElement'><slot /></div>
-    <div 
-      ref="onPopper" 
+    <div
+      ref="onPopper"
       class="t-popper-main"
       v-show='show'
-      :data-transfer="transfer"
+      :data-transfer='transfer'
       v-transfer-dom>
       <div class="t-popper-arrow"></div>
       <div class="t-popper-inner">{{content}}</div>
@@ -25,103 +25,101 @@ import popper from './popper.js';
 import {oneOf} from '../util/assist';
 
 export default {
-  mixins:[popper],
-  directives:{
-    TransferDom
+  mixins: [popper],
+  directives: {
+    TransferDom,
   },
   name: profixCls,
-  props:{
-    content:{
+  props: {
+    content: {
       type: [String, Number],
       default: '',
     },
-    placement:{
+    placement: {
       type: String,
       default: 'top',
-      validator: function(val){
+      validator: function(val) {
         const defalut = [
-          'top',//上中
-          'top-start',//上左
-          'top-end',//上右
-          'right',//右中
-          'right-start',//右上
-          'right-end',//右下
-          'left',//左中
-          'left-start',//左上
-          'left-end',//左下
-          'bottom',//下中
-          'bottom-start',//下左
-          'bottom-end',//下右
+          'top',
+          'top-start',
+          'top-end',
+          'right',
+          'right-start',
+          'right-end',
+          'left',
+          'left-start',
+          'left-end',
+          'bottom',
+          'bottom-start',
+          'bottom-end',
         ];
-        return oneOf(val,defalut);
+        return oneOf(val, defalut);
       },
     },
-    isOpen:{
+    isOpen: {
       type: Boolean,
       default: false,
     },
-    always:{
+    always: {
       type: Boolean,
       defalut: false,
     },
-    disabled:{
+    disabled: {
       type: Boolean,
       defalut: false,
     },
-    transfer:{
+    transfer: {
       type: Boolean,
       defalut: true,
-    }
+    },
   },
-  computed:{
-    classs:function(){
+  computed: {
+    classs: function() {
       let classs=[
         `${profixCls}`,
       ];
 
-      return classs
+      return classs;
     },
   },
-  data:function(){
-    return{
+  data: function() {
+    return {
       show: this.isOpen,
-    }
+    };
   },
-  mounted:function(){
-    
+  mounted: function() {
     this.handleVisible();
   },
-  methods:{
-    handleVisible:function(){
-      if(this.disabled){
+  methods: {
+    handleVisible: function() {
+      if (this.disabled) {
         this.show = false;
 
         return true;
-      }
+      };
 
-      if(this.always){
+      if (this.always) {
         this.show = true;
-        
-        return true;
-      }
 
+        return true;
+      };
 
       return false;
     },
-    handleMouseenter:function(){
-      if(this.handleVisible()){
+    handleMouseenter: function() {
+      if (this.handleVisible()) {
         return false;
-      }
+      };
 
       this.show = true;
     },
-    handleMouseleave:function(){
-      if(this.handleVisible()){
+    handleMouseleave: function() {
+      if (this.handleVisible()) {
         return false;
-      }
+      };
 
       this.show = false;
     },
-  }
+  },
 };
 </script>
