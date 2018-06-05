@@ -2,11 +2,15 @@
   <div :class="classs"
     @mouseenter="handleMouseenter"
     @mouseleave="handleMouseleave"
-    @click="handleClick"
-    v-clickoutside="handleClose"
   >
     <div ref='referenceElement'><slot /></div>
-    <div ref="onPopper" v-show='show'>{{content}}</div>
+    <div 
+      ref="onPopper" 
+      class="t-popper-main"
+      v-show='show'>
+      <div class="t-popper-arrow"></div>
+      <div class="t-popper-inner">{{content}}</div>
+    </div>
   </div>
 </template>
 
@@ -14,14 +18,14 @@
 <script>
 const profixCls = 't-popper';
 
+import TransferDom from '../util/transfer-dom';
 import popper from './popper.js';
 import {oneOf} from '../util/assist';
-import clickoutside from '../util/clickoutside';
 
 export default {
   mixins:[popper],
   directives:{
-    clickoutside,
+    TransferDom
   },
   name: profixCls,
   props:{
@@ -50,23 +54,25 @@ export default {
         return oneOf(val,defalut);
       },
     },
-    trigger:{
-      type: String,
-      default: 'hover',
-      validator:function(val){
-        return oneOf(val,['hover','click'])
-      }
-    },
     isOpen:{
       type: Boolean,
       default: false,
     },
+    always:{
+      type: Boolean,
+      defalut: false,
+    },
+    disabled:{
+      type: Boolean,
+      defalut: false
+    }
   },
   computed:{
     classs:function(){
       let classs=[
         `${profixCls}`,
       ];
+
       return classs
     },
   },
@@ -75,27 +81,40 @@ export default {
       show: this.isOpen,
     }
   },
+  mounted:function(){
+    
+    this.handleVisible();
+  },
   methods:{
-    handleClose:function(){
-      if(this.trigger !== 'click'){
-        return false;
-      };
-      this.show = false;
-    },
-    handleClick:function(){
-      this.show = !this.show;
+    handleVisible:function(){
+      if(this.disabled){
+        this.show = false;
+
+        return true;
+      }
+
+      if(this.always){
+        this.show = true;
+        
+        return true;
+      }
+
+
+      return false;
     },
     handleMouseenter:function(){
-      if(this.trigger !=='hover') return false;
+      if(this.handleVisible()){
+        return false;
+      }
 
       this.show = true;
-      // console.log('handleMouseenter');
     },
     handleMouseleave:function(){
-      if(this.trigger !=='hover') return false;
+      if(this.handleVisible()){
+        return false;
+      }
 
       this.show = false;
-      // console.log('handleMouseleave');
     },
   }
 };

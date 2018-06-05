@@ -7,17 +7,17 @@
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-popper content='top-start' placement='top-start' :isOpen='true' trigger='click'>
-                                <t-button size='tiny'>上左-click</t-button>
+                            <t-popper content='top-start' placement='top-start' disabled>
+                                <t-button size='tiny'>上左</t-button>
                             </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-popper content='top' placement='top' trigger='click'>
-                                <t-button size='tiny'>上中-click</t-button>
+                            <t-popper content='top' placement='top' always>
+                                <t-button size='tiny'>上中</t-button>
                             </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-popper content='top-end' placement='top-end'>
+                            <t-popper content='top-end' placement='top-end' isOpen>
                                 <t-button size='tiny'>上右</t-button>
                             </t-popper>
                         </t-col>
