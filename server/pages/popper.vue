@@ -3,74 +3,74 @@
         <headers></headers>
         <contents :linkName='linkName'>
             <h1>tooltip提示基础用用法</h1>
-            <t-exapmple mode='vertical' more>
+            <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
-                        <t-col :span='5'>
-                            <t-popper content='top-start' placement='top-start' disabled>
+                        <t-col :span='7'>
+                            <t-popper content='top-start' placement='top-start' transfer>
                                 <t-button size='tiny'>上左</t-button>
                             </t-popper>
                         </t-col>
-                        <t-col :span='5'>
-                            <t-popper content='top' placement='top' always>
+                        <t-col :span='7'>
+                            <t-popper content='top' placement='top' transfer>
                                 <t-button size='tiny'>上中</t-button>
                             </t-popper>
                         </t-col>
-                        <t-col :span='5'>
-                            <t-popper content='top-end' placement='top-end' isOpen>
+                        <t-col :span='7'>
+                            <t-popper content='top-end' placement='top-end' transfer>
                                 <t-button size='tiny'>上右</t-button>
                             </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-popper content='left-start' placement='left-start'>
+                            <t-popper content='left-start' placement='left-start' transfer>
                                 <t-button size='tiny'>左上</t-button>
                             </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-popper content='right-start' placement='right-start'>
+                            <t-popper content='right-start' placement='right-start' transfer>
                                 <t-button size='tiny'>右上</t-button>
                             </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-popper content='left' placement='left'>
+                            <t-popper content='left' placement='left' transfer>
                                 <t-button size='tiny'>右上</t-button>
                             </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-popper content='right' placement='right'>
+                            <t-popper content='right' placement='right' transfer>
                                 <t-button size='tiny'>右中</t-button>
                             </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='space-between' class='mb10-ce'>
                         <t-col :span='5'>
-                            <t-popper content='left-end' placement='left-end'>
+                            <t-popper content='left-end' placement='left-end' transfer>
                                 <t-button size='tiny'>左下</t-button>
                             </t-popper>
                         </t-col>
                         <t-col :span='5'>
-                            <t-popper content='right-end' placement='right-end'>
+                            <t-popper content='right-end' placement='right-end' transfer>
                                 <t-button size='tiny'>右下</t-button>
                             </t-popper>
                         </t-col>
                     </t-row>
                     <t-row type='flex' justify='center' class='mb10-ce'>
-                        <t-col :span='5'>
-                            <t-popper content='bottom-start' placement='bottom-start'>
+                        <t-col :span='7'>
+                            <t-popper content='bottom-start' placement='bottom-start' transfer>
                                 <t-button size='tiny'>下左</t-button>
                             </t-popper>
                         </t-col>
-                        <t-col :span='5'>
-                            <t-popper content='bottom' placement='bottom'>
+                        <t-col :span='7'>
+                            <t-popper content='bottom' placement='bottom' transfer>
                                 <t-button size='tiny'>下中</t-button>
                             </t-popper>
                         </t-col>
-                        <t-col :span='5'>
-                            <t-popper content='bottom-end' placement='bottom-end'>
+                        <t-col :span='7'>
+                            <t-popper content='bottom-end' placement='bottom-end' transfer>
                                 <t-button size='tiny'>下右</t-button>
                             </t-popper>
                         </t-col>
@@ -88,7 +88,7 @@
 </template>
 <style lang="css">
     .mb10-ce{
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         text-align: center;
     }
 </style>

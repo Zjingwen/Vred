@@ -7,7 +7,9 @@
     <div 
       ref="onPopper" 
       class="t-popper-main"
-      v-show='show'>
+      v-show='show'
+      :data-transfer="transfer"
+      v-transfer-dom>
       <div class="t-popper-arrow"></div>
       <div class="t-popper-inner">{{content}}</div>
     </div>
@@ -64,7 +66,11 @@ export default {
     },
     disabled:{
       type: Boolean,
-      defalut: false
+      defalut: false,
+    },
+    transfer:{
+      type: Boolean,
+      defalut: true,
     }
   },
   computed:{
