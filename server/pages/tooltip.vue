@@ -79,9 +79,7 @@
                 <div slot="markdown" v-html="tooltipMd"></div>
                 <textarea slot="code" v-html="tooltipHtml"></textarea>
             </t-exapmple>
-            <!-- <t-tooltip content='tooltip-test'>
-                <t-button size='tiny'>test</t-button>
-            </t-tooltip> -->
+            <br>
         </contents>
         <footers></footers>
     </div>

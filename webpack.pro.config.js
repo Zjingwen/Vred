@@ -10,7 +10,7 @@ const PKG = require('./package.json');
 module.exports = {
   mode: 'production',
   entry: {
-    lanlanUI: path.resolve(__dirname, 'components/component.js'),
+    index: path.resolve(__dirname, 'components/component.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
