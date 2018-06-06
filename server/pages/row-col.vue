@@ -213,7 +213,7 @@
                         <t-col :span='5'>col</t-col>
                     </t-row>
                 </div>
-                <textarea slot="markdown" v-text="justifyMd"></textarea>
+                <div slot="markdown" v-html="justifyMd"></div>
                 <textarea slot="code" v-text="justifyHtml"></textarea>
             </t-exapmple>
             <br>

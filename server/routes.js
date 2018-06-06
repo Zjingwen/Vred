@@ -5,8 +5,7 @@ import layout from './pages/layout.vue';
 import table from './pages/table.vue';
 import input from './pages/input.vue';
 import menu from './pages/menu.vue';
-import popper from './pages/popper.vue';
-import exapmple from './pages/exapmple.vue';
+import tooltip from './pages/tooltip.vue';
 
 export default [
   {
@@ -45,13 +44,8 @@ export default [
     component: input,
   },
   {
-    path: '/popper',
+    path: '/tooltip',
     name: '气泡提示',
-    component: popper,
-  },
-  {
-    path: '/exapmple',
-    name: '例子展示',
-    component: exapmple,
+    component: tooltip,
   },
 ];

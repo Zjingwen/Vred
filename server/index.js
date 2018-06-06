@@ -2,6 +2,7 @@ import routes from './routes.js';
 import contents from './webComponents/contents.vue';
 import headers from './webComponents/headers.vue';
 import footers from './webComponents/footers.vue';
+import exapmple from './webComponents/exapmple/index';
 
 Vue.config.devtools = true;
 
@@ -12,6 +13,8 @@ const components = {
   headers,
   footers,
 };
+
+Vue.component('t-exapmple', exapmple);
 
 function install(Vue) {
   Object.keys(components).forEach((value)=>{

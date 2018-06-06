@@ -9,12 +9,12 @@ import {menu, menuItem, menuGroup, menuSub} from './menu/index';// 导航栏
 
 import button from './button/index';// 按钮
 
-import popper from './popper/index';// 气泡提示
+import tooltip from './tooltip/index';// 气泡提示
 
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
-import exapmple from './exapmple/index';// 例子展示
+// import exapmple from './exapmple/index';// 例子展示
 
 let input = require('./input/input.js');// 输入框
 
@@ -61,12 +61,12 @@ let components = {
   tbody,
   tr,
   th,
-  exapmple,
+  // exapmple,
   menu,
   menuItem,
   menuGroup,
   menuSub,
-  popper,
+  tooltip,
 };
 
 function install(Vue) {

@@ -1,0 +1,104 @@
+.t-tooltip {
+  display: inline-block !important; 
+}
+.t-tooltip-inner{
+  max-width: 250px;
+  min-height: 34px;
+  padding: 8px 12px;
+  text-align: left;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  z-index: 9999;
+
+  font-size: 14px;
+}
+.t-tooltip-arrow{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.t-tooltip-main[x-placement='top-start'],.t-tooltip-main[x-placement='top'],.t-tooltip-main[x-placement='top-end']{
+  padding: 5px 0 8px 0;
+}
+.t-tooltip-main[x-placement='top-start'] .t-tooltip-arrow,.t-tooltip-main[x-placement='top'] .t-tooltip-arrow,.t-tooltip-main[x-placement='top-end'] .t-tooltip-arrow{
+  bottom: 3px;
+  border-width: 5px 5px 0;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+.t-tooltip-main[x-placement='top-start'] .t-tooltip-arrow{
+  left: 11px;
+}
+.t-tooltip-main[x-placement='top'] .t-tooltip-arrow{
+  left: 50%;
+  margin-left: -5px;
+}
+.t-tooltip-main[x-placement='top-end'] .t-tooltip-arrow{
+  right: 11px;
+}
+
+.t-tooltip-main[x-placement='left-start'],.t-tooltip-main[x-placement='left'],.t-tooltip-main[x-placement='left-end']{
+  padding: 0 8px 0 5px;
+}
+.t-tooltip-main[x-placement='left-start'] .t-tooltip-arrow,.t-tooltip-main[x-placement='left'] .t-tooltip-arrow,.t-tooltip-main[x-placement='left-end'] .t-tooltip-arrow{
+  display: block;
+  border-width: 5px 0 5px 5px;
+  border-left-color: rgba(0, 0, 0, 0.8);;
+}
+ .t-tooltip-main[x-placement='left-start'] .t-tooltip-arrow{
+  right: 3px;
+  top: 5px;
+}
+.t-tooltip-main[x-placement='left'] .t-tooltip-arrow{
+  right: 3px;
+  top: 50%;
+  margin-top: -5px;
+}
+.t-tooltip-main[x-placement='left-end'] .t-tooltip-arrow{
+  right: 3px;
+  bottom: 5px;
+}
+
+.t-tooltip-main[x-placement='right-start'],.t-tooltip-main[x-placement='right'],.t-tooltip-main[x-placement='right-end']{
+  padding: 0 5px 0 8px;
+}
+.t-tooltip-main[x-placement='right-start'] .t-tooltip-arrow,.t-tooltip-main[x-placement='right'] .t-tooltip-arrow,.t-tooltip-main[x-placement='right-end'] .t-tooltip-arrow{
+  left: 3px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: rgba(0,0,0,0.8);
+}
+ .t-tooltip-main[x-placement='right-start'] .t-tooltip-arrow{
+  right: 3px;
+  top: 5px;
+}
+.t-tooltip-main[x-placement='right'] .t-tooltip-arrow{
+  right: 0px;
+  top: 50%;
+  margin-top: -5px;
+}
+.t-tooltip-main[x-placement='right-end'] .t-tooltip-arrow{
+  right: 3px;
+  bottom: 5px;
+}
+
+.t-tooltip-main[x-placement='bottom-start'],.t-tooltip-main[x-placement='bottom'],.t-tooltip-main[x-placement='bottom-end']{
+  padding: 8px 0 5px 0;
+}
+.t-tooltip-main[x-placement='bottom-start'] .t-tooltip-arrow,.t-tooltip-main[x-placement='bottom'] .t-tooltip-arrow,.t-tooltip-main[x-placement='bottom-end'] .t-tooltip-arrow{
+  top: 3px;
+  border-width: 0 5px 5px;
+  border-bottom-color: rgba(0,0,0,0.8);
+}
+.t-tooltip-main[x-placement='bottom-start'] .t-tooltip-arrow{
+  left: 11px;
+}
+.t-tooltip-main[x-placement='bottom'] .t-tooltip-arrow{
+  left: 50%;
+  margin-left: -5px;
+}
+.t-tooltip-main[x-placement='bottom-end'] .t-tooltip-arrow{
+  right: 11px;
+}

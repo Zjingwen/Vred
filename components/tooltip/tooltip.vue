@@ -6,19 +6,19 @@
     <div ref='referenceElement'><slot /></div>
     <div
       ref="onPopper"
-      class="t-popper-main"
+      class="t-tooltip-main"
       v-show='show'
       :data-transfer='transfer'
       v-transfer-dom>
-      <div class="t-popper-arrow"></div>
-      <div class="t-popper-inner">{{content}}</div>
+      <div class="t-tooltip-arrow"></div>
+      <div class="t-tooltip-inner">{{content}}</div>
     </div>
   </div>
 </template>
 
-<style src='./popper.css' lang="css"></style>
+<style src='./tooltip.css' lang="css"></style>
 <script>
-const profixCls = 't-popper';
+const profixCls = 't-tooltip';
 
 import TransferDom from '../util/transfer-dom';
 import popper from './popper.js';
