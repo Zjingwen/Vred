@@ -1,7 +1,17 @@
 <template>
-  <div :class='classs'>
+  <div :class='classs'
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+    @click='handleClick'
+  >
     <div ref="referenceElement"><slot /></div>
-    <div ref="onPopper">
+    <div 
+      ref="onPopper"
+      v-if='show'
+      :data-transfer='transfer'
+      v-transfer-dom
+      :style="style"
+      >
       <slot name='content' />
     </div>
   </div>  
@@ -10,11 +20,15 @@
 <script>
   import {oneOf} from '@util/assist.js';
   import popper from '@mixins/popper.js';
+  import TransferDom from '@directives/transfer-dom';
 
   let profixCls = 't-poptip';
 
   export default {
     name: profixCls,
+    directives:{
+      TransferDom
+    },
     mixins: [popper],
     props:{
       trigger:{
@@ -43,14 +57,15 @@
             'bottom-end',
           ];
           return oneOf(val, defalut);
+        }
       },
       width: {
         type: Number,
-        defalut: 200,
+        default: 200,
       },
       minHeiht: {
         type: Number,
-        defalut: 350,
+        default: 150,
       },
       transfer: {
         type: Boolean,
@@ -60,7 +75,7 @@
         type: Boolean,
         defalut: false,
       },
-      alaways: {
+      always: {
         type: Boolean,
         defalut: false,
       },
@@ -68,11 +83,6 @@
         type: Boolean,
         defalut: false,
       },
-      transfer: {
-        type: Boolean,
-        defalut: true,
-      }
-    },
     },
     computed: {
       classs:function() {
@@ -81,12 +91,86 @@
         ];
 
         return classs;
+      },
+      eventType:function(){
+        if(this.trigger === 'hover'){
+          return false;
+        }else{
+          return true;
+        }
+      },
+      style: function(){
+        let style = {
+          'width': `${this.width}px`,
+          'minHeight': `${this.minHeiht}px`,
+        };
+
+        return style;
       }
     },
     mounted:function() {
       console.log(this.$refs);
+      this.handleVisible();
     },
-  }
+    data:function(){
+      return {
+        show: this.isOpen
+      }
+    },
+    methods:{
+      handleVisible: function() {
+        if (this.disabled) {
+          this.show = false;
+
+          return true;
+        };
+
+        if (this.always) {
+          this.show = true;
+
+          return true;
+        };
+
+        if (this.eventType) {
+
+          return true;
+        }
+
+        return false;
+      },
+      handleMouseenter:function(){
+        
+        if(this.handleVisible()) {
+          return false;
+        }
+        
+        this.show = true;
+      },
+      handleMouseleave:function(){
+        if(this.handleVisible()) {
+
+          return false;
+        }
+
+        this.show = false;
+      },
+      handleClick:function(){
+        if(!this.eventType){
+          return false;
+        }
+
+        if(this.always){
+          return false;
+        }
+
+        if(this.disabled){
+          return false;
+        }
+
+        this.show = !this.show;
+      },
+    },
+  };
 </script>
 
 
