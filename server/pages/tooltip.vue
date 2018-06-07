@@ -2,7 +2,7 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <h1>tooltip提示基础用用法</h1>
+            <h1>placement方向</h1>
             <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-row type='flex' justify='center' class='mb10-ce'>
@@ -76,10 +76,56 @@
                         </t-col>
                     </t-row>
                 </div>
-                <div slot="markdown" v-html="tooltipMd"></div>
-                <textarea slot="code" v-html="tooltipHtml"></textarea>
+                <div slot="markdown" v-html="placementMd"></div>
+                <textarea slot="code" v-html="placementHtml"></textarea>
             </t-exapmple>
             <br>
+            <h1>isOpen默认是否显示</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-tooltip content='isOpen' placement='right'  isOpen transfer>
+                        <t-button size='tiny'>isOpen</t-button>
+                    </t-tooltip>
+                </div>
+                <div slot="markdown" v-html="isOpenMd"></div>
+                <textarea slot="code" v-html="isOpenHtml"></textarea>
+            </t-exapmple>
+            <br>
+            <h1>always禁止隐藏</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-tooltip content='always' placement='right' always transfer>
+                        <t-button size='tiny'>always</t-button>
+                    </t-tooltip>
+                </div>
+                <div slot="markdown" v-html="alwaysMd"></div>
+                <textarea slot="code" v-html="alwaysHtml"></textarea>
+            </t-exapmple>
+            <br>
+            <h1>disabled禁止显示</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-tooltip content='always' placement='right' disabled>
+                        <t-button size='tiny'>always</t-button>
+                    </t-tooltip>
+                </div>
+                <div slot="markdown" v-html="disabledMd"></div>
+                <textarea slot="code" v-html="disabledHtml"></textarea>
+            </t-exapmple>
+            <br>
+            <h1>transfer是否在body处渲染</h1>
+            <t-exapmple mode='vertical'>
+                <div slot="view">
+                    <t-tooltip content='transfer' placement='left' transfer>
+                        <t-button size='tiny'>transfer</t-button>
+                    </t-tooltip>
+                    <t-tooltip content='transfer' placement='right'>
+                        <t-button size='tiny'>非transfer</t-button>
+                    </t-tooltip>
+                </div>
+                <div slot="markdown" v-html="transferMd"></div>
+                <textarea slot="code" v-html="transferHtml"></textarea>
+            </t-exapmple>
         </contents>
         <footers></footers>
     </div>
@@ -91,21 +137,36 @@
     }
 </style>
 <script>
-import tooltipHtml from '../doc/tooltip/tooltip.html';
-import tooltipMd from '../doc/tooltip/tooltip.md';
+import placementHtml from '../doc/tooltip/placement.html';
+import placementMd from '../doc/tooltip/placement.md';
+
+import isOpenHtml from '../doc/tooltip/isOpen.html';
+import isOpenMd from '../doc/tooltip/isOpen.md';
+
+import alwaysHtml from '../doc/tooltip/always.html';
+import alwaysMd from '../doc/tooltip/always.md';
+
+import disabledHtml from '../doc/tooltip/disabled.html';
+import disabledMd from '../doc/tooltip/disabled.md';
+
+import transferHtml from '../doc/tooltip/transfer.html';
+import transferMd from '../doc/tooltip/transfer.md';
 
 export default {
   data: function() {
     return {
       linkName: "气泡提示",
-      msg: "气泡提示，气泡提示，气泡提示，<br>气泡提示，气泡提示。",
-      loading:{
-          content: 'asyncContent',
-          loadingContent: '<i>Loading...</i>',
-      },
       isOpen: false,
-      tooltipHtml: tooltipHtml,
-      tooltipMd: tooltipMd
+      placementHtml: placementHtml,
+      placementMd: placementMd,
+      isOpenHtml: isOpenHtml,
+      isOpenMd: isOpenMd,
+      alwaysHtml: alwaysHtml,
+      alwaysMd: alwaysMd,
+      disabledHtml: disabledHtml,
+      disabledMd: disabledMd,
+      transferHtml: transferHtml,
+      transferMd: transferMd
     };
   }
 };
