@@ -1,22 +1,22 @@
-import col from './col/index';// 列
-import row from './row/index';//   行
+import col from '@components/col/index';// 列
+import row from '@components/row/index';// 行
 
-import {header, content, footer, layout, sider} from './layout/index';// 布局
+import {header, content, footer, layout, sider} from '@components/layout/index';// 布局
 
-import {table, thead, tbody, tr, th} from './table/index';// 表单
+import {table, thead, tbody, tr, th} from '@components/table/index';// 表单
 
-import {menu, menuItem, menuGroup, menuSub} from './menu/index';// 导航栏
+import {menu, menuItem, menuGroup, menuSub} from '@components/menu/index';// 导航栏
 
-import button from './button/index';// 按钮
+import button from '@components/button/index';// 按钮
 
-import tooltip from './tooltip/index';// 气泡提示
+import tooltip from '@components/tooltip/index';// 气泡提示
 
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
 // import exapmple from './exapmple/index';// 例子展示
 
-let input = require('./input/input.js');// 输入框
+let input = require('@components/input/input.js');// 输入框
 
 
 // var Modal = require("./modal/modal.js");

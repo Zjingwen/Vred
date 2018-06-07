@@ -5,7 +5,7 @@
 </template>
 <style src='./index.css' lang='css'></style>
 <script>
-import {oneOf, findComponentsDownward} from '../util/assist';
+import {oneOf, findComponentsDownward} from '@util/assist';
 
 const profixCls = 'v-menu';
 

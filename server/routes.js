@@ -1,11 +1,11 @@
-import index from './pages/index.vue';
-import rowCol from './pages/row-col.vue';
-import button from './pages/button.vue';
-import layout from './pages/layout.vue';
-import table from './pages/table.vue';
-import input from './pages/input.vue';
-import menu from './pages/menu.vue';
-import tooltip from './pages/tooltip.vue';
+import index from '@pages/index.vue';
+import rowCol from '@pages/row-col.vue';
+import button from '@pages/button.vue';
+import layout from '@pages/layout.vue';
+import table from '@pages/table.vue';
+import input from '@pages/input.vue';
+import menu from '@pages/menu.vue';
+import tooltip from '@pages/tooltip.vue';
 
 export default [
   {

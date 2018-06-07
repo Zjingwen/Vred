@@ -20,9 +20,9 @@
 <script>
 const profixCls = 't-tooltip';
 
-import TransferDom from '../util/transfer-dom';
-import popper from './popper.js';
-import {oneOf} from '../util/assist';
+import TransferDom from '@directives/transfer-dom';
+import popper from '@mixins/popper.js';
+import {oneOf} from '@util/assist';
 
 export default {
   mixins: [popper],

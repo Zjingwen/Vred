@@ -7,7 +7,7 @@
 <style src='./row.css' lang='css'></style>
 
 <script>
-import {findComponentDownward, findBrothersComponents, oneOf} from '../util/assist';
+import {findComponentDownward, findBrothersComponents, oneOf} from '@util/assist';
 let prefixCls = 'v-row';
 
 export default {

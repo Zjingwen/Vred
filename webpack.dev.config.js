@@ -50,6 +50,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.css', '.vue'],
+    alias: {
+      '@components': path.resolve('components'),
+      '@mixins': path.resolve('mixins'),
+      '@directives': path.resolve('directives'),
+      '@util': path.resolve('components/util'),
+      '@webComponents': path.resolve('server/webComponents'),
+      '@pages': path.resolve('server/pages'),
+    },
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
