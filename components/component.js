@@ -11,6 +11,8 @@ import button from '@components/button/index';// 按钮
 
 import tooltip from '@components/tooltip/index';// 气泡提示
 
+import poptip from '@components/poptip/index';// 模块提示
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -67,6 +69,7 @@ let components = {
   menuGroup,
   menuSub,
   tooltip,
+  poptip,
 };
 
 function install(Vue) {

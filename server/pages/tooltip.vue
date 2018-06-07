@@ -106,7 +106,7 @@
             <t-exapmple mode='vertical'>
                 <div slot="view">
                     <t-tooltip content='always' placement='right' disabled>
-                        <t-button size='tiny'>always</t-button>
+                        <t-button size='tiny'>disabled</t-button>
                     </t-tooltip>
                 </div>
                 <div slot="markdown" v-html="disabledMd"></div>

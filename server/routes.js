@@ -6,6 +6,7 @@ import table from '@pages/table.vue';
 import input from '@pages/input.vue';
 import menu from '@pages/menu.vue';
 import tooltip from '@pages/tooltip.vue';
+import poptip from '@pages/poptip.vue';
 
 export default [
   {
@@ -47,5 +48,10 @@ export default [
     path: '/tooltip',
     name: '气泡提示',
     component: tooltip,
+  },
+  {
+    path: '/poptip',
+    name: '模块提示',
+    component: poptip,
   },
 ];
