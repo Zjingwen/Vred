@@ -16,19 +16,10 @@ export default {
     this.$Popper = new Popper(referenceElement, onPopper, {
       placement: self.placement,
     });
-
-    this.$Popper.update();
   },
   updated: function() {
-    const self = this;
-
-    this.$nextTick(function() {
-      self.$Popper.updatePopper();
+    this.$nextTick(()=>{
+      this.$Popper.update();
     });
-  },
-  beforeDestroy: function() {
-    if (this.$Popper) {
-      this.$Popper.destroy();
-    }
   },
 };

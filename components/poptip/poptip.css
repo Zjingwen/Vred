@@ -1,3 +1,11 @@
 .t-poptip{
   display: inline-block !important;
 }
+.t-poptip-poper{
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1.5;
+  z-index: 1060;
+  background: #f7f7f7;
+}

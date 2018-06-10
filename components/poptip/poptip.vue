@@ -7,11 +7,11 @@
     <div ref="referenceElement"><slot /></div>
     <div 
       ref="onPopper"
-      v-if='show'
+      v-show='show'
+      class="t-poptip-poper"
+      :style='style'
       :data-transfer='transfer'
-      v-transfer-dom
-      :style="style"
-      >
+      v-transfer-dom>
       <slot name='content' />
     </div>
   </div>  
@@ -63,7 +63,7 @@
         type: Number,
         default: 200,
       },
-      minHeiht: {
+      minHeight: {
         type: Number,
         default: 150,
       },
@@ -99,17 +99,16 @@
           return true;
         }
       },
-      style: function(){
+      style:function(){
         let style = {
           'width': `${this.width}px`,
-          'minHeight': `${this.minHeiht}px`,
-        };
+          'minHeight': `${this.minHeight}px`,
+        }
 
         return style;
       }
     },
     mounted:function() {
-      console.log(this.$refs);
       this.handleVisible();
     },
     data:function(){
