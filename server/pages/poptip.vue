@@ -139,7 +139,11 @@
     <footers></footers>
   </div>
 </template>
-<style lang='css' scoped></style>
+<style>
+    .t-poptip-poper{
+        background: #EEEEEE;
+    }
+</style>
 <script>
 export default {
   data:function(){

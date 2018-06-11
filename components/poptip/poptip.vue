@@ -3,6 +3,7 @@
     @mouseenter="handleMouseenter"
     @mouseleave="handleMouseleave"
     @click='handleClick'
+    v-clickout-side='handleClickoutSide'
   >
     <div ref="referenceElement"><slot /></div>
     <div 
@@ -21,13 +22,15 @@
   import {oneOf} from '@util/assist.js';
   import popper from '@mixins/popper.js';
   import TransferDom from '@directives/transfer-dom';
+  import ClickoutSide from '@directives/clickoutside';
 
   let profixCls = 't-poptip';
 
   export default {
     name: profixCls,
     directives:{
-      TransferDom
+      TransferDom,
+      ClickoutSide
     },
     mixins: [popper],
     props:{
@@ -108,14 +111,14 @@
         return style;
       }
     },
-    mounted:function() {
-      this.handleVisible();
-    },
     data:function(){
       return {
         show: this.isOpen
       }
     },
+    mounted:function() {
+      this.handleVisible();
+    },    
     methods:{
       handleVisible: function() {
         if (this.disabled) {
@@ -145,7 +148,7 @@
         
         this.show = true;
       },
-      handleMouseleave:function(){
+      handleMouseleave:function() {
         if(this.handleVisible()) {
 
           return false;
@@ -153,7 +156,7 @@
 
         this.show = false;
       },
-      handleClick:function(){
+      handleClick:function() {
         if(!this.eventType){
           return false;
         }
@@ -168,6 +171,12 @@
 
         this.show = !this.show;
       },
+      handleClickoutSide:function(e){
+        console.log(e);
+        if(this.trigger === 'hover') return false;
+
+        console.log(this.trigger);
+      }
     },
   };
 </script>

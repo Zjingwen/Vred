@@ -8,6 +8,7 @@ export default {
         binding.value(e);
       }
     }
+    console.log(el.__vueClickOutside__);
     el.__vueClickOutside__ = documentHandler;
     document.addEventListener('click', documentHandler);
   },
