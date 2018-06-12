@@ -2,8 +2,9 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <div style='padding-right:20px;'>
-                <t-table :width="[10,10,10,20,25,30]">
+            <t-exapmple mode='vertical' more>
+                <div slot="view">
+                    <t-table :width="[10,10,10,20,40,20]">
                     <t-thead>
                         <t-tr>
                             <t-th>星期一</t-th>
@@ -65,17 +66,25 @@
                         </t-tr>
                     </t-tbody>
                 </t-table>
-            </div>
+                </div>
+                <div slot="markdown" v-html="tableMd"></div>
+                <textarea slot="code" v-html="tableHtml"></textarea>
+            </t-exapmple>
         </contents>
         <footers></footers>
     </div>
 </template>
 <style lang="css" scoped></style>
 <script>
+    import tableHtml from '../doc/table/table.html';
+    import tableMd from '../doc/table/table.md';
+    
     export default{
         data:function(){
             return {
-                linkName: '表格'
+                linkName: '表格',
+                tableHtml: tableHtml,
+                tableMd: tableMd,
             }
         }
     }
