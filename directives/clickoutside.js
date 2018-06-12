@@ -4,11 +4,11 @@ export default {
       if (el.contains(e.target)) {
         return false;
       }
+
       if (binding.expression) {
         binding.value(e);
       }
     }
-    console.log(el.__vueClickOutside__);
     el.__vueClickOutside__ = documentHandler;
     document.addEventListener('click', documentHandler);
   },

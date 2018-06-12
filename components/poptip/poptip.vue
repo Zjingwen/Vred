@@ -3,9 +3,8 @@
     @mouseenter="handleMouseenter"
     @mouseleave="handleMouseleave"
     @click='handleClick'
-    v-clickout-side='handleClickoutSide'
   >
-    <div ref="referenceElement"><slot /></div>
+    <div ref="referenceElement" v-clickout-side='handleClickoutSide'><slot /></div>
     <div 
       ref="onPopper"
       v-show='show'
@@ -171,11 +170,11 @@
 
         this.show = !this.show;
       },
-      handleClickoutSide:function(e){
-        console.log(e);
+      handleClickoutSide:function(){
         if(this.trigger === 'hover') return false;
-
-        console.log(this.trigger);
+        if(this.always) return false;
+        if(this.disabled) return false;
+        if(this.show) this.show = false;
       }
     },
   };
