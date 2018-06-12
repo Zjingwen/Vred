@@ -1,12 +1,15 @@
 <template>
     <li :class='classs' :style='style' @click='itemHandle'>
-        <div :class='[profixCls + "-title"]'><slot name='title'></slot></div>
-        <slot></slot>
+        <t-poptip placement="bottom">
+          <div :class='[profixCls + "-title"]'><slot name='title'/></div>
+          <div slot="content"><slot/></div>
+        </t-poptip>
     </li>
 </template>
 <style src='./index.css' lang="css"></style>
 <script>
 import {findComponentUpward} from '../util/assist';
+import poptip from '../poptip/index';
 const profixCls = 'v-menu-item-sub';
 
 export default{
@@ -55,5 +58,8 @@ export default{
       this.height = findComponentUpward(this, 'v-menu').height;
     }
   },
+  components:{
+    'tPoptip': poptip
+  }
 };
 </script>

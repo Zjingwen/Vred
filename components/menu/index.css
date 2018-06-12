@@ -62,3 +62,8 @@
     border-right: 2px solid #FF773D;
     color: #FF773D;
 }
+
+.v-menu-item-group{
+    background: #FFF;
+    border: 1px solid #eee;
+}
