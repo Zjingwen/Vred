@@ -5,7 +5,7 @@
   "main": "dist/vred.min.js",
   "scripts": {
     "watch": "webpack -w --config webpack.dev.config.js",
-    "build": "webpack --config webpack.pro.config.js",
+    "build": "npm run test && webpack --config webpack.pro.config.js",
     "server": "webpack-dev-server --open --config webpack.dev.config.js",
     "dev": "concurrently \"npm run watch\" \"npm run server\"",
     "line": "eslint --ext components/**/*.{js,vue}",
