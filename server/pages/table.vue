@@ -1,6 +1,7 @@
 <template>
     <div>
         <headers></headers>
+        <h1>table表格</h1>
         <contents :linkName='linkName'>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
