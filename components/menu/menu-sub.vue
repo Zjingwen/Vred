@@ -1,18 +1,15 @@
 <template>
     <li :class='classs' :style='style' @click='itemHandle'>
-      
       <template v-if='mode === "horizontal"'>
         <t-poptip placement="bottom" :width="width" trigger='click' :class='[`${profixCls}-poptip`]'>
           <div :class='[profixCls + "-title"]'><slot name='title'/></div>
           <template slot="content"><slot/></template>
         </t-poptip>
       </template>
-
       <template v-else>
         <div :class='[profixCls + "-title"]'><slot name='title'/></div>
         <slot/>
       </template>
-
     </li>
 </template>
 <style src='./index.css' lang="css"></style>
@@ -57,14 +54,13 @@ export default{
         style.lineHeight = `${this.height}px`;
       }
 
-      if(this.mode === 'horizontal'){
-        console.log(this.placement);
-        switch(this.placement){
-          case 'left':
-            style.float = this.placement;
+      if (this.mode === 'horizontal') {
+        switch (this.placement) {
+        case 'left':
+          style.float = this.placement;
           break;
-          case 'right':
-            style.float = this.placement;
+        case 'right':
+          style.float = this.placement;
           break;
         }
       }
@@ -85,11 +81,11 @@ export default{
 
       this.$nextTick(()=>{
         this.width = this.$el.clientWidth;
-      })
+      });
     }
   },
-  components:{
-    'tPoptip': poptip
-  }
+  components: {
+    'tPoptip': poptip,
+  },
 };
 </script>

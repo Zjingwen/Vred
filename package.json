@@ -9,7 +9,26 @@
     "server": "webpack-dev-server --open --config webpack.dev.config.js",
     "dev": "concurrently \"npm run watch\" \"npm run server\"",
     "line": "eslint --ext components/**/*.{js,vue}",
-    "test": "npm run line"
+    "jest": "jest",
+    "test": "npm run line && npm run jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "testMatch": [
+      "**/tests/*.js"
+    ],
+    "moduleNameMapper": {
+      "^@util/assist": "<rootDir>/components/util/assist.js"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -38,8 +57,14 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "@vue/test-utils": "^1.0.0-beta.18",
+    "babel-jest": "^23.0.1",
     "eslint": "^4.10.0",
     "eslint-config-google": "^0.9.1",
-    "eslint-plugin-vue": "^4.5.0"
+    "eslint-plugin-vue": "^4.5.0",
+    "jest": "^23.1.0",
+    "jsdom": "^11.11.0",
+    "jsdom-global": "^3.0.2",
+    "vue-jest": "^2.6.0"
   }
 }
