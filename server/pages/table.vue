@@ -1,8 +1,8 @@
 <template>
     <div>
         <headers></headers>
-        <h1>table表格</h1>
         <contents :linkName='linkName'>
+            <h1>table表格</h1>
             <t-exapmple mode='vertical' more>
                 <div slot="view">
                     <t-table :width="[10,10,10,20,40,20]">

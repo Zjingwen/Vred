@@ -23,6 +23,13 @@ export default{
         return oneOf(val, ['horizontal', 'vertical']);// horizontal（水平） 和 vertical（垂直）
       },
     },
+    placement:{
+      type: String,
+      default: 'left',
+      validator: function(val){
+        return oneOf(val,['left','center','right']);// left（左） center（中）right（右）
+      }
+    },
     width: {
       type: Number,
       default: 0,
@@ -44,8 +51,17 @@ export default{
     style: function() {
       let style = {};
 
-      if (this.width !== 0) {
+      if (this.width !== 0 && this.mode === 'vertical') {
         style.width = this.width + 'px';
+      }
+
+      if (this.height !== 0 && this.mode === 'horizontal'){
+        style.height = this.height + 'px';
+        style.lineHeight = this.lineHeight + 'px';
+      }
+
+      if(this.placement === 'center'){
+        style.textAlign = this.placement;
       }
 
       return style;

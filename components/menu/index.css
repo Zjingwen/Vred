@@ -6,7 +6,7 @@
 .v-menu-item-sub{
     height: inherit;
     line-height: inherit;
-    padding: 0 20px;
+    padding: 0 35px;
     position: relative;
     z-index: 3;
     cursor: pointer;
@@ -20,6 +20,7 @@
 .v-menu-horizontal{
     height: 60px;
     line-height: 60px;
+    letter-spacing: -4px;
 }
 
 .v-menu-horizontal::after{
@@ -35,7 +36,8 @@
 }
 
 .v-menu-horizontal .v-menu-item-sub{
-    float: left;
+    display: inline-block;
+    letter-spacing: 0;   
 }
 
 .v-menu-vertical{
@@ -65,5 +67,27 @@
 
 .v-menu-item-group{
     background: #FFF;
-    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.v-menu-item{
+    padding: 7px 16px 8px;
+    font-size: 14px !important;
+    color: #000;
+    text-align: center;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 2;
+}
+.v-menu-item:hover{
+    background: rgba(0,0,0,.1);
+}
+.v-menu-item-sub-poptip .t-poptip-poper{
+    background: none;
 }

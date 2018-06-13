@@ -1,14 +1,23 @@
 <template>
     <li :class='classs' :style='style' @click='itemHandle'>
-        <t-poptip placement="bottom">
+      
+      <template v-if='mode === "horizontal"'>
+        <t-poptip placement="bottom" :width="width" trigger='click' :class='[`${profixCls}-poptip`]'>
           <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-          <div slot="content"><slot/></div>
+          <template slot="content"><slot/></template>
         </t-poptip>
+      </template>
+
+      <template v-else>
+        <div :class='[profixCls + "-title"]'><slot name='title'/></div>
+        <slot/>
+      </template>
+
     </li>
 </template>
 <style src='./index.css' lang="css"></style>
 <script>
-import {findComponentUpward} from '../util/assist';
+import {findComponentUpward} from '@util/assist';
 import poptip from '../poptip/index';
 const profixCls = 'v-menu-item-sub';
 
@@ -25,6 +34,9 @@ export default{
       profixCls: profixCls,
       active: false,
       height: 0,
+      width: 0,
+      mode: '',
+      placement: '',
     };
   },
   computed: {
@@ -40,9 +52,21 @@ export default{
     style: function() {
       let style = {};
 
-      if (this.height) {
-        style.height = this.height + 'px';
-        style.lineHeight = this.height + 'px';
+      if (this.height !== 0) {
+        style.height = `${this.height}px`;
+        style.lineHeight = `${this.height}px`;
+      }
+
+      if(this.mode === 'horizontal'){
+        console.log(this.placement);
+        switch(this.placement){
+          case 'left':
+            style.float = this.placement;
+          break;
+          case 'right':
+            style.float = this.placement;
+          break;
+        }
       }
 
       return style;
@@ -54,8 +78,14 @@ export default{
     },
   },
   mounted: function() {
-    if ( findComponentUpward(this, 'v-menu') && findComponentUpward(this, 'v-menu').height) {
+    if ( findComponentUpward(this, 'v-menu')) {
       this.height = findComponentUpward(this, 'v-menu').height;
+      this.mode = findComponentUpward(this, 'v-menu').mode;
+      this.placement = findComponentUpward(this, 'v-menu').placement;
+
+      this.$nextTick(()=>{
+        this.width = this.$el.clientWidth;
+      })
     }
   },
   components:{

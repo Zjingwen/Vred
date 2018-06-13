@@ -2,31 +2,31 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <t-row>
-                <t-col :span='24'>
-                    <t-menu :active-name="1" @on:select="onClickHandle1">
+            <t-row type='flex' justify='center'>
+                <t-col :span='20'>
+                    <t-menu :active-name="1" placement='center' @on:select="onClickHandle1">
                         <t-menuSub :name='1'>
-                            <template slot="title">menuSub 1</template>
+                            <template slot="title">数据分析</template>
                             <t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
+                                <t-menuItem>数据展示 1-1</t-menuItem>
+                                <t-menuItem>数据展示 1-2</t-menuItem>
+                                <t-menuItem>数据展示 1-3</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
                         <t-menuSub :name='2'>
-                            <template slot="title">menuSub 2</template>
+                            <template slot="title">订单详情</template>
                             <t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
+                                <t-menuItem>订单详情 2-1</t-menuItem>
+                                <t-menuItem>订单详情 2-2</t-menuItem>
+                                <t-menuItem>订单详情 2-3</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
                         <t-menuSub :name='3'>
-                            <template slot="title">menuSub 3</template>
+                            <template slot="title">开奖系统</template>
                             <t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
+                                <t-menuItem>开奖系统 3-1</t-menuItem>
+                                <t-menuItem>开奖系统 3-2</t-menuItem>
+                                <t-menuItem>开奖系统 3-3</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
                     </t-menu>
