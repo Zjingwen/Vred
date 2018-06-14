@@ -1,7 +1,7 @@
 <template>
     <li :class='classs' :style='style' @click='itemHandle'>
       <template v-if='mode === "horizontal"'>
-        <t-poptip :placement="direction" :width="width" trigger='hover'  always :class='[`${profixCls}-poptip`]'>
+        <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" :class='[`${profixCls}-poptip`]'>
           <div :class='[profixCls + "-title"]'><slot name='title'/></div>
           <template slot="content"><slot/></template>
         </t-poptip>
@@ -34,6 +34,7 @@ export default{
       width: 0,
       mode: '',
       direction: 'bottom',
+      offset: 0,
     };
   },
   computed: {
@@ -42,7 +43,7 @@ export default{
         `${profixCls}`, {
           [`active`]: this.active,
         },
-        `${profixCls}-poptip-${this.direction}`
+        `${profixCls}-poptip-${this.direction}`,
       ];
 
       return classs;
@@ -73,30 +74,33 @@ export default{
     itemHandle: function() {
       findComponentUpward(this, 'v-menu').$onClickHandle(this.name);
     },
-    isChildrenItem: function(){
+    isChildrenItem: function() {
       this.direction = 'right-start';
       this.height = findComponentUpward(this, 'v-menu').height;
       this.mode = findComponentUpward(this, 'v-menu').mode;
+      findComponentUpward(this, 'v-menu-item').style = {
+        padding: 0,
+      };
 
       this.$nextTick(()=>{
         this.width = findComponentUpward(this, 'v-menu-item-sub').width;
       });
     },
-    isChildrenMenu: function(){
+    isChildrenMenu: function() {
       this.height = findComponentUpward(this, 'v-menu').height;
       this.mode = findComponentUpward(this, 'v-menu').mode;
 
       this.$nextTick(()=>{
         this.width = this.$el.clientWidth;
       });
-    }
+    },
   },
   mounted: function() {
-    if ( findComponentUpward(this, 'v-menu')) {
+    if ( findComponentUpward(this, 'v-menu') ) {
       this.isChildrenMenu();
     }
 
-    if( findComponentUpward(this, 'v-menu-item')) {
+    if ( findComponentUpward(this, 'v-menu-item') ) {
       this.isChildrenItem();
     }
   },

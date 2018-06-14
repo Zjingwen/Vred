@@ -84,6 +84,10 @@ export default {
       type: Boolean,
       defalut: false,
     },
+    offset: {
+      type: Number,
+      default: 0,
+    },
   },
   computed: {
     classs: function() {

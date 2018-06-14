@@ -86,7 +86,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    /* overflow: hidden; */
     line-height: 2;
 }
 .v-menu-item:hover{
@@ -97,4 +96,13 @@
 }
 .v-menu-item-sub-poptip .t-poptip-poper{
     background: none;
+}
+.v-menu-item-sub-poptip-right-start{
+    display: block !important;
+}
+.v-menu-item-sub-poptip-right-start .v-menu-item-sub-poptip{
+    display: block !important;
+}
+.v-menu-item-sub-poptip-right-start .v-menu-item-sub-title{
+    padding: 7px 16px 8px;
 }
