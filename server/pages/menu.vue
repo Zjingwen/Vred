@@ -8,27 +8,48 @@
                         <t-menuSub :name='1'>
                             <template slot="title">数据分析</template>
                             <t-menuGroup>
-                                <t-menuItem>数据展示 1-1</t-menuItem>
-                                <t-menuItem>数据展示 1-2</t-menuItem>
-                                <t-menuItem>数据展示 1-3</t-menuItem>
+                                <t-menuItem>
+                                    <t-menuSub :name='1-1'>
+                                        <template slot="title">数据展示 A-1</template>
+                                        <t-menuGroup>
+                                            <t-menuItem>数据展示 B-1</t-menuItem>
+                                            <t-menuItem>数据展示 B-2</t-menuItem>
+                                            <t-menuItem>
+                                                <t-menuSub :name='1-2'>
+                                                    <template slot="title">数据展示 B-3</template>
+                                                    <t-menuGroup>
+                                                        <t-menuItem>数据展示 C-1</t-menuItem>
+                                                        <t-menuItem>数据展示 C-2</t-menuItem>
+                                                        <t-menuItem>数据展示 C-3</t-menuItem>
+                                                    </t-menuGroup>
+                                                </t-menuSub>
+                                            </t-menuItem>
+                                        </t-menuGroup>
+                                    </t-menuSub>
+                                </t-menuItem>
+                                <t-menuItem>数据展示 A-2</t-menuItem>
+                                <t-menuItem>数据展示 A-3</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
-                        <t-menuSub :name='2'>
+                        <!-- <t-menuSub :name='2'>
                             <template slot="title">订单详情</template>
                             <t-menuGroup>
-                                <t-menuItem>订单详情 2-1</t-menuItem>
-                                <t-menuItem>订单详情 2-2</t-menuItem>
-                                <t-menuItem>订单详情 2-3</t-menuItem>
+                                <t-menuItem>订单详情 1-1</t-menuItem>
+                                <t-menuItem>订单详情 1-2</t-menuItem>
+                                <t-menuItem>订单详情 1-3</t-menuItem>
+                                <t-menuItem>订单详情 1-4</t-menuItem>
+                                <t-menuItem>订单详情 1-5</t-menuItem>
+                                <t-menuItem>订单详情 1-6</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
                         <t-menuSub :name='3'>
                             <template slot="title">开奖系统</template>
                             <t-menuGroup>
-                                <t-menuItem>开奖系统 3-1</t-menuItem>
-                                <t-menuItem>开奖系统 3-2</t-menuItem>
-                                <t-menuItem>开奖系统 3-3</t-menuItem>
+                                <t-menuItem>开奖系统 1-1</t-menuItem>
+                                <t-menuItem>开奖系统 1-2</t-menuItem>
+                                <t-menuItem>开奖系统 1-3</t-menuItem>
                             </t-menuGroup>
-                        </t-menuSub>
+                        </t-menuSub> -->
                     </t-menu>
                 </t-col>
             </t-row>

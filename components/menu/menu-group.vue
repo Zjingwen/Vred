@@ -5,6 +5,7 @@
 </template>
 <style src='./index.css' lang="css"></style>
 <script>
+import {findComponentUpward} from '@util/assist';
 const profixCls = 'v-menu-item-group';
 
 export default{

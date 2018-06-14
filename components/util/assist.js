@@ -56,7 +56,7 @@ export function findBrothersComponents(context, componentName, exceptMe = true) 
   return res;
 }
 
-// Find components downward
+// 寻找下级组件
 export function findComponentsDownward(context, componentName) {
   return context.$children.reduce((components, child) => {
     if (child.$options.name === componentName) components.push(child);
