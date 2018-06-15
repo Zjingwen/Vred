@@ -3,7 +3,7 @@
         <slot></slot>
     </ul>
 </template>
-<style src='./index.css' lang='css'></style>
+<style src='./index.less' lang='less'></style>
 <script>
 import {oneOf, findComponentsDownward} from '@util/assist';
 
@@ -51,6 +51,8 @@ export default{
     style: function() {
       let style = {};
 
+      style.textAlign = this.placement;
+
       if (this.width !== 0 && this.mode === 'vertical') {
         style.width = this.width + 'px';
       }
@@ -58,10 +60,6 @@ export default{
       if (this.height !== 0 && this.mode === 'horizontal') {
         style.height = this.height + 'px';
         style.lineHeight = this.lineHeight + 'px';
-      }
-
-      if (this.placement === 'center') {
-        style.textAlign = this.placement;
       }
 
       return style;

@@ -1,3 +1,5 @@
+import '@less/index';
+
 import col from '@components/col/index';// 列
 import row from '@components/row/index';// 行
 

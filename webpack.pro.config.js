@@ -21,11 +21,13 @@ module.exports = {
   },
   module: {
     rules: [
-      {test: /\.css$/,
+      {test: /\.(less|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-        ]},
+          'less-loader',
+        ],
+      },
       {test: /\.html$/, loader: 'html-loader'},
       {test: /\.vue$/, loader: 'vue-loader'},
       {
@@ -38,12 +40,13 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.css', '.vue'],
+    extensions: ['*', '.js', '.css', '.vue', '.less'],
     alias: {
       '@components': path.resolve('components'),
       '@mixins': path.resolve('mixins'),
       '@directives': path.resolve('directives'),
       '@util': path.resolve('components/util'),
+      '@less': path.resolve('less'),
     },
   },
   plugins: [

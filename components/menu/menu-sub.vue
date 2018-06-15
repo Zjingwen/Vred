@@ -1,18 +1,18 @@
 <template>
-    <li :class='classs' :style='style' @click='itemHandle'>
-      <template v-if='mode === "horizontal"'>
-        <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" :class='[`${profixCls}-poptip`]'>
-          <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-          <template slot="content"><slot/></template>
-        </t-poptip>
-      </template>
-      <template v-else>
+  <li :class='classs' :style='style' @click='itemHandle'>
+    <template v-if='mode === "horizontal"'>
+      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" :class='[`${profixCls}-poptip`]'>
         <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-        <slot/>
-      </template>
-    </li>
+        <template slot="content"><slot/></template>
+      </t-poptip>
+    </template>
+    <template v-else>
+      <div :class='[profixCls + "-title"]'><slot name='title'/></div>
+      <slot/>
+    </template>
+  </li>
 </template>
-<style src='./index.css' lang="css"></style>
+<style src='./index.less' lang="less"></style>
 <script>
 import {findComponentUpward} from '@util/assist';
 import poptip from '../poptip/index';

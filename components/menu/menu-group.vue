@@ -3,7 +3,7 @@
         <slot></slot>
     </div>
 </template>
-<style src='./index.css' lang="css"></style>
+<style src='./index.less' lang="less"></style>
 <script>
 const profixCls = 'v-menu-item-group';
 
