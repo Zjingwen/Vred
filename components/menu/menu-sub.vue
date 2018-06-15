@@ -34,7 +34,7 @@ export default{
       width: 0,
       mode: '',
       direction: 'bottom',
-      offset: 0,
+      offset: [0, 0],
     };
   },
   computed: {
@@ -78,6 +78,8 @@ export default{
       this.direction = 'right-start';
       this.height = findComponentUpward(this, 'v-menu').height;
       this.mode = findComponentUpward(this, 'v-menu').mode;
+      this.offset = [-10, 1];
+
       findComponentUpward(this, 'v-menu-item').style = {
         padding: 0,
       };

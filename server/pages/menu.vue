@@ -31,7 +31,7 @@
                                 <t-menuItem>数据展示 A-3</t-menuItem>
                             </t-menuGroup>
                         </t-menuSub>
-                        <!-- <t-menuSub :name='2'>
+                        <t-menuSub :name='2'>
                             <template slot="title">订单详情</template>
                             <t-menuGroup>
                                 <t-menuItem>订单详情 1-1</t-menuItem>
@@ -49,7 +49,7 @@
                                 <t-menuItem>开奖系统 1-2</t-menuItem>
                                 <t-menuItem>开奖系统 1-3</t-menuItem>
                             </t-menuGroup>
-                        </t-menuSub> -->
+                        </t-menuSub>
                     </t-menu>
                 </t-col>
             </t-row>

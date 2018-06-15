@@ -85,8 +85,11 @@ export default {
       defalut: false,
     },
     offset: {
-      type: Number,
-      default: 0,
+      type: Array,
+      defalut: [0, 0],
+      validator: function(val) {
+        return val.length === 2 ? true : false;
+      },
     },
   },
   computed: {
