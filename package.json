@@ -2,7 +2,7 @@
   "name": "vred",
   "version": "1.0.0",
   "description": "基于vue and 抄袭各种其他库的库",
-  "main": "dist/vred.min.js",
+  "main": "components/component.js",
   "scripts": {
     "watch": "webpack -w --config webpack.dev.config.js",
     "build": "npm run test && webpack --config webpack.pro.config.js",
