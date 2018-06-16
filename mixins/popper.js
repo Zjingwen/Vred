@@ -16,11 +16,13 @@ export default {
 
     popperConfig.placement = this.placement;
 
-    popperConfig.modifiers = {
-      offset: {
-        offset: offset.toString(),
-      },
-    };
+    if (offset) {
+      popperConfig.modifiers = {
+        offset: {
+          offset: offset.toString(),
+        },
+      };
+    }
 
     this.$Popper = new Popper(referenceElement, onPopper, popperConfig);
   },

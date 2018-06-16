@@ -21,7 +21,15 @@ module.exports = {
   },
   module: {
     rules: [
-      {test: /\.(less|css)$/, // @TODO 当css全部替换为less时候，这个配置可以去除
+      {test: /\.css$/, // @TODO 当css全部替换为less时候，这个配置可以去除
+        use: [
+          'vue-style-loader',
+          'style-loader',
+          'css-loader',
+          'less-loader',
+        ],
+      },
+      {test: /\.less$/,
         use: [
           'vue-style-loader',
           'style-loader',
