@@ -1,9 +1,9 @@
 <template>
   <li :class='classs' :style='style' @click='itemHandle'>
     <template v-if='mode === "horizontal"'>
-      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" :class='[`${profixCls}-poptip`]'>
+      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset">
         <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-        <template slot="content"><slot/></template>
+        <div :class='[profixCls + "-poptip-content"]' slot="content"><slot/></div>
       </t-poptip>
     </template>
     <template v-else>
@@ -43,7 +43,6 @@ export default{
         `${profixCls}`, {
           [`active`]: this.active,
         },
-        `${profixCls}-poptip-${this.direction}`,
       ];
 
       return classs;
