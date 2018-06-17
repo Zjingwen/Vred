@@ -95,30 +95,27 @@
         }
     }
 }
-
-// ------------------------------------------------------------------
-
 .v-menu-vertical{
     display: inline-block;
     width: 200px;
     height: 100%;
-}
-.v-menu-vertical .v-menu-item-sub{
-    height: 60px;
-    line-height: 60px;
-}
-.v-menu-vertical::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 1px;
-    background: #dddee1;
-}
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 1px;
+        background: #dddee1;
+    }
+    .v-menu-item-sub{
+        height: 60px;
+        line-height: 60px;
 
-.v-menu-vertical .v-menu-item-sub.active{
-    border-right: 2px solid #FF773D;
-    color: #FF773D;
+        &.active{
+            border-right: 2px solid #FF773D;
+            color: #FF773D;
+        }
+    }
 }
