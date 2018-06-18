@@ -2,16 +2,16 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <h1>input</h1>
-            <h2>size</h2>
-            <p>defalut</p>
+            <p>默认</p>
             <t-input v-model='inputValue'></t-input>
-            <p>large</p>
-            <t-input v-model='inputValue' size='large'></t-input>
-            <p>small</p>
-            <t-input v-model='inputValue' size='small'></t-input>
-            <p>tiny</p>
+            <p>tiny 小</p>
             <t-input v-model='inputValue' size='tiny'></t-input>
+            <p>default 中</p>
+            <t-input v-model='inputValue' size='default'></t-input>
+            <p>large 大</p>
+            <t-input v-model='inputValue' size='large'></t-input>
+            <p>disabled</p>
+            <t-input v-model='inputValue' size='default' disabled></t-input>
         </contents>
         <footers></footers>
     </div>
