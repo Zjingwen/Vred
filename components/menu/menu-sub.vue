@@ -55,17 +55,6 @@ export default{
         style.lineHeight = `${this.height}px`;
       }
 
-      if (this.mode === 'horizontal') {
-        switch (this.placement) {
-        case 'left':
-          style.float = this.placement;
-          break;
-        case 'right':
-          style.float = this.placement;
-          break;
-        }
-      }
-
       return style;
     },
   },

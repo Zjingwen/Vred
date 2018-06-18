@@ -7,7 +7,7 @@
     <div ref="referenceElement" v-clickout-side='handleClickoutSide'><slot /></div>
     <div ref="onPopper"
       v-show='show'
-      class="t-poptip-poper"
+      :class="[`${this.name}-poper`]"
       :style='style'
       :data-transfer='transfer'
       v-transfer-dom>
@@ -15,14 +15,14 @@
     </div>
   </div>
 </template>
-<style src='./poptip.css' lang='css'></style>
+<style src='./poptip.less' lang='less'></style>
 <script>
 import {oneOf} from '@util/assist.js';
 import popper from '@mixins/popper.js';
 import TransferDom from '@directives/transfer-dom';
 import ClickoutSide from '@directives/clickoutside';
 
-let profixCls = 't-poptip';
+const profixCls = 't-poptip';
 
 export default {
   name: profixCls,
@@ -123,6 +123,7 @@ export default {
   },
   data: function() {
     return {
+      name: profixCls,
       show: this.isOpen,
       height: 'auto',
     };

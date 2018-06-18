@@ -4,7 +4,7 @@
         <contents :linkName='linkName'>
             <t-row type='flex' justify='center'>
                 <t-col :span='20'>
-                    <t-menu :active-name="1" placement='left' @on:select="onClickHandle1">
+                    <t-menu :active-name="1" placement='center' @on:select="onClickHandle1">
                         <t-menuSub :name='1'>
                             <template slot="title">数据分析</template>
                             <t-menuGroup>
