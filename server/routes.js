@@ -7,6 +7,7 @@ import input from '@pages/input.vue';
 import menu from '@pages/menu.vue';
 import tooltip from '@pages/tooltip.vue';
 import poptip from '@pages/poptip.vue';
+import checkbox from '@pages/checkbox.vue';
 
 export default [
   {
@@ -43,6 +44,11 @@ export default [
     path: '/input',
     name: '输入框',
     component: input,
+  },
+  {
+    path: '/checkbox',
+    name: '勾选框',
+    component: checkbox,
   },
   {
     path: '/tooltip',

@@ -26,10 +26,5 @@
                 linkName:'输入框'
             }
         },
-        watch:{
-            inputValue(value){
-                console.log(value)
-            }
-        }
     }
 </script>

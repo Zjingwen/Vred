@@ -1,19 +1,44 @@
-/**
- * demo:
- * <t-checkbox v-model="checkbox1">checkbox1</t-checkbox>
- * <t-checkbox v-model="checkbox1" checked>checkbox1</t-checkbox>
- * <t-checkbox v-model="checkbox1" disabled>checkbox1</t-checkbox>
- * <t-checkbox v-model="checkbox1" @change='func'>checkbox1</t-checkbox>
- */
-require('./checkbox.css');
-let template = require('./checkbox.html');
+<template>
+  <label class="t-checkbox">
+    <span class="t-checkbox_input">
+        <input
+          v-if="trueLabel || falseLabel"
+          class="t-checkbox_ori"
+          type="checkbox"
+          :name="name"
+          :disabled="disabled"
+          :true-value="trueLabel"
+          :false-value="falseLabel"
+          v-model="model"
+          @change="$emit('change', $event)"
+        >
+        <input
+            v-else
+            class="t-checkbox_ori"
+            type="checkbox"
+            :name="name"
+            :disabled="disabled"
+            :value="label"
+            v-model="model"
+            @change="$emit('change', $event)"
+        >
+        <span
+          class="t-checkbox_fake"
+          :class="{'checked': isChecked,'disabled':disabled}"
+        ></span>
+    </span>
+    <span class="t-checkbox_label" v-if="$slots.default || label">
+        <slot></slot>
+        <template v-if="!$slots.default">{{label}}</template>
+    </span>
+  </label>
+</template>
+<style src="./checkbox.less" lang="less"></style>
+<script>
+const prefixCls = 't-checkbox';
 
-module.exports = Vue.extend({
-
-  componentName: 'TCheckbox',
-
-  template: template,
-
+export default {
+  name: prefixCls,
   props: {
     name: String,
     label: '', // 只有在checkbox-group或者绑定对象类型为array时有效
@@ -23,13 +48,11 @@ module.exports = Vue.extend({
     trueLabel: [String, Number],
     falseLabel: [String, Number],
   },
-
   data: function() {
     return {
       localValue: false,
     };
   },
-
   computed: {
     model: {
       get: function() {
@@ -44,7 +67,6 @@ module.exports = Vue.extend({
         }
       },
     },
-
     isChecked: function() {
       if ({}.toString.call(this.model) === '[object Boolean]') {
         return this.model;
@@ -53,7 +75,6 @@ module.exports = Vue.extend({
       }
     },
   },
-
   methods: {
 
     doChecked: function() {
@@ -65,4 +86,5 @@ module.exports = Vue.extend({
     this.checked && this.doChecked();
   },
 
-});
+};
+</script>

@@ -16,7 +16,7 @@ import tooltip from '@components/tooltip/index';// 气泡提示
 import poptip from '@components/poptip/index';// 模块提示
 
 import input from '@components/input/index';// 输入框
-
+import checkbox from '@components/checkbox/index';
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -30,8 +30,6 @@ import input from '@components/input/index';// 输入框
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
 
-
-// var Checkbox = require("./checkbox/checkbox.js");
 // var Radio = require("./radio/radio.js");
 // var Popover = require("./popover/popover.js");
 // var PopoverDirective = require("./popover/directive.js");
@@ -59,6 +57,7 @@ let components = {
   sider,
   button,
   input,
+  checkbox,
   table,
   thead,
   tbody,
