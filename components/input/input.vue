@@ -1,8 +1,32 @@
-import './input.css';
-import html from './input.html';
+<template>
+  <div class="t-input" :class="[size?('t-input_'+size):'',{disabled:disabled}]">
+    <i class="material-icons t-input_icon" v-if="icon" @click="handleIconClick">{{icon}}</i>
+    <i class="t-input_icon image" v-if="imageIcon" @click="handleIconClick"></i>
+    <input
+        class="t-input_ori"
+        :class="[customClass]"
+        :type="type"
+        :placeholder="placeholder"
+        :name="name"
+        :disabled="disabled"
+        :readonly="readonly"
+        :autocomplete="autoComplete"
+        :autofocus="autofocus"
+        :value="value"
+        :form="form"
+        ref="input"
+        @input="updateValue($event.target.value)"
+        @focus="handleFocus"
+        @blur="handleBlur"
+    >
+  </div>
+</template>
+<style src='./input.less' lang="less"></style>
+<script>
+const preProCls = 'v-input';
 
-module.exports = Vue.extend({
-  template: html,
+export default {
+  name: preProCls,
   data: function() {
     return {
       currentValue: this.value,
@@ -64,4 +88,5 @@ module.exports = Vue.extend({
       this.$emit('change', newV);
     },
   },
-});
+};
+</script>
