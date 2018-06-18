@@ -3,7 +3,7 @@
         <t-sider>
             <t-menu :width='180' :height='45' mode='vertical' :active-name='linkName' @on:select='routerHandle'>
                 <t-menuSub v-for="(item,index) in routes" :key='index' :name='item.name'>
-                    {{item.name}}
+                    <template slot="title">{{item.name}}</template>
                 </t-menuSub>
             </t-menu>
         </t-sider>

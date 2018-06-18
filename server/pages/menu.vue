@@ -48,6 +48,21 @@
                     </t-menu>
                 </t-col>
             </t-row>
+            <t-row type='flex' justify='center'>
+                <t-col :span='20'>
+                    <t-menu mode='vertical' :active-name="2" @on:select="onClickHandle2">
+                        <t-menuSub :name='1'>
+                            <template slot="title">数据分析</template>
+                        </t-menuSub>
+                        <t-menuSub :name='2'>
+                            <template slot="title">订单详情</template>
+                        </t-menuSub>
+                        <t-menuSub :name='3'>
+                            <template slot="title">开奖系统</template>
+                        </t-menuSub>
+                    </t-menu>
+                </t-col>
+            </t-row>
         </contents>
         <footers></footers>
     </div>
@@ -76,33 +91,3 @@
         }
     }
 </script>
-            <t-row type='flex' justify='center'>
-                <t-col :span='20'>
-                    <t-menu mode='vertical' :active-name="2" @on:select="onClickHandle2">
-                        <t-menuSub :name='1'>
-                            <template slot="title">数据分析</template>
-                            <!--<t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
-                            </t-menuGroup>-->
-                        </t-menuSub>
-                        <t-menuSub :name='2'>
-                            <template slot="title">订单详情</template>
-                            <!--<t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
-                            </t-menuGroup>-->
-                        </t-menuSub>
-                        <t-menuSub :name='3'>
-                            <template slot="title">开奖系统</template>
-                            <!--<t-menuGroup>
-                                <t-menuItem>menuItem 1</t-menuItem>
-                                <t-menuItem>menuItem 2</t-menuItem>
-                                <t-menuItem>menuItem 4</t-menuItem>
-                            </t-menuGroup>-->
-                        </t-menuSub>
-                    </t-menu>
-                </t-col>
-            </t-row>
