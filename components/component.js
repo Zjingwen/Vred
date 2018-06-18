@@ -16,13 +16,11 @@ import tooltip from '@components/tooltip/index';// 气泡提示
 import poptip from '@components/poptip/index';// 模块提示
 
 import input from '@components/input/index';// 输入框
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
 // import exapmple from './exapmple/index';// 例子展示
-
-
-
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");

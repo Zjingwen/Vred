@@ -23,10 +23,10 @@
 </template>
 <style src='./input.less' lang="less"></style>
 <script>
-const preProCls = 'v-input';
+const prefixCls = 'v-input';
 
 export default {
-  name: preProCls,
+  name: prefixCls,
   data: function() {
     return {
       currentValue: this.value,
