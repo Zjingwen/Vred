@@ -5,7 +5,7 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :value="value"
-        @input="updateValue($event.target.value)"
+        @input="handleInput($event.target.value)"
     >
   </div>
 </template>
@@ -16,11 +16,6 @@ const prefixCls = 't-input';
 
 export default {
   name: prefixCls,
-  data: function() {
-    return {
-      currentValue: this.value,
-    };
-  },
   props: {
     size: {
       type: String,
@@ -29,13 +24,27 @@ export default {
         return oneOf(val, ['default', 'tiny', 'large']);
       },
     },
-    placeholder: String,
-    disabled: Boolean,
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     type: {
       type: String,
       default: 'text',
     },
-    value: [String, Number],
+    value: {
+      type: String | Number,
+      default: '',
+    },
+  },
+  data: function() {
+    return {
+      currentValue: this.value,
+    };
   },
   computed: {
     classs: function() {
@@ -51,14 +60,10 @@ export default {
       return classs;
     },
   },
-  watch: {
-    currentValue: function(newV) {
-      this.$emit('change', newV);
-    },
-  },
   methods: {
-    updateValue: function(value) {
+    handleInput: function(value) {
       this.currentValue = value.trim();
+      this.$emit('input', value);
     },
   },
 };
