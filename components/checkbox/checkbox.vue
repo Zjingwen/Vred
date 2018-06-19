@@ -1,9 +1,9 @@
 <template>
   <label class="t-checkbox">
-    <span class="t-checkbox_input">
+    <span class="t-checkbox-input">
         <input
           v-if="trueLabel || falseLabel"
-          class="t-checkbox_ori"
+          class="t-checkbox-ori"
           type="checkbox"
           :name="name"
           :disabled="disabled"
@@ -14,7 +14,7 @@
         >
         <input
             v-else
-            class="t-checkbox_ori"
+            class="t-checkbox-ori"
             type="checkbox"
             :name="name"
             :disabled="disabled"
@@ -23,11 +23,11 @@
             @change="$emit('change', $event)"
         >
         <span
-          class="t-checkbox_fake"
+          class="t-checkbox-fake"
           :class="{'checked': isChecked,'disabled':disabled}"
         ></span>
     </span>
-    <span class="t-checkbox_label" v-if="$slots.default || label">
+    <span class="t-checkbox-label" v-if="$slots.default || label">
         <slot></slot>
         <template v-if="!$slots.default">{{label}}</template>
     </span>
