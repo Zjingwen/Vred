@@ -1,5 +1,5 @@
 <template>
-  <label class="t-checkbox">
+  <label :class="classs">
     <span class="t-checkbox-input">
         <input
           class="t-checkbox-ori"
@@ -9,7 +9,7 @@
           :false-value="falseLabel"
           :value="value"
           v-model="model"
-          @change="$emit('change', $event)"
+          @change="handleChange"
         >
         <span
           class="t-checkbox-fake"
@@ -41,12 +41,30 @@ export default {
       default: false,
     },
   },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+      ];
+
+      return classs;
+    },
+  },
   data: function() {
     return {
       trueLabel: true,
       falseLabel: false,
       model: this.value,
     };
+  },
+  methods: {
+    handleChange: function() {
+      this.$emit('input', this.model);
+      this.$emit('change', {
+        label: this.label,
+        value: this.model,
+      });
+    },
   },
 };
 </script>

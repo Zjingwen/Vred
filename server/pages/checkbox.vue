@@ -2,10 +2,10 @@
     <div>
         <headers></headers>
         <contents :linkName='linkName'>
-            <t-checkbox v-model="checkbox1">checkbox1</t-checkbox>
+            <t-checkbox v-model="checkbox1" label='checkbox-label1'>checkbox1</t-checkbox>
             <t-checkbox v-model="checkbox1" disabled>checkbox1</t-checkbox>
             <t-checkbox v-model="checkbox1" disabled>checkbox1</t-checkbox>
-            <t-checkbox v-model="checkbox1" @change='func'>checkbox1</t-checkbox>
+            <t-checkbox v-model="checkbox1" label='checkbox-label2' @change='handleChange'>checkbox1</t-checkbox>
         </contents>
         <footers></footers>
     </div>
@@ -20,8 +20,8 @@
             }
         },
         methods:{
-          func:function(){
-            console.log('true');
+          handleChange:function(val){
+            console.log(val);
           }
         }
     }
