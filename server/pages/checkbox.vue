@@ -3,7 +3,7 @@
         <headers></headers>
         <contents :linkName='linkName'>
             <t-checkbox v-model="checkbox1">checkbox1</t-checkbox>
-            <t-checkbox v-model="checkbox1" checked>checkbox1</t-checkbox>
+            <t-checkbox v-model="checkbox1" disabled>checkbox1</t-checkbox>
             <t-checkbox v-model="checkbox1" disabled>checkbox1</t-checkbox>
             <t-checkbox v-model="checkbox1" @change='func'>checkbox1</t-checkbox>
         </contents>
