@@ -59,11 +59,24 @@ export default {
   },
   methods: {
     handleChange: function() {
-      this.$emit('input', this.model);
-      this.$emit('change', {
-        label: this.label,
+      let _emit = {
+        model: this.model,
         value: this.model,
-      });
+        label: this.label,
+      };
+
+      this.$emit('input', _emit.model);
+
+      switch (this.label) {
+      case '':
+        delete _emit.model;
+        delete _emit.label;
+        this.$emit('change', _emit);
+        break;
+      default:
+        delete _emit.model;
+        this.$emit('change', _emit);
+      };
     },
   },
 };
