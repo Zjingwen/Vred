@@ -34,7 +34,7 @@
     export default{
         data:function(){
             return {
-                linkName:'多选框',
+                linkName:'勾选框',
                 checkbox: true,
                 disabled: true,
                 change: true,

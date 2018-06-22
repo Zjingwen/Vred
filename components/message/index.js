@@ -1,8 +1,6 @@
-/**
- *  import { PopupManager } from 'element-ui/src/utils/popup';
- */
-let MessageConstructor = Vue.extend(require('./message.js'));
+import MessageComponent from './message.vue';
 
+let MessageConstructor = Vue.extend(MessageComponent);
 let instance;
 let instances = [];
 let seed = 1;
@@ -61,4 +59,4 @@ message.close = function(id, userOnClose) {
   }
 };
 
-module.exports = message;
+export default message;

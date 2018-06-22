@@ -1,6 +1,7 @@
 import '@less/index';
 
 import col from '@components/col/index';// 列
+
 import row from '@components/row/index';// 行
 
 import {header, content, footer, layout, sider} from '@components/layout/index';// 布局
@@ -16,7 +17,10 @@ import tooltip from '@components/tooltip/index';// 气泡提示
 import poptip from '@components/poptip/index';// 模块提示
 
 import input from '@components/input/index';// 输入框
-import {checkbox, checkboxGroup} from '@components/checkbox/index';
+
+import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
+
+import message from '@components/message/index';
 
 /**
  * @TODO:jingwen exapmple组件体积太大
@@ -25,8 +29,6 @@ import {checkbox, checkboxGroup} from '@components/checkbox/index';
 
 // var Modal = require("./modal/modal.js");
 // var Notice = require("./notice/notification.js");
-// var Message = require("./message/index.js");
-//
 
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
@@ -94,7 +96,7 @@ function install(Vue) {
   // Vue.component('t-pagination', Pagination);
 
   // Vue.prototype.$notify = Notice;
-  // Vue.prototype.$message = Message;
+  Vue.prototype.$message = message;
 
   // Vue.directive('InfiniteScroll', InfiniteScroll);
   // Vue.directive('lazy', Lazyload);
