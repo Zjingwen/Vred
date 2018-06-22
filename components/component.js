@@ -16,7 +16,8 @@ import tooltip from '@components/tooltip/index';// 气泡提示
 import poptip from '@components/poptip/index';// 模块提示
 
 import input from '@components/input/index';// 输入框
-import checkbox from '@components/checkbox/index';
+import {checkbox, checkboxGroup} from '@components/checkbox/index';
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -58,6 +59,7 @@ let components = {
   button,
   input,
   checkbox,
+  checkboxGroup,
   table,
   thead,
   tbody,

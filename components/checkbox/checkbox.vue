@@ -23,6 +23,7 @@
 </template>
 <style src="./checkbox.less" lang="less"></style>
 <script>
+import {findComponentUpward} from '@util/assist.js';
 const prefixCls = 't-checkbox';
 
 export default {
@@ -62,15 +63,19 @@ export default {
       let _emit = {
         model: this.model,
         value: this.model,
-        label: this.label,
+        key: this.label,
       };
 
       this.$emit('input', _emit.model);
 
+      if (findComponentUpward(this, 'v-checkbox-group')) {
+        findComponentUpward(this, 'v-checkbox-group').updateModel();
+      }
+
       switch (this.label) {
       case '':
         delete _emit.model;
-        delete _emit.label;
+        delete _emit.key;
         this.$emit('change', _emit);
         break;
       default:

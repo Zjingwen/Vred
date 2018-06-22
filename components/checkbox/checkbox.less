@@ -37,8 +37,8 @@
         display: inline-block;
         width: 18px;
         height: 18px;
-        border: 1px solid #E9E9E9;
-        border-radius: 2px;
+        border: 1px solid @border-color-base;
+        border-radius: @base-radius-2;
         box-sizing: border-box;
 
         &:after{
@@ -61,8 +61,8 @@
         }
 
         &.checked{
-            background-color: #FF7438;
-            border-color: #FF7438;
+            background-color: @base-bgm-1;
+            border-color: @base-bgm-1;
 
             &:after{
                 transform: rotate(45deg) scaleY(1);
@@ -73,4 +73,8 @@
             cursor: not-allowed;
         }
     }
+}
+
+.v-checkbox-group{
+    display: inline-block;
 }

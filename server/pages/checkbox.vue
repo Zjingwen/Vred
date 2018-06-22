@@ -17,6 +17,14 @@
             <p>change模式，不指定label</p>
             <t-checkbox v-model="changeNotLabel" @change='handleChangeNotLabel'>changeNotLabel</t-checkbox>
             <p>{{changeNotLabelObj}}</p>
+            <br>
+            <p>checkboxGroup多选模式</p>
+            <t-checkboxGroup v-model="items" @change='handleGroup'>
+                <t-checkbox label='apple'>苹果</t-checkbox>
+                <t-checkbox label='banana'>香蕉</t-checkbox>
+                <t-checkbox label='monkey'>猴子</t-checkbox>
+            </t-checkboxGroup>
+            <p>{{items}}</p>
         </contents>
         <footers></footers>
     </div>
@@ -31,8 +39,9 @@
                 disabled: true,
                 change: true,
                 changeObj:{},
-                changeNotLabel:true,
+                changeNotLabel:false,
                 changeNotLabelObj:{},
+                items:[]
             }
         },
         methods:{
@@ -41,6 +50,9 @@
             },
             handleChangeNotLabel:function(val){
                 this.changeNotLabelObj = val;
+            },
+            handleGroup: function(val){
+                console.log(val);
             }
         }
     }
