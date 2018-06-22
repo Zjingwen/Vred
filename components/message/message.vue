@@ -1,16 +1,35 @@
-/**
- *  this.$message('这是一条消息提示');
- *  this.$message({message: '恭喜你，这是一条成功消息',type: 'success'});
- *  this.$message({message: '警告哦，这是一条警告消息',type: 'warning'});
- * this.$message.error('错了哦，这是一条错误消息');
- */
-require('./message.css');
-let template = require('./message.html');
+<template>
+  <transition name="t-message-fade">
+    <div
+      class="t-message"
+      :class="customClass"
+      v-show="visible"
+      @mouseenter="clearTimer"
+      @mouseleave="startTimer">
 
-module.exports = {
+      <template v-if="type == 'custom'">
+          <div v-html="message"></div>
+      </template>
 
-  componentName: 'TMessage',
-  template: template,
+      <template v-else>
+          <img class="t-message__img" :src="typeImg" alt="" v-if="!iconClass && typeImg">
+
+          <div class="t-message__group" :class="{ 'is-with-icon': iconClass }">
+              <p><i class="t-message__icon" :class="iconClass" v-if="iconClass"></i>{{message}}</p>
+              <div v-if="showClose" class="t-message__closeBtn t-icon-close" @click="close"></div>
+          </div>
+      </template>
+    </div>
+</transition>
+</template>
+
+<style src='./message.less' lang='less'></style>
+
+<script>
+const prefixCls = 't-message';
+
+export default {
+  name: prefixCls,
   data: function() {
     return {
       visible: false,
@@ -25,7 +44,6 @@ module.exports = {
       timer: null,
       typeMap: {
         'info': 'http://oss2.lanlanlife.com/71ec91851cdc1e40107776f83dd0c6ce_40x40.png',
-        // 'success': 'http://oss1.lanlanlife.com/caa2747d2ad0b3acea3b1347305e9d25_40x40.png',
         'success': 'http://oss.lanlanlife.com/2cc6b5e4a60478193ed3e6bdaa0f1cec_30x30.png',
         'warning': 'http://oss2.lanlanlife.com/3a2c3aa58e30dae123d372bb99245621_40x40.png',
         'error': 'http://oss2.lanlanlife.com/53a6ff00efbd70fc7d8884b7dc8e1850_40x40.png',
@@ -78,3 +96,4 @@ module.exports = {
     this.startTimer();
   },
 };
+</script>

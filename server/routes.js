@@ -8,6 +8,7 @@ import menu from '@pages/menu.vue';
 import tooltip from '@pages/tooltip.vue';
 import poptip from '@pages/poptip.vue';
 import checkbox from '@pages/checkbox.vue';
+import message from '@pages/message.vue';
 
 export default [
   {
@@ -59,5 +60,10 @@ export default [
     path: '/poptip',
     name: '模块提示',
     component: poptip,
+  },
+  {
+    path: '/message',
+    name: '消息提示',
+    component: message,
   },
 ];
