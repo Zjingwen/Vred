@@ -20,7 +20,7 @@ import input from '@components/input/index';// 输入框
 
 import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
 
-import Message from '@components/message/index';
+import message from '@components/message/index';
 
 /**
  * @TODO:jingwen exapmple组件体积太大
@@ -96,7 +96,7 @@ function install(Vue) {
   // Vue.component('t-pagination', Pagination);
 
   // Vue.prototype.$notify = Notice;
-  Vue.prototype.$message = Message;
+  Vue.prototype.$message = message;
 
   // Vue.directive('InfiniteScroll', InfiniteScroll);
   // Vue.directive('lazy', Lazyload);
