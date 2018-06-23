@@ -30,12 +30,11 @@ let message = function(options) {
   document.body.appendChild(instance.vm.$el);
   instance.vm.visible = true;
   instance.dom = instance.vm.$el;
-  // instance.dom.style.zIndex = PopupManager.nextZIndex();
   instances.push(instance);
   return instance.vm;
 };
 
-['success', 'warning', 'info', 'error', 'custom'].forEach(function(type) {
+['success', 'warning', 'info', 'error'].forEach(function(type) {
   message[type] = function(options) {
     if (typeof options === 'string') {
       options = {
