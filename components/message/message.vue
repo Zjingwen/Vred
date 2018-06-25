@@ -1,7 +1,7 @@
 <template>
   <transition name="t-message-fade">
     <div
-      class="t-message"
+      class="t-message t-message-warning"
       :class="customClass"
       v-show="visible"
       @mouseenter="clearTimer"
