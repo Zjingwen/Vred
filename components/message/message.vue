@@ -1,8 +1,7 @@
 <template>
   <transition name="t-message-fade">
     <div
-      class="t-message t-message-warning"
-      :class="customClass"
+      :class="classs"
       v-show="visible"
       @mouseenter="clearTimer"
       @mouseleave="startTimer">
@@ -29,12 +28,21 @@ export default {
       visible: false,
       message: '',
       duration: 2000,
-      type: 'info',
-      customClass: '',
+      type: 'base',
       onClose: null,
       closed: false,
       timer: null,
     };
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+        `${prefixCls}-${this.type}`,
+      ];
+
+      return classs;
+    },
   },
   watch: {
     closed: function(newVal) {
