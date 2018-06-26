@@ -41,6 +41,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    checked: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classs: function() {
@@ -57,6 +61,11 @@ export default {
       falseLabel: false,
       model: this.value,
     };
+  },
+  mounted: function() {
+    if (this.checked) {
+      this.model = this.checked;
+    }
   },
   methods: {
     handleChange: function() {
