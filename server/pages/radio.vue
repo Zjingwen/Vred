@@ -9,11 +9,19 @@
       <t-radio v-model="radioTrue">radio-true</t-radio>
       <p>radio-true：{{radioTrue}}</p>
       <br>
-      <t-radio v-model="disabledValue" :disabled='disabled'>radio-disabled</t-radio>
-      <p>radio-disabled：{{disabledValue}}</p>
+      <t-radio v-model="disabledTrue" :disabled='disabled'>radio-disabled-true</t-radio>
+      <p>radio-disabled-true：{{disabledTrue}}</p>
       <br>
-      <t-radio v-model="labelValue">指定label</t-radio>
-      <p>radio-disabled：{{labelValue}}</p>
+      <t-radio v-model="disabledFalse" :disabled='disabled'>radio-disabled-false</t-radio>
+      <p>radio-disabled-true：{{disabledFalse}}</p>
+      <br>
+      <p>group模式</p>
+      <t-radioGroup v-model="phone">
+        <t-radio label='apple' disabled>apple</t-radio>
+        <t-radio label='andorid'>andorid</t-radio>
+        <t-radio label='window'>window</t-radio>
+      </t-radioGroup>
+      <p>phone：{{phone}}</p>
     </contents>
     <footers></footers>
   </div>
@@ -23,23 +31,15 @@
   export default{
     data:function(){
         return {
-            linkName:'单选框',
-            radioFalse: false,
-            radioTrue: true,
-            disabledValue: true,
-            disabled: true,
-            labelValue: false,
+          linkName:'单选框',
+          radioFalse: false,
+          radioTrue: true,
+          disabledTrue: true,
+          disabledFalse: false,
+          disabled: true,
+          labelValue: false,
+          phone: 'apple'
         }
     },
-    methods:{
-        handleChange:function(){
-
-        },
-    },
-    watch:{
-      radioFalse:function(val){
-        console.log(val)
-      }
-    }
   }
 </script>

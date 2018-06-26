@@ -17,10 +17,7 @@
 </template>
 <style src='./radio.less' lang="less"></style>
 <script>
-/**
- * <t-radio :disabled="false" v-model="radio" label="1">哈哈</t-radio>
- * <t-radio :disabled="false" v-model="radio" label="2">hello</t-radio>
- */
+import {findComponentUpward} from '@util/assist';
 const prefixCls = 't-radio';
 
 export default {
@@ -31,30 +28,33 @@ export default {
       default: '',
     },
     value: {
-      type: String | Boolean,
-      default: '',
+      type: Boolean,
+      default: false,
     },
     disabled: {
       type: Boolean,
       default: false,
     },
   },
-  data:function(){
+  data: function() {
     return {
       currentValue: this.value,
-    }
+    };
   },
-  methods:{
-    change:function(event){
-      if(this.disabled){
+  methods: {
+    change: function(event) {
+      if (this.disabled) {
         return false;
       }
-      const value = event.target.checked;
+      if (findComponentUpward(this, 't-radio-group')) {
+        findComponentUpward(this, 't-radio-group').updateModel(this.label);
+        return false;
+      }
 
+      const value = event.target.checked;
       this.currentValue = value;
       this.$emit('input', value);
-    }
-  }
-}
+    },
+  },
+};
 </script>
-
