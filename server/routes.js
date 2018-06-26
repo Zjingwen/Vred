@@ -9,6 +9,7 @@ import tooltip from '@pages/tooltip.vue';
 import poptip from '@pages/poptip.vue';
 import checkbox from '@pages/checkbox.vue';
 import message from '@pages/message.vue';
+import notice from '@pages/notice.vue';
 
 export default [
   {
@@ -65,5 +66,10 @@ export default [
     path: '/message',
     name: '消息提示',
     component: message,
+  },
+  {
+    path: '/notice',
+    name: '通知提醒',
+    component: notice,
   },
 ];

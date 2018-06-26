@@ -16,24 +16,39 @@
     export default{
       data:function(){
           return {
-              linkName:'消息提示',
+              linkName:'通知提醒',
           }
       },
       methods:{
           base: function(){
-            this.$message('base');
+            this.$notice({
+                title:'base',
+                message:'base'
+            });
           },
           success:function(){
-            this.$message.success('success');
+            this.$notice.success({
+                title:'success',
+                message:'success'
+            });
           },
           error: function(){
-            this.$message.error('error');
+            this.$notice.error({
+                title:'error',
+                message:'error'
+            });
           },
           info: function(){
-            this.$message.info('info');
+            this.$notice.info({
+                title:'info',
+                message:'info'
+            });
           },
           warning: function(){
-              this.$message.warning('warning');
+            this.$notice.warning({
+                title:'warning',
+                message:'warning'
+            });
           }
       }
     }
