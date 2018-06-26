@@ -20,7 +20,7 @@ import input from '@components/input/index';// 输入框
 
 import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
 
-import message from '@components/message/index';//
+import message from '@components/message/index';// 消息提示
 
 import notice from '@components/notice/index';// 通知提醒
 /**
