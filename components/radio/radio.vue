@@ -1,29 +1,41 @@
+<template>
+  <label class="t-radio">
+    <span class="t-radio_box" :class="{'isDisabled': disabled,'isChecked': model === label}">
+        <input
+                type="radio"
+                class="t-radio_ori"
+                :name="name"
+                :disabled="disabled"
+                :value="label"
+                v-model="model"
+        >
+        <span class="t-radio_input"></span>
+    </span>
+
+    <span class="t-radio_label" v-if="$slots.default || label">
+        <slot></slot>
+        <template v-if="!$slots.default">{{label}}</template>
+    </span>
+  </label>
+</template>
+<style src='./radio.less' lang="less"></style>
+<script>
 /**
  * <t-radio :disabled="false" v-model="radio" label="1">哈哈</t-radio>
  * <t-radio :disabled="false" v-model="radio" label="2">hello</t-radio>
  */
-require('./radio.css');
-let template = require('./radio.html');
-
-module.exports = Vue.extend({
-
-  componentName: 'TRadio',
-
-  template: template,
-
+export default {
   props: {
     label: '',
     value: '',
     name: String,
     disabled: Boolean,
   },
-
   data: function() {
     return {
       localValue: false,
     };
   },
-
   computed: {
     model: {
       get: function() {
@@ -39,4 +51,6 @@ module.exports = Vue.extend({
       },
     },
   },
-});
+}
+</script>
+

@@ -20,7 +20,7 @@ import input from '@components/input/index';// 输入框
 
 import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
 
-var radio = require("./radio/radio.js");// 单选框
+import radio from '@components/radio/index';// 单选框
 
 import message from '@components/message/index';// 消息提示
 
