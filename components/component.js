@@ -20,15 +20,16 @@ import input from '@components/input/index';// 输入框
 
 import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
 
-import message from '@components/message/index';
+import message from '@components/message/index';//
 
+import notice from '@components/notice/index';// 通知提醒
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
 // import exapmple from './exapmple/index';// 例子展示
 
 // var Modal = require("./modal/modal.js");
-// var Notice = require("./notice/notification.js");
+
 
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
@@ -90,12 +91,9 @@ function install(Vue) {
   // Vue.component('t-dropdown-item', DropdownItem);
 
   // Vue.component('modal', Modal);
-  // Vue.component('notice', Notice);
-  // Vue.component('message', Message);
-
   // Vue.component('t-pagination', Pagination);
 
-  // Vue.prototype.$notify = Notice;
+  Vue.prototype.$notice = notice;
   Vue.prototype.$message = message;
 
   // Vue.directive('InfiniteScroll', InfiniteScroll);

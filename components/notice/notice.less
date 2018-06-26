@@ -1,0 +1,43 @@
+@import '../../less/index.less';
+
+.t-notice{
+    width: 300px;
+    padding: 20px;
+    position: fixed;
+    right: 15px;
+    top: 10px;
+    z-index: 6666;
+    box-sizing: border-box;
+    transition: opacity .3s,transform .3s,right .3s,top .4s;
+    
+    h1{
+        .main;
+    }
+    
+    p{
+        padding-top: 10px;
+        .text;
+    }
+
+    &.t-notice-base{
+        .cpt-base;
+    }
+    &.t-notice-success{
+        .cpt-success;
+    }
+    &.t-notice-error{
+        .cpt-error;
+    }
+    &.t-notice-info{
+        .cpt-info;
+    }
+    &.t-notice-warning{
+        .cpt-warning;
+    }
+}
+.notice-fade-leave-active {
+    opacity: 0;
+}
+.notice-fade-enter{
+    transform: translateX(100%);
+}

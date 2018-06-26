@@ -1,23 +1,43 @@
-/**
- * 通知组件
- */
+<template>
+  <transition name="notice-fade">
+    <div :class="classs" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer" @mouseleave="startTimer">
+        <div class="box">
+            <h1>{{title}}</h1>
+            <p v-if='message'>{{message}}</p>
+        </div>
+    </div>
+  </transition>
+</template>
 
-require('./notice.css');
-let html = require('./notice.html');
+<style src='./notice.less' lang="less"></style>
 
-module.exports = Vue.extend({
-  template: html,
+<script>
+const prefixCls = 't-notice';
+
+export default {
+  name: prefixCls,
   data: function() {
     return {
       visible: false,
       title: '',
       message: '',
       duration: 4000,
+      type: 'base',
       top: null,
-      timer: null,
-      closed: false,
       onClose: null,
+      closed: false,
+      timer: null,
     };
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+        `${prefixCls}-${this.type}`,
+      ];
+
+      return classs;
+    },
   },
   watch: {
     closed: function(newVal) {
@@ -59,4 +79,7 @@ module.exports = Vue.extend({
       }, this.duration);
     }
   },
-});
+};
+</script>
+
+

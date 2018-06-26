@@ -1,21 +1,23 @@
+import NoticeComponent from './notice.vue';
 
-let Notice = require('./notice.js');
-
+let NoticeConstructor = Vue.extend(NoticeComponent);
 let instance = null;
 let instances = [];
 let index = 1;
 
-function Notification(options) {
+let notice = function(options) {
   options = options || {};
 
   let userOnClose = options.onClose;
   let id = 'notice_' + index++;
 
   options.onClose = function() {
-    Notification.close(id, userOnClose);
+    notice.close(id, userOnClose);
   };
 
-  instance = new Notice({data: options});
+  instance = new NoticeConstructor({
+    data: options,
+  });
 
   instance.id = id;
   instance.vm = instance.$mount(); // 返回实例自身
@@ -35,12 +37,25 @@ function Notification(options) {
   instances.push(instance);
 
   return instance.vm;
-}
+};
 
-Notification.close = function(id, userOnClose) {
+['success', 'warning', 'info', 'error'].forEach(function(type) {
+  notice[type] = function(options) {
+    if (typeof options === 'string') {
+      options = {
+        notice: options,
+      };
+    }
+    options.type = type;
+    return notice(options);
+  };
+});
+
+notice.close = function(id, userOnClose) {
   let index;
   let removedHeight;
-  for (let i = 0, len = instances.length; i < len; i++) {
+  let len = instances.length;
+  for (let i = 0; i < len; i++) {
     if (id === instances[i].id) {
       if (typeof userOnClose === 'function') {
         userOnClose(instances[i]);
@@ -53,10 +68,10 @@ Notification.close = function(id, userOnClose) {
   }
 
   if (len > 1) {
-    for (i = index; i < len - 1; i++) {
+    for (let i = index; i < len - 1; i++) {
       instances[i].dom.style.top = parseInt(instances[i].dom.style.top, 10) - removedHeight - 16 + 'px';
     }
   }
 };
 
-module.exports = Notification;
+export default notice;
