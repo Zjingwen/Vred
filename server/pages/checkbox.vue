@@ -20,7 +20,7 @@
             <br>
             <p>checkboxGroup多选模式</p>
             <t-checkboxGroup v-model="items" @change='handleGroup'>
-                <t-checkbox label='apple' checked>苹果</t-checkbox>
+                <t-checkbox label='apple' :checked='false'>苹果</t-checkbox>
                 <t-checkbox label='banana' checked>香蕉</t-checkbox>
                 <t-checkbox label='monkey'>猴子</t-checkbox>
             </t-checkboxGroup>
