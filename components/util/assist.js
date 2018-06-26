@@ -46,7 +46,7 @@ export function findComponentDownward(context, componentName) {
   return children;
 }
 
-// 寻找同级组件
+// 寻找同级组件集合
 export function findBrothersComponents(context, componentName, exceptMe = true) {
   let res = context.$parent.$children.filter((item) => {
     return item.$options.name === componentName;
@@ -56,7 +56,7 @@ export function findBrothersComponents(context, componentName, exceptMe = true) 
   return res;
 }
 
-// 寻找下级组件
+// 寻找下级组件集合
 export function findComponentsDownward(context, componentName) {
   return context.$children.reduce((components, child) => {
     if (child.$options.name === componentName) components.push(child);
