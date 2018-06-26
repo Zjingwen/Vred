@@ -1,20 +1,17 @@
 <template>
   <label class="t-radio">
-    <span class="t-radio_box" :class="{'isDisabled': disabled,'isChecked': model === label}">
+    <span class="t-radio-box" :class="{'isDisabled': disabled}">
         <input
-                type="radio"
-                class="t-radio_ori"
-                :name="name"
-                :disabled="disabled"
-                :value="label"
-                v-model="model"
+          type="radio"
+          class="t-radio-ori"
+          :disabled='disabled'
+          :checked="currentValue"
+          @change='change'
         >
-        <span class="t-radio_input"></span>
+        <span class="t-radio-input"></span>
     </span>
-
-    <span class="t-radio_label" v-if="$slots.default || label">
-        <slot></slot>
-        <template v-if="!$slots.default">{{label}}</template>
+    <span class="t-radio-label">
+        <slot/>
     </span>
   </label>
 </template>
@@ -24,33 +21,40 @@
  * <t-radio :disabled="false" v-model="radio" label="1">哈哈</t-radio>
  * <t-radio :disabled="false" v-model="radio" label="2">hello</t-radio>
  */
+const prefixCls = 't-radio';
+
 export default {
+  name: prefixCls,
   props: {
-    label: '',
-    value: '',
-    name: String,
-    disabled: Boolean,
-  },
-  data: function() {
-    return {
-      localValue: false,
-    };
-  },
-  computed: {
-    model: {
-      get: function() {
-        return this.value !== undefined ? this.value : this.localValue;
-      },
-      set: function(val) {
-        if (this.value !== undefined) {
-          // v-model语法糖 v-bind:value="something" v-on:input="something = arguments[0]"
-          this.$emit('input', val);
-        } else {
-          this.localValue = val;
-        }
-      },
+    label: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: String | Boolean,
+      default: '',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
+  data:function(){
+    return {
+      currentValue: this.value,
+    }
+  },
+  methods:{
+    change:function(event){
+      if(this.disabled){
+        return false;
+      }
+      const value = event.target.checked;
+
+      this.currentValue = value;
+      this.$emit('input', value);
+    }
+  }
 }
 </script>
 
