@@ -20,6 +20,8 @@ import input from '@components/input/index';// 输入框
 
 import {checkbox, checkboxGroup} from '@components/checkbox/index';// 多选框
 
+var radio = require("./radio/radio.js");// 单选框
+
 import message from '@components/message/index';// 消息提示
 
 import notice from '@components/notice/index';// 通知提醒
@@ -34,7 +36,7 @@ import notice from '@components/notice/index';// 通知提醒
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
 
-// var Radio = require("./radio/radio.js");
+
 // var Popover = require("./popover/popover.js");
 // var PopoverDirective = require("./popover/directive.js");
 // var Dropdown = require("./dropdown/dropdown.js");
@@ -63,6 +65,7 @@ let components = {
   input,
   checkbox,
   checkboxGroup,
+  radio,
   table,
   thead,
   tbody,
