@@ -25,6 +25,9 @@ import {radio, radioGroup} from '@components/radio/index';// 单选框
 import message from '@components/message/index';// 消息提示
 
 import notice from '@components/notice/index';// 通知提醒
+
+import Switch from '@components/switch/index';// 开关
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -63,6 +66,7 @@ let components = {
   sider,
   button,
   input,
+  Switch,
   checkbox,
   checkboxGroup,
   radio,

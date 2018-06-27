@@ -11,6 +11,7 @@ import checkbox from '@pages/checkbox.vue';
 import message from '@pages/message.vue';
 import notice from '@pages/notice.vue';
 import radio from '@pages/radio.vue';
+import Switch from '@pages/switch.vue';
 
 export default [
   {
@@ -52,6 +53,11 @@ export default [
     path: '/checkbox',
     name: '勾选框',
     component: checkbox,
+  },
+  {
+    path: '/switch',
+    name: '开关',
+    component: Switch,
   },
   {
     path: '/radio',
