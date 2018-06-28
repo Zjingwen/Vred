@@ -2,4 +2,5 @@
 
 if [ -n "$files_to_lint" ]; then
   npm run line
+  exit 1
 fi
