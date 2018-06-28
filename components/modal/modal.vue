@@ -1,23 +1,25 @@
 <template>
-  <div class="t-modal_container"
+  <div :class="`${prefixCls}-container`"
     v-show="visible"
-    :class="[modalClass]"
-    @click.self="modalClickClose">
+    @click.self="handleClickoutSide"
+    data-transfer='true'
+    v-transfer-dom>
 
-    <div class="t-modal"
-      ref="modal"
-      :class="[sizeClass, customClass, scrollClass]"
+    <div
+      :class="classs"
       :style="style">
 
-      <div class="t-modal_header" v-if="title">
-        <span class="t-modal_title">{{title}}</span>
-        <i class="t-modal_close" @click="close">✕</i>
+      <div :class="`${prefixCls}-header`">
+        <span :class="`${prefixCls}-title`">{{title}}</span>
+        <span :class="`${prefixCls}-close`" @click="handleClose">✕</span>
       </div>
-      <div class="t-modal_body">
-        <slot>自定义内容</slot>
+
+      <div :class="`${prefixCls}-body`">
+        <div slot="body">自定义内容body</div>
       </div>
-      <div class="t-modal_footer">
-        <slot name="footer"></slot>
+
+      <div :class="`${prefixCls}-footer`">
+        <slot name="footer">自定义footer</slot>
       </div>
 
     </div>
@@ -26,102 +28,113 @@
 </template>
 <style src='./modal.less' lang="less"></style>
 <script>
-const prefixCla = 't-modal';
+import TransferDom from '@directives/transfer-dom';
+import {oneOf} from '@util/assist';
+const prefixCls = 't-modal';
 
 export default {
-  name: prefixCla,
+  name: prefixCls,
+  directives: {
+    TransferDom,
+  },
   props: {
-    value: Boolean,
-    title: String,
-    customClass: String,
-    top: String,
-    width: String,
-    height: String,
-    innerScroll: {
+    title: {
+      type: String,
+      default: '自定义title',
+    },
+    value: {
       type: Boolean,
       default: false,
     },
-    lockScroll: {
-      type: Boolean,
-      default: true,
+    customClass: {
+      type: String,
+      default: '',
     },
-    modal: {
-      type: Boolean,
-      default: true,
+    top: {
+      type: String,
+      default: '',
     },
-    modalClose: {
+    width: {
+      type: String,
+      default: '',
+    },
+    height: {
+      type: String,
+      default: '',
+    },
+    disabled: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     size: {
       type: String,
-      default: 'small',
+      default: 'default',
+      validator: function(val) {
+        return oneOf(val, ['tiny', 'default', 'large']);
+      },
     },
   },
   data: function() {
     return {
-      visible: false,
+      prefixCls: prefixCls,
+      visible: !function() {
+        if (this.disabled) return false;
+        return this.value;
+      },
     };
-  },
-  mounted: function() {
-    // document.body.appendChild(this.$el);
   },
   watch: {
     value: function(val) {
+      if (this.disabled) return false;
+
       this.visible = val;
     },
     visible: function(val) {
       this.$emit('input', val);
 
       if (val) {
-        this.$emit('open');
-
-        this.lockScroll?document.body.style.overflow = 'hidden':'';
-
-        this.$nextTick(function() {
-          this.$refs.modal.scrollTop = 0;
-        }.bind(this));
-      } else {
-        this.$emit('close');
-        this.lockScroll?document.body.style.overflow = '':'';
+        document.body.style.overflow = 'hidden';
+        this.$emit('on-open');
+        return false;
       }
+
+      document.body.style.overflow = '';
+      this.$emit('on-close');
     },
   },
   computed: {
-    'sizeClass': function() {
-      return 't-' + this.size;
-    },
-    'modalClass': function() {
-      return this.modal?'t-mask':'';
-    },
-    'scrollClass': function() {
-      return this.innerScroll?'t-scroll':'';
-    },
-    'style': function() {
-      let style = {};
-      if (this.width) {
-        style['width'] = this.width;
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+        `${prefixCls}-${this.size}`,
+      ];
+
+      if (this.customClass) {
+        classs.push(this.customClass);
       }
-      if (this.height) {
-        style['height'] = this.height;
-      }
-      if (this.top) {
-        style['top'] = this.top;
-      }
+
+      return classs;
+    },
+    style: function() {
+      let style = {
+        width: this.width ? `${this.width}px` : null,
+        height: this.height ? `${this.height}px` : null,
+        top: this.top ? `${this.top}px` : null,
+      };
+
       return style;
     },
   },
   methods: {
-    // ok: function(){
-    //    this.visible = false;
-    // },
-    close: function() {
+    handleClose: function() {
+      if (this.disabled) return false;
+
       this.visible = false;
     },
-    modalClickClose: function() {
-      if (this.modalClose) {
-        this.visible = false;
-      }
+    handleClickoutSide: function() {
+      if (this.disabled) return false;
+
+      this.visible = false;
     },
   },
 };
