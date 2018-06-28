@@ -1,5 +1,5 @@
 # Vred
-[![Build Status](https://travis-ci.org/Zjingwen/vue-components.svg?branch=master)](https://travis-ci.org/Zjingwen/vue-components)
+[![Build Status](https://travis-ci.org/Zjingwen/Vred.svg?branch=master)](https://travis-ci.org/Zjingwen/Vred)
 
 ## 基于vue and 抄袭各种其他库，抄袭对象包含：
 * [iview](https://www.iviewui.com/)
