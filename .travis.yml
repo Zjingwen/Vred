@@ -2,9 +2,9 @@ language: node_js
 node_js:
     - "8.9.1"
 after_success:
+  - git status
   - git config user.name "Travis"
   - git config user.email "309940379@qq.com"
-  - npm run build
   - git add --all .
   - git commit -m --no-verify "Travis CI Auto Build"
   - git push --force https://$DEPLOY_TOKEN@github.com/Zjingwen/vue-components.git pre-public
