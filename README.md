@@ -6,4 +6,4 @@
 * [ant design](https://ant.design/)
 * [Bootstrap](https://getbootstrap.com/)
 
-## 项目[主页](https://zjingwen.github.io/vue-components/server/index.html#/)
+## 项目[主页](https://zjingwen.github.io/Vred/server/)
