@@ -2,7 +2,6 @@ language: node_js
 node_js:
     - "8.9.1"
 after_success:
-  - git clone https://github.com/Zjingwen/vue-components.git
   - git config user.name "Travis"
   - git config user.email "309940379@qq.com"
   - npm run build
