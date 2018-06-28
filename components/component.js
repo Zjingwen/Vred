@@ -28,7 +28,7 @@ import notice from '@components/notice/index';// 通知提醒
 
 import Switch from '@components/switch/index';// 开关
 
-// var modal=require('./modal/modal.js')// 弹窗
+import modal from '@components/modal/index';// 弹窗
 
 /**
  * @TODO:jingwen exapmple组件体积太大

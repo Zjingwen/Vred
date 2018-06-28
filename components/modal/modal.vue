@@ -1,17 +1,35 @@
-/**
- * 可复用组件 modal
- *
- * 使用
- */
-require('./modal.css');
-let template = require('./modal.html');
+<template>
+  <div class="t-modal_container"
+    v-show="visible"
+    :class="[modalClass]"
+    @click.self="modalClickClose">
 
-module.exports = Vue.extend({
+    <div class="t-modal"
+      ref="modal"
+      :class="[sizeClass, customClass, scrollClass]"
+      :style="style">
 
-  componentName: 'TModal',
+      <div class="t-modal_header" v-if="title">
+        <span class="t-modal_title">{{title}}</span>
+        <i class="t-modal_close" @click="close">✕</i>
+      </div>
+      <div class="t-modal_body">
+        <slot>自定义内容</slot>
+      </div>
+      <div class="t-modal_footer">
+        <slot name="footer"></slot>
+      </div>
 
-  template: template,
+    </div>
 
+  </div>
+</template>
+<style src='./modal.less' lang="less"></style>
+<script>
+const prefixCla = 't-modal';
+
+export default {
+  name: prefixCla,
   props: {
     value: Boolean,
     title: String,
@@ -40,17 +58,14 @@ module.exports = Vue.extend({
       default: 'small',
     },
   },
-
   data: function() {
     return {
       visible: false,
     };
   },
-
   mounted: function() {
     // document.body.appendChild(this.$el);
   },
-
   watch: {
     value: function(val) {
       this.visible = val;
@@ -72,7 +87,6 @@ module.exports = Vue.extend({
       }
     },
   },
-
   computed: {
     'sizeClass': function() {
       return 't-' + this.size;
@@ -97,7 +111,6 @@ module.exports = Vue.extend({
       return style;
     },
   },
-
   methods: {
     // ok: function(){
     //    this.visible = false;
@@ -111,4 +124,5 @@ module.exports = Vue.extend({
       }
     },
   },
-});
+};
+</script>
