@@ -12,6 +12,7 @@ import message from '@pages/message.vue';
 import notice from '@pages/notice.vue';
 import radio from '@pages/radio.vue';
 import Switch from '@pages/switch.vue';
+import modal from '@pages/modal.vue';
 
 export default [
   {
@@ -83,5 +84,10 @@ export default [
     path: '/notice',
     name: '通知提醒',
     component: notice,
+  },
+  {
+    path: '/modal',
+    name: '弹出窗',
+    component: modal,
   },
 ];
