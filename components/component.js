@@ -35,25 +35,22 @@ import modal from '@components/modal/index';// 弹窗
  */
 // import exapmple from './exapmple/index';// 例子展示
 
-// var Select = require("./select/select.js");
-// var Option = require("./select/option.js");
+// var Select = require("./select/select.js");//下拉筛选集合
+// var Option = require("./select/option.js");//下拉赛选子集
 
-
-// var Popover = require("./popover/popover.js");
-// var PopoverDirective = require("./popover/directive.js");
-// var Dropdown = require("./dropdown/dropdown.js");
-// var DropdownMenu = require("./dropdown/dropdown-menu.js");
-// var DropdownItem = require("./dropdown/dropdown-item.js");
+// var Dropdown = require("./dropdown/dropdown.js"); //独立下拉菜单集合
+// var DropdownMenu = require("./dropdown/dropdown-menu.js"); //独立下拉菜单子集
+// var DropdownItem = require("./dropdown/dropdown-item.js"); //独立下拉菜单子集
 // //
-// var Pagination = require("./pagination/pagination.js");
+// var Pagination = require("./pagination/pagination.js"); //翻页
 
-// var InfiniteScroll = require("./directives/infinite-scroll.js");
-// var Lazyload = require("./directives/img-lazyload.js");
+// var InfiniteScroll = require("./directives/infinite-scroll.js"); // 滚动到底部
+// var Lazyload = require("./directives/img-lazyload.js");  // 图片延迟加载
 
-// var Clock = require("./datetime/picker/time-picker.js");
-// var Date = require("./datetime/picker/date-picker.js");
+// var Clock = require("./datetime/picker/time-picker.js"); //选择时间控件
+// var Date = require("./datetime/picker/date-picker.js"); // 日期选择控件
 
-// var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js");
+// var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js"); // 轮播
 
 let components = {
   col,
@@ -89,24 +86,20 @@ function install(Vue) {
   Object.keys(components).forEach( (value)=>{
     Vue.component('t-'+value, components[value]);
   });
+  Vue.prototype.$notice = notice;
+  Vue.prototype.$message = message;
+
   // Vue.component('t-select', Select);
   // Vue.component('t-option', Option);
 
-  // Vue.component('t-checkbox', Checkbox);
-  // Vue.component('t-radio', Radio);
   // Vue.component('t-dropdown', Dropdown);
   // Vue.component('t-dropdown-menu', DropdownMenu);
   // Vue.component('t-dropdown-item', DropdownItem);
 
-  // Vue.component('modal', Modal);
   // Vue.component('t-pagination', Pagination);
-
-  Vue.prototype.$notice = notice;
-  Vue.prototype.$message = message;
 
   // Vue.directive('InfiniteScroll', InfiniteScroll);
   // Vue.directive('lazy', Lazyload);
-  // Vue.directive('popover', PopoverDirective);
 
   // Vue.component('t-clock-picker', Clock);
   // Vue.component('t-date-picker', Date);
