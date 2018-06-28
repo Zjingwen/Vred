@@ -25,13 +25,15 @@ import {radio, radioGroup} from '@components/radio/index';// 单选框
 import message from '@components/message/index';// 消息提示
 
 import notice from '@components/notice/index';// 通知提醒
+
+import Switch from '@components/switch/index';// 开关
+
+// var modal=require('./modal/modal.js')// 弹窗
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
 // import exapmple from './exapmple/index';// 例子展示
-
-// var Modal = require("./modal/modal.js");
-
 
 // var Select = require("./select/select.js");
 // var Option = require("./select/option.js");
@@ -63,6 +65,7 @@ let components = {
   sider,
   button,
   input,
+  Switch,
   checkbox,
   checkboxGroup,
   radio,
@@ -79,6 +82,7 @@ let components = {
   menuSub,
   tooltip,
   poptip,
+  modal,
 };
 
 function install(Vue) {

@@ -5,13 +5,14 @@
   "main": "components/component.js",
   "scripts": {
     "watch": "webpack -w --config webpack.dev.config.js",
-    "build": "npm run test && webpack --config webpack.pro.config.js",
+    "build": "webpack --config webpack.pro.config.js",
     "server": "webpack-dev-server --open --config webpack.dev.config.js",
     "dev": "concurrently \"npm run watch\" \"npm run server\"",
-    "line": "eslint --ext components/**/*.{js,vue}",
+    "line": "echo 'Pre-commit checks...' && eslint --ext components/**/*.{js,vue}",
     "jest": "jest",
     "test": "npm run line && npm run jest"
   },
+  "pre-commit":["test"],
   "jest": {
     "moduleFileExtensions": [
       "js"
@@ -46,6 +47,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
     "popper.js": "^1.14.3",
+    "pre-commit": "^1.2.2",
     "style-loader": "^0.21.0",
     "tooltip.js": "^1.2.0",
     "uglifyjs-webpack-plugin": "^1.2.5",

@@ -1,34 +1,4 @@
-.t-radio .t-radio-box,
-.t-radio .t-radio-input {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-}
-.t-radio .t-radio-box {
-    outline: none;
-    line-height: 1;
-    vertical-align: middle;
-}
-.t-radio .t-radio-box .t-radio-input {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 1px solid #F1EDED;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-.t-radio .t-radio-box .t-radio-ori {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    outline: none;
-}
-.t-radio .t-radio-box .t-radio-ori:checked + .t-radio-input:after {
+.checked(){
     content: '';
     position: absolute;
     left: 50%;
@@ -40,27 +10,72 @@
     border-radius: 50%;
     background-color: #fff;
 }
-.t-radio .t-radio-box .t-radio-ori:checked + .t-radio-input,
-.t-radio .t-radio-box.isChecked .t-radio-ori + .t-radio-input{
-    background-color: #FF7438;
-}
-.t-radio .t-radio-box.isDisabled .t-radio-ori + .t-radio-input,
-.t-radio .t-radio-box.isDisabled .t-radio-ori:checked + .t-radio-input{
-    border: 1px solid #d3dce6;
-    background-color: #eff2f7;
-    cursor: not-allowed;
-}
-.t-radio .t-radio-box.isDisabled + .t-radio-label{
-    color: #bbb;
-    cursor: not-allowed;
-}
-.t-radio .t-radio-label {
-    font-weight: normal;
-    font-style: normal;
-    font-size: 14px;
-    cursor: pointer;
-}
 
 .t-radio-group{
     display: inline-block;
+}
+
+.t-radio{
+    .t-radio-box,.t-radio-input{
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+    }
+    .t-radio-label{
+        font-weight: normal;
+        font-style: normal;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .t-radio-box{
+        outline: none;
+        line-height: 1;
+        vertical-align: middle;
+
+        .t-radio-ori{
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            outline: none;
+
+            &:checked{
+                .checked();
+            }
+        }
+
+        .t-radio-input{
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #F1EDED;
+            box-sizing: border-box;
+            background-color: #fff;
+
+            &:after{
+                .checked();
+            }
+        }
+
+        .t-radio-ori:checked + .t-radio-input,
+        &.isChecked .t-radio-ori + .t-radio-input{
+            background-color: #FF7438;
+        }
+
+        &.isDisabled .t-radio-ori + .t-radio-input,
+        &.isDisabled .t-radio-ori:checked + .t-radio-input{
+            border: 1px solid #d3dce6;
+            background-color: #eff2f7;
+            cursor: not-allowed;
+        }
+
+        &.isDisabled + .t-radio-label{
+            color: #bbb;
+            cursor: not-allowed;
+        }
+    }
 }

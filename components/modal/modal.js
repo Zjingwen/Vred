@@ -14,25 +14,19 @@ module.exports = Vue.extend({
 
   props: {
     value: Boolean,
-
     title: String,
-
     customClass: String,
-
     top: String,
     width: String,
     height: String,
-
     innerScroll: {
       type: Boolean,
       default: false,
     },
-
     lockScroll: {
       type: Boolean,
       default: true,
     },
-
     modal: {
       type: Boolean,
       default: true,
