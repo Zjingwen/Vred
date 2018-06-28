@@ -8,4 +8,4 @@ after_success:
   - npm run build
   - git add --all .
   - git commit -m --no-verify "Travis CI Auto Build"
-  - git push --force https://$DEPLOY_TOKEN@github.com/Zjingwen/vue-components.git develop
+  - git push --force https://$DEPLOY_TOKEN@github.com/Zjingwen/vue-components.git pre-public
