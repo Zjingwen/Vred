@@ -12,7 +12,7 @@ module.exports = Vue.extend({
 
   template: template,
 
-  props:{
+  props: {
     value: Boolean,
     title: String,
     customClass: String,
@@ -38,7 +38,7 @@ module.exports = Vue.extend({
     size: {
       type: String,
       default: 'small',
-    }
+    },
   },
 
   data: function() {
