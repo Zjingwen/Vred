@@ -1,22 +1,41 @@
-/**
- *
- */
+<template>
+  <div class="t-select" :class="{open: visible}" v-clickoutside="handleClose">
+    <t-input
+      ref="referenceInput"
+      v-model="selectedLabel"
+      :size="size"
+      :readonly="!filterable || multiple"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :imageIcon="imageIcon"
+      @on-focus="toggleMenu"
+    >
+    <!-- @mousedown.native="handleMouseDown"
+        @keyup.native="debouncedOnInputChange"
+        @keydown.native.enter.prevent="selectOption"
+        @keydown.native.esc.prevent="visible = false"
+        @keydown.native.tab="visible = false"
+        @keydown.native.up.prevent="navigateOptions('prev')"
+        @keydown.native.down.prevent="navigateOptions('next')"
+        @icon-click="handleIconClick" -->
+    </t-input>
+    <t-select-options v-show="visible">
+      <ul>
+          <slot></slot>
+      </ul>
+    </t-select-options>
+  </div>
+</template>
+<style src='./select.less' lang="less"></style>
+<script>
+import SelectOptions from './select-options';
+import emitter from '@mixins/emitter';
+import Clickoutside from '@directives/clickoutside';
+import debounce from '@util/debounce';
 
-require('./select.css');
-let html = require('./select.html');
-let SelectOptions = require('./select-options.js');
-let emitter = require('../mixins/emitter.js');
-let Clickoutside = require('../directives/clickoutside.js');
-let debounce = require('../util/debounce.js');
-
-module.exports = Vue.extend({
-
+export default {
   componentName: 'TSelect',
-
-  template: html,
-
   mixins: [emitter],
-
   props: {
     value: {}, // {}为支持多选,暂不支持
     disabled: Boolean,
@@ -27,13 +46,12 @@ module.exports = Vue.extend({
     },
     size: {
       type: String,
-      default: 'small',
+      default: 'tiny',
     },
     filterable: Boolean,
     remote: Boolean,
     remoteMethod: Function,
   },
-
   data: function() {
     return {
       currentValue: '',
@@ -45,6 +63,7 @@ module.exports = Vue.extend({
       hoverIndex: -1,
       inputWidth: 0,
       imageIcon: true,
+      debouncedOnInputChange: '',
     };
   },
 
@@ -228,4 +247,5 @@ module.exports = Vue.extend({
   directives: {
     clickoutside: Clickoutside,
   },
-});
+};
+</script>

@@ -1,4 +1,5 @@
-let throttle = require('./throttle');
+let throttle = require('./throttle.js');
+
 module.exports = function( delay, atBegin, callback ) {
   return !function() {
     if ( callback === undefined ) {

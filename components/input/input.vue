@@ -6,6 +6,7 @@
         :disabled="disabled"
         :value="value"
         @input="handleInput($event.target.value)"
+        @focus="handleFocus($event.target.value)"
     >
   </div>
 </template>
@@ -64,6 +65,9 @@ export default {
     handleInput: function(value) {
       this.currentValue = value.trim();
       this.$emit('input', value);
+    },
+    handleFocus: function(value) {
+      this.$emit('on-focus', value);
     },
   },
 };

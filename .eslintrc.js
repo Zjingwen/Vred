@@ -42,7 +42,8 @@ module.exports = {
         //禁止 this 关键字出现在类和类对象之外
         "no-invalid-this": [0],
         //强制一行的最大长度
-        "max-len": [0]
+        "max-len": [0],
+        "prefer-spread":[0],
     },
     "plugins": [
         "vue"

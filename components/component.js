@@ -30,13 +30,12 @@ import Switch from '@components/switch/index';// 开关
 
 import modal from '@components/modal/index';// 弹窗
 
+import {select, option} from '@components/select/index';// 下拉赛选子集
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
 // import exapmple from './exapmple/index';// 例子展示
-
-// var Select = require("./select/select.js");//下拉筛选集合
-// var Option = require("./select/option.js");//下拉赛选子集
 
 // var Dropdown = require("./dropdown/dropdown.js"); //独立下拉菜单集合
 // var DropdownMenu = require("./dropdown/dropdown-menu.js"); //独立下拉菜单子集
@@ -72,7 +71,6 @@ let components = {
   tbody,
   tr,
   th,
-  // exapmple,
   menu,
   menuItem,
   menuGroup,
@@ -80,6 +78,9 @@ let components = {
   tooltip,
   poptip,
   modal,
+  select,
+  option,
+  // exapmple,
 };
 
 function install(Vue) {

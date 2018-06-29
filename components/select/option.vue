@@ -1,11 +1,15 @@
+<template>
+  <li class="t-select_item" @mouseenter="hoverItem" @click="optionClick" :class="{selected:isSelected,hover:isHover}">
+    <slot>
+      <span>{{currentLabel}}</span>
+    </slot>
+  </li>
+</template>
+<script>
+import emitter from '@mixins/emitter.js';
 
-let emitter = require('../mixins/emitter.js');
-
-module.exports = Vue.extend({
-
+export default {
   componentName: 'TOption',
-
-  template: '<li class="t-select_item" @mouseenter="hoverItem" @click="optionClick" :class="{selected:isSelected,hover:isHover}"><slot><span>{{currentLabel}}</span></slot></li>',
 
   mixins: [emitter],
 
@@ -84,4 +88,5 @@ module.exports = Vue.extend({
   beforeDestroy: function() {
     this.dispatch('TSelect', 'onOptionDestroy', this);
   },
-});
+};
+</script>
