@@ -7,7 +7,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       @on-focus="toggleMenu"
-      readonly
+      :readonly="readonly"
     >
     </t-input>
     <t-select-options v-show="visible">
@@ -28,12 +28,15 @@ export default {
   componentName: 'TSelect',
   mixins: [emitter],
   props: {
-    value: {}, // {}为支持多选,暂不支持
+    value: {},
     disabled: Boolean,
-    multiple: Boolean, // 多选
     placeholder: {
       type: String,
       default: '请选择',
+    },
+    readonly: {
+      type: Boolean,
+      default: true,
     },
     size: {
       type: String,
@@ -47,7 +50,7 @@ export default {
     return {
       currentValue: '',
       options: [],
-      selected: this.multiple ? [] : null, // 存储多选项
+      selected: null, // 存储多选项
       visible: false,
       selectedLabel: '',
       query: '',
@@ -62,25 +65,17 @@ export default {
     visible: function(newVal) {
       if (!newVal) {
         this.$refs.referenceInput.$el.querySelector('input').blur();
-
         this.broadcast('TSelectOptions', 'destroyPopper');
-        // TODO @jingwen 当option消失时，触发this.query = '';导致model获取不到值
-        // this.query = '';
-        if (!this.multiple) {
-          if (this.selected) {
-            this.selectedLabel = this.selected.label;
-          }
-          // else{
-          // }
+
+        if (this.selected) {
+          this.selectedLabel = this.selected.label;
         }
       } else {
         this.resetInputWidth();
         this.broadcast('TSelectOptions', 'updatePopper');
 
         if (this.filterable) {
-          if (!this.multiple) {
-            this.broadcast('TInput', 'inputSelect');
-          }
+          this.broadcast('TInput', 'inputSelect');
         }
       }
     },
@@ -119,10 +114,8 @@ export default {
     },
 
     handleOptionClick: function(option) {
-      if (!this.multiple) {
-        this.$emit('input', option.value); // 触发改变 v-model 的值
-        this.visible = false;
-      }
+      this.$emit('input', option.value); // 触发改变 v-model 的值
+      this.visible = false;
     },
 
     getOptionObj: function(value) {
@@ -133,19 +126,16 @@ export default {
     },
 
     setSelectedOption: function() {
-      if (!this.multiple) {
-        // TODO @jingwen 当option数值改变时触发
-        let option = this.getOptionObj(this.value);
-        if (option) {
-          this.selected = option;
-          this.selectedLabel = option.label;
-          this.$emit('input', option.value);
-        }
-        if (this.value === '') {
-          this.selected = '';
-          this.selectedLabel = '';
-          this.$emit('input', '');
-        }
+      let option = this.getOptionObj(this.value);
+      if (option) {
+        this.selected = option;
+        this.selectedLabel = option.label;
+        this.$emit('input', option.value);
+      }
+      if (this.value === '') {
+        this.selected = '';
+        this.selectedLabel = '';
+        this.$emit('input', '');
       }
     },
     selectOption: function() {
@@ -174,10 +164,10 @@ export default {
   },
 
   created: function() {
-    if (this.multiple && !Array.isArray(this.value)) {
+    if (!Array.isArray(this.value)) {
       this.$emit('input', []);
     }
-    if (!this.multiple && (!this.value || Array.isArray(this.value))) {
+    if (!this.value || Array.isArray(this.value)) {
       this.$emit('input', '');
     }
     // 监听 option 点击事件
