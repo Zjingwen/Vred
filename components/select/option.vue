@@ -7,6 +7,7 @@
 </template>
 <script>
 import emitter from '@mixins/emitter.js';
+import {} from '@util/assist';
 
 export default {
   componentName: 'TOption',
@@ -56,13 +57,15 @@ export default {
 
     optionClick: function() {
       if (!this.disabled) {
+        let parent = this.$parent;
+        console.log(parent);
         this.dispatch('TSelect', 'optionClick', this);
       }
     },
 
     parent: function() {
       let _parent = this.$parent;
-      while (_parent.$options.componentName !== 'TSelect') {
+      while (_parent.$options.name !== 't-select') {
         _parent = _parent.$parent;
       }
       return _parent;
