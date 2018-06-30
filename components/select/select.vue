@@ -7,6 +7,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       @on-focus="toggleMenu"
+      readonly
     >
     </t-input>
     <t-select-options v-show="visible">

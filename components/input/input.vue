@@ -5,11 +5,12 @@
     <input
       :type="type"
       :placeholder="placeholder"
-      :disabled="disabled || readonly"
+      :disabled="disabled"
+      :readonly="readonly"
       :value="value"
       @input="handleInput($event.target.value)"
-      @click="handleClick($event.target.value)"
       @focus="handleFocus($event.target.value)"
+      @click="handleClick($event.target.value)"
     >
   </div>
 </template>
@@ -60,6 +61,7 @@ export default {
         `${prefixCls}`,
         `${prefixCls}-size-${this.size}`,
         this.disabled ? `${prefixCls}-disabled`: '',
+        this.readonly ? `${prefixCls}-readonly`: '',
       ];
 
       return classs;

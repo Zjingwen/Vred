@@ -14,7 +14,7 @@
             <t-input v-model='inputValue' size='default' disabled></t-input>
             <h1>model:{{inputValue}}</h1>
             <p>readonly 只读</p>
-            <t-input v-model='inputValue' size='default' readonly></t-input>
+            <t-input v-model='inputValue' size='default' @on-click='handleClick' readonly></t-input>
             <h1>model:{{inputValue}}</h1>
             <p>click 事件</p>
             <t-input v-model='inputValue' size='default' @on-click='handleClick'></t-input>
