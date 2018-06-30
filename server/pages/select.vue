@@ -15,7 +15,7 @@
         data:function(){
             return {
                 linkName:'下拉选择',
-                agentId:'111',
+                agentId:'333',
                 agentList:[
                   {name:'aaa',id:'111'},
                   {name:'bbb',id:'222'},

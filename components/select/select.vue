@@ -4,24 +4,14 @@
       ref="referenceInput"
       v-model="selectedLabel"
       :size="size"
-      :readonly="!filterable || multiple"
       :placeholder="placeholder"
       :disabled="disabled"
-      :imageIcon="imageIcon"
       @on-focus="toggleMenu"
     >
-    <!-- @mousedown.native="handleMouseDown"
-        @keyup.native="debouncedOnInputChange"
-        @keydown.native.enter.prevent="selectOption"
-        @keydown.native.esc.prevent="visible = false"
-        @keydown.native.tab="visible = false"
-        @keydown.native.up.prevent="navigateOptions('prev')"
-        @keydown.native.down.prevent="navigateOptions('next')"
-        @icon-click="handleIconClick" -->
     </t-input>
     <t-select-options v-show="visible">
       <ul>
-          <slot></slot>
+        <slot/>
       </ul>
     </t-select-options>
   </div>
@@ -31,7 +21,7 @@
 import SelectOptions from './select-options';
 import emitter from '@mixins/emitter';
 import Clickoutside from '@directives/clickoutside';
-import debounce from '@util/debounce';
+// import debounce from '@util/debounce';
 
 export default {
   componentName: 'TSelect',
@@ -63,7 +53,6 @@ export default {
       hoverIndex: -1,
       inputWidth: 0,
       imageIcon: true,
-      debouncedOnInputChange: '',
     };
   },
 
@@ -118,19 +107,6 @@ export default {
   },
 
   methods: {
-    handleIconClick: function(event) {
-      this.toggleMenu();
-    },
-
-    handleMouseDown: function(event) {
-      if (event.target.tagName !== 'INPUT') return;
-
-      if (this.visible) {
-        this.handleClose();
-        event.preventDefault();
-      }
-    },
-
     toggleMenu: function() {
       if (!this.disabled) {
         this.visible = !this.visible;
@@ -171,23 +147,6 @@ export default {
         }
       }
     },
-
-    navigateOptions: function(direction) {
-      if (direction === 'next') {
-        this.hoverIndex++;
-        if (this.hoverIndex === this.options.length) {
-          this.hoverIndex = 0;
-        }
-      }
-
-      if (direction === 'prev') {
-        this.hoverIndex--;
-        if (this.hoverIndex < 0) {
-          this.hoverIndex = this.options.length - 1;
-        }
-      }
-    },
-
     selectOption: function() {
       if (this.options[this.hoverIndex]) {
         this.handleOptionClick(this.options[this.hoverIndex]);
@@ -220,11 +179,6 @@ export default {
     if (!this.multiple && (!this.value || Array.isArray(this.value))) {
       this.$emit('input', '');
     }
-
-    this.debouncedOnInputChange = debounce(150, true, function() {
-      this.onInputChange();
-    }.bind(this));
-
     // 监听 option 点击事件
     this.$on('optionClick', this.handleOptionClick);
     this.$on('onOptionDestroy', this.onOptionDestroy);
