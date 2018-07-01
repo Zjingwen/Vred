@@ -13,9 +13,13 @@ export default {
   name: profixCls,
   props: {
     value: {
-      required: true,
+      type: String | Number,
+      default: '',
     },
-    label: [String, String],
+    label: {
+      type: String | Number,
+      default: '',
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -82,9 +86,6 @@ export default {
   created: function() {
     this.parent().options.push(this);
     this.index = this.parent().options.indexOf(this);
-  },
-  beforeDestroy: function() {
-    findComponentUpward(this, 't-select').onOptionDestroy();
   },
 };
 </script>

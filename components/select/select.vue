@@ -23,23 +23,12 @@
 <script>
 import SelectOptions from './select-options';
 import Clickoutside from '@directives/clickoutside';
-import {findComponentDownward} from '@util/assist';
+import {findComponentDownward, findComponentsDownward} from '@util/assist';
 // import debounce from '@util/debounce';
 const prefixCls = 't-select';
 
 export default {
   name: prefixCls,
-  created: function() {
-    if (!Array.isArray(this.value)) {
-      this.$emit('input', []);
-    }
-    if (!this.value || Array.isArray(this.value)) {
-      this.$emit('input', '');
-    }
-    // 监听 option 点击事件
-    this.$on('optionClick', this.handleOptionClick);
-    this.$on('onOptionDestroy', this.onOptionDestroy);
-  },
   mounted: function() {
     this.setSelectedOption();
 
@@ -56,7 +45,10 @@ export default {
     clickoutside: Clickoutside,
   },
   props: {
-    value: {},
+    value: {
+      type: String,
+      default: '',
+    },
     disabled: Boolean,
     placeholder: {
       type: String,
@@ -102,45 +94,35 @@ export default {
         this.visible = !this.visible;
       }
     },
-
     handleClose: function() {
       this.visible = false;
     },
-
     handleOptionClick: function(value) {
       this.$emit('input', value); // 触发改变 v-model 的值
       this.visible = false;
     },
-
-    getOptionObj: function(value) {
-      let obj = this.options.filter(function(option) {
-        return option.value === value;
-      })[0];
-      return obj;
-    },
-
     setSelectedOption: function() {
-      let option = this.getOptionObj(this.value);
+      let el = {};
+      const option = findComponentsDownward(this, 't-option').some((element)=>{
+        if (element.value === this.value) {
+          el = element;
+          return true;
+        }
+        return false;
+      });
+
       if (option) {
-        this.selectedLabel = option.label;
-        this.$emit('input', option.value);
+        this.selectedLabel = el.label;
+        this.$emit('input', el.value);
       }
+
       if (this.value === '') {
         this.selectedLabel = '';
         this.$emit('input', '');
       }
     },
-
     resetInputWidth: function() {
       this.inputWidth = this.$refs.referenceInput.$el.getBoundingClientRect().width;
-    },
-
-    onOptionDestroy: function(option) {
-      let index = this.options.indexOf(option);
-      if (index > -1) {
-        this.options.splice(index, 1);
-      }
-      findComponentDownward(this, 't-option').resetIndex();
     },
   },
 };

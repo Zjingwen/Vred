@@ -5,6 +5,9 @@
         <t-select v-model="agentId" placeholder="代理帐号" :remote-method="getAgent">
           <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
         </t-select>
+        <t-select v-model="agentId2" placeholder="代理帐号" :remote-method="getAgent">
+          <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
+        </t-select>
       </contents>
       <footers></footers>
   </div>
@@ -14,9 +17,10 @@
   export default{
     data:function(){
       return {
-        linkName:'下拉选择',
-        agentId:'333',
-        agentList:[
+        linkName: '下拉选择',
+        agentId: '333',
+        agentId2: '',
+        agentList: [
           {name:'aaa',id:'111'},
           {name:'bbb',id:'222'},
           {name:'ccc',id:'333'},
@@ -30,6 +34,9 @@
     watch:{
       agentId: function(value) {
         this.$message(`agentId:${value}`);
+      },
+      agentId2: function(value) {
+        this.$message(`agentId2:${value}`);
       },
     },
     methods:{
