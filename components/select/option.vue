@@ -6,14 +6,11 @@
   </li>
 </template>
 <script>
-import emitter from '@mixins/emitter.js';
-import {} from '@util/assist';
+import {findComponentUpward} from '@util/assist';
+const profixCls = 't-option';
 
 export default {
-  componentName: 'TOption',
-
-  mixins: [emitter],
-
+  name: profixCls,
   props: {
     value: {
       required: true,
@@ -57,18 +54,16 @@ export default {
 
     optionClick: function() {
       if (!this.disabled) {
-        let parent = this.$parent;
-        console.log(parent);
-        this.dispatch('TSelect', 'optionClick', this);
+        findComponentUpward(this, 't-select').handleOptionClick(this.value);
       }
     },
 
     parent: function() {
-      let _parent = this.$parent;
-      while (_parent.$options.name !== 't-select') {
-        _parent = _parent.$parent;
+      let parent = this.$parent;
+      while (parent.$options.name !== 't-select') {
+        parent = parent.$parent;
       }
-      return _parent;
+      return parent;
     },
 
     hoverItem: function() {
@@ -89,7 +84,7 @@ export default {
     this.index = this.parent().options.indexOf(this);
   },
   beforeDestroy: function() {
-    this.dispatch('TSelect', 'onOptionDestroy', this);
+    findComponentUpward(this, 't-select').onOptionDestroy();
   },
 };
 </script>

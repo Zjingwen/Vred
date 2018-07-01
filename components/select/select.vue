@@ -22,15 +22,13 @@
 <style src='./select.less' lang="less"></style>
 <script>
 import SelectOptions from './select-options';
-import emitter from '@mixins/emitter';
 import Clickoutside from '@directives/clickoutside';
+import {findComponentDownward} from '@util/assist';
 // import debounce from '@util/debounce';
 const prefixCls = 't-select';
 
 export default {
   name: prefixCls,
-  componentName: 'TSelect',
-  mixins: [emitter],
   created: function() {
     if (!Array.isArray(this.value)) {
       this.$emit('input', []);
@@ -86,10 +84,10 @@ export default {
     visible: function(newVal) {
       if (!newVal) {
         this.$refs.referenceInput.$el.querySelector('input').blur();
-        this.broadcast('TSelectOptions', 'destroyPopper');
+        findComponentDownward(this, 't-select-options').destroyPopper();
       } else {
         this.resetInputWidth();
-        this.broadcast('TSelectOptions', 'updatePopper');
+        findComponentDownward(this, 't-select-options').updatePopper();
       }
     },
     value: function(newVal) {
@@ -109,8 +107,8 @@ export default {
       this.visible = false;
     },
 
-    handleOptionClick: function(option) {
-      this.$emit('input', option.value); // 触发改变 v-model 的值
+    handleOptionClick: function(value) {
+      this.$emit('input', value); // 触发改变 v-model 的值
       this.visible = false;
     },
 
@@ -142,7 +140,7 @@ export default {
       if (index > -1) {
         this.options.splice(index, 1);
       }
-      this.broadcast('TOption', 'resetIndex');
+      findComponentDownward(this, 't-option').resetIndex();
     },
   },
 };

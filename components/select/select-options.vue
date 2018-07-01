@@ -5,9 +5,10 @@
 </template>
 <script>
 import vuePopper from '@mixins/vue-popper.js';
+const profixCls = 't-select-options';
 
 export default {
-  componentName: 'TSelectOptions',
+  name: profixCls,
   mixins: [vuePopper],
   props: {
     placement: {
@@ -30,9 +31,6 @@ export default {
   mounted: function() {
     this.popperEl = this.$el;
     this.referenceEl = this.$parent.$refs.referenceInput.$el;
-
-    this.$on('updatePopper', this.updatePopper);
-    this.$on('destroyPopper', this.destroyPopper);
   },
 };
 </script>
