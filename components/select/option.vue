@@ -1,19 +1,25 @@
+<template>
+  <li class="t-select_item" @mouseenter="hoverItem" @click="optionClick" :class="{selected:isSelected,hover:isHover}">
+    <slot>
+      <span>{{currentLabel}}</span>
+    </slot>
+  </li>
+</template>
+<script>
+import {findComponentUpward} from '@util/assist';
+const profixCls = 't-option';
 
-let emitter = require('../mixins/emitter.js');
-
-module.exports = Vue.extend({
-
-  componentName: 'TOption',
-
-  template: '<li class="t-select_item" @mouseenter="hoverItem" @click="optionClick" :class="{selected:isSelected,hover:isHover}"><slot><span>{{currentLabel}}</span></slot></li>',
-
-  mixins: [emitter],
-
+export default {
+  name: profixCls,
   props: {
     value: {
-      required: true,
+      type: String | Number,
+      default: '',
     },
-    label: [String, String],
+    label: {
+      type: String | Number,
+      default: '',
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -52,16 +58,16 @@ module.exports = Vue.extend({
 
     optionClick: function() {
       if (!this.disabled) {
-        this.dispatch('TSelect', 'optionClick', this);
+        findComponentUpward(this, 't-select').handleOptionClick(this.value);
       }
     },
 
     parent: function() {
-      let _parent = this.$parent;
-      while (_parent.$options.componentName !== 'TSelect') {
-        _parent = _parent.$parent;
+      let parent = this.$parent;
+      while (parent.$options.name !== 't-select') {
+        parent = parent.$parent;
       }
-      return _parent;
+      return parent;
     },
 
     hoverItem: function() {
@@ -81,7 +87,5 @@ module.exports = Vue.extend({
     this.parent().options.push(this);
     this.index = this.parent().options.indexOf(this);
   },
-  beforeDestroy: function() {
-    this.dispatch('TSelect', 'onOptionDestroy', this);
-  },
-});
+};
+</script>

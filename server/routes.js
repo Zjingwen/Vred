@@ -13,6 +13,7 @@ import notice from '@pages/notice.vue';
 import radio from '@pages/radio.vue';
 import Switch from '@pages/switch.vue';
 import modal from '@pages/modal.vue';
+import select from '@pages/select.vue';
 
 export default [
   {
@@ -89,5 +90,10 @@ export default [
     path: '/modal',
     name: '弹出窗',
     component: modal,
+  },
+  {
+    path: '/select',
+    name: '下拉选择',
+    component: select,
   },
 ];

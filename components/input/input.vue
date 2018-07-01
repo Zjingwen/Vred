@@ -1,11 +1,16 @@
 <template>
-  <div :class="classs">
+  <div
+    :class="classs"
+  >
     <input
-        :type="type"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :value="value"
-        @input="handleInput($event.target.value)"
+      :type="type"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :value="value"
+      @input="handleInput($event.target.value)"
+      @focus="handleFocus($event.target.value)"
+      @click="handleClick($event.target.value)"
     >
   </div>
 </template>
@@ -40,6 +45,10 @@ export default {
       type: String | Number,
       default: '',
     },
+    readonly: { // 只读
+      type: Boolean,
+      default: false,
+    },
   },
   data: function() {
     return {
@@ -51,11 +60,9 @@ export default {
       let classs = [
         `${prefixCls}`,
         `${prefixCls}-size-${this.size}`,
+        this.disabled ? `${prefixCls}-disabled`: '',
+        this.readonly ? `${prefixCls}-readonly`: '',
       ];
-
-      if (this.disabled) {
-        classs.push(`${prefixCls}-disabled`);
-      };
 
       return classs;
     },
@@ -64,6 +71,12 @@ export default {
     handleInput: function(value) {
       this.currentValue = value.trim();
       this.$emit('input', value);
+    },
+    handleFocus: function(value) {
+      this.$emit('on-focus', value);
+    },
+    handleClick: function(value) {
+      this.$emit('on-click', value);
     },
   },
 };
