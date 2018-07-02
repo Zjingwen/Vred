@@ -98,7 +98,7 @@ export default {
       this.visible = false;
     },
     handleOptionClick: function(value) {
-      this.$emit('input', value); // 触发改变 v-model 的值
+      this.$emit('input', value);
       this.visible = false;
     },
     setSelectedOption: function() {
