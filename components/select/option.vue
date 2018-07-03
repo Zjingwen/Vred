@@ -1,5 +1,5 @@
 <template>
-  <li class="t-select-item" @click="optionClick" :class="{selected:isSelected}">
+  <li :class="classs" @click="optionClick">
     <slot>
       <span>{{label}}</span>
     </slot>
@@ -23,6 +23,16 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${profixCls}`,
+        this.isSelected ? 'selected':'',
+      ];
+
+      return classs;
     },
   },
   data: function() {

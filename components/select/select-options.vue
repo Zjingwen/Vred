@@ -3,10 +3,10 @@
     placement='bottom'
     trigger='click'
     :width='width'
-    :maxHeight='165'
+    :maxHeight='170'
   >
     <slot name='input'/>
-    <div slot='content' class="t-select-options">
+    <div slot='content' :class="classs">
       <slot name="options" />
     </div>
   </t-poptip>
@@ -25,6 +25,14 @@ export default {
     return {
       width: 0,
     };
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${profixCls}`,
+      ];
+      return classs;
+    },
   },
   mounted: function() {
     const el = findComponentDownward(this, 't-input');

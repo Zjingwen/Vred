@@ -32,10 +32,7 @@
       }
     },
     watch:{
-      agentId: function(value) {
-        this.$message(`watch-val1:${value}`);
-      },
-      agentId2: function(value) {
+      val2: function(value) {
         this.$message(`watch-val2:${value}`);
       },
     },

@@ -1,6 +1,5 @@
 <template>
-  <div class="t-select"
-    :class="{open: visible}"
+  <div :class="classs"
     v-clickoutside="handleClose"
   >
     <t-select-options v-show="visible">
@@ -37,6 +36,16 @@ export default {
   },
   directives: {
     clickoutside: Clickoutside,
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+        this.visible ? 'open' : '',
+      ];
+
+      return classs;
+    },
   },
   props: {
     value: {
