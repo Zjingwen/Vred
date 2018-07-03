@@ -3,6 +3,7 @@
     placement='bottom'
     trigger='click'
     :width='width'
+    :maxHeight='165'
   >
     <slot name='input'/>
     <div slot='content' class="t-select-options">
@@ -22,7 +23,7 @@ export default {
   },
   data: function() {
     return {
-      width: '',
+      width: 0,
     };
   },
   mounted: function() {

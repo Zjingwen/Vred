@@ -28,12 +28,8 @@ export default {
   data: function() {
     return {
       visible: true,
+      isSelected: false,
     };
-  },
-  computed: {
-    isSelected: function() {
-      return findComponentUpward(this, 't-select').currentValue === this.value;
-    },
   },
   methods: {
     optionClick: function() {
