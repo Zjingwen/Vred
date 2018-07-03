@@ -2,10 +2,10 @@
   <div>
       <headers></headers>
       <contents :linkName='linkName'>
-        <t-select v-model="agentId" placeholder="代理帐号" :remote-method="getAgent">
+        <t-select v-model="val1" placeholder="model 有值" @on-change='handleChange'>
           <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
         </t-select>
-        <t-select v-model="agentId2" placeholder="代理帐号" :remote-method="getAgent">
+        <t-select v-model="val2" placeholder="model 为空">
           <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
         </t-select>
       </contents>
@@ -18,8 +18,8 @@
     data:function(){
       return {
         linkName: '下拉选择',
-        agentId: '333',
-        agentId2: '',
+        val1: '333',
+        val2: '',
         agentList: [
           {name:'aaa',id:'111'},
           {name:'bbb',id:'222'},
@@ -32,16 +32,13 @@
       }
     },
     watch:{
-      agentId: function(value) {
-        this.$message(`agentId:${value}`);
-      },
-      agentId2: function(value) {
-        this.$message(`agentId2:${value}`);
+      val2: function(value) {
+        this.$message(`watch-val2:${value}`);
       },
     },
     methods:{
-      getAgent:function(){
-        console.log(this.agentId)
+      handleChange:function(val){
+        this.$message(`methods-val1:${val}`)
       }
     },
   }

@@ -1,7 +1,7 @@
 <template>
-  <li class="t-select_item" @mouseenter="hoverItem" @click="optionClick" :class="{selected:isSelected,hover:isHover}">
+  <li :class="classs" @click="optionClick">
     <slot>
-      <span>{{currentLabel}}</span>
+      <span>{{label}}</span>
     </slot>
   </li>
 </template>
@@ -25,67 +25,28 @@ export default {
       default: false,
     },
   },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${profixCls}`,
+        this.isSelected ? 'selected':'',
+      ];
 
+      return classs;
+    },
+  },
   data: function() {
     return {
-      index: -1,
       visible: true,
+      isSelected: false,
     };
   },
-
-  computed: {
-    currentLabel: function() {
-      return this.label || ((typeof this.value === 'string' || typeof this.value === 'number') ? this.value : '');
-    },
-
-    currentValue: function() {
-      return this.value || this.label || '';
-    },
-
-    isSelected: function() {
-      if (!this.parent().multiple) {
-        return this.parent().currentValue === this.value;
-      } else {
-
-      }
-    },
-
-    isHover: function() {
-      return this.parent().hoverIndex === this.index;
-    },
-  },
   methods: {
-
     optionClick: function() {
       if (!this.disabled) {
         findComponentUpward(this, 't-select').handleOptionClick(this.value);
       }
     },
-
-    parent: function() {
-      let parent = this.$parent;
-      while (parent.$options.name !== 't-select') {
-        parent = parent.$parent;
-      }
-      return parent;
-    },
-
-    hoverItem: function() {
-      if (!this.disabled) {
-        this.parent().hoverIndex = this.parent().options.indexOf(this);
-      }
-    },
-
-    resetIndex: function() {
-      this.$nextTick(function() {
-        this.index = this.parent.options.indexOf(this);
-      }.bind(this));
-    },
-
-  },
-  created: function() {
-    this.parent().options.push(this);
-    this.index = this.parent().options.indexOf(this);
   },
 };
 </script>

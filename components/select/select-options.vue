@@ -1,36 +1,42 @@
 <template>
-  <div class="t-select_options" :style="{minWidth: width }">
-    <slot></slot>
-  </div>
+  <t-poptip
+    placement='bottom'
+    trigger='click'
+    :width='width'
+    :maxHeight='170'
+  >
+    <slot name='input'/>
+    <div slot='content' :class="classs">
+      <slot name="options" />
+    </div>
+  </t-poptip>
 </template>
 <script>
-import vuePopper from '@mixins/vue-popper.js';
+import poptip from '../poptip/index';
+import {findComponentDownward} from '@util/assist';
 const profixCls = 't-select-options';
 
 export default {
   name: profixCls,
-  mixins: [vuePopper],
-  props: {
-    placement: {
-      default: 'bottom',
-    },
-    boundariesPadding: {
-      default: 0,
-    },
+  components: {
+    't-poptip': poptip,
   },
   data: function() {
     return {
-      width: '',
+      width: 0,
     };
   },
-  watch: {
-    '$parent.inputWidth': function() {
-      this.width = this.$parent.$el.getBoundingClientRect().width + 'px';
+  computed: {
+    classs: function() {
+      let classs = [
+        `${profixCls}`,
+      ];
+      return classs;
     },
   },
   mounted: function() {
-    this.popperEl = this.$el;
-    this.referenceEl = this.$parent.$refs.referenceInput.$el;
+    const el = findComponentDownward(this, 't-input');
+    this.width = Number(el.$el.offsetWidth);
   },
 };
 </script>

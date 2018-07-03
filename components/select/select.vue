@@ -1,19 +1,18 @@
 <template>
-  <div class="t-select"
-    :class="{open: visible}"
+  <div :class="classs"
     v-clickoutside="handleClose"
   >
-    <t-input
-      ref="referenceInput"
-      v-model="selectedLabel"
-      :size="size"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
-      @on-focus="toggleMenu"
-    />
     <t-select-options v-show="visible">
-      <ul>
+      <t-input
+        slot='input'
+        v-model="currentLabel"
+        :size="size"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+        @on-focus="toggleMenu"
+      />
+      <ul slot='options'>
         <slot/>
       </ul>
     </t-select-options>
@@ -23,7 +22,7 @@
 <script>
 import SelectOptions from './select-options';
 import Clickoutside from '@directives/clickoutside';
-import {findComponentDownward, findComponentsDownward} from '@util/assist';
+import {findComponentsDownward} from '@util/assist';
 // import debounce from '@util/debounce';
 const prefixCls = 't-select';
 
@@ -31,18 +30,22 @@ export default {
   name: prefixCls,
   mounted: function() {
     this.setSelectedOption();
-
-    this.$nextTick(function() {
-      if (this.$refs.referenceInput && this.$refs.referenceInput.$el) {
-        this.inputWidth = this.$refs.referenceInput.$el.getBoundingClientRect().width;
-      }
-    });
   },
   components: {
     't-select-options': SelectOptions,
   },
   directives: {
     clickoutside: Clickoutside,
+  },
+  computed: {
+    classs: function() {
+      let classs = [
+        `${prefixCls}`,
+        this.visible ? 'open' : '',
+      ];
+
+      return classs;
+    },
   },
   props: {
     value: {
@@ -65,27 +68,16 @@ export default {
   },
   data: function() {
     return {
-      currentValue: '',
-      options: [],
+      currentValue: this.value,
+      currentLabel: '',
       visible: false,
-      selectedLabel: '',
-      inputWidth: 0,
     };
   },
   watch: {
-    visible: function(newVal) {
-      if (!newVal) {
-        this.$refs.referenceInput.$el.querySelector('input').blur();
-        findComponentDownward(this, 't-select-options').destroyPopper();
-      } else {
-        this.resetInputWidth();
-        findComponentDownward(this, 't-select-options').updatePopper();
-      }
-    },
-    value: function(newVal) {
-      this.currentValue = newVal;
+    value: function(val) {
+      this.currentValue = val;
       this.setSelectedOption();
-      this.$emit('change', newVal);
+      this.$emit('on-change', val);
     },
   },
   methods: {
@@ -97,32 +89,40 @@ export default {
     handleClose: function() {
       this.visible = false;
     },
-    handleOptionClick: function(value) {
-      this.$emit('input', value); // 触发改变 v-model 的值
+    handleOptionClick: function(val) {
+      this.currentValue = val;
       this.visible = false;
+      this.$emit('input', val);
     },
     setSelectedOption: function() {
       let el = {};
-      const option = findComponentsDownward(this, 't-option').some((element)=>{
-        if (element.value === this.value) {
-          el = element;
+      const childrs = findComponentsDownward(this, 't-option');
+
+      let option = childrs.some((element)=>{
+        el = element;
+        if (element.value === this.currentValue) {
           return true;
         }
         return false;
       });
 
+      childrs.forEach((element)=>{
+        if (element.value === this.currentValue) {
+          element.isSelected = true;
+        } else {
+          element.isSelected = false;
+        }
+      });
+
       if (option) {
-        this.selectedLabel = el.label;
+        this.currentLabel = el.label;
         this.$emit('input', el.value);
       }
 
       if (this.value === '') {
-        this.selectedLabel = '';
+        this.currentLabel = '';
         this.$emit('input', '');
       }
-    },
-    resetInputWidth: function() {
-      this.inputWidth = this.$refs.referenceInput.$el.getBoundingClientRect().width;
     },
   },
 };
