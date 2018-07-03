@@ -22,12 +22,12 @@ export default {
   },
   data: function() {
     return {
-      width: 170,
+      width: '',
     };
   },
   mounted: function() {
     const el = findComponentDownward(this, 't-input');
-    this.width = el.$el.offsetWidth;
+    this.width = Number(el.$el.offsetWidth);
   },
 };
 </script>
