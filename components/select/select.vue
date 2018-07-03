@@ -3,17 +3,18 @@
     :class="{open: visible}"
     v-clickoutside="handleClose"
   >
-    <t-input
-      ref="referenceInput"
-      v-model="selectedLabel"
-      :size="size"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
-      @on-focus="toggleMenu"
-    />
     <t-select-options v-show="visible">
-      <ul>
+      <t-input
+        slot='input'
+        ref="referenceInput"
+        v-model="selectedLabel"
+        :size="size"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+        @on-focus="toggleMenu"
+      />
+      <ul slot='options'>
         <slot/>
       </ul>
     </t-select-options>
@@ -23,7 +24,7 @@
 <script>
 import SelectOptions from './select-options';
 import Clickoutside from '@directives/clickoutside';
-import {findComponentDownward, findComponentsDownward} from '@util/assist';
+import {findComponentsDownward} from '@util/assist';
 // import debounce from '@util/debounce';
 const prefixCls = 't-select';
 
@@ -31,12 +32,6 @@ export default {
   name: prefixCls,
   mounted: function() {
     this.setSelectedOption();
-
-    this.$nextTick(function() {
-      if (this.$refs.referenceInput && this.$refs.referenceInput.$el) {
-        this.inputWidth = this.$refs.referenceInput.$el.getBoundingClientRect().width;
-      }
-    });
   },
   components: {
     't-select-options': SelectOptions,
@@ -76,10 +71,6 @@ export default {
     visible: function(newVal) {
       if (!newVal) {
         this.$refs.referenceInput.$el.querySelector('input').blur();
-        findComponentDownward(this, 't-select-options').destroyPopper();
-      } else {
-        this.resetInputWidth();
-        findComponentDownward(this, 't-select-options').updatePopper();
       }
     },
     value: function(newVal) {
@@ -120,9 +111,6 @@ export default {
         this.selectedLabel = '';
         this.$emit('input', '');
       }
-    },
-    resetInputWidth: function() {
-      this.inputWidth = this.$refs.referenceInput.$el.getBoundingClientRect().width;
     },
   },
 };

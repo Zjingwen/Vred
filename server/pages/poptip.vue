@@ -161,7 +161,7 @@
     <footers></footers>
   </div>
 </template>
-<style>
+<style scoped>
 .t-poptip-poper {
   background: #eeeeee;
 }

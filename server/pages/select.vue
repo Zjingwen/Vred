@@ -2,10 +2,10 @@
   <div>
       <headers></headers>
       <contents :linkName='linkName'>
-        <t-select v-model="agentId" placeholder="代理帐号" :remote-method="getAgent">
+        <t-select v-model="agentId" placeholder="代理帐号">
           <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
         </t-select>
-        <t-select v-model="agentId2" placeholder="代理帐号" :remote-method="getAgent">
+        <t-select v-model="agentId2" placeholder="代理帐号">
           <t-option v-for="(st,index) in agentList" :label="st.name" :value="st.id" :key="index"></t-option>
         </t-select>
       </contents>
