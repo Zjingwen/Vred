@@ -1,5 +1,5 @@
 <template>
-  <div class="t-select_options" :style="{minWidth: width }">
+  <div class="t-select-options" :style="{minWidth: width }">
     <slot></slot>
   </div>
 </template>

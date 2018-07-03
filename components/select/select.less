@@ -1,59 +1,32 @@
-
-/**
- *
- * ==============================
- */
 .t-select{
     position: relative;
 }
-
-.t-select_options{
+.t-select-options{
     position: absolute;
     z-index: 9999;
     background-color: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
+
+    .t-select-item{
+        padding: 8px;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.hover{
+            background-color: #E5E9F2;
+        }
+
+        &.selected{
+            background-color: #FF7438;
+            color: #fff;
+        }
+    }
+
+    &[x-placement^="bottom"] {
+        margin-top: 5px;
+    }
 }
 
-.t-select_options[x-placement^="bottom"] {
-    margin-top: 5px;
-}
-
-.t-select_options .t-select_item{
-    padding: 8px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.t-select_options .t-select_item.hover{
-    background-color: #E5E9F2;
-}
-.t-select_options .t-select_item.selected{
-    background-color: #FF7438;
-    color: #fff;
-}
-.t-select_options .t-select_item.selected:hover{
-    background-color: #FE814B;
-}
-
-.t-select .t-input_ori{
-    cursor: pointer;
-}
-.t-select .t-input_icon{
-    transition: all .3s ease;
-}
-.t-select.open .t-input_icon{
-    transform:rotate(180deg);
-    -ms-transform:rotate(180deg); 	/* IE 9 */
-    -moz-transform:rotate(180deg); 	/* Firefox */
-    -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
-    -o-transform:rotate(180deg); 	/* Opera */
-}
-
-
-/**
- *
- * ==============================
- */
 .popper {
     position: absolute;
     background: #FFC107;

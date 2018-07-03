@@ -1,5 +1,5 @@
 <template>
-  <li class="t-select_item" @click="optionClick" :class="{selected:isSelected}">
+  <li class="t-select-item" @click="optionClick" :class="{selected:isSelected}">
     <slot>
       <span>{{label}}</span>
     </slot>
