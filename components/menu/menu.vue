@@ -13,7 +13,7 @@ export default{
   name: profixCls,
   props: {
     activeName: {
-      type: [String, Number],
+      type: String || Number,
       default: '',
     },
     mode: {
@@ -65,13 +65,16 @@ export default{
       return style;
     },
   },
+  mounted: function() {
+    this.activeHandle(this.activeName);
+  },
   methods: {
-    $onClickHandle: function(val) {
-      this.$activeHandle(val);
-      this.$emit('on:select', val);
+    onClickHandle: function(val) {
+      this.activeHandle(val);
+      this.$emit('on-select', val);
     },
-    $activeHandle: function(name) {
-      findComponentsDownward(this, 'v-menu-item-sub').forEach((val)=>{
+    activeHandle: function(name) {
+      function addActive(val) {
         if (val.name === name) {
           val.active = true;
 
@@ -79,11 +82,10 @@ export default{
         }
 
         val.active = false;
-      });
+      }
+      findComponentsDownward(this, 'v-menu-item-sub').forEach((val)=>addActive(val));
+      findComponentsDownward(this, 'v-menu-item').forEach((val)=> addActive(val));
     },
-  },
-  mounted: function() {
-    this.$activeHandle(this.activeName);
   },
 };
 </script>

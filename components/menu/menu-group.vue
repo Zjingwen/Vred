@@ -1,7 +1,8 @@
 <template>
-    <div :class='classs'>
-        <slot></slot>
-    </div>
+    <ul :class="classs">
+        <li class="title">{{title}}</li>
+        <slot />
+    </ul>
 </template>
 <style src='./index.less' lang="less"></style>
 <script>
@@ -9,6 +10,12 @@ const profixCls = 'v-menu-item-group';
 
 export default{
   name: profixCls,
+  props: {
+    title: {
+      type: String | Number,
+      default: '',
+    },
+  },
   computed: {
     classs: function() {
       let classs = [

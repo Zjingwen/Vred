@@ -2,8 +2,8 @@
   <li :class='classs' :style='style' @click='itemHandle'>
     <template v-if='mode === "horizontal"'>
       <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset">
-        <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-        <div :class='[profixCls + "-poptip-content"]' slot="content"><slot/></div>
+        <li><slot name='title'/></li>
+        <div slot="content"><slot/></div>
       </t-poptip>
     </template>
     <template v-else>
@@ -15,7 +15,7 @@
 <style src='./index.less' lang="less"></style>
 <script>
 import {findComponentUpward} from '@util/assist';
-import poptip from '../poptip/index';
+import poptip from '../poptip';
 const profixCls = 'v-menu-item-sub';
 
 export default{
@@ -60,7 +60,7 @@ export default{
   },
   methods: {
     itemHandle: function() {
-      findComponentUpward(this, 'v-menu').$onClickHandle(this.name);
+      findComponentUpward(this, 'v-menu').onClickHandle(this.name);
     },
     isChildrenItem: function() {
       this.direction = 'right-start';
@@ -95,7 +95,7 @@ export default{
     }
   },
   components: {
-    'tPoptip': poptip,
+    't-poptip': poptip,
   },
 };
 </script>
