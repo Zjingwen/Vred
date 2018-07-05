@@ -1,6 +1,6 @@
 <template>
     <ul :class="classs">
-        <li class="title">{{title}}</li>
+        <li>{{title}}</li>
         <slot />
     </ul>
 </template>

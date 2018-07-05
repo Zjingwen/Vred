@@ -1,8 +1,8 @@
 <template>
   <li :class='classs' :style='style' @click='itemHandle'>
     <template v-if='mode === "horizontal"'>
-      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset">
-        <li><slot name='title'/></li>
+      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" always>
+        <li :class="[`${profixCls}-poptip`]"><slot name='title'/></li>
         <div slot="content"><slot/></div>
       </t-poptip>
     </template>
@@ -34,7 +34,7 @@ export default{
       width: 0,
       mode: '',
       direction: 'bottom',
-      offset: [0, 0],
+      offset: [0, 2],
     };
   },
   computed: {
