@@ -14,7 +14,7 @@
 </template>
 <style src='./index.less' lang="less"></style>
 <script>
-import {findComponentUpward} from '@util/assist';
+import {findComponentUpward, findComponentsDownward} from '@util/assist';
 import poptip from '../poptip';
 const profixCls = 'v-menu-item-sub';
 
@@ -63,8 +63,10 @@ export default{
       findComponentUpward(this, 'v-menu').activeHandle(this.name);
     },
     itemHandleVertical: function() {
-      console.log('itemHandleVertical');
-      // findComponentUpward(this, 'v-menu').activeHandle(this.name);
+      findComponentUpward(this, 'v-menu').activeHandle(this.name);
+      findComponentsDownward(this, 'v-menu-item-group').forEach( (val)=>{
+        val.show = !val.show;
+      });
     },
     isParentMenu: function() {
       this.height = findComponentUpward(this, 'v-menu').height;

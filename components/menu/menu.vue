@@ -67,6 +67,14 @@ export default{
   },
   mounted: function() {
     this.activeHandle(this.activeName);
+
+    if (this.mode === 'vertical') {
+      this.$nextTick(()=>{
+        findComponentsDownward(this, 'v-menu-item-group').forEach( (val)=>{
+          val.show = false;
+        });
+      });
+    }
   },
   methods: {
     onClickHandle: function(val) {
