@@ -12,7 +12,9 @@
     "jest": "jest",
     "test": "npm run line && npm run jest"
   },
-  "pre-commit":["test"],
+  "pre-commit": [
+    "test"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "js"
@@ -53,6 +55,7 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue": "^2.5.16",
     "vue-eslint-parser": "^2.0.3",
+    "vue-lazyload": "^1.2.6",
     "vue-loader": "^15.1.0",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",

@@ -30,7 +30,9 @@ import Switch from '@components/switch/index';// 开关
 
 import modal from '@components/modal/index';// 弹窗
 
-import {select, option} from '@components/select/index';// 下拉赛选子集
+import {select, option} from '@components/select/index';// 下拉筛选
+
+import lazyload from 'vue-lazyload';// 图片延迟加载 https://github.com/hilongjw/vue-lazyload
 
 /**
  * @TODO:jingwen exapmple组件体积太大
@@ -44,7 +46,7 @@ import {select, option} from '@components/select/index';// 下拉赛选子集
 // var Pagination = require("./pagination/pagination.js"); //翻页
 
 // var InfiniteScroll = require("./directives/infinite-scroll.js"); // 滚动到底部
-// var Lazyload = require("./directives/img-lazyload.js");  // 图片延迟加载
+
 
 // var Clock = require("./datetime/picker/time-picker.js"); //选择时间控件
 // var Date = require("./datetime/picker/date-picker.js"); // 日期选择控件
@@ -90,8 +92,7 @@ function install(Vue) {
   Vue.prototype.$notice = notice;
   Vue.prototype.$message = message;
 
-  // Vue.component('t-select', Select);
-  // Vue.component('t-option', Option);
+  Vue.use(lazyload);
 
   // Vue.component('t-dropdown', Dropdown);
   // Vue.component('t-dropdown-menu', DropdownMenu);
@@ -100,7 +101,6 @@ function install(Vue) {
   // Vue.component('t-pagination', Pagination);
 
   // Vue.directive('InfiniteScroll', InfiniteScroll);
-  // Vue.directive('lazy', Lazyload);
 
   // Vue.component('t-clock-picker', Clock);
   // Vue.component('t-date-picker', Date);
