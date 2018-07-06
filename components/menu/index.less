@@ -1,3 +1,11 @@
+._menu_item{
+    display: inline-block;
+    letter-spacing: 0;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    line-height: 60px;
+    padding: 0 30px;
+}
+
 .v-menu{
     position: relative;
 
@@ -5,7 +13,7 @@
         background-color: rgba(0,0,0,0); 
     }
 
-    .v-menu-item-sub{
+    .v-menu-item,.v-menu-item-sub{
         height: inherit;
         line-height: inherit;
         position: relative;
@@ -13,33 +21,28 @@
         cursor: pointer;
     }
     
-    .v-menu-item-group{
-        background: #FFF;
-        border-radius: 4px;
-        box-shadow: 0 1px 6px rgba(0,0,0,.2);
-        padding: 5px 0;
-        margin: 5px 0;
-    }
-    
-    .v-menu-item{
-        padding: 7px 16px 8px;
-        font-size: 14px !important;
-        color: #000;
-        text-align: center;
-    
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        line-height: 2;
-    }
+    // .v-menu-item-group{
+        // height: inherit;
+        // line-height: inherit;
+        // position: relative;
+        // z-index: 3;
+        // cursor: pointer;
+        // background: #FFF;
+        // border-radius: 4px;
+        // box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        // padding: 5px 0;
+        // margin: 5px 0;
+    // }
 }
 .v-menu-horizontal{
 
-    line-height: 60px;
     letter-spacing: -5px;
 
-    .t-poptip{
-        padding: 0 35px;
+    .t-poptip-poper{
+        border: 1px solid #EEE;
+        background: #fff;
+        padding: 5px 0;
+        border-radius: 4px;
     }
 
     &:after{
@@ -53,9 +56,9 @@
         z-index: 1;
         background: #dddee1;
     }
-    .v-menu-item-sub{
-        display: inline-block;
-        letter-spacing: 0;
+    .v-menu-item,.v-menu-item-sub{
+        ._menu_item();
+
         &.active{
             border-bottom: 2px solid #FF773D;
             color: #FF773D;
@@ -65,33 +68,28 @@
             color: #FF773D;
         }
     }
-
-    .v-menu-item-sub-poptip-content{
-        .t-poptip{
-            display: block !important;
-            padding: 0 !important;
+    
+    .v-menu-item-group{
+        
+        
+        .v-menu-item-group-title{
+            color: #999;
+            font-size: 12px;
+            padding: 0 15px;
+            line-height: 30px;
         }
         .v-menu-item{
-            &:hover{
-                border-bottom: none;
-                color: #000;
-                background-color: rgba(0,0,0,.1);
-            }
-        }
-        .v-menu-item-sub{
-            display: block;
-            &:hover{
-                border-bottom: none;
-                color: #000;
-            }
-            &.active{
-                border-bottom: none;
-                color: #000;
-            }
-        }
-        .v-menu-item-sub-title{
+            font-size: 14px;
+            line-height: 14px;
+            text-align: center;
             padding: 7px 16px 8px;
-            
+            display: block;
+            color: #000;
+            border-bottom: none;
+
+            &:hover{
+                background: #f3f3f3;
+            }
         }
     }
 }

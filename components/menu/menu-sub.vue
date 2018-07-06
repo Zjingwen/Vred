@@ -2,8 +2,8 @@
   <li :class='classs' :style='style' @click='itemHandle'>
     <template v-if='mode === "horizontal"'>
       <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset">
-        <div :class='[profixCls + "-title"]'><slot name='title'/></div>
-        <div :class='[profixCls + "-poptip-content"]' slot="content"><slot/></div>
+        <li :class="[`${profixCls}-poptip`]"><slot name='title'/></li>
+        <div slot="content"><slot/></div>
       </t-poptip>
     </template>
     <template v-else>
@@ -15,7 +15,7 @@
 <style src='./index.less' lang="less"></style>
 <script>
 import {findComponentUpward} from '@util/assist';
-import poptip from '../poptip/index';
+import poptip from '../poptip';
 const profixCls = 'v-menu-item-sub';
 
 export default{
@@ -34,7 +34,7 @@ export default{
       width: 0,
       mode: '',
       direction: 'bottom',
-      offset: [0, 0],
+      offset: [0, 2],
     };
   },
   computed: {
@@ -60,23 +60,9 @@ export default{
   },
   methods: {
     itemHandle: function() {
-      findComponentUpward(this, 'v-menu').$onClickHandle(this.name);
+      findComponentUpward(this, 'v-menu').activeHandle(this.name);
     },
-    isChildrenItem: function() {
-      this.direction = 'right-start';
-      this.height = findComponentUpward(this, 'v-menu').height;
-      this.mode = findComponentUpward(this, 'v-menu').mode;
-      this.offset = [-10, 1];
-
-      findComponentUpward(this, 'v-menu-item').style = {
-        padding: 0,
-      };
-
-      this.$nextTick(()=>{
-        this.width = findComponentUpward(this, 'v-menu-item-sub').width;
-      });
-    },
-    isChildrenMenu: function() {
+    isParentMenu: function() {
       this.height = findComponentUpward(this, 'v-menu').height;
       this.mode = findComponentUpward(this, 'v-menu').mode;
 
@@ -87,15 +73,11 @@ export default{
   },
   mounted: function() {
     if ( findComponentUpward(this, 'v-menu') ) {
-      this.isChildrenMenu();
-    }
-
-    if ( findComponentUpward(this, 'v-menu-item') ) {
-      this.isChildrenItem();
+      this.isParentMenu();
     }
   },
   components: {
-    'tPoptip': poptip,
+    't-poptip': poptip,
   },
 };
 </script>
