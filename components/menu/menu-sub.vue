@@ -1,7 +1,7 @@
 <template>
   <li :class='classs' :style='style' @click='itemHandle'>
     <template v-if='mode === "horizontal"'>
-      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset" always>
+      <t-poptip :placement="direction" :width="width" trigger='hover' :offset="offset">
         <li :class="[`${profixCls}-poptip`]"><slot name='title'/></li>
         <div slot="content"><slot/></div>
       </t-poptip>
@@ -60,23 +60,9 @@ export default{
   },
   methods: {
     itemHandle: function() {
-      findComponentUpward(this, 'v-menu').onClickHandle(this.name);
+      findComponentUpward(this, 'v-menu').activeHandle(this.name);
     },
-    isChildrenItem: function() {
-      this.direction = 'right-start';
-      this.height = findComponentUpward(this, 'v-menu').height;
-      this.mode = findComponentUpward(this, 'v-menu').mode;
-      this.offset = [-10, 1];
-
-      findComponentUpward(this, 'v-menu-item').style = {
-        padding: 0,
-      };
-
-      this.$nextTick(()=>{
-        this.width = findComponentUpward(this, 'v-menu-item-sub').width;
-      });
-    },
-    isChildrenMenu: function() {
+    isParentMenu: function() {
       this.height = findComponentUpward(this, 'v-menu').height;
       this.mode = findComponentUpward(this, 'v-menu').mode;
 
@@ -87,11 +73,7 @@ export default{
   },
   mounted: function() {
     if ( findComponentUpward(this, 'v-menu') ) {
-      this.isChildrenMenu();
-    }
-
-    if ( findComponentUpward(this, 'v-menu-item') ) {
-      this.isChildrenItem();
+      this.isParentMenu();
     }
   },
   components: {

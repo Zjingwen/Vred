@@ -1,6 +1,6 @@
 <template>
     <ul :class="classs">
-        <li>{{title}}</li>
+        <li v-if='title' :class="[`${profixCls}-title`]">{{title}}</li>
         <slot />
     </ul>
 </template>
@@ -15,6 +15,11 @@ export default{
       type: String | Number,
       default: '',
     },
+  },
+  data: function() {
+    return {
+      profixCls: profixCls,
+    };
   },
   computed: {
     classs: function() {

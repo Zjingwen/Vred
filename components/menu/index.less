@@ -3,7 +3,7 @@
     letter-spacing: 0;
     border-bottom: 2px solid rgba(0,0,0,0);
     line-height: 60px;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .v-menu{
@@ -38,8 +38,11 @@
 
     letter-spacing: -5px;
 
-    .t-poptip{
-        // padding: 0 35px;
+    .t-poptip-poper{
+        border: 1px solid #EEE;
+        background: #fff;
+        padding: 5px 0;
+        border-radius: 4px;
     }
 
     &:after{
@@ -67,16 +70,26 @@
     }
     
     .v-menu-item-group{
-        border: 1px solid #EEE;
-        background: #fff;
         
+        
+        .v-menu-item-group-title{
+            color: #999;
+            font-size: 12px;
+            padding: 0 15px;
+            line-height: 30px;
+        }
         .v-menu-item{
+            font-size: 14px;
+            line-height: 14px;
             text-align: center;
             padding: 7px 16px 8px;
-            line-height: 14px;
             display: block;
             color: #000;
             border-bottom: none;
+
+            &:hover{
+                background: #f3f3f3;
+            }
         }
     }
 }
