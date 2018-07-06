@@ -32,7 +32,17 @@ export default{
   },
   methods: {
     handleClick: function() {
-      findComponentUpward(this, 'v-menu').onClickHandle(this.name);
+      let parend = findComponentUpward(this, 'v-menu');
+
+      if (parend.mode === 'vertical') {
+        let childers = findComponentUpward(this, 'v-menu-item-sub');
+        console.log(childers);
+        // childers.forEach((val)=>{
+        //   val.show = !val.show;
+        // });
+      };
+
+      parend.onClickHandle(this.name);
     },
   },
 };
