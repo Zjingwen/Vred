@@ -1,10 +1,10 @@
 <template>
     <t-layout class='v-contents'>
         <t-sider>
-            <t-menu :width='180' :height='45' mode='vertical' :active-name='linkName' @on:select='routerHandle'>
-                <t-menuSub v-for="(item,index) in routes" :key='index' :name='item.name'>
-                    <template slot="title">{{item.name}}</template>
-                </t-menuSub>
+            <t-menu :width='180' :height='45' mode='vertical' :active-name='linkName' @on-select='routerHandle'>
+                <t-menuItem v-for="(item,index) in routes" :key='index' :name='item.name'>
+                    {{item.name}}
+                </t-menuItem>
             </t-menu>
         </t-sider>
         <t-content><slot></slot></t-content>
