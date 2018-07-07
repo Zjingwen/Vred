@@ -14,7 +14,6 @@ import radio from '@pages/radio.vue';
 import Switch from '@pages/switch.vue';
 import modal from '@pages/modal.vue';
 import select from '@pages/select.vue';
-import lazyload from '@pages/lazyload.vue';
 
 export default [
   {
@@ -96,10 +95,5 @@ export default [
     path: '/select',
     name: '下拉选择',
     component: select,
-  },
-  {
-    path: '/lazyload',
-    name: '图片延迟加载',
-    component: lazyload,
   },
 ];

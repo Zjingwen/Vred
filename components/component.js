@@ -32,8 +32,6 @@ import modal from '@components/modal/index';// 弹窗
 
 import {select, option} from '@components/select/index';// 下拉筛选
 
-import lazyload from 'vue-lazyload';// 图片延迟加载 https://github.com/hilongjw/vue-lazyload
-
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -91,8 +89,6 @@ function install(Vue) {
   });
   Vue.prototype.$notice = notice;
   Vue.prototype.$message = message;
-
-  Vue.use(lazyload);
 
   // Vue.component('t-dropdown', Dropdown);
   // Vue.component('t-dropdown-menu', DropdownMenu);
