@@ -32,6 +32,8 @@ import modal from '@components/modal/index';// 弹窗
 
 import {select, option} from '@components/select/index';// 下拉筛选
 
+import pagination from '@components/pagination/index';// 翻页
+
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -40,11 +42,8 @@ import {select, option} from '@components/select/index';// 下拉筛选
 // var Dropdown = require("./dropdown/dropdown.js"); //独立下拉菜单集合
 // var DropdownMenu = require("./dropdown/dropdown-menu.js"); //独立下拉菜单子集
 // var DropdownItem = require("./dropdown/dropdown-item.js"); //独立下拉菜单子集
-// //
-// var Pagination = require("./pagination/pagination.js"); //翻页
 
 // var InfiniteScroll = require("./directives/infinite-scroll.js"); // 滚动到底部
-
 
 // var Clock = require("./datetime/picker/time-picker.js"); //选择时间控件
 // var Date = require("./datetime/picker/date-picker.js"); // 日期选择控件
@@ -80,6 +79,7 @@ let components = {
   modal,
   select,
   option,
+  pagination,
   // exapmple,
 };
 
