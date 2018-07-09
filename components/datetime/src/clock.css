@@ -44,9 +44,6 @@
     -ms-user-select: none;
     user-select: none;
 }
-.t-clock_dial{
-
-}
 .t-clock_canvas, .t-clock_dial {
     width: 200px;
     height: 200px;

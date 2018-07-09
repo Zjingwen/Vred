@@ -1,8 +1,7 @@
-
 let template = require('./picker.html');
 
-let vuePopper = require('../util/vue-popper.js');
-let Clickoutside = require('../directives/clickoutside.js');
+import vuePopper from '@directives/vue-popper.js';
+import Clickoutside from '@directives/clickoutside.js';
 
 module.exports = {
 

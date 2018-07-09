@@ -34,6 +34,7 @@ import {select, option} from '@components/select/index';// 下拉筛选
 
 import pagination from '@components/pagination/index';// 翻页
 
+let datePicker = require('./datetime/picker/date-picker.js'); // 日期选择控件
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -46,7 +47,7 @@ import pagination from '@components/pagination/index';// 翻页
 // var InfiniteScroll = require("./directives/infinite-scroll.js"); // 滚动到底部
 
 // var Clock = require("./datetime/picker/time-picker.js"); //选择时间控件
-// var Date = require("./datetime/picker/date-picker.js"); // 日期选择控件
+
 
 // var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js"); // 轮播
 
@@ -80,6 +81,7 @@ let components = {
   select,
   option,
   pagination,
+  datePicker,
   // exapmple,
 };
 
