@@ -15,6 +15,7 @@ import Switch from '@pages/switch';
 import modal from '@pages/modal';
 import select from '@pages/select';
 import pagination from '@pages/pagination';
+import datePicker from '@pages/datePicker';
 
 export default [
   {
@@ -101,5 +102,10 @@ export default [
     path: '/pagination',
     name: '翻页',
     component: pagination,
+  },
+  {
+    path: '/datePicker',
+    name: '日期选择',
+    component: datePicker,
   },
 ];
