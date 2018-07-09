@@ -11,6 +11,7 @@
       @input="handleInput($event.target.value)"
       @focus="handleFocus($event.target.value)"
       @click="handleClick($event.target.value)"
+      @keyup.enter="handleEnter($event.target.value)"
     >
   </div>
 </template>
@@ -77,6 +78,9 @@ export default {
     },
     handleClick: function(value) {
       this.$emit('on-click', value);
+    },
+    handleEnter: function(value) {
+      this.$emit('on-enter', value);
     },
   },
 };
