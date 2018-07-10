@@ -1,35 +1,35 @@
 <template>
-  <div class="t-date-picker" v-show="visible">
-  <div class="t-date_header">
-    <div class="t-date_prev">
-      <span @click.prevent="lastYear">《 </span>
-      <span @click.prevent="lastMonth">《 </span>
+  <div class="t-date" v-show="visible">
+    <div class="t-date_header">
+      <div class="t-date_prev">
+        <span @click.prevent="lastYear">《 </span>
+        <span @click.prevent="lastMonth">《 </span>
+      </div>
+      <span class="t-date_year"> {{year}}年</span>
+      <span class="t-date_month"> {{month + 1}}月 </span>
+      <div class="t-date_next">
+        <span @click.prevent="nextMonth"> 》</span>
+        <span @click.prevent="nextYear"> 》</span>
+      </div>
     </div>
-    <span class="t-date_year"> {{year}}年</span>
-    <span class="t-date_month"> {{month + 1}}月 </span>
-    <div class="t-date_next">
-      <span @click.prevent="nextMonth"> 》</span>
-      <span @click.prevent="nextYear"> 》</span>
-    </div>
+      <div class="t-date_content">
+        <table class="t-date-table" @click="handleClick">
+          <tr>
+            <th v-for="(week,index) in weeks" :key="index">{{week}}</th>
+          </tr>
+          <tr class="t-table_row" v-for="(row,index) in tableRows" :key="index">
+            <td
+              v-for="(cell,index) in row"
+              :class="getCellClass(cell)"
+              v-text="cell.type == 'today'? '今天': cell.text"
+              :key="index"
+            ></td>
+          </tr>
+        </table>
+        <!--<table class="t-year-table"></table>-->
+        <!--<table class="t-month-table"></table>-->
+      </div>
   </div>
-    <div class="t-date_content">
-      <table class="t-date-table" @click="handleClick">
-        <tr>
-          <th v-for="(week,index) in weeks" :key="index">{{week}}</th>
-        </tr>
-        <tr class="t-table_row" v-for="(row,index) in tableRows" :key="index">
-          <td
-            v-for="(cell,index) in row"
-            :class="getCellClass(cell)"
-            v-text="cell.type == 'today'? '今天': cell.text"
-            :key="index"
-          ></td>
-        </tr>
-      </table>
-      <!--<table class="t-year-table"></table>-->
-      <!--<table class="t-month-table"></table>-->
-    </div>
-</div>
 </template>
 
 <style src='./date.less' lang='less'></style>
@@ -46,7 +46,7 @@ export default {
   componentName: 'TDate',
   data: function() {
     return {
-      visible: false,
+      visible: true,
       tableRows: [[], [], [], [], [], []],
       year: '',
       month: '',
@@ -59,18 +59,35 @@ export default {
       selectionMode: 'day',
       format: 'y-m-d',
       date: {},
-      value: {},
     };
   },
-  watch: {
-    value: function(newVal) {
-      this.date = (!newVal || Array.isArray(newVal)) ? new Date() : new Date(newVal);
-
-      this.curYear = this.date.getFullYear();
-      this.curMonth = this.date.getMonth();
-      this.rows();
-      this.$emit('pick', newVal);
+  props: {
+    value: {
+      type: String,
+      default: '',
     },
+  },
+  mounted: function() {
+    this.rows();
+  },
+  mounted: function() {
+    let newVal = this.value;
+    this.date = (!newVal || Array.isArray(newVal)) ? new Date() : new Date(newVal);
+
+    this.curYear = this.date.getFullYear();
+    this.curMonth = this.date.getMonth();
+    this.rows();
+    this.$emit('pick', newVal);
+  },
+  watch: {
+    // value: function(newVal) {
+    //   this.date = (!newVal || Array.isArray(newVal)) ? new Date() : new Date(newVal);
+
+    //   this.curYear = this.date.getFullYear();
+    //   this.curMonth = this.date.getMonth();
+    //   this.rows();
+    //   this.$emit('pick', newVal);
+    // },
     visible: function(val) {
       if (val) {
         this.date.setFullYear(this.curYear);
@@ -220,10 +237,6 @@ export default {
       if (selectionMode === 'day') {
         let str = util.formatDate.call(newDate, this.format);
         this.$emit('pick', str);
-      }
-
-      if (this.$options.autoClose) {
-        this.$emit('dodestroy');
       }
     },
   },
