@@ -3,7 +3,6 @@
     trigger='click'
     placement='bottom-start'
     :class="classs"
-    always
   >
     <t-input
       :disabled="disabled"
