@@ -1,52 +1,65 @@
 <template>
-  <div class="t-date" v-show="visible">
-    <div class="t-date_header">
-      <div class="t-date_prev">
+  <div class="t-date">
+    <div class="t-date-header">
+      <div class="t-date-prev">
         <span @click.prevent="lastYear">《 </span>
         <span @click.prevent="lastMonth">《 </span>
       </div>
-      <span class="t-date_year"> {{year}}年</span>
-      <span class="t-date_month"> {{month + 1}}月 </span>
-      <div class="t-date_next">
+      <span> {{year}}年</span>
+      <span> {{month + 1}}月 </span>
+      <div class="t-date-next">
         <span @click.prevent="nextMonth"> 》</span>
         <span @click.prevent="nextYear"> 》</span>
       </div>
     </div>
-      <div class="t-date_content">
-        <table class="t-date-table" @click="handleClick">
-          <tr>
-            <th v-for="(week,index) in weeks" :key="index">{{week}}</th>
-          </tr>
-          <tr class="t-table_row" v-for="(row,index) in tableRows" :key="index">
-            <td
-              v-for="(cell,index) in row"
-              :class="getCellClass(cell)"
-              v-text="cell.type == 'today'? '今天': cell.text"
-              :key="index"
-            ></td>
-          </tr>
-        </table>
-        <!--<table class="t-year-table"></table>-->
-        <!--<table class="t-month-table"></table>-->
-      </div>
+    <div class="t-date-content">
+      <table class="t-date-table" @click="handleClick">
+        <tr>
+          <th v-for="(week,index) in weeks" :key="index">{{week}}</th>
+        </tr>
+        <tr v-for="(row,index) in tableRows" :key="index">
+          <td
+            v-for="(cell,index) in row"
+            :class="getCellClass(cell)"
+            v-text="cell.type == 'today'? '今天': cell.text"
+            :key="index"
+          ></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
 <style src='./date.less' lang='less'></style>
 
 <script>
-import util from './util.js';
-let clearHours = function(time) {
+function clearHours(time) {
   let cloneDate = new Date(time);
   cloneDate.setHours(0, 0, 0, 0);
   return cloneDate.getTime();
 };
+function formatDate(str) {
+  let monthName = [
+    'January', 'February', 'March',
+    'April', 'May', 'June',
+    'July', 'Aguest', 'September',
+    'October', 'November', 'December',
+  ];
+  let year = this.getFullYear();
+  let month = this.getMonth();
+  let day = this.getDate();
+
+  return str.replace(/(y+)/g, year)
+    .replace(/m+(\s+)/g, monthName[month] + '$1')
+    .replace(/m+(\S+)/g, (month + 1) + '$1')
+    .replace(/d+/g, day);
+};
+const profixCls = 't-date';
 
 export default {
-  componentName: 'TDate',
+  name: profixCls,
   data: function() {
     return {
-      visible: true,
       tableRows: [[], [], [], [], [], []],
       year: '',
       month: '',
@@ -78,23 +91,6 @@ export default {
     this.curMonth = this.date.getMonth();
     this.rows();
     this.$emit('pick', newVal);
-  },
-  watch: {
-    // value: function(newVal) {
-    //   this.date = (!newVal || Array.isArray(newVal)) ? new Date() : new Date(newVal);
-
-    //   this.curYear = this.date.getFullYear();
-    //   this.curMonth = this.date.getMonth();
-    //   this.rows();
-    //   this.$emit('pick', newVal);
-    // },
-    visible: function(val) {
-      if (val) {
-        this.date.setFullYear(this.curYear);
-        this.date.setMonth(this.curMonth);
-        this.rows();
-      }
-    },
   },
   methods: {
     rows: function() {
@@ -235,7 +231,7 @@ export default {
 
       this.date = newDate;
       if (selectionMode === 'day') {
-        let str = util.formatDate.call(newDate, this.format);
+        let str = formatDate.call(newDate, this.format);
         this.$emit('pick', str);
       }
     },

@@ -1,30 +1,30 @@
 <template>
-  <div :class="classs" v-clickoutside="handleClose">
+  <t-poptip
+    trigger='click'
+    placement='bottom-start'
+    :class="classs"
+    always
+  >
     <t-input
-      ref="reference"
       :disabled="disabled"
       :readonly="readonly"
       :size="size"
       :placeholder="placeholder"
-      :value="displayValue"
-      @on-focus="handleFocus"
+      v-model="displayValue"
     />
-    <t-date :value="displayValue" @pick='handlePick'/>
-  </div>
+    <t-date slot="content" v-model="displayValue" @pick='handlePick'/>
+  </t-poptip>
 </template>
 <style src='./date-picker.less' lang='less'></style>
 <script>
-import Clickoutside from '@directives/clickoutside.js';
 import {oneOf} from '@util/assist';
 import input from '@components/input/index';
 import date from '@components/datetime/date.vue';
+import poptip from '@components/poptip/index';
 
 const profixCls = 't-date-picker';
 
 export default {
-  directives: {
-    clickoutside: Clickoutside,
-  },
   props: {
     size: {
       type: String,
@@ -49,28 +49,16 @@ export default {
       type: String | Number,
       default: '',
     },
-    autoClose: {
-      type: Boolean,
-      default: true,
-    },
   },
   data: function() {
     return {
-      visible: false,
       currentValue: this.value,
       dateProps: {
         value: '',
       },
     };
   },
-  created: function() {
-    // this.panel = date;
-  },
   watch: {
-    visible: function(val) {
-      if (this.disabled) return;
-      val ? this.showPicker() : this.hidePicker();
-    },
     currentValue: function(val) {
       this.$emit('input', val);
     },
@@ -82,9 +70,9 @@ export default {
       },
       set: function(value) {
         if (value.indexOf(':') > 0) {
-          this.picker.value = value.split(':');
+          this.dateProps.value = value.split(':');
         } else {
-          this.picker.value = value;
+          this.dateProps.value = value;
         }
       },
     },
@@ -97,40 +85,6 @@ export default {
     },
   },
   methods: {
-    hidePicker: function() {
-      if (this.picker) {
-        // this.picker.visible = false;
-        this.destroyPopper();
-      }
-    },
-    showPicker: function() {
-      if (!this.picker) {
-        // this.picker = new Vue(this.panel).$mount(document.createElement('div'));
-
-        // this.popperEl = this.picker.$el;
-        // this.referenceEl = this.$refs.reference.$el;
-
-        // this.$el.appendChild(this.picker.$el);
-        // this.visible = this.picker.visible = true;
-
-        // this.picker.$on('dodestroy', this.handleClose);
-        // this.picker.$on('pick', function(date) {
-        //   this.$emit('input', date);
-        // }.bind(this));
-      } else {
-        // this.visible = this.picker.visible = true;
-      }
-
-      // this.updatePopper();
-      this.dateProps.value = this.currentValue;
-    },
-    handleFocus: function() {
-      this.visible = true;
-      this.$emit('focus', this);
-    },
-    handleClose: function() {
-      this.visible = false;
-    },
     handlePick: function(val) {
       this.currentValue = val;
     },
@@ -138,6 +92,7 @@ export default {
   components: {
     't-input': input,
     't-date': date,
+    't-poptip': poptip,
   },
 };
 </script>

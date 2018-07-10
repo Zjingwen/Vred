@@ -2,8 +2,10 @@
   <div>
     <headers></headers>
     <contents :linkName='linkName'>
-      <div style="width:244px;">
-        <t-datePicker v-model='dateValue' />
+      <div>
+        <t-datePicker v-model='dateValue1' />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <t-datePicker v-model='dateValue2' />
       </div>
     </contents>
     <footers></footers>
@@ -15,7 +17,8 @@
     data:function(){
       return {
         linkName:'日期选择',
-        dateValue: ''
+        dateValue1: '',
+        dateValue2: '2018-6-27'
       }
     },
   }
