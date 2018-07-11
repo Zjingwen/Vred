@@ -30,8 +30,13 @@ import Switch from '@components/switch/index';// 开关
 
 import modal from '@components/modal/index';// 弹窗
 
-import {select, option} from '@components/select/index';// 下拉赛选子集
+import {select, option} from '@components/select/index';// 下拉筛选
 
+import pagination from '@components/pagination/index';// 翻页
+
+import {datePicker, timePicker} from '@components/datetime/index';// 日期选择控件
+
+import icon from '@components/icon/index'; // 图标字体
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -40,14 +45,11 @@ import {select, option} from '@components/select/index';// 下拉赛选子集
 // var Dropdown = require("./dropdown/dropdown.js"); //独立下拉菜单集合
 // var DropdownMenu = require("./dropdown/dropdown-menu.js"); //独立下拉菜单子集
 // var DropdownItem = require("./dropdown/dropdown-item.js"); //独立下拉菜单子集
-// //
-// var Pagination = require("./pagination/pagination.js"); //翻页
 
 // var InfiniteScroll = require("./directives/infinite-scroll.js"); // 滚动到底部
-// var Lazyload = require("./directives/img-lazyload.js");  // 图片延迟加载
 
 // var Clock = require("./datetime/picker/time-picker.js"); //选择时间控件
-// var Date = require("./datetime/picker/date-picker.js"); // 日期选择控件
+
 
 // var VueAwesomeSwiper = require("./swipre/vue-awesome-swiper.js"); // 轮播
 
@@ -80,6 +82,10 @@ let components = {
   modal,
   select,
   option,
+  pagination,
+  datePicker,
+  timePicker,
+  icon,
   // exapmple,
 };
 
@@ -90,20 +96,12 @@ function install(Vue) {
   Vue.prototype.$notice = notice;
   Vue.prototype.$message = message;
 
-  // Vue.component('t-select', Select);
-  // Vue.component('t-option', Option);
-
   // Vue.component('t-dropdown', Dropdown);
   // Vue.component('t-dropdown-menu', DropdownMenu);
   // Vue.component('t-dropdown-item', DropdownItem);
 
-  // Vue.component('t-pagination', Pagination);
-
   // Vue.directive('InfiniteScroll', InfiniteScroll);
-  // Vue.directive('lazy', Lazyload);
 
-  // Vue.component('t-clock-picker', Clock);
-  // Vue.component('t-date-picker', Date);
   // Vue.component('swiper', VueAwesomeSwiper.swiper);
   // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);
 };

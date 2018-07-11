@@ -47,6 +47,7 @@ function throttle(action, delay) {
     }
   };
 }
+
 let style = function(el, prop) {
   return typeof getComputedStyle !== 'undefined'
     ? getComputedStyle(el, null).getPropertyValue(prop)
@@ -56,6 +57,7 @@ let style = function(el, prop) {
 let overflow = function(el) {
   return style(el, 'overflow') + style(el, 'overflow-y') + style(el, 'overflow-x');
 };
+
 let scrollParent = function(el) {
   if (!(el instanceof HTMLElement)) return window;
   let parent = el;

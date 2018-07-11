@@ -37,6 +37,7 @@ module.exports = {
           'less-loader',
         ],
       },
+      {test: /\.svg|.ttf|.eot$/, loader: 'file-loader'},
       {test: /\.html$/, loader: 'html-loader'},
       {test: /\.vue$/, loader: 'vue-loader'},
       {

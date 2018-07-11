@@ -1,25 +1,33 @@
-import index from '@pages/index.vue';
-import rowCol from '@pages/row-col.vue';
-import button from '@pages/button.vue';
-import layout from '@pages/layout.vue';
-import table from '@pages/table.vue';
-import input from '@pages/input.vue';
-import menu from '@pages/menu.vue';
-import tooltip from '@pages/tooltip.vue';
-import poptip from '@pages/poptip.vue';
-import checkbox from '@pages/checkbox.vue';
-import message from '@pages/message.vue';
-import notice from '@pages/notice.vue';
-import radio from '@pages/radio.vue';
-import Switch from '@pages/switch.vue';
-import modal from '@pages/modal.vue';
-import select from '@pages/select.vue';
+import index from '@pages/index';
+import rowCol from '@pages/row-col';
+import button from '@pages/button';
+import layout from '@pages/layout';
+import table from '@pages/table';
+import input from '@pages/input';
+import menu from '@pages/menu';
+import tooltip from '@pages/tooltip';
+import poptip from '@pages/poptip';
+import checkbox from '@pages/checkbox';
+import message from '@pages/message';
+import notice from '@pages/notice';
+import radio from '@pages/radio';
+import Switch from '@pages/switch';
+import modal from '@pages/modal';
+import select from '@pages/select';
+import pagination from '@pages/pagination';
+import datePicker from '@pages/datePicker';
+import iconfong from '@pages/iconfong';
 
 export default [
   {
     path: '/',
     name: '首页',
     component: index,
+  },
+  {
+    path: '/iconfong',
+    name: '图标字体',
+    component: iconfong,
   },
   {
     path: '/row-col',
@@ -95,5 +103,15 @@ export default [
     path: '/select',
     name: '下拉选择',
     component: select,
+  },
+  {
+    path: '/pagination',
+    name: '翻页',
+    component: pagination,
+  },
+  {
+    path: '/datePicker',
+    name: '日期选择',
+    component: datePicker,
   },
 ];

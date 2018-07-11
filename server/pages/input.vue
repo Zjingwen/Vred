@@ -20,6 +20,8 @@
             <t-input v-model='inputValue' size='default' @on-click='handleClick'></t-input>
             <p>focus 事件</p>
             <t-input v-model='inputValue' size='default' @on-focus='handleFocus'></t-input>
+            <p>enter 事件</p>
+            <t-input v-model='inputValue' size='default' @on-enter='handleEnter'></t-input>
         </contents>
         <footers></footers>
     </div>
@@ -39,6 +41,9 @@
             },
             handleFocus: function(value){
                 this.$message(`focus:${value}`);
+            },
+            handleEnter: function(value){
+                this.$message(`enter:${value}`);       
             }
         }
     }

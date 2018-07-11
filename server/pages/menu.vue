@@ -4,7 +4,7 @@
     <contents :linkName='linkName'>
       <t-row type='flex' justify='center'>
         <t-col :span='20'>
-          <t-menu active-name="/index/order" placement='center' @on-select="onClickHandle1">
+          <t-menu active-name="/index/order" placement='right' @on-select="HandleClickHorizontal">
             <t-menuSub name='/index/order'>
               <template slot="title">统计分析</template>
               <t-menuGroup title='订单'>
@@ -34,22 +34,29 @@
                     <t-menuItem name="/index/date-3">数据管理-3</t-menuItem>
                 </t-menuGroup>
             </t-menuSub>
+            <t-menuItem name="/index/ziliao">资料整理</t-menuItem>
           </t-menu>
         </t-col>
       </t-row>
       <t-row type='flex' justify='center'>
           <t-col :span='20'>
-              <!-- <t-menu mode='vertical' :active-name="2" @on:select="onClickHandle2">
-                  <t-menuSub :name='1'>
-                      <template slot="title">数据分析</template>
-                  </t-menuSub>
-                  <t-menuSub :name='2'>
-                      <template slot="title">订单详情</template>
-                  </t-menuSub>
-                  <t-menuSub :name='3'>
-                      <template slot="title">开奖系统</template>
-                  </t-menuSub>
-              </t-menu> -->
+                <t-menu mode='vertical' active-name="/index/date" @on-select="HandleClickVertical">
+                    <t-menuSub name='/index/date'>
+                        <template slot="title">统计分析</template>
+                        <t-menuGroup title='订单'>
+                            <t-menuItem name="/index/date-1">订单详情-1</t-menuItem>
+                            <t-menuItem name="/index/date-2">订单详情-2</t-menuItem>
+                            <t-menuItem name="/index/date-3">订单详情-3</t-menuItem>
+                        </t-menuGroup>
+                        <t-menuGroup title='详情'>
+                            <t-menuItem name="/index/date-4">订单详情-4</t-menuItem>
+                            <t-menuItem name="/index/date-5">订单详情-5</t-menuItem>
+                            <t-menuItem name="/index/date-6">订单详情-6</t-menuItem>
+                        </t-menuGroup>
+                    </t-menuSub>
+                    <t-menuItem name='/index/order'>订单详情</t-menuItem>
+                    <t-menuItem name='/index/activity'>开奖系统</t-menuItem>
+                </t-menu>
           </t-col>
       </t-row>
     </contents>
@@ -67,13 +74,11 @@
             }
         },
         methods:{
-            onClickHandle1: function(val){
-                this.$message(`onClickHandle1:${val}`);
+            HandleClickHorizontal: function(val){
+                this.$message(`Horizontal:${val}`);
             },
-            onClickHandle2: function(val){
-                console.group('onClickHandle2');
-                console.log(val);
-                console.groupEnd();
+            HandleClickVertical: function(val){
+                this.$message(`Vertical:${val}`);
             },
         }
     }
