@@ -8,6 +8,8 @@
         <t-datePicker v-model='dateValue2' />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <t-timePicker v-model='timeValue1' />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <t-timePicker v-model='timeValue2' />
       </div>
     </contents>
     <footers></footers>
@@ -22,6 +24,7 @@
         dateValue1: '',
         dateValue2: '2018-6-27',
         timeValue1: '',
+        timeValue2: '06:15:00',
       }
     },
   }
