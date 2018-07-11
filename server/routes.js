@@ -16,12 +16,18 @@ import modal from '@pages/modal';
 import select from '@pages/select';
 import pagination from '@pages/pagination';
 import datePicker from '@pages/datePicker';
+import iconfong from '@pages/iconfong';
 
 export default [
   {
     path: '/',
     name: '首页',
     component: index,
+  },
+  {
+    path: '/iconfong',
+    name: '图标字体',
+    component: iconfong,
   },
   {
     path: '/row-col',

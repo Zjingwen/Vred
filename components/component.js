@@ -35,6 +35,8 @@ import {select, option} from '@components/select/index';// 下拉筛选
 import pagination from '@components/pagination/index';// 翻页
 
 import {datePicker, timePicker} from '@components/datetime/index';// 日期选择控件
+
+import icon from '@components/icon/index'; // 图标字体
 /**
  * @TODO:jingwen exapmple组件体积太大
  */
@@ -83,6 +85,7 @@ let components = {
   pagination,
   datePicker,
   timePicker,
+  icon,
   // exapmple,
 };
 
