@@ -100,12 +100,8 @@ function install(Vue) {
   // Vue.component('t-dropdown-menu', DropdownMenu);
   // Vue.component('t-dropdown-item', DropdownItem);
 
-  // Vue.component('t-pagination', Pagination);
-
   // Vue.directive('InfiniteScroll', InfiniteScroll);
 
-  // Vue.component('t-clock-picker', Clock);
-  // Vue.component('t-date-picker', Date);
   // Vue.component('swiper', VueAwesomeSwiper.swiper);
   // Vue.component('swiperSlide', VueAwesomeSwiper.swiperSlide);
 };
