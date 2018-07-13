@@ -1,4 +1,5 @@
 import index from '@pages/index';
+import casic from '@pages/casic';
 import rowCol from '@pages/row-col';
 import button from '@pages/button';
 import layout from '@pages/layout';
@@ -18,11 +19,11 @@ import pagination from '@pages/pagination';
 import datePicker from '@pages/datePicker';
 import iconfong from '@pages/iconfong';
 
-export default [
+const casicRouter = [
   {
-    path: '/',
-    name: '首页',
-    component: index,
+    path: '/casic',
+    name: '基础',
+    component: casic,
   },
   {
     path: '/iconfong',
@@ -49,6 +50,9 @@ export default [
     name: '导航',
     component: menu,
   },
+];
+
+const componentRouter = [
   {
     path: '/table',
     name: '表格',
@@ -115,3 +119,13 @@ export default [
     component: datePicker,
   },
 ];
+
+const indexRouter = [
+  {
+    path: '/',
+    name: '首页',
+    component: index,
+  },
+];
+
+export {casicRouter, componentRouter, indexRouter};

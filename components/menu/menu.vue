@@ -84,6 +84,8 @@ export default{
     activeHandle: function(name) {
       function addActive(val) {
         if (val.name === name) {
+          console.log(name);
+          console.log(val.name);
           val.active = true;
 
           return;

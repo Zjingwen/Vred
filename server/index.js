@@ -1,4 +1,4 @@
-import routes from './routes.js';
+import {casicRouter, componentRouter, indexRouter} from './routes.js';
 import contents from '@webComponents/contents.vue';
 import headers from '@webComponents/headers.vue';
 import footers from '@webComponents/footers.vue';
@@ -13,6 +13,12 @@ const components = {
   headers,
   footers,
 };
+
+const routes = [
+  ...casicRouter,
+  ...componentRouter,
+  ...indexRouter,
+];
 
 const webComponents = {
   exapmple,
