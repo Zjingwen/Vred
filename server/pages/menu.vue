@@ -40,7 +40,7 @@
       </t-row>
       <t-row type='flex' justify='center'>
           <t-col :span='20'>
-                <t-menu mode='vertical' active-name="/index/date" @on-select="HandleClickVertical">
+                <t-menu mode='vertical' :active-name="activeNameVertical" @on-select="HandleClickVertical">
                     <t-menuSub name='/index/date'>
                         <template slot="title">统计分析</template>
                         <t-menuGroup title='订单'>
@@ -70,7 +70,8 @@
     export default{
         data:function(){
             return {
-                linkName:'导航'
+                linkName:'导航',
+                activeNameVertical:'/index/date-2',
             }
         },
         methods:{
@@ -78,6 +79,7 @@
                 this.$message(`Horizontal:${val}`);
             },
             HandleClickVertical: function(val){
+                this.activeNameVertical = val;
                 this.$message(`Vertical:${val}`);
             },
         }

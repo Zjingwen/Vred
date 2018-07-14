@@ -5,7 +5,7 @@
 </template>
 <style src='./index.less' lang='less'></style>
 <script>
-import {oneOf, findComponentsDownward} from '@util/assist';
+import {oneOf, findComponentsDownward, findComponentUpward} from '@util/assist';
 
 const profixCls = 'v-menu';
 
@@ -66,15 +66,15 @@ export default{
     },
   },
   mounted: function() {
-    this.activeHandle(this.activeName);
-
     if (this.mode === 'vertical') {
       this.$nextTick(()=>{
         findComponentsDownward(this, 'v-menu-item-group').forEach( (val)=>{
           val.show = false;
         });
       });
-    }
+    };
+
+    this.activeHandle(this.activeName);
   },
   methods: {
     onClickHandle: function(val) {
@@ -84,17 +84,23 @@ export default{
     activeHandle: function(name) {
       function addActive(val) {
         if (val.name === name) {
-          console.log(name);
-          console.log(val.name);
           val.active = true;
-
+          const subEl = findComponentUpward(val, 'v-menu-item-sub');
+          if (subEl) {
+            findComponentsDownward(subEl, 'v-menu-item-group').forEach((group)=>{
+              group.show = true;
+            });
+          };
           return;
         }
 
         val.active = false;
       }
-      findComponentsDownward(this, 'v-menu-item-sub').forEach((val)=>addActive(val));
-      findComponentsDownward(this, 'v-menu-item').forEach((val)=> addActive(val));
+
+      this.$nextTick(()=>{
+        findComponentsDownward(this, 'v-menu-item-sub').forEach((val)=>addActive(val));
+        findComponentsDownward(this, 'v-menu-item').forEach((val)=> addActive(val));
+      });
     },
   },
 };
