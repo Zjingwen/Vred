@@ -51,10 +51,8 @@ export default{
       activeName: '/',
     };
   },
-  mounted(){
-    this.$nextTick(()=>{
-      this.activeName = this.$route.path;
-    })
+  beforeMount(){
+    this.activeName = this.$route.path;
   },
   methods:{
     routerHandle:function(name){
